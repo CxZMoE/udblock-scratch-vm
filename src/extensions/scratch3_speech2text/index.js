@@ -52,7 +52,6 @@ class Scratch3Speech2TextBlocks {
          * @type {Runtime}
          */
         this.runtime = runtime;
-
         /**
          * An array of phrases from the [when I hear] hat blocks.
          * The list of phrases in the when I hear hat blocks.  This list is sent

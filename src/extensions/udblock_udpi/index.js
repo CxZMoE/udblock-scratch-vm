@@ -1,0 +1,126 @@
+const ArgumentType = require('../../extension-support/argument-type');
+const BlockType = require('../../extension-support/block-type');
+const log = require('../../util/log');
+
+// 方块图标链接
+const blockIconURI = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+cGVuLWljb248L3RpdGxlPjxnIHN0cm9rZT0iIzU3NUU3NSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik04Ljc1MyAzNC42MDJsLTQuMjUgMS43OCAxLjc4My00LjIzN2MxLjIxOC0yLjg5MiAyLjkwNy01LjQyMyA1LjAzLTcuNTM4TDMxLjA2NiA0LjkzYy44NDYtLjg0MiAyLjY1LS40MSA0LjAzMi45NjcgMS4zOCAxLjM3NSAxLjgxNiAzLjE3My45NyA0LjAxNUwxNi4zMTggMjkuNTljLTIuMTIzIDIuMTE2LTQuNjY0IDMuOC03LjU2NSA1LjAxMiIgZmlsbD0iI0ZGRiIvPjxwYXRoIGQ9Ik0yOS40MSA2LjExcy00LjQ1LTIuMzc4LTguMjAyIDUuNzcyYy0xLjczNCAzLjc2Ni00LjM1IDEuNTQ2LTQuMzUgMS41NDYiLz48cGF0aCBkPSJNMzYuNDIgOC44MjVjMCAuNDYzLS4xNC44NzMtLjQzMiAxLjE2NGwtOS4zMzUgOS4zYy4yODItLjI5LjQxLS42NjguNDEtMS4xMiAwLS44NzQtLjUwNy0xLjk2My0xLjQwNi0yLjg2OC0xLjM2Mi0xLjM1OC0zLjE0Ny0xLjgtNC4wMDItLjk5TDMwLjk5IDUuMDFjLjg0NC0uODQgMi42NS0uNDEgNC4wMzUuOTYuODk4LjkwNCAxLjM5NiAxLjk4MiAxLjM5NiAyLjg1NU0xMC41MTUgMzMuNzc0Yy0uNTczLjMwMi0xLjE1Ny41Ny0xLjc2NC44M0w0LjUgMzYuMzgybDEuNzg2LTQuMjM1Yy4yNTgtLjYwNC41My0xLjE4Ni44MzMtMS43NTcuNjkuMTgzIDEuNDQ4LjYyNSAyLjEwOCAxLjI4Mi42Ni42NTggMS4xMDIgMS40MTIgMS4yODcgMi4xMDIiIGZpbGw9IiM0Qzk3RkYiLz48cGF0aCBkPSJNMzYuNDk4IDguNzQ4YzAgLjQ2NC0uMTQuODc0LS40MzMgMS4xNjVsLTE5Ljc0MiAxOS42OGMtMi4xMyAyLjExLTQuNjczIDMuNzkzLTcuNTcyIDUuMDFMNC41IDM2LjM4bC45NzQtMi4zMTYgMS45MjUtLjgwOGMyLjg5OC0xLjIxOCA1LjQ0LTIuOSA3LjU3LTUuMDFsMTkuNzQzLTE5LjY4Yy4yOTItLjI5Mi40MzItLjcwMi40MzItMS4xNjUgMC0uNjQ2LS4yNy0xLjQtLjc4LTIuMTIyLjI1LjE3Mi41LjM3Ny43MzcuNjE0Ljg5OC45MDUgMS4zOTYgMS45ODMgMS4zOTYgMi44NTYiIGZpbGw9IiM1NzVFNzUiIG9wYWNpdHk9Ii4xNSIvPjxwYXRoIGQ9Ik0xOC40NSAxMi44M2MwIC41LS40MDQuOTA1LS45MDQuOTA1cy0uOTA1LS40MDUtLjkwNS0uOTA0YzAtLjUuNDA3LS45MDMuOTA2LS45MDMuNSAwIC45MDQuNDA0LjkwNC45MDR6IiBmaWxsPSIjNTc1RTc1Ii8+PC9nPjwvc3ZnPg==';
+
+
+class UDblockUDPi {
+    constructor(runtime) {
+        this.runtime = runtime;
+    }
+
+    getInfo() {
+        return {
+            id: "udblockUDPi",
+            name: "UDPi 开发板",
+            blockIconURI: blockIconURI,
+            blocks: [
+                {
+                    opcode: 'whenButtonAPressed',
+                    blockType: BlockType.HAT,
+                    text: '当主板按钮A按下'
+                },
+                {
+                    opcode: 'whenButtonBPressed',
+                    blockType: BlockType.HAT,
+                    text: '当主板按钮B按下',
+                },
+                {
+                    opcode: 'readAmbientLightSensor',
+                    blockType: BlockType.REPORTER,
+                    text: '读取环境光传感器'
+                },
+                {
+                    opcode: 'readSoundSensor',
+                    blockType: BlockType.REPORTER,
+                    text: '读取声音传感器'
+                },
+                {
+                    opcode: 'readGryoSensor',
+                    blockType: BlockType.REPORTER,
+                    text: '读取陀螺仪传感器'
+                },
+                {
+                    opcode: 'readAccelSensor',
+                    blockType: BlockType.REPORTER,
+                    text: '读取加速度传感器'
+                },
+                {
+                    opcode: 'openOnBoardRGB',
+                    blockType: BlockType.COMMAND,
+                    text: '控制启用主板RGB'
+                },
+                {
+                    opcode: 'closeOnBoardRGB',
+                    blockType: BlockType.COMMAND,
+                    text: '控制禁用主板RGB'
+                },
+                {
+                    opcode: 'setLuminanceOnBoardRGB',
+                    blockType: BlockType.COMMAND,
+                    text: '控制主板RGB设置亮度为 [NUMBER] %',
+                    arguments: {
+                        NUMBER: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "50",
+                            menu: []
+                        }
+                    }
+                },
+                {
+                    opcode: 'setRGBDraw',
+                    blockType: BlockType.COMMAND,
+                    text: '控制主板RGB显示颜色 [PIC]',
+                    arguments: {
+                        PIC: {
+                            type: ArgumentType.COLOR,
+                        }
+                    }
+                },
+                {
+                    opcode: 'setBuzzerPlay',
+                    blockType: BlockType.COMMAND,
+                    text: '控制主板蜂鸣器播放[SOUND]',
+                    arguments: {
+                        SOUND: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "DO",
+                            menu: "buzzerSounds"
+                        }
+                    }
+                },
+                {
+                    opcode: 'setConnectToWiFi',
+                    blockType: BlockType.COMMAND,
+                    text: '控制主板连接到Wi-Fi [SSID] [PSK]',
+                    arguments: {
+                        SSID: {
+                            type: ArgumentType.STRING,
+                            defaultValue: " ",
+                        },
+                        PSK: {
+                            type: ArgumentType.STRING,
+                            defaultValue: " ",
+                        }
+                    }
+                },
+                {
+                    opcode: 'closeConnectToWiFi',
+                    blockType: BlockType.COMMAND,
+                    text: '控制主板断开Wi-Fi',
+                },
+
+            ],
+            menus: {
+                buzzerSounds: {
+                    acceptReporters: true,
+                    items: [{ text: "DO", value: "DO" }, { text: "RE", value: "RE" }, { text: "MI", value: "MI" }, { text: "FA", value: "FA" }, { text: "SO", value: "SO" }, { text: "LA", value: "LA" }, { text: "XI", value: "XI" }]
+                }
+            }
+        }
+    }
+}
+
+module.exports = UDblockUDPi;
