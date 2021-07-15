@@ -90,6 +90,12 @@ const ArgumentTypeMap = (() => {
             fieldName: 'MATRIX'
         }
     };
+    map[ArgumentType.MATRIXUD] = {
+        shadow: {
+            type: 'matrixud',
+            fieldName: 'MATRIX'
+        }
+    };
     map[ArgumentType.NOTE] = {
         shadow: {
             type: 'note',
@@ -852,6 +858,14 @@ class Runtime extends EventEmitter {
         this.emit(Runtime.EXTENSION_ADDED, categoryInfo);
     }
 
+    _unRegisterExtensionPrimitives (extensionInfo) {
+        //this._blockInfo.push(categoryInfo);
+        this._blockInfo = this._blockInfo.slice(0,this._blockInfo.indexOf(categoryInfo)).push(this._blockInfo.slice(this._blockInfo.indexOf(categoryInfo)+1,this._blockInfo.length))
+    
+        this.emit(Runtime.EXTENSION_ADDED, categoryInfo);
+    }
+
+
     /**
      * Reregister the primitives for an extension
      * @param  {ExtensionMetadata} extensionInfo - new info (results of running getInfo) for an extension
@@ -859,6 +873,7 @@ class Runtime extends EventEmitter {
      */
     _refreshExtensionPrimitives (extensionInfo) {
         const categoryInfo = this._blockInfo.find(info => info.id === extensionInfo.id);
+        console.log(categoryInfo)
         if (categoryInfo) {
             categoryInfo.name = maybeFormatMessage(extensionInfo.name);
             this._fillExtensionCategory(categoryInfo, extensionInfo);
@@ -880,8 +895,11 @@ class Runtime extends EventEmitter {
         categoryInfo.menus = [];
         categoryInfo.menuInfo = {};
 
+        
         for (const menuName in extensionInfo.menus) {
+            
             if (extensionInfo.menus.hasOwnProperty(menuName)) {
+                
                 const menuInfo = extensionInfo.menus[menuName];
                 const convertedMenu = this._buildMenuForScratchBlocks(menuName, menuInfo, categoryInfo);
                 categoryInfo.menus.push(convertedMenu);
@@ -1045,7 +1063,13 @@ class Runtime extends EventEmitter {
     _convertForScratchBlocks (blockInfo, categoryInfo) {
         if (blockInfo === '---') {
             return this._convertSeparatorForScratchBlocks(blockInfo);
+        }else{
+            if (typeof blockInfo == "string"){
+                console.log(typeof blockInfo)
+                return this._convertSeparatorForScratchBlocks(blockInfo);
+            }
         }
+        
 
         if (blockInfo.blockType === BlockType.BUTTON) {
             return this._convertButtonForScratchBlocks(blockInfo);
@@ -1141,6 +1165,14 @@ class Runtime extends EventEmitter {
                 blockJSON.nextStatement = null; // null = available connection; undefined = terminal
             }
             break;
+        case BlockType.EVHAT:
+            blockInfo.branchCount = blockInfo.branchCount || 1;
+            blockJSON.outputShape = ScratchBlocksConstants.OUTPUT_SHAPE_SQUARE;
+            //blockJSON.previousStatement = null; // null = available connection; undefined = hat
+            if (!blockInfo.isTerminal) {
+                //blockJSON.nextStatement = null; // null = available connection; undefined = terminal
+            }
+            break;
         }
 
         const blockText = Array.isArray(blockInfo.text) ? blockInfo.text : [blockInfo.text];
@@ -1215,7 +1247,7 @@ class Runtime extends EventEmitter {
     _convertSeparatorForScratchBlocks (blockInfo) {
         return {
             info: blockInfo,
-            xml: '<sep gap="36"/>'
+            xml: blockInfo==='---'?(`<sep gap="36"/>`):(`<label text="${blockInfo}"></label>`)
         };
     }
 

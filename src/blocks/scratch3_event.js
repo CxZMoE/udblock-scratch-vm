@@ -9,6 +9,7 @@ class Scratch3EventBlocks {
         this.runtime = runtime;
 
         this.runtime.on('KEY_PRESSED', key => {
+            console.log(key)
             this.runtime.startHats('event_whenkeypressed', {
                 KEY_OPTION: key
             });

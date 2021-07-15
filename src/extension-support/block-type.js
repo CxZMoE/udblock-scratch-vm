@@ -44,7 +44,13 @@ const BlockType = {
     /**
      * General reporter with numeric or string value
      */
-    REPORTER: 'reporter'
+    REPORTER: 'reporter',
+
+    /**
+     * Event hat
+     */
+
+    EVHAT: 'evhat'
 };
 
 module.exports = BlockType;

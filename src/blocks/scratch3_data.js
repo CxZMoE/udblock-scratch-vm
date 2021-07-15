@@ -18,8 +18,6 @@ class Scratch3DataBlocks {
             data_variable: this.getVariable,
             data_setvariableto: this.setVariableTo,
             data_changevariableby: this.changeVariableBy,
-            data_hidevariable: this.hideVariable,
-            data_showvariable: this.showVariable,
             data_listcontents: this.getListContents,
             data_addtolist: this.addToList,
             data_deleteoflist: this.deleteOfList,
