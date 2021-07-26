@@ -1,6 +1,6 @@
 const EXTB_LIST = {
     "extb_mf": {
-        "id": "extb_mf",
+        "id": "udblockEXTBMF",
         "name": "多功能拓展版",
         "img": "assets/img/extb_mf.png",
         "description": "多功能拓展版",
@@ -124,7 +124,7 @@ const EXTB_LIST = {
         ]
     },
     "extb_io": {
-        "id": "extb_io",
+        "id": "udblockEXTBIO",
         "name": "IO拓展版",
         "img": "assets/img/extb_io.png",
         "description": "IO拓展版",
@@ -202,7 +202,7 @@ const EXTB_LIST = {
         ]
     },
     "extb_sm": {
-        "id": "extb_sm",
+        "id": "udblockEXTBSM",
         "name": "电机拓展版",
         "img": "assets/img/extb_sm.png",
         "description": "电机拓展版",
@@ -298,7 +298,7 @@ const EXTB_LIST = {
         ]
     },
     "extb_car": {
-        "id": "extb_car",
+        "id": "udblockEXTBCar",
         "name": "小车拓展版",
         "img": "assets/img/extb_car.png",
         "description": "电机拓展版",
@@ -376,6 +376,52 @@ const EXTB_LIST = {
         ],
         "touch": [
         ]
+    },
+    "extb_iot": {
+        "id": "udblockEXTBIOT",
+        "name": "智能语音拓展板",
+        "img": "assets/img/extb_car.png",
+        "description": "智能语音拓展板",
+        "RJ11": [
+            {
+                "name": "RJ1",
+                "value": [
+                    "33",
+                    "5"
+                ],
+                "adc": "true"
+            },
+            {
+                "name": "RJ2",
+                "value": [
+                    "32",
+                    "17"
+                ],
+                "adc": "true"
+            },
+            {
+                "name": "RJ3",
+                "value": [
+                    "34",
+                    "26"
+                ],
+                "adc": "true"
+            },
+            {
+                "name": "RJ4",
+                "value": [
+                    "35",
+                    "19"
+                ],
+                "adc": "true"
+            },
+        ],
+        "iic": [
+            {
+                "sda": "23",
+                "scl": "22"
+            }
+        ],
     }
 }
 
