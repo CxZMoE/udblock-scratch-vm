@@ -79,6 +79,28 @@ class UDblockIOT {
                     text: '获取语音识别结果',
                 },
                 {
+                    opcode: 'getSTTResultContains',
+                    blockType: BlockType.REPORTER,
+                    text: '语音识别结果包含[TEXT]',
+                    arguments: {
+                        TEXT: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "你好"
+                        },
+                    }
+                },
+                {
+                    opcode: 'getSTTResultEquals',
+                    blockType: BlockType.REPORTER,
+                    text: '语音识别结果等于[TEXT]',
+                    arguments: {
+                        TEXT: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "你好"
+                        },
+                    }
+                },
+                {
                     opcode: 'startTTS',
                     blockType: BlockType.COMMAND,
                     text: '开始语音合成 文本[TEXT] 并播放',

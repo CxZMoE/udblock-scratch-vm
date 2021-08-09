@@ -15,7 +15,34 @@ const blockIconURI = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0i
 class UDblockEXTBMF {
     constructor(runtime) {
         this.runtime = runtime;
-        this.customBlocks = [].concat(
+        this.customBlocks = [
+            {
+                type: "custom_seperator",
+                text: '★ 触摸按键',
+            },
+            {
+                opcode: 'readTouchValue',
+                blockType: BlockType.REPORTER,
+                text: '读取触摸按键[BTN]数值',
+                arguments: {
+                    BTN: {
+                        type: ArgumentType.STRING,
+                        menu: "touchMenu"
+                    }
+                }
+            },
+            {
+                opcode: 'readTouchPressed',
+                blockType: BlockType.REPORTER,
+                text: '检测触摸按键[BTN]按下',
+                arguments: {
+                    BTN: {
+                        type: ArgumentType.STRING,
+                        menu: "touchMenu"
+                    }
+                }
+            },
+        ].concat(
             cameraBlocks,
             sensorBlocks,
             actionBlocks()
