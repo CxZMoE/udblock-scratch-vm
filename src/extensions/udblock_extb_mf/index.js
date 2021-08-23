@@ -33,7 +33,7 @@ class UDblockEXTBMF {
             },
             {
                 opcode: 'readTouchPressed',
-                blockType: BlockType.REPORTER,
+                blockType: BlockType.BOOLEAN,
                 text: '检测触摸按键[BTN]按下',
                 arguments: {
                     BTN: {

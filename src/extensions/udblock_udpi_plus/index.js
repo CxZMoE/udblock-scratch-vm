@@ -141,6 +141,22 @@ class UDblockUDPiPlus {
                     }
                 },
                 {
+                    opcode: 'displayWriteShow',
+                    blockType: BlockType.COMMAND,
+                    text: '在显示屏[LINE]行显示文本[TEXT]立即显示',
+                    arguments:{
+                        LINE: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 0, // * 16
+                            menu: "displayLine"
+                        },
+                        TEXT: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "UDBlock, Go!"
+                        }
+                    }
+                },
+                {
                     opcode: 'displayShow',
                     blockType: BlockType.COMMAND,
                     text: '控制显示器刷新内容'

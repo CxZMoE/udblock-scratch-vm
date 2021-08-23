@@ -52,9 +52,36 @@ class UDblockIOT {
                     }
                 },
                 {
+                    opcode: 'removeRecord',
+                    blockType: BlockType.COMMAND,
+                    text: '删除录音文件[FNAME]',
+                    arguments: {
+                        FNAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "recorded.wav"
+                        }
+                    }
+                },
+                {
+                    opcode: 'removeRecordAll',
+                    blockType: BlockType.COMMAND,
+                    text: '删除所有录音文件',
+                },
+                {
                     opcode: 'startPlaying',
                     blockType: BlockType.COMMAND,
                     text: '播放文件名[FNAME]',
+                    arguments: {
+                        FNAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "recorded.wav"
+                        }
+                    }
+                },
+                {
+                    opcode: 'startPlayingAsync',
+                    blockType: BlockType.COMMAND,
+                    text: '异步播放文件名[FNAME]',
                     arguments: {
                         FNAME: {
                             type: ArgumentType.STRING,
@@ -80,7 +107,7 @@ class UDblockIOT {
                 },
                 {
                     opcode: 'getSTTResultContains',
-                    blockType: BlockType.REPORTER,
+                    blockType: BlockType.BOOLEAN,
                     text: '语音识别结果包含[TEXT]',
                     arguments: {
                         TEXT: {
@@ -91,7 +118,7 @@ class UDblockIOT {
                 },
                 {
                     opcode: 'getSTTResultEquals',
-                    blockType: BlockType.REPORTER,
+                    blockType: BlockType.BOOLEAN,
                     text: '语音识别结果等于[TEXT]',
                     arguments: {
                         TEXT: {
@@ -108,6 +135,32 @@ class UDblockIOT {
                         TEXT: {
                             type: ArgumentType.STRING,
                             defaultValue: "你好"
+                        },
+                    }
+                },
+                {
+                    opcode: 'startTTSSave',
+                    blockType: BlockType.COMMAND,
+                    text: '开始语音合成 文本[TEXT] 并保存到文件[FNAME]',
+                    arguments: {
+                        TEXT: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "你好"
+                        },
+                        FNAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "tts.mp3"
+                        },
+                    }
+                },
+                {
+                    opcode: 'setVolume',
+                    blockType: BlockType.COMMAND,
+                    text: '设置音量为[VOL]%',
+                    arguments: {
+                        VOL: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 100
                         },
                     }
                 },

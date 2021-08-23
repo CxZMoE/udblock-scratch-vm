@@ -7,15 +7,28 @@ const sensorBlocks = [
         text: '★ 传感器',
     },
     {
-        opcode: 'readWindSensor',
+        type: "custom_seperator",
+        text: '★> NFC传感器',
+    },
+    {
+        opcode: 'initNFC',
+        blockType: BlockType.COMMAND,
+        text: '初始化NFC传感器',
+    },
+    {
+        opcode: 'startPolling',
+        blockType: BlockType.COMMAND,
+        text: '开始检测NFC卡',
+    },
+    {
+        opcode: 'stopPolling',
+        blockType: BlockType.COMMAND,
+        text: '停止检测NFC卡',
+    },
+    {
+        opcode: 'getUID',
         blockType: BlockType.REPORTER,
-        text: '读取风速传感器于[PORT]',
-        arguments: {
-            PORT: {
-                type: ArgumentType.STRING,
-                menu: "RJADCMenu"
-            }
-        }
+        text: '获取卡号',
     },
     {
         opcode: 'readRainDropSensor',
@@ -127,6 +140,7 @@ const sensorBlocks = [
             }
         }
     },
+    
 ]
 
 module.exports = sensorBlocks;
