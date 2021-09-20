@@ -108,6 +108,28 @@ const sensorBlocks = [
         }
     },
     {
+        opcode: 'readFlameSensor',
+        blockType: BlockType.BOOLEAN,
+        text: '火焰传感器于[PORT]检测到火焰',
+        arguments: {
+            PORT: {
+                type: ArgumentType.STRING,
+                menu: "RJDigiMenu"
+            }
+        }
+    },
+    {
+        opcode: 'readFlameSensoADC',
+        blockType: BlockType.REPORTER,
+        text: '读取火焰传感器模拟量于[PORT]',
+        arguments: {
+            PORT: {
+                type: ArgumentType.STRING,
+                menu: "RJADCMenu"
+            }
+        }
+    },
+    {
         opcode: 'readGrayScaleSensor',
         blockType: BlockType.REPORTER,
         text: '读取模拟灰度传感器于[PORT]',
@@ -139,8 +161,18 @@ const sensorBlocks = [
                 menu: "RJADCMenu"
             }
         }
-    },
-    
+    }, 
+    {
+        opcode: 'readDSTempSensor',
+        blockType: BlockType.REPORTER,
+        text: '读取防水温度传感器于[PORT]',
+        arguments: {
+            PORT: {
+                type: ArgumentType.STRING,
+                menu: "RJMenu"
+            }
+        }
+    },  
 ]
 
 module.exports = sensorBlocks;

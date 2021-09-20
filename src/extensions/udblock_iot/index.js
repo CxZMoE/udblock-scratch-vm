@@ -164,6 +164,66 @@ class UDblockIOT {
                         },
                     }
                 },
+                {
+                    type: "custom_seperator",
+                    text: '★ 指纹模块',
+                },
+                {
+                    opcode: 'initFingerprint',
+                    blockType: BlockType.COMMAND,
+                    text: '初始化指纹模块',
+                    arguments: {
+                        VOL: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 100
+                        },
+                    }
+                },
+                {
+                    opcode: 'enableFingerprint',
+                    blockType: BlockType.COMMAND,
+                    text: '启用指纹模块',
+                },
+                {
+                    opcode: 'disableFingerprint',
+                    blockType: BlockType.COMMAND,
+                    text: '禁用指纹模块',
+                },
+                {
+                    opcode: 'recordFinger',
+                    blockType: BlockType.COMMAND,
+                    text: '开始指纹录入',
+                },
+                {
+                    opcode: 'renameFingerprint',
+                    blockType: BlockType.COMMAND,
+                    text: '重命名指纹[FID]为[NFID]',
+                    arguments: {
+                        FID: {
+                            type: ArgumentType.STRING,
+                            defaultValue: ""
+                        },
+                        NFID: {
+                            type: ArgumentType.STRING,
+                            defaultValue: ""
+                        },
+                    }
+                },
+                {
+                    opcode: 'getFingerprintName',
+                    blockType: BlockType.REPORTER,
+                    text: '获取当前指纹名字',
+                },
+                {
+                    opcode: 'getFingerprintId',
+                    blockType: BlockType.REPORTER,
+                    text: '获取当前指纹ID',
+                },
+                {
+                    opcode: 'removeFingerprints',
+                    blockType: BlockType.COMMAND,
+                    text: '删除所有已录入指纹',
+                },
                 ...this.customBlocks
             ],
             menus: {

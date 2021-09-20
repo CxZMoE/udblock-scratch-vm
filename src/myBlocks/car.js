@@ -226,6 +226,54 @@ const carBlocks = [
         blockType: BlockType.REPORTER,
         text: '获取右转速度(cm/s)',
     },
+
+    {
+        type: "custom_seperator",
+        text: '★ PS2遥控器',
+    },
+    {
+        opcode: 'ps2ControlEnable',
+        blockType: BlockType.COMMAND,
+        text: '开启PS2遥控器遥控模式'
+    },
+    {
+        opcode: 'ps2ControlDisable',
+        blockType: BlockType.COMMAND,
+        text: '关闭PS2遥控器遥控模式'
+    },
+    {
+        opcode: 'ps2SetForwardSpd',
+        blockType: BlockType.COMMAND,
+        text: '设置遥控器前进速度为[SPD] cm/s',
+        arguments: {
+            SPD: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 20,
+            }
+        }
+    },
+    {
+        opcode: 'ps2SetTurnSpd',
+        blockType: BlockType.COMMAND,
+        text: '设置遥控器转弯速度为[SPD] cm/s',
+        arguments: {
+            SPD: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 15,
+            }
+        }
+    },
+    {
+        opcode: 'ps2SetServoSpd',
+        blockType: BlockType.COMMAND,
+        text: '设置遥控器舵机速度为每次[SPD] 度',
+        arguments: {
+            SPD: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 5,
+            }
+        }
+    },
 ]
 
 module.exports = carBlocks;
