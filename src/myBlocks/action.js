@@ -13,7 +13,7 @@ function actionBlocks(hasMotor=true,hasServo=true) {
             {
                 opcode: 'turnMotorClock',
                 blockType: BlockType.COMMAND,
-                text: '让电机[PORT]以[SPEED]%速度正转',
+                text: '电机[PORT]正转速度[SPEED]%',
                 arguments: {
                     PORT: {
                         type: ArgumentType.NUMBER,
@@ -28,7 +28,7 @@ function actionBlocks(hasMotor=true,hasServo=true) {
             {
                 opcode: 'turnMotorAnticlock',
                 blockType: BlockType.COMMAND,
-                text: '让电机[PORT]以[SPEED]%速度反转',
+                text: '电机[PORT]反转速度[SPEED]%',
                 arguments: {
                     PORT: {
                         type: ArgumentType.NUMBER,
@@ -43,7 +43,7 @@ function actionBlocks(hasMotor=true,hasServo=true) {
             {
                 opcode: 'closeMotor',
                 blockType: BlockType.COMMAND,
-                text: '让电机[PORT]停止',
+                text: '电机[PORT]停止',
                 arguments: {
                     PORT: {
                         type: ArgumentType.NUMBER,
@@ -62,7 +62,7 @@ function actionBlocks(hasMotor=true,hasServo=true) {
             {
                 opcode: 'turnServoDegree',
                 blockType: BlockType.COMMAND,
-                text: '让舵机[PORT]旋转到[DEGREE]°',
+                text: '舵机[PORT]旋转[DEGREE]°',
                 arguments: {
                     PORT: {
                         type: ArgumentType.NUMBER,
@@ -133,7 +133,7 @@ function actionBlocks(hasMotor=true,hasServo=true) {
         {
             opcode: 'openRGBStrip',
             blockType: BlockType.COMMAND,
-            text: '打开RGB灯条 [PORT] 灯珠数量 [COUNT]',
+            text: '打开RGB灯条[PORT]灯珠数量[COUNT]',
             arguments: {
                 PORT: {
                     type: ArgumentType.STRING,
@@ -148,7 +148,7 @@ function actionBlocks(hasMotor=true,hasServo=true) {
         {
             opcode: 'setRGBStripLuminance',
             blockType: BlockType.COMMAND,
-            text: '设置RGB灯条 [PORT] 亮度 [NUM]%',
+            text: '设置RGB灯条[PORT]亮度[NUM]%',
             arguments: {
                 PORT: {
                     type: ArgumentType.STRING,

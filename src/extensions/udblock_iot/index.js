@@ -15,9 +15,9 @@ class UDblockIOT {
     constructor(runtime) {
         this.runtime = runtime;
         this.customBlocks = [].concat(
-            cameraBlocks,
             sensorBlocks,
-            actionBlocks(false, false)
+            actionBlocks(false, false),
+            cameraBlocks
         )
     }
     getInfo() {

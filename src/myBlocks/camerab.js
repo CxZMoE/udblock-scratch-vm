@@ -9,7 +9,7 @@ const cameraBlocks = [
     {
         opcode: 'initCamera',
         blockType: BlockType.COMMAND,
-        text: '初始化摄像头于端口[PORT]',
+        text: '摄像头打开端口[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -18,9 +18,13 @@ const cameraBlocks = [
         }
     },
     {
+        type: "custom_seperator",
+        text: '★> 人脸识别',
+    },
+    {
         opcode: 'doFaceDectection',
         blockType: BlockType.COMMAND,
-        text: '[ACTION]人脸识别',
+        text: '摄像头[ACTION]人脸识别',
         arguments: {
             ACTION: {
                 type: ArgumentType.STRING,
@@ -29,46 +33,50 @@ const cameraBlocks = [
         }
     },
     {
-        opcode: 'doObjectDectection',
+        opcode: 'addFace',
         blockType: BlockType.COMMAND,
-        text: '[ACTION]物体识别',
+        text: '摄像头添加人脸[NAME]',
         arguments: {
-            ACTION: {
+            NAME: {
                 type: ArgumentType.STRING,
-                menu: "actions"
-            },
-        }
-    },
-    {
-        opcode: 'doModeObjectDectection',
-        blockType: BlockType.COMMAND,
-        text: '[ACTION]自学习识别',
-        arguments: {
-            ACTION: {
-                type: ArgumentType.STRING,
-                menu: "actions"
-            },
-        }
-    },
-    {
-        opcode: 'doImageDectection',
-        blockType: BlockType.COMMAND,
-        text: '[ACTION]图像处理 方式[IMGMETHOD]',
-        arguments: {
-            ACTION: {
-                type: ArgumentType.STRING,
-                menu: "actions"
-            },
-            IMGMETHOD: {
-                type: ArgumentType.STRING,
-                menu: "imageMethods"
+                defaultValue: "steve"
             }
         }
     },
     {
-        opcode: 'doQrcodeDectection',
+        opcode: 'delFace',
         blockType: BlockType.COMMAND,
-        text: '[ACTION]二维码识别',
+        text: '摄像头删除人脸[NAME]',
+        arguments: {
+            NAME: {
+                type: ArgumentType.STRING,
+                defaultValue: "steve"
+            }
+        }
+    },
+    {
+        opcode: 'delAllFace',
+        blockType: BlockType.COMMAND,
+        text: '摄像头删除全部人脸',
+        arguments: {
+            NAME: {
+                type: ArgumentType.STRING,
+            }
+        }
+    },
+    {
+        opcode: 'getFaceDectectionResult',
+        blockType: BlockType.REPORTER,
+        text: '摄像头人脸识别结果',
+    },
+    {
+        type: "custom_seperator",
+        text: '★> 物体识别',
+    },
+    {
+        opcode: 'doObjectDectection',
+        blockType: BlockType.COMMAND,
+        text: '摄像头[ACTION]物体识别',
         arguments: {
             ACTION: {
                 type: ArgumentType.STRING,
@@ -77,9 +85,29 @@ const cameraBlocks = [
         }
     },
     {
+        opcode: 'getObjectDectectionResult',
+        blockType: BlockType.REPORTER,
+        text: '摄像头物体识别结果',
+    },
+    // {
+    //     opcode: 'doModeObjectDectection',
+    //     blockType: BlockType.COMMAND,
+    //     text: '摄像头[ACTION]自学习',
+    //     arguments: {
+    //         ACTION: {
+    //             type: ArgumentType.STRING,
+    //             menu: "actions"
+    //         },
+    //     }
+    // },
+    {
+        type: "custom_seperator",
+        text: '★> 颜色识别',
+    },
+    {
         opcode: 'doColorDectection',
         blockType: BlockType.COMMAND,
-        text: '[ACTION]颜色识别[COLOR]',
+        text: '[ACTION]颜色识别到[COLOR]',
         arguments: {
             ACTION: {
                 type: ArgumentType.STRING,
@@ -92,9 +120,113 @@ const cameraBlocks = [
         }
     },
     {
-        opcode: 'doCross',
+        opcode: 'getColorDectectionResult',
+        blockType: BlockType.REPORTER,
+        text: '摄像头颜色识别结果[RESULT]',
+        arguments: {
+            RESULT: {
+                type: ArgumentType.STRING,
+                menu: "colorResult"
+            }
+        }
+    },
+    
+    // {
+    //     type: "custom_seperator",
+    //     text: '★> AI颜色识别',
+    // },
+    // {
+    //     opcode: 'doAIColorDectection',
+    //     blockType: BlockType.COMMAND,
+    //     text: '[ACTION]AI颜色识别',
+    //     arguments: {
+    //         ACTION: {
+    //             type: ArgumentType.STRING,
+    //             menu: "actions"
+    //         }
+    //     }
+    // },
+    
+    // {
+    //     opcode: 'getAIColorDectectionResultShape',
+    //     blockType: BlockType.REPORTER,
+    //     text: 'AI颜色识别结果形状',
+    // },
+
+    {
+        type: "custom_seperator",
+        text: '★> AI自学习物体识别',
+    },
+    {
+        opcode: 'doAIModeDectection',
         blockType: BlockType.COMMAND,
-        text: '[ACTION]路口识别',
+        text: '[ACTION]自学习物体识别',
+        arguments: {
+            ACTION: {
+                type: ArgumentType.STRING,
+                menu: "actions"
+            }
+        }
+    },
+    {
+        opcode: 'getAIColorDectectionResultColor',
+        blockType: BlockType.REPORTER,
+        text: 'AI颜色识别结果颜色',
+    },
+    {
+        opcode: 'doAILoadModeDectection',
+        blockType: BlockType.COMMAND,
+        text: '[ACTION]加载已学习物体识别[NAME]',
+        arguments: {
+            ACTION: {
+                type: ArgumentType.STRING,
+                menu: "actions"
+            },
+            NAME: {
+                type: ArgumentType.STRING,
+                defaultValue: "餐具"
+            }
+        }
+    },
+    {
+        opcode: 'doAISaveModeDectection',
+        blockType: BlockType.COMMAND,
+        text: '保存自学习物体识别到名称[NAME]',
+        arguments: {
+            NAME: {
+                type: ArgumentType.STRING,
+                defaultValue: "餐具"
+            }
+        }
+    },
+    {
+        opcode: 'getAIModeDetectionResult',
+        blockType: BlockType.REPORTER,
+        text: '摄像头获取自学习物体识别结果',
+    },
+    {
+        opcode: 'doImageDectection',
+        blockType: BlockType.COMMAND,
+        text: '摄像头[ACTION][IMGMETHOD]',
+        arguments: {
+            ACTION: {
+                type: ArgumentType.STRING,
+                menu: "actions"
+            },
+            IMGMETHOD: {
+                type: ArgumentType.STRING,
+                menu: "imageMethods"
+            }
+        }
+    },
+    {
+        type: "custom_seperator",
+        text: '★> 二维码识别',
+    },
+    {
+        opcode: 'doQrcodeDectection',
+        blockType: BlockType.COMMAND,
+        text: '摄像头[ACTION]二维码识别',
         arguments: {
             ACTION: {
                 type: ArgumentType.STRING,
@@ -103,88 +235,16 @@ const cameraBlocks = [
         }
     },
     {
-        opcode: 'getColorDectectionResult',
-        blockType: BlockType.REPORTER,
-        text: '获取颜色识别结果[RESULT]',
-        arguments: {
-            RESULT: {
-                type: ArgumentType.STRING,
-                menu: "colorResult"
-            }
-        }
-    },
-    {
-        opcode: 'getFaceDectectionResult',
-        blockType: BlockType.REPORTER,
-        text: '获取人脸识别结果人名',
-    },
-    {
-        opcode: 'getObjectDectectionResult',
-        blockType: BlockType.REPORTER,
-        text: '获取物体识别结果',
-    },
-    {
-        opcode: 'getModeObjectDectectionResult',
-        blockType: BlockType.REPORTER,
-        text: '获取自学习识别结果',
-    },
-    {
         opcode: 'getQrcodeString',
         blockType: BlockType.REPORTER,
-        text: '获取二维码识别结果',
+        text: '摄像头二维码识别结果',
     },
-    {
-        opcode: 'getCrossCount',
-        blockType: BlockType.REPORTER,
-        text: '获取路口数',
-    },
-    {
-        opcode: 'getCrossPixel',
-        blockType: BlockType.BOOLEAN,
-        text: '获取是否是路口 阈值[FVALUE]',
-        arguments: {
-            FVALUE: {
-                type: ArgumentType.NUMBER,
-                defaultValue: 7000
-            }
-        }
-    },
-    {
-        opcode: 'addFace',
-        blockType: BlockType.COMMAND,
-        text: '添加人脸[NAME]',
-        arguments: {
-            NAME: {
-                type: ArgumentType.STRING,
-                defaultValue: "steve"
-            }
-        }
-    },
-    {
-        opcode: 'delFace',
-        blockType: BlockType.COMMAND,
-        text: '删除人脸[NAME]',
-        arguments: {
-            NAME: {
-                type: ArgumentType.STRING,
-                defaultValue: "steve"
-            }
-        }
-    },
-    {
-        opcode: 'delAllFace',
-        blockType: BlockType.COMMAND,
-        text: '删除全部人脸',
-        arguments: {
-            NAME: {
-                type: ArgumentType.STRING,
-            }
-        }
-    },
+    
+    
     {
         opcode: 'switchMode',
         blockType: BlockType.COMMAND,
-        text: '切换到模式[MODE]',
+        text: '摄像头切换模式[MODE]',
         arguments: {
             MODE: {
                 type: ArgumentType.STRING,

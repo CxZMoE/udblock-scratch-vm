@@ -10,30 +10,34 @@ const sensorBlocks = [
         type: "custom_seperator",
         text: '★> NFC传感器',
     },
-    {
-        opcode: 'initNFC',
-        blockType: BlockType.COMMAND,
-        text: '初始化NFC传感器',
-    },
+    // {
+    //     opcode: 'initNFC',
+    //     blockType: BlockType.COMMAND,
+    //     text: '初始化NFC传感器',
+    // },
     {
         opcode: 'startPolling',
         blockType: BlockType.COMMAND,
-        text: '开始检测NFC卡',
+        text: '启动NFC传感器',
     },
     {
         opcode: 'stopPolling',
         blockType: BlockType.COMMAND,
-        text: '停止检测NFC卡',
+        text: '停止NFC传感器',
     },
     {
         opcode: 'getUID',
         blockType: BlockType.REPORTER,
-        text: '获取卡号',
+        text: 'NFC卡号',
+    },
+    {
+        type: "custom_seperator",
+        text: '★> 基础传感器',
     },
     {
         opcode: 'readRainDropSensor',
         blockType: BlockType.REPORTER,
-        text: '读取雨滴传感器于[PORT]',
+        text: '雨滴传感器[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -44,7 +48,7 @@ const sensorBlocks = [
     {
         opcode: 'readSoundSensor',
         blockType: BlockType.REPORTER,
-        text: '读取声音传感器于[PORT]',
+        text: '声音传感器[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -55,7 +59,7 @@ const sensorBlocks = [
     {
         opcode: 'readSmartGrayscaleSensor',
         blockType: BlockType.REPORTER,
-        text: '读取智能灰度传感器于[PORT]',
+        text: '智能灰度传感器[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -66,7 +70,7 @@ const sensorBlocks = [
     {
         opcode: 'detectColorSensorColor',
         blockType: BlockType.REPORTER,
-        text: '判断颜色识别传感器为[COLOR]',
+        text: '颜色识别传感器[COLOR]',
         arguments: {
             COLOR: {
                 type: ArgumentType.STRING,
@@ -77,7 +81,7 @@ const sensorBlocks = [
     {
         opcode: 'readAmbientLightSensor',
         blockType: BlockType.REPORTER,
-        text: '读取环境光传感器于[PORT]',
+        text: '环境光传感器[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -88,7 +92,7 @@ const sensorBlocks = [
     {
         opcode: 'readSonicSensor',
         blockType: BlockType.REPORTER,
-        text: '读取超声波传感器于[PORT]',
+        text: '超声波传感器[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -99,7 +103,7 @@ const sensorBlocks = [
     {
         opcode: 'readRouteFindingSensor',
         blockType: BlockType.REPORTER,
-        text: '读取巡线传感器于[PORT]',
+        text: '巡线传感器[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -110,7 +114,7 @@ const sensorBlocks = [
     {
         opcode: 'readFlameSensor',
         blockType: BlockType.BOOLEAN,
-        text: '火焰传感器于[PORT]检测到火焰',
+        text: '火焰传感器数字[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -121,7 +125,7 @@ const sensorBlocks = [
     {
         opcode: 'readFlameSensoADC',
         blockType: BlockType.REPORTER,
-        text: '读取火焰传感器模拟量于[PORT]',
+        text: '火焰传感器模拟[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -132,7 +136,7 @@ const sensorBlocks = [
     {
         opcode: 'readGrayScaleSensor',
         blockType: BlockType.REPORTER,
-        text: '读取模拟灰度传感器于[PORT]',
+        text: '模拟灰度传感器[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -143,7 +147,7 @@ const sensorBlocks = [
     {
         opcode: 'readSmokeSensor',
         blockType: BlockType.REPORTER,
-        text: '读取模拟烟雾传感器于[PORT]',
+        text: '烟雾传感器[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -154,7 +158,7 @@ const sensorBlocks = [
     {
         opcode: 'readDirtHumiditySensor',
         blockType: BlockType.REPORTER,
-        text: '读取土壤湿度传感器于[PORT]',
+        text: '土壤湿度传感器[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
@@ -165,7 +169,7 @@ const sensorBlocks = [
     {
         opcode: 'readDSTempSensor',
         blockType: BlockType.REPORTER,
-        text: '读取防水温度传感器于[PORT]',
+        text: '防水温度传感器[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,

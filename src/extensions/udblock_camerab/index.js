@@ -81,6 +81,44 @@ class UDblockCameraB {
                         }
                     }
                 },
+                {
+                    opcode: 'doAIColorDectection',
+                    blockType: BlockType.COMMAND,
+                    text: '[ACTION]AI颜色识别',
+                    arguments: {
+                        ACTION: {
+                            type: ArgumentType.STRING,
+                            menu: "actions"
+                        }
+                    }
+                },
+                {
+                    opcode: 'doAIModeDectection',
+                    blockType: BlockType.COMMAND,
+                    text: '[ACTION]自学习物体识别',
+                    arguments: {
+                        ACTION: {
+                            type: ArgumentType.STRING,
+                            menu: "actions"
+                        }
+                    }
+                },
+                {
+                    opcode: 'doAILoadModeDectection',
+                    blockType: BlockType.COMMAND,
+                    text: '[ACTION]加载已学习物体识别[NAME]',
+                    arguments: {
+                        ACTION: {
+                            type: ArgumentType.STRING,
+                            menu: "actions"
+                        },
+                        NAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "餐具"
+                        }
+                    }
+                },
+
             ],
             menus: {
                 actions: {

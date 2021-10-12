@@ -3,7 +3,7 @@ const BlockType = require('../../extension-support/block-type');
 const log = require('../../util/log');
 
 // 方块图标链接
-const blockIconURI = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+cGVuLWljb248L3RpdGxlPjxnIHN0cm9rZT0iIzU3NUU3NSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik04Ljc1MyAzNC42MDJsLTQuMjUgMS43OCAxLjc4My00LjIzN2MxLjIxOC0yLjg5MiAyLjkwNy01LjQyMyA1LjAzLTcuNTM4TDMxLjA2NiA0LjkzYy44NDYtLjg0MiAyLjY1LS40MSA0LjAzMi45NjcgMS4zOCAxLjM3NSAxLjgxNiAzLjE3My45NyA0LjAxNUwxNi4zMTggMjkuNTljLTIuMTIzIDIuMTE2LTQuNjY0IDMuOC03LjU2NSA1LjAxMiIgZmlsbD0iI0ZGRiIvPjxwYXRoIGQ9Ik0yOS40MSA2LjExcy00LjQ1LTIuMzc4LTguMjAyIDUuNzcyYy0xLjczNCAzLjc2Ni00LjM1IDEuNTQ2LTQuMzUgMS41NDYiLz48cGF0aCBkPSJNMzYuNDIgOC44MjVjMCAuNDYzLS4xNC44NzMtLjQzMiAxLjE2NGwtOS4zMzUgOS4zYy4yODItLjI5LjQxLS42NjguNDEtMS4xMiAwLS44NzQtLjUwNy0xLjk2My0xLjQwNi0yLjg2OC0xLjM2Mi0xLjM1OC0zLjE0Ny0xLjgtNC4wMDItLjk5TDMwLjk5IDUuMDFjLjg0NC0uODQgMi42NS0uNDEgNC4wMzUuOTYuODk4LjkwNCAxLjM5NiAxLjk4MiAxLjM5NiAyLjg1NU0xMC41MTUgMzMuNzc0Yy0uNTczLjMwMi0xLjE1Ny41Ny0xLjc2NC44M0w0LjUgMzYuMzgybDEuNzg2LTQuMjM1Yy4yNTgtLjYwNC41My0xLjE4Ni44MzMtMS43NTcuNjkuMTgzIDEuNDQ4LjYyNSAyLjEwOCAxLjI4Mi42Ni42NTggMS4xMDIgMS40MTIgMS4yODcgMi4xMDIiIGZpbGw9IiM0Qzk3RkYiLz48cGF0aCBkPSJNMzYuNDk4IDguNzQ4YzAgLjQ2NC0uMTQuODc0LS40MzMgMS4xNjVsLTE5Ljc0MiAxOS42OGMtMi4xMyAyLjExLTQuNjczIDMuNzkzLTcuNTcyIDUuMDFMNC41IDM2LjM4bC45NzQtMi4zMTYgMS45MjUtLjgwOGMyLjg5OC0xLjIxOCA1LjQ0LTIuOSA3LjU3LTUuMDFsMTkuNzQzLTE5LjY4Yy4yOTItLjI5Mi40MzItLjcwMi40MzItMS4xNjUgMC0uNjQ2LS4yNy0xLjQtLjc4LTIuMTIyLjI1LjE3Mi41LjM3Ny43MzcuNjE0Ljg5OC45MDUgMS4zOTYgMS45ODMgMS4zOTYgMi44NTYiIGZpbGw9IiM1NzVFNzUiIG9wYWNpdHk9Ii4xNSIvPjxwYXRoIGQ9Ik0xOC40NSAxMi44M2MwIC41LS40MDQuOTA1LS45MDQuOTA1cy0uOTA1LS40MDUtLjkwNS0uOTA0YzAtLjUuNDA3LS45MDMuOTA2LS45MDMuNSAwIC45MDQuNDA0LjkwNC45MDR6IiBmaWxsPSIjNTc1RTc1Ii8+PC9nPjwvc3ZnPg==';
+const blockIconURI = 'data:img/png;base64,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';
 
 
 class UDblockUDPi {
@@ -20,7 +20,7 @@ class UDblockUDPi {
                 {
                     opcode: "espstart",
                     blockType: BlockType.HAT,
-                    text: "ESP初始化完成"
+                    text: "UDPi主板初始化完成"
                 },
                 {
                     opcode: "print",
@@ -29,7 +29,7 @@ class UDblockUDPi {
                     arguments: {
                         TEXT:{
                             type: ArgumentType.STRING,
-                            defaultValue: "Hey! UDBlock."
+                            defaultValue: "欢迎"
                         }
                     }
                 },
@@ -177,7 +177,10 @@ class UDblockUDPi {
                         }
                     }
                 },
-                "---",
+                {
+                    type: "custom_seperator",
+                    text: '★ ▶ 蜂鸣器',
+                },
                 {
                     opcode: 'setBuzzerPlay',
                     blockType: BlockType.COMMAND,
@@ -192,6 +195,17 @@ class UDblockUDPi {
                             type: ArgumentType.STRING,
                             defaultValue: "LOW",
                             menu: "buzzerPitches"
+                        }
+                    }
+                },
+                {
+                    opcode: 'setBuzzerPlayMidi',
+                    blockType: BlockType.COMMAND,
+                    text: '控制主板蜂鸣器播放MIDI [SOUND]',
+                    arguments: {
+                        SOUND: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "demo"
                         }
                     }
                 },

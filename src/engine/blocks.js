@@ -793,14 +793,21 @@ class Blocks {
      * with the given ID does not exist.
      * @param {!string} blockId Id of block to delete
      */
+    // 删除方块
     deleteBlock (blockId) {
         // @todo In runtime, stop threads running on this script.
-
+        // console.log("删除方块")
         // Get block
         const block = this._blocks[blockId];
+        // console.log(block)
         if (!block) {
             // No block with the given ID exists
             return;
+        }
+
+        // 删除方块的 时候执行一些操作
+        if (Blockly.Python.Callbacks['delete_' + blockId] != undefined){
+            Blockly.Python.Callbacks['delete_' + blockId]()
         }
 
         // Delete children
