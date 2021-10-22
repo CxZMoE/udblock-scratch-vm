@@ -176,7 +176,40 @@ const sensorBlocks = [
                 menu: "RJMenu"
             }
         }
-    },  
+    },
+    {
+        opcode: 'readDHT11Temp',
+        blockType: BlockType.REPORTER,
+        text: '获取DHT11温度[PORT]',
+        arguments: {
+            PORT: {
+                type: ArgumentType.STRING,
+                menu: "RJMenu"
+            }
+        }
+    },
+    {
+        opcode: 'readDHT11Humidity',
+        blockType: BlockType.REPORTER,
+        text: '获取DHT11湿度[PORT]',
+        arguments: {
+            PORT: {
+                type: ArgumentType.STRING,
+                menu: "RJMenu"
+            }
+        }
+    },
+    {
+        opcode: 'readFourChannelInferredSensor',
+        blockType: BlockType.REPORTER,
+        text: '四路红外传感器检测到[STATUS]',
+        arguments:{
+            STATUS:{
+                type: ArgumentType.STRING,
+                menu: "FourInferredMap"
+            }
+        }
+    },
 ]
 
 module.exports = sensorBlocks;

@@ -47,6 +47,27 @@ const miscMenuBlocks = {
     inferedDirectionMenu: {
         acceptReporters: true,
         items: [{ text: "车前", value: "front" }, { text: "车左前", value: "frontleft" }, { text: "车前中", value: "frontcenter" }, { text: "车右前", value: "frontright" }, { text: "车后", value: "back" }, { text: "车左后", value: "backleft" }, { text: "车后中", value: "backcenter" }, { text: "车右后", value: "backright" },]
+    },
+    FourInferredMap: {
+        acceptReporters: true,
+        items: [
+            { text: "四路都没有压线", value: "0x0e" },
+            { text: "第一路压线", value: "0x0e" },
+            { text: "第二路压线", value: "0x0d" },
+            { text: "第一二路压线", value: "0x0c" },
+            { text: "第三路压线", value: "0x0b" },
+            { text: "第一第三路压线", value: "0x0a" },
+            { text: "第二第三路压线", value: "0x09" },
+            { text: "第一第二第三路压线", value: "0x08" },
+            { text: "第四路压线", value: "0x07" },
+            { text: "第一第四路压线", value: "0x06" },
+            { text: "第二第四路压线", value: "0x05" },
+            { text: "第一第二第四路压线", value: "0x04" },
+            { text: "第三第四路压线", value: "0x03" },
+            { text: "第一第三第四路压线", value: "0x02" },
+            { text: "第二第三第四路压线", value: "0x01" },
+            { text: "第一第二第三第四路压线", value: "0x00" },
+        ]
     }
 }
 
