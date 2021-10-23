@@ -201,7 +201,7 @@ const sensorBlocks = [
     },
     {
         opcode: 'readFourChannelInferredSensor',
-        blockType: BlockType.REPORTER,
+        blockType: BlockType.BOOLEAN,
         text: '四路红外传感器检测到[STATUS]',
         arguments:{
             STATUS:{

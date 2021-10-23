@@ -51,7 +51,7 @@ const miscMenuBlocks = {
     FourInferredMap: {
         acceptReporters: true,
         items: [
-            { text: "四路都没有压线", value: "0x0e" },
+            { text: "四路都没有压线", value: "0x0f" },
             { text: "第一路压线", value: "0x0e" },
             { text: "第二路压线", value: "0x0d" },
             { text: "第一二路压线", value: "0x0c" },
