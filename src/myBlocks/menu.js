@@ -1,4 +1,12 @@
 const miscMenuBlocks = {
+    channel: {
+        acceptReporters: true,
+        items: [{ text: "黄路", value: "0"}, { text: "蓝路", value: "1"}]
+    },
+    displayLine:{ // OLED模组显示行数菜单
+        acceptReporters: true,
+        items:[{ text: "一", value: "0" },{ text: "二", value: "1" },{ text: "三", value: "2" },{ text: "四", value: "3" },{ text: "五", value: "4" }]
+    },
     colorDetectMenu: {
         acceptReporters: true,
         items: [{ text: "红色", value: 0 }, { text: "绿色", value: 1 }, { text: "蓝色", value: 2 }, { text: "全部", value: -1 },]

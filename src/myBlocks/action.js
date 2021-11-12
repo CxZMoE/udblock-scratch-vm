@@ -249,8 +249,55 @@ function actionBlocks(hasMotor=true,hasServo=true) {
                 }
             }
         },
-        
-        
+        {
+            type: "custom_seperator",
+            text: '★ ▶ 双路继电器',
+        },
+        {
+            opcode: 'openReplayDbl',
+            blockType: BlockType.COMMAND,
+            text: '打开双路继电器[PORT]通道[CH]',
+            arguments: {
+                PORT: {
+                    type: ArgumentType.STRING,
+                    menu: "RJMenu"
+                },
+                CH: {
+                    type: ArgumentType.STRING,
+                    menu: "channel",
+                }
+            }
+        },
+        {
+            opcode: 'closeReplayDbl',
+            blockType: BlockType.COMMAND,
+            text: '关闭双路继电器[PORT]通道[CH]',
+            arguments: {
+                PORT: {
+                    type: ArgumentType.STRING,
+                    menu: "RJMenu"
+                },
+                CH: {
+                    type: ArgumentType.STRING,
+                    menu: "channel",
+                }
+            }
+        },
+        {
+            opcode: 'switchReplayDbl',
+            blockType: BlockType.COMMAND,
+            text: '切换双路继电器[PORT]通道[CH]',
+            arguments: {
+                PORT: {
+                    type: ArgumentType.STRING,
+                    menu: "RJMenu"
+                },
+                CH: {
+                    type: ArgumentType.STRING,
+                    menu: "channel",
+                }
+            }
+        },
         {
             type: "custom_seperator",
             text: '★ ▶ 表情面板',
@@ -282,6 +329,291 @@ function actionBlocks(hasMotor=true,hasServo=true) {
                     type: ArgumentType.COLOR,
                     menu: "faceColorMenu"
                 }
+            }
+        },
+        {
+            type: "custom_seperator",
+            text: '★ ▶ OLED显示屏模组'
+        },
+        {
+            opcode: 'displayClean',
+            blockType: BlockType.COMMAND,
+            text: '控制OLED显示屏擦除内容'
+        },
+        {
+            opcode: 'displayWrite',
+            blockType: BlockType.COMMAND,
+            text: '将在OLED显示屏[LINE]行显示文本[TEXT]',
+            arguments:{
+                LINE: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 0, // * 16
+                    menu: "displayLine"
+                },
+                TEXT: {
+                    type: ArgumentType.STRING,
+                    defaultValue: "UDBlock, Go!"
+                }
+            }
+        },
+        {
+            opcode: 'displayWriteShow',
+            blockType: BlockType.COMMAND,
+            text: '在OLED显示屏[LINE]行显示文本[TEXT]立即显示',
+            arguments:{
+                LINE: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 0, // * 16
+                    menu: "displayLine"
+                },
+                TEXT: {
+                    type: ArgumentType.STRING,
+                    defaultValue: "UDBlock, Go!"
+                }
+            }
+        },
+        {
+            opcode: 'displayShow',
+            blockType: BlockType.COMMAND,
+            text: '控制显示器刷新内容'
+        },
+        {
+            opcode: 'displayDrawLabel',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏画标签 X:[X] Y:[Y] 内容: [STR]',
+            arguments:{
+                X: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 50, // * 16
+                },
+                Y: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 5, // * 16
+                },
+                STR: {
+                    type: ArgumentType.STRING,
+                    defaultValue: 'UDPI', // * 16
+                },
+            }
+        },
+        {
+            opcode: 'displayDrawPoint',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏画点 X[X] Y[Y]',
+            arguments:{
+                X: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 0, // * 16
+                },
+                Y: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 0, // * 16
+                }
+            }
+        },
+        {
+            opcode: 'displayDrawLine',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏画直线 起点 X[SX] Y[SY] | 终点 X[EX] Y[EY]',
+            arguments:{
+                SX: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 0, // * 16
+                },
+                SY: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 0, // * 16
+                },
+                EX: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128, // * 16
+                },
+                EY: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64, // * 16
+                },
+            }
+        },
+        {
+            opcode: 'displayDrawRect',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏画矩形 X[SX] Y[SY] 长[LENGTH] 宽[WIDTH]',
+            arguments:{
+                SX: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2 - 20, // * 16
+                },
+                SY: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 - 20, // * 16
+                },
+                LENGTH: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 40, // * 16
+                },
+                WIDTH: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 40, // * 16
+                },
+            }
+        },
+        {
+            opcode: 'displayDrawRectFill',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏画实心矩形 X[SX] Y[SY] 长[LENGTH] 宽[WIDTH]',
+            arguments:{
+                SX: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2 - 20, // * 16
+                },
+                SY: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 - 20, // * 16
+                },
+                LENGTH: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 40, // * 16
+                },
+                WIDTH: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 40, // * 16
+                },
+            }
+        },
+        {
+            opcode: 'displayDrawCircle',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏画圆形 坐标 X:[SX] Y:[SY] 半径:[R]',
+            arguments:{
+                SX: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2 - 20, // * 16
+                },
+                SY: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 - 20, // * 16
+                },
+                R: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 40, // * 16
+                },
+            }
+        },
+        {
+            opcode: 'displayDrawCircleFill',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏画实心圆形 X:[SX] Y:[SY] 半径[R]',
+            arguments:{
+                SX: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2 - 20, // * 16
+                },
+                SY: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 - 20, // * 16
+                },
+                R: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 40, // * 16
+                },
+            }
+        },
+        {
+            opcode: 'displayDrawTriangle',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏画三角形 坐标 X1:[X1] Y1:[Y1]\nX2:[X2] Y2:[Y2]\nX3:[X3] Y3:[Y3]',
+            arguments:{
+                X1: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2, // * 16
+                },
+                Y1: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 - 20, // * 16
+                },
+                X2: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2 + 20, // * 16
+                },
+                Y2: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 + 20, // * 16
+                },
+                X3: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2 - 20, // * 16
+                },
+                Y3: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 + 20, // * 16
+                },
+
+            }
+        },
+        {
+            opcode: 'displayDrawTriangleFill',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏画实心三角形 坐标 X1:[X1] Y1:[Y1]\nX2:[X2] Y2:[Y2]\nX3:[X3] Y3:[Y3]',
+            arguments:{
+                X1: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2, // * 16
+                },
+                Y1: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 - 20, // * 16
+                },
+                X2: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2 + 20, // * 16
+                },
+                Y2: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 + 20, // * 16
+                },
+                X3: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2 - 20, // * 16
+                },
+                Y3: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 + 20, // * 16
+                },
+
+            }
+        },
+        {
+            opcode: 'displayDrawCircle',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏画圆形 坐标 X:[SX] Y:[SY] 半径:[R]',
+            arguments:{
+                SX: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 128/2 - 20, // * 16
+                },
+                SY: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 64/2 - 20, // * 16
+                },
+                R: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 40, // * 16
+                },
+            }
+        },
+        {
+            opcode: 'displayScroll',
+            blockType: BlockType.COMMAND,
+            text: 'OLED显示屏内容向X:[X] Y:[Y]移动 ',
+            arguments:{
+                X: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 0, // * 16
+                },
+                Y: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 5, // * 16
+                },
             }
         },
     ]
