@@ -189,6 +189,7 @@ const serializeFields = function (fields) {
  * if not.
  */
 const serializeBlock = function (block) {
+    console.log(block)
     const serializedPrimitive = serializePrimitiveBlock(block);
     if (serializedPrimitive) return serializedPrimitive;
     // If serializedPrimitive is null, proceed with serializing a non-primitive block
@@ -213,6 +214,7 @@ const serializeBlock = function (block) {
         obj.mutation = block.mutation;
     }
     if (block.comment) {
+        console.log('comment' + block.comment)
         obj.comment = block.comment;
     }
     return obj;
@@ -805,6 +807,7 @@ const deserializeFields = function (fields) {
  * @return {object} input is modified and returned
  */
 const deserializeBlocks = function (blocks) {
+    console.log(blocks)
     for (const blockId in blocks) {
         if (!Object.prototype.hasOwnProperty.call(blocks, blockId)) {
             continue;
@@ -821,6 +824,7 @@ const deserializeBlocks = function (blocks) {
         block.id = blockId; // add id back to block since it wasn't serialized
         block.inputs = deserializeInputs(block.inputs, blockId, blocks);
         block.fields = deserializeFields(block.fields);
+        
     }
     return blocks;
 };

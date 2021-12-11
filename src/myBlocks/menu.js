@@ -5,7 +5,7 @@ const miscMenuBlocks = {
     },
     displayLine:{ // OLED模组显示行数菜单
         acceptReporters: true,
-        items:[{ text: "一", value: "0" },{ text: "二", value: "1" },{ text: "三", value: "2" },{ text: "四", value: "3" },{ text: "五", value: "4" }]
+        items:[{ text: "一", value: "0" },{ text: "二", value: "1" },{ text: "三", value: "2" },{ text: "四", value: "3" }]
     },
     colorDetectMenu: {
         acceptReporters: true,

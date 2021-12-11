@@ -1,6 +1,7 @@
 const EXTB_LIST = {
     "extb_mf": {
         "id": "udblockEXTBMF",
+        "idv2": "udblockEXTBMFV2",
         "name": "多功能拓展版",
         "img": "assets/img/extb_mf.png",
         "description": "多功能拓展版",
@@ -57,33 +58,71 @@ const EXTB_LIST = {
                 "name": "MOTOR_1",
                 "value": [
                     "1",
-                    "0"
+                    "0",
+                    "0",
+                    "2"
                 ]
             },
             {
                 "name": "MOTOR_2",
                 "value": [
                     "3",
-                    "2"
+                    "2",
+                    "1",
+                    "3"
                 ]
             }
         ],
         "servo": [
             {
                 "name": "SERVO_1",
-                "value": "6"
+                "value": ["6","7"]
             },
             {
                 "name": "SERVO_2",
-                "value": "7"
+                "value": ["7","8"]
             },
             {
                 "name": "SERVO_3",
-                "value": "4"
+                "value": ["4","9"]
             },
             {
                 "name": "SERVO_4",
-                "value": "5"
+                "value": ["5","10"]
+            }
+        ],
+        "motor_v2": [
+            {
+                "name": "MOTOR_1",
+                "value": [
+                    "0",
+                    "2"
+                ]
+            },
+            {
+                "name": "MOTOR_2",
+                "value": [
+                    "1",
+                    "3"
+                ]
+            }
+        ],
+        "servo_v2": [
+            {
+                "name": "SERVO_1",
+                "value": "7"
+            },
+            {
+                "name": "SERVO_2",
+                "value": "8"
+            },
+            {
+                "name": "SERVO_3",
+                "value": "9"
+            },
+            {
+                "name": "SERVO_4",
+                "value": "10"
             }
         ],
         "iic": [
@@ -125,6 +164,7 @@ const EXTB_LIST = {
     },
     "extb_io": {
         "id": "udblockEXTBIO",
+        "idv2": "udblockEXTBIOV2",
         "name": "IO拓展版",
         "img": "assets/img/extb_io.png",
         "description": "IO拓展版",
@@ -203,6 +243,7 @@ const EXTB_LIST = {
     },
     "extb_sm": {
         "id": "udblockEXTBSM",
+        "idv2": "udblockEXTBSMV2",
         "name": "电机拓展版",
         "img": "assets/img/extb_sm.png",
         "description": "电机拓展版",
@@ -245,47 +286,103 @@ const EXTB_LIST = {
                 "name": "MOTOR_1",
                 "value": [
                     "3",
-                    "2"
+                    "2",
+                    "6",
+                    "7"
                 ]
             },
             {
                 "name": "MOTOR_2",
                 "value": [
                     "4",
-                    "5"
+                    "5",
+                    "4",
+                    "5",
                 ]
             },
             {
                 "name": "MOTOR_3",
                 "value": [
                     "8",
-                    "9"
+                    "9",
+                    "0",
+                    "2"
                 ]
             },
             {
                 "name": "MOTOR_4",
                 "value": [
                     "11",
-                    "10"
+                    "10",
+                    "1",
+                    "3"
                 ]
             }
         ],
-        "servo": [
+        "servo": [ //1->3 2->1 3->4 4->2
             {
                 "name": "SERVO_1",
-                "value": "0"
+                "value": ["0","9"] //8
             },
             {
                 "name": "SERVO_2",
-                "value": "1"
+                "value": ["1","11"] //9
             },
             {
                 "name": "SERVO_3",
-                "value": "7"
+                "value": ["7","8"] //10
             },
             {
                 "name": "SERVO_4",
-                "value": "6"
+                "value": ["6","10"] //11
+            }
+        ],
+        "motor_v2": [
+            {
+                "name": "MOTOR_1",
+                "value": [
+                    "0",
+                    "2"
+                ]
+            },
+            {
+                "name": "MOTOR_2",
+                "value": [
+                    "1",
+                    "3"
+                ]
+            },
+            {
+                "name": "MOTOR_3",
+                "value": [
+                    "4",
+                    "5"
+                ]
+            },
+            {
+                "name": "MOTOR_4",
+                "value": [
+                    "6",
+                    "7"
+                ]
+            }
+        ],
+        "servo_v2": [
+            {
+                "name": "SERVO_1",
+                "value": "8"
+            },
+            {
+                "name": "SERVO_2",
+                "value": "9"
+            },
+            {
+                "name": "SERVO_3",
+                "value": "10"
+            },
+            {
+                "name": "SERVO_4",
+                "value": "11"
             }
         ],
         "iic": [

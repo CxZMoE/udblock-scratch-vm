@@ -356,22 +356,22 @@ function actionBlocks(hasMotor=true,hasServo=true) {
                 }
             }
         },
-        {
-            opcode: 'displayWriteShow',
-            blockType: BlockType.COMMAND,
-            text: '在OLED显示屏[LINE]行显示文本[TEXT]立即显示',
-            arguments:{
-                LINE: {
-                    type: ArgumentType.NUMBER,
-                    defaultValue: 0, // * 16
-                    menu: "displayLine"
-                },
-                TEXT: {
-                    type: ArgumentType.STRING,
-                    defaultValue: "UDBlock, Go!"
-                }
-            }
-        },
+        // {
+        //     opcode: 'displayWriteShow',
+        //     blockType: BlockType.COMMAND,
+        //     text: '在OLED显示屏[LINE]行显示文本[TEXT]立即显示',
+        //     arguments:{
+        //         LINE: {
+        //             type: ArgumentType.NUMBER,
+        //             defaultValue: 0, // * 16
+        //             menu: "displayLine"
+        //         },
+        //         TEXT: {
+        //             type: ArgumentType.STRING,
+        //             defaultValue: "UDBlock, Go!"
+        //         }
+        //     }
+        // },
         {
             opcode: 'displayShow',
             blockType: BlockType.COMMAND,

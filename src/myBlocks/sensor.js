@@ -31,6 +31,22 @@ const sensorBlocks = [
         text: 'NFC卡号',
     },
     {
+        opcode: 'readText',
+        blockType: BlockType.REPORTER,
+        text: '读取NFC卡内容',
+    },
+    {
+        opcode: 'writeText',
+        blockType: BlockType.COMMAND,
+        text: '写入NFC卡内容[TEXT]',
+        arguments:{
+            TEXT: {
+                type: ArgumentType.STRING,
+                defaultValue: "door"
+            }
+        }
+    },
+    {
         type: "custom_seperator",
         text: '★> 基础传感器',
     },

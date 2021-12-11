@@ -26,9 +26,14 @@ const builtinExtensions = {
     gdxfor: () => require('../extensions/scratch3_gdx_for'),
     udblockUDPi: () => require('../extensions/udblock_udpi'),
     udblockUDPiPlus: () => require('../extensions/udblock_udpi_plus'),
+    udblockUDPiV2: () => require('../extensions/udblock_udpi_v2'),
+    udblockUDPiPlusV2: () => require('../extensions/udblock_udpi_plus_v2'),
     udblockEXTBMF: () => require("../extensions/udblock_extb_mf"),
     udblockEXTBSM: () => require("../extensions/udblock_extb_sm"),
-    udblockEXTBIO: () => require("../extensions/udblock_extb_io"),
+    udblockEXTBMFV2: () => require("../extensions/udblock_extb_mf_v2"),
+    udblockEXTBSMV2: () => require("../extensions/udblock_extb_sm_v2"),
+    udblockEXTBIO: ()=> require("../extensions/udblock_extb_io"),
+    udblockEXTBIOV2: ()=> require("../extensions/udblock_extb_io_v2"),
     udblockEXTBCar: ()=> require("../extensions/udblock_car"),
     udblockEXTBCar2D: ()=> require("../extensions/udblock_car_2d"),
     udblockEXTBIOT: ()=> require("../extensions/udblock_iot"),
@@ -133,6 +138,7 @@ class ExtensionManager {
      * @param {string} extensionId - the ID of an internal extension
      */
     loadExtensionIdSync(extensionId) {
+        console.log('同步加载拓展：'+String(extensionID))
         if (!builtinExtensions.hasOwnProperty(extensionId)) {
             log.warn(`Could not find extension ${extensionId} in the built in extensions.`);
             return;
@@ -157,7 +163,7 @@ class ExtensionManager {
      * @returns {Promise} resolved once the extension is loaded and initialized or rejected on failure
      */
     loadExtensionURL(extensionURL) {
-        console.log(extensionURL)
+        console.log("通过URL加载拓展：" + extensionURL)
         if (builtinExtensions.hasOwnProperty(extensionURL)) {
             /** @TODO dupe handling for non-builtin extensions. See commit 670e51d33580e8a2e852b3b038bb3afc282f81b9 */
             if (this.isExtensionLoaded(extensionURL)) {
@@ -167,11 +173,8 @@ class ExtensionManager {
             }
 
             const extension = builtinExtensions[extensionURL]();
-            console.log("new extension")
             const extensionInstance = new extension(this.runtime);
-            console.log("extensionInstance")
             const serviceName = this._registerInternalExtension(extensionInstance);
-            console.log("serviceName")
             this._loadedExtensions.set(extensionURL, serviceName);
             return Promise.resolve();
         }
@@ -452,7 +455,8 @@ class ExtensionManager {
                     const serviceObject = dispatch.services[serviceName];
                     if (!serviceObject[funcName]) {
                         // The function might show up later as a dynamic property of the service object
-                        log.warn(`Could not find extension block function called ${funcName}`);
+                        // 找不到拓展方块报错
+                        //log.warn(`Could not find extension block function called ${funcName}`);
                     }
                     return (args, util, realBlockInfo) =>
                         serviceObject[funcName](args, util, realBlockInfo);

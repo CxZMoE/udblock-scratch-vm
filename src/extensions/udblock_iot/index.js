@@ -9,7 +9,7 @@ const sensorBlocks = require('../../myBlocks/sensor');
 const actionBlocks = require('../../myBlocks/action');
 
 // 方块图标链接
-const blockIconURI = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+cGVuLWljb248L3RpdGxlPjxnIHN0cm9rZT0iIzU3NUU3NSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik04Ljc1MyAzNC42MDJsLTQuMjUgMS43OCAxLjc4My00LjIzN2MxLjIxOC0yLjg5MiAyLjkwNy01LjQyMyA1LjAzLTcuNTM4TDMxLjA2NiA0LjkzYy44NDYtLjg0MiAyLjY1LS40MSA0LjAzMi45NjcgMS4zOCAxLjM3NSAxLjgxNiAzLjE3My45NyA0LjAxNUwxNi4zMTggMjkuNTljLTIuMTIzIDIuMTE2LTQuNjY0IDMuOC03LjU2NSA1LjAxMiIgZmlsbD0iI0ZGRiIvPjxwYXRoIGQ9Ik0yOS40MSA2LjExcy00LjQ1LTIuMzc4LTguMjAyIDUuNzcyYy0xLjczNCAzLjc2Ni00LjM1IDEuNTQ2LTQuMzUgMS41NDYiLz48cGF0aCBkPSJNMzYuNDIgOC44MjVjMCAuNDYzLS4xNC44NzMtLjQzMiAxLjE2NGwtOS4zMzUgOS4zYy4yODItLjI5LjQxLS42NjguNDEtMS4xMiAwLS44NzQtLjUwNy0xLjk2My0xLjQwNi0yLjg2OC0xLjM2Mi0xLjM1OC0zLjE0Ny0xLjgtNC4wMDItLjk5TDMwLjk5IDUuMDFjLjg0NC0uODQgMi42NS0uNDEgNC4wMzUuOTYuODk4LjkwNCAxLjM5NiAxLjk4MiAxLjM5NiAyLjg1NU0xMC41MTUgMzMuNzc0Yy0uNTczLjMwMi0xLjE1Ny41Ny0xLjc2NC44M0w0LjUgMzYuMzgybDEuNzg2LTQuMjM1Yy4yNTgtLjYwNC41My0xLjE4Ni44MzMtMS43NTcuNjkuMTgzIDEuNDQ4LjYyNSAyLjEwOCAxLjI4Mi42Ni42NTggMS4xMDIgMS40MTIgMS4yODcgMi4xMDIiIGZpbGw9IiM0Qzk3RkYiLz48cGF0aCBkPSJNMzYuNDk4IDguNzQ4YzAgLjQ2NC0uMTQuODc0LS40MzMgMS4xNjVsLTE5Ljc0MiAxOS42OGMtMi4xMyAyLjExLTQuNjczIDMuNzkzLTcuNTcyIDUuMDFMNC41IDM2LjM4bC45NzQtMi4zMTYgMS45MjUtLjgwOGMyLjg5OC0xLjIxOCA1LjQ0LTIuOSA3LjU3LTUuMDFsMTkuNzQzLTE5LjY4Yy4yOTItLjI5Mi40MzItLjcwMi40MzItMS4xNjUgMC0uNjQ2LS4yNy0xLjQtLjc4LTIuMTIyLjI1LjE3Mi41LjM3Ny43MzcuNjE0Ljg5OC45MDUgMS4zOTYgMS45ODMgMS4zOTYgMi44NTYiIGZpbGw9IiM1NzVFNzUiIG9wYWNpdHk9Ii4xNSIvPjxwYXRoIGQ9Ik0xOC40NSAxMi44M2MwIC41LS40MDQuOTA1LS45MDQuOTA1cy0uOTA1LS40MDUtLjkwNS0uOTA0YzAtLjUuNDA3LS45MDMuOTA2LS45MDMuNSAwIC45MDQuNDA0LjkwNC45MDR6IiBmaWxsPSIjNTc1RTc1Ii8+PC9nPjwvc3ZnPg==';
+const blockIconURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAErVJREFUaEPtWQdUVFe3/mCGYZihzND70BVBxd7AFmNUElvsJYmKiaZaEn9rYop/ijHWaGI0Rk1iiYmKFWzYUIJKUXoTpA19hmkMU94+l/JA/V/Weu9fz/WvlVnrMnPvuffc/e29v2/vc7DAf/jH4j/cfvwN4FlH8O8I/B2B/6MHnppCcrnKTeooirPiWwR2mN/CZDabfz8eJ48/d3bOnj3bb1fUqPs5S4Qn+DxLB3YfDVvQB/pmozE9LX9Jv35df2TXr15PXT5oQPgnVlY8dtr+ToPBVC+vU0/xdrO/PS/m7RFjx7y4f/Kk0c48y85mNZvMpVqVfqyDgzD/cbyd7nQDxHCA69S5izy/+HLzLyKRUNbxBqPJjMNHTuPSxfi4mzfi17279P3AhQvmfy+w4tl3nLipyWA+cvTEjoUxU3ez67t/OLZu5owJ0wQCfqf3N+mbFXv37F2yffumokFDxqwfNeqF4dOnReNxABqtruKfH69b/MO+bUU6nb5UqURd20Tt9tlbI2jkEM9v/DxEfTRmR8G6L49KvLxl/KcBOHP6eHPCpdjG4JCulidiz9hLJQ6WHS3T6Zqx/P33tft2b9OCIvLusrXiTz7+0PpxALW19aYpkydosrMzTSNHTRBHvzSZN33auCcAVFVVmLZ8/IraqHlkyCxSZsQlVrzT3IzUjuHkhQXYfb94RvBcI3hXZZ4eQUOnb/eXOPt2KhRtEThz6g8kXDoF/8AgxJ4+DydHSSfPMgDLli3Hvj3byX4LvLN0LT795EM8DqC6uhYvT34J+Xm5GDFqAqJfnIynAVAp5Oarxz74Mzsvu4pvNoz5en/m2VJ501R6aXObg60jujicj5kSEs7jmZd5evi+MuTlzaMcXZ4OIOl2Ih6kJ6GpSfMvAfx6+Dg+/WgpeDw+Vn/4NebMmvQvAVjAChF9IjFg4OCnAmhskJuTYtccys9Lu6bTm77esj8rv1iuHUIANO0AnOx456eN9YuKCJHUNBok0llv/yBw9/J/MgJHTyP+3BncvB4Hd3c3nDx9jiIgfSICH6//DN/t+orj7JLlH2HVyuVPAKirq8f8eXNw/34GIoeOwQtjXnoqgJrqchz+9g0ddGXqxPQa6anLpfdVTebBHQFYjhra/8Nhw6PWxsed5pWUN2D/wd8QHh4Gyw6KYDCacTL2Ai7Gn6cUioWPrwwHfzkCV1dnlurtAqPW6LBu7Toc+nkP2W+BhYuWYdWqFbARWrUDNZsBBuDY4X04HxcPT58wjHhuNCZOeJ440EIpdg/9RXZ2NhYumAt5ZRmIxEzt0rR6dAJgUVBQMI6M/WP1ircE5+MuwtsnCL1690d49x4Qi2zQ0KCEWq2BvLoGtTXVuHXjApqb9Yh+aQp69+4DPp8HhbIRRqMRCro3KekmUu7epBTiYcKkWejVqzdMpGJKVSNA3yqaq7AwF6qGMpJdE7r3HAQnJ2dmHJr0ZKTJRMY2EcgauleB0K7BCAwMxoEDP+FuclJnANHR0dIxY8ZsiY4eN/vzT5bzjv1xClqdEW4ujvjHO2Mhkdhj36FEZGQ/gpEmNpGRWq2G887YUb3x4ujeqJArcODIDdQrNTAb6eX6JuibdLAVi7B6STQcKc3OXX6AhBuZ9JQFzUH30LjJaEB4Vx/MmzUUNjZCfLf/MvILqzjyEwr4+csQPXEmYubPIzB12LDhM5w6eSxVpTF04gB27Nj0or8s4NivB3Zanz1/iSY30YQ2GD82EiKKQMr9AthLXFBQkA+FooE8bgWhtRDduvqjf7/ukMtrkHD9Lh4Wl3DeYwYwbwqF1hg3ejDNIUJKWjYeZBa0pltLNjE7vTzdMGRgBMeRuIu3KMp14NGAWMTHpBcjERhB3Jg6hSLbgH8yALHH7qm1pkh6XNtGYitPN/v93p5uM/g8k0VuQTmFu+UFjhIbqLXN8PSSoV+//jAYDMjLy+PCHRgYiPoGBby9vVFbW0Og+Dj0689oqK8nL3MBggVLZ+6klSLcNebdtostQx3P2LAlAZD5upODZBBKghEUFMyJRfz5sygqzLsfNbzX4J07f1NxAE6dOiUym40XxSLRIKnEDpXy2nayNesUOH/mCP6ITUBQcAjKy8pQVSXnXMckknmZhZ69kP1WqbXEDUP7848bx17I51l0isLjEBg2Ht0T0T0Efj5SXLmZg+DgQMyaNQdTps+gSAmahELh5xqNYScHIC0tjWwXXbK0tBzQ6c10UlZajAsnv0VsfCoEVnxkZeVBKLKFu6cPKVSLWpA5/+3hVkdbkOuZV9lISzTMxN02P3f2Po9nCW9XG1SUl8HKxoHEoAmW0BN/BKivV6JH91C8uuBNyGR+6NotjMBb6k0m4xGjUb/2rwE8eoizv29DUmo5EdEOFy5eg43IDi5uXnTuSC8h7xMQpj4sCtTIcQpjaysiI1i6EBAynAGysGDfLZAs6dxgBBpVKiqIOgzqG4CsB+kEQIo6hQn2IjNsbYCHJXL07dsDc+a9DWdnV4R06ULv49UbDM2RAoFt9l8CKC+jCMTuxI3kR3B1dsCZc5chEtvBzcMHUqkU1tbWXDqYWknDvrVaHezt7Mj6NkPJUoqFkRSHGW5mADhgxEKtllO0QD93FBdmwtHZAzX1egitDHhYVAA3N1dEjxmOgUOjiYfe6BYWzlK3mZwQz9osDgDVANYOJ9AR8XgKlVIEzhzbjsS7DyG1F5PS3OYi4O1LVZoZw7zbzlYiHzOMQDBglpQaLL0Y8ZnxRpLOtuThwHApSFyib1dnMTIzs+Dh7oqKymr4yzxQVdOAPn0Hop7kUyyyRt/+/TBu3DhyoLjRw9P3H2q1/hAHoLi4OIBecpOMcW8JNyNZS16zRmvDZ2uRmZENjVrNGcAk1EHqRJ6w4tLG1lZIqaBtx86kk0WB5XxbVRUKrEjNdC2coWccyBkKpapVjCwwKtIfWXlldC5AUXEZya+A7uPDy8sHPCqS2dkZkHm7Y+yIUPAF4tSyBochu3fvbumFSBZ7K5XKK9XVVfZsckYWJokMTFrqHWzbuokAZEGjUbfLa8dIMUdSzQFTXgaIVeUuQZ4ICfLhFCov/yEycso5UGzOFhStBKdTFokuwb6oqVWguoYkmEktjUulEkRGDecimEyVfVjUALzx5lL0GxBVSMV8KAlPGQfg6NGj7nHnT583G/U9A/3cUKugFAOP8/bDggd49KgU+QUlRLamlsmZoSRzXPgpTfz8AtDY2Ii6+oaWdCI0Ed39YG9vS5XbAjqtigphCbUGLQBsKELMqyqVhjO+X3cXKoqWBJ49aoQFzcmm4fEFcHBwxO20aujUDVi0cBpenv0+3D08UzIyMoZFRkY2cgDu3bvmcvXKldPqRk3/Iqqk2Vm5yM3N5YxiBrY4zUSKY0Op4wID9UDDh4TCxUmK/EdabNqyA6n37qDwwQmkZlQh9sxVDBngi749XTlD7uc04WZyPrUNeqoRJipQ3lQIHZH05z0EUDEcHymCSGiGgJzCaogl9U/MS/pmorvZEkcuKqCor8QH787F2KnL4OMju1NVVRXl7++vsyCPiPR65crmZuMSo8Fgdyc5CdcSruDP29dwLy0Tzw/rgQalHpnZxRyxpG7BEPIaYWlqJIkUwEYShI2btqEgPwfX43/E2fhk6HVyOEhcUVJaTfyw5aqpsqEK3UO9CUwjKRQZbK3D8bNpsLaxRV11KZdVLanTJrUtcssiJrZzgUZVi6VvzcH4mcsfA3DlCl8VETaYysy3QrFteFrKPSRcvoiivFTqS65jxqQo+Pm6UiSA23cKUa22RfmjQuRQi8tWaJOnTMfWbTspYtnYuf0r/HbsBCaMDoFCzcfFhAdcRZ0yYRBcnaxo/SDDw1IlZ0xxmRJFD8tJ0exRRHLZRo32EtdaBRkMD09PSqFavLN4FibN/IA6Zd87ycnJUSNGjOAi4GA0anfT90QisCDl3l1cvhAHRXUBjh0/h0aNHgF+XggJ9sGtpAxU16qoADVTp6nnvDZl2gzs3PUD60+QdOUnMjoNJt0j6Iy2uHUnjyPjCyN6gDoUSJ18kZZRhtT7OdQe+1HllVNiWlNbXdgSAc7jrfLQoVgzACpFDV6PmYWZry2j3ss3rba2dhj1YgoGQNjcrJ6pUTWuFVhbB2RmZuJyfByUtYW0HXILs2dNw4ULl3DhaipptAvqFY1ELAktLiopX5tJp/th13d7kZOTgfqyBKRn1uLYH2cQNTiEUsaFqGNEcpocKekl1IrwENHNFRrqdKXuYaiSV3DKk5OT92Rz1wGAn78/jIZmdA/visWvv4pe/YblC8WOUZSelQTgkY1eL/mAWoElVlZW0rTUFJyOPY4TJ05TwbDH3FdexfWEc7hGYAIDqDMUO3ElPS0lGfn5zMMWdO7MNWhDB8pQVW/GtRt30SM8kJSFxy166huaIBaLKWXK4OMtgbPEGkYLW+j1Rmi0ZmRQAeOUtbVJbftuuzY2ejy143YoLSlAdUUeI3ayssl6WGlpqZZFwEqhqBtxKvb4loaGhtDcnGzS/jTqSIl0PXq39zlqZQXsqTkxQUiLFRMVuGwqgCVP9PZEC05mI3qGUTXmwUXCR3qWHF1DfFkXyS1m+FCiodGIpmYeJwSJibfb60IbmduMZ2CGRA6ncR5Kiou4g8J1m5aUI+iHrm09YC21FcQGyOxHDwiXIre4Eak5Crw6ZyoqK6vg7OKMlJR0IqE7ZF72tOQD5XwupVU6B8DDwx12dvac7JJGU9F7AFtRS0Frpo7NSGvp8NBAdKFGzNFJwnW0BqoPPUJluH3vIRKu3uBAd/R8KxPIgYCfzAc+Lia4OfFxM6WaVn+a27RE6QRA4OMqPPXe3K5RHs7W8YQu4uDJAllpjYGqoAnRo/vDSmCNpLuFJHtiqq5ieHn7QE9jBtLtJp2aU6kiIqN/QADqayrQo6eMwLhzXWo1raNvXL9P6WLEypUrMHHyTM4BH3+4hERBh7ycLCSn5JAiiTAheiSUSgVG0w7FvPmvcw7Z9OmbZk+bgjypLa84r1Q9fOvBrLt1jcZOAKx6hNj9tnh6l+eUWnzh68wbeehcycgLiRWw5FtizMjepEL+CAwdSoXMFS6ubhAQCNZu3ElKxJFfD8LHqzeM4jqUOKfB71E3rFqzniLmwQFga9mVHywh9TJx/PnpwM9ce+BLvU1okBNGDumGNV8ep82CCiydPwizYz7EC+PntwUBOz5/zcxXpR2Sq81ZTiL+mq/2Zfz5qFL3PN2gb0shSG0tX495OXhrWJC9dWW90eLA8VwUlqraJ5FQ67zx682g6getVxB+zS2HFz0d1lCEbZu+QNfAEPDERpTo70PGi8Dm7T8QcW2553XUMr/2yhSUV9axDQlqXX6HJ0njxPHRSEq8SFsuq/Du8vU4/MtebN24igqVH6yEDti19xi1Iw6YP3s0ZBK50ddNiIxCpen7I9mfqnT4lONJu4WAMNhH9Jq3h3hQeZXWurRcxV5mYW5dbvEpR4YOG4E+ffoKfF57a+RZHez81SpzlDyvbsXSN2+VlVVw23xM/RbExLhu/HpLD1r2cbu5epKbBfPmpCZcvdpInHD45pttXWfNmuX47bc7Kt97752SixevhA4fPtxuxvRpDy/Enav08fE2KVSNdvfu3Q+jNYflC8+PzCkrSq7wdrNRFZapk/KKNVtpWtqf6QyAnbP9b8FTrrfjXL9+uWjiyi9/LDSY/Fyamsx+GuX5NWve/urAgeMtvTJ9zp49Kx07dmxI63wMl/Hw4cNZM2fOZIvlwNWrV8/esGHDW9TGPyRib6ROeBPJMc/Ly2txdXV1Ct3DusluarX6R+o4RUuWLPlo69atv9G1cjrYfg4b5z4dI9Bu5F/9IOllIHmkw7SdIjf07du3fcK/eJZtzXlT3RhYVlb2E2168d54440f9+zZs5AK6IOwsLBlNJ7OANPRU6PRnKStHfGKFStWbdy48Re6VkFHpx2D/xWAvwL4P4yzJZgzMy49Pf2b7t27h9+9e7eoT58+/nv37j0YExOzg8aoLHNZ0Isi8DuLwLJly9Zt3rz5EF1jXR/rYdrr9P83AIaNuiJ03bVr13uLFi2azS6wjpN6+zcTExOv0mktRXYbqVQY7TeFUpAsy8vLi4lHKSQgMTSu6BiFZwHAmgzwHThw4HNk8C7WipSUlJTJZLIFdD2HpbVCobhgb2/f8d9btBuoKJZIJMNovJKOprYoPwsATCgc6QimI5QOtqHAcjuDDkZSpr3M+CA6qBvkeMp22tj/x3Jb732mAJhBwlYQzED2m0liFR1qOmg3iOOJU+sYu5/tGLD/i1XT8cxTiEWfkZnVCEZW9pspC1Mypj4sQkyt2NH2vze2X8DuYQRm38+UxAzAv+3zLDjwbzOeTfRfSCp1hbPurHMAAAAASUVORK5CYII='
 
 class UDblockIOT {
     constructor(runtime) {
@@ -35,6 +35,16 @@ class UDblockIOT {
                     opcode: 'initAiPlayer',
                     blockType: BlockType.COMMAND,
                     text: '初始化AI播放器'
+                },
+                {
+                    opcode: 'enableSD',
+                    blockType: BlockType.COMMAND,
+                    text: '启用SD卡'
+                },
+                {
+                    opcode: 'disableSD',
+                    blockType: BlockType.COMMAND,
+                    text: '禁用SD卡'
                 },
                 {
                     opcode: 'startRecording',
@@ -154,14 +164,20 @@ class UDblockIOT {
                     }
                 },
                 {
-                    opcode: 'setVolume',
+                    opcode: 'startASRMode',
                     blockType: BlockType.COMMAND,
-                    text: '设置音量为[VOL]%',
+                    text: '开始语音唤醒模式(小智同学)',
+                },
+                {
+                    opcode: 'getASRResult',
+                    blockType: BlockType.BOOLEAN,
+                    text: '获取识别结果为[RESULT]',
                     arguments: {
-                        VOL: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 100
-                        },
+                        RESULT: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "0x01",
+                            menu: "asrmenu"
+                        }
                     }
                 },
                 {
@@ -227,6 +243,111 @@ class UDblockIOT {
                 ...this.customBlocks
             ],
             menus: {
+                asrmenu:  {
+                    acceptReporters: true,
+                    items: [
+                        { text: "小智同学", value: "0x01" },
+                        { text: "开灯", value: "0x02" },
+                        { text: "关灯", value: "0x03" },
+                        { text: "开红色的灯", value: "0x04" },
+                        { text: "开绿色的灯", value: "0x05" },
+                        { text: "开蓝色的灯", value: "0x06" },
+                        { text: "播放歌曲", value: "0x07" },
+                        { text: "现在有没有下雨", value: "0x08" },
+                        { text: "当前湿度多少", value: "0x09" },
+                        { text: "当前温度多少", value: "0x10" },
+                        { text: "当前光照强度多少", value: "0x11" },
+                        { text: "开风扇", value: "0x12" },
+                        { text: "关风扇", value: "0x13" },
+                        { text: "开窗帘", value: "0x14" },
+                        { text: "关窗帘", value: "0x15" },
+                        { text: "执行指令一", value: "0x16" },
+                        { text: "执行指令二", value: "0x17" },
+                        { text: "执行指令三", value: "0x18" },
+                        { text: "执行指令四", value: "0x19" },
+                        { text: "执行指令五", value: "0x20" },
+                        { text: "执行指令六", value: "0x21" },
+                        { text: "打开电机一", value: "0x22" },
+                        { text: "打开电机二", value: "0x23" },
+                        { text: "打开电机三", value: "0x24" },
+                        { text: "打开电机四", value: "0x25" },
+                        { text: "打开灯带一", value: "0x26" },
+                        { text: "打开灯带二", value: "0x27" },
+                        { text: "打开灯带三", value: "0x28" },
+                        { text: "打开灯带四", value: "0x29" },
+                        { text: "打开灯带五", value: "0x30" },
+                        { text: "打开灯带六", value: "0x31" },
+                        { text: "打开灯带七", value: "0x32" },
+                        { text: "打开灯带八", value: "0x33" },
+                        { text: "关闭灯带一", value: "0x34" },
+                        { text: "关闭灯带二", value: "0x35" },
+                        { text: "关闭灯带三", value: "0x36" },
+                        { text: "关闭灯带四", value: "0x37" },
+                        { text: "关闭灯带五", value: "0x38" },
+                        { text: "关闭灯带六", value: "0x39" },
+                        { text: "关闭灯带七", value: "0x40" },
+                        { text: "关闭灯带八", value: "0x41" },
+                        { text: "打开双路继电器一黄路", value: "0x42" },
+                        { text: "打开双路继电器一蓝路", value: "0x43" },
+                        { text: "打开双路继电器二黄路", value: "0x44" },
+                        { text: "打开双路继电器二蓝路", value: "0x45" },
+                        { text: "打开双路继电器三黄路", value: "0x46" },
+                        { text: "打开双路继电器三蓝路", value: "0x47" },
+                        { text: "打开双路继电器四黄路", value: "0x48" },
+                        { text: "打开双路继电器四蓝路", value: "0x49" },
+                        { text: "打开双路继电器五黄路", value: "0x50" },
+                        { text: "打开双路继电器五蓝路", value: "0x51" },
+                        { text: "打开双路继电器六黄路", value: "0x52" },
+                        { text: "打开双路继电器六蓝路", value: "0x53" },
+                        { text: "打开双路继电器七黄路", value: "0x54" },
+                        { text: "打开双路继电器七蓝路", value: "0x55" },
+                        { text: "打开双路继电器八黄路", value: "0x56" },
+                        { text: "打开双路继电器八蓝路", value: "0x57" },
+                        { text: "关闭双路继电器一黄路", value: "0x58" },
+                        { text: "关闭双路继电器一蓝路", value: "0x59" },
+                        { text: "关闭双路继电器二黄路", value: "0x60" },
+                        { text: "关闭双路继电器二蓝路", value: "0x61" },
+                        { text: "关闭双路继电器三黄路", value: "0x62" },
+                        { text: "关闭双路继电器三蓝路", value: "0x63" },
+                        { text: "关闭双路继电器四黄路", value: "0x64" },
+                        { text: "关闭双路继电器四蓝路", value: "0x65" },
+                        { text: "关闭双路继电器五黄路", value: "0x66" },
+                        { text: "关闭双路继电器五蓝路", value: "0x67" },
+                        { text: "关闭双路继电器六黄路", value: "0x68" },
+                        { text: "关闭双路继电器六蓝路", value: "0x69" },
+                        { text: "关闭双路继电器七黄路", value: "0x70" },
+                        { text: "关闭双路继电器七蓝路", value: "0x71" },
+                        { text: "关闭双路继电器八黄路", value: "0x72" },
+                        { text: "关闭双路继电器八蓝路", value: "0x73" },
+                        { text: "小智同学", value: "0x74" },
+                        { text: "小智同学", value: "0x75" },
+                        { text: "小智同学", value: "0x76" },
+                        { text: "小智同学", value: "0x77" },
+                        { text: "小智同学", value: "0x78" },
+                        { text: "小智同学", value: "0x79" },
+                        { text: "小智同学", value: "0x80" },
+                        { text: "小智同学", value: "0x81" },
+                        { text: "小智同学", value: "0x82" },
+                        { text: "小智同学", value: "0x83" },
+                        { text: "小智同学", value: "0x84" },
+                        { text: "小智同学", value: "0x85" },
+                        { text: "小智同学", value: "0x86" },
+                        { text: "小智同学", value: "0x87" },
+                        { text: "小智同学", value: "0x88" },
+                        { text: "小智同学", value: "0x89" },
+                        { text: "小智同学", value: "0x90" },
+                        { text: "小智同学", value: "0x91" },
+                        { text: "小智同学", value: "0x92" },
+                        { text: "小智同学", value: "0x93" },
+                        { text: "小智同学", value: "0x94" },
+                        { text: "小智同学", value: "0x95" },
+                        { text: "小智同学", value: "0x96" },
+                        { text: "小智同学", value: "0x97" },
+                        { text: "小智同学", value: "0x98" },
+                        { text: "小智同学", value: "0x99" },
+                        { text: "小智同学", value: "0x100" }
+                    ]
+                },
                 RJMenu: {
                     acceptReporters: true,
                     items: [

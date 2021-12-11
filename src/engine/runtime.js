@@ -1065,7 +1065,8 @@ class Runtime extends EventEmitter {
             return this._convertSeparatorForScratchBlocks(blockInfo);
         }else{
             if (typeof blockInfo == "string"){
-                console.log(typeof blockInfo)
+                // 分割线相关
+                //console.log(typeof blockInfo)
                 return this._convertSeparatorForScratchBlocks(blockInfo);
             }
         }
