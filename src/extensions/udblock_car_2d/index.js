@@ -36,17 +36,17 @@ class UDblockCar2D {
                     type: "custom_seperator",
                     text: '★ 控制',
                 },
-                // {
-                //     opcode: 'readWindSensor',
-                //     blockType: BlockType.REPORTER,
-                //     text: '读取风速传感器于[PORT]',
-                //     arguments: {
-                //         PORT: {
-                //             type: ArgumentType.STRING,
-                //             menu: "RJADCMenu"
-                //         }
-                //     }
-                // },
+                {
+                    opcode: 'readWindSensor',
+                    blockType: BlockType.REPORTER,
+                    text: '读取风速传感器于[PORT]',
+                    arguments: {
+                        PORT: {
+                            type: ArgumentType.STRING,
+                            menu: "RJADCMenu"
+                        }
+                    }
+                },
                 {
                     opcode: 'moveForward',
                     blockType: BlockType.COMMAND,

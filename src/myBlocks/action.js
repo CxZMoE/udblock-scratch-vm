@@ -50,6 +50,34 @@ function actionBlocks(hasMotor=true,hasServo=true) {
                         menu: "motorMenu"
                     },
                 }
+            },
+            {
+                type: "custom_seperator",
+                text: '★ ▶ 步进电机',
+            },
+            {
+                opcode: 'turnStepper',
+                blockType: BlockType.COMMAND,
+                text: '步进电机[PORT]设置[DIRECTION][PERIOD]秒转[ROUNDS]圈',
+                arguments: {
+                    PORT: {
+                        type: ArgumentType.NUMBER,
+                        menu: "RJMenu"
+                    },
+                    DIRECTION: {
+                        type: ArgumentType.STRING,
+                        defaultValue: '0x01',
+                        menu: "StepperDirectionMenu"
+                    },
+                    PERIOD: {
+                        type: ArgumentType.NUMBER,
+                        defaultValue: 1
+                    },
+                    ROUNDS: {
+                        type: ArgumentType.NUMBER,
+                        defaultValue: 1
+                    }
+                }
             }
         ]
     }
@@ -76,6 +104,7 @@ function actionBlocks(hasMotor=true,hasServo=true) {
             }
         ]
     }
+    
 
 
     return [

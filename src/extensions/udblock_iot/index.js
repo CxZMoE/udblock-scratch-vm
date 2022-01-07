@@ -47,6 +47,17 @@ class UDblockIOT {
                     text: '禁用SD卡'
                 },
                 {
+                    opcode: 'setVolume',
+                    blockType: BlockType.COMMAND,
+                    text: '设置音量为[VOL]',
+                    arguments: {
+                        VOL:{
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 100
+                        }
+                    }
+                },
+                {
                     opcode: 'startRecording',
                     blockType: BlockType.COMMAND,
                     text: '录音[DUARATION]秒 保存到文件名[FNAME]',
@@ -169,9 +180,26 @@ class UDblockIOT {
                     text: '开始语音唤醒模式(小智同学)',
                 },
                 {
-                    opcode: 'getASRResult',
+                    opcode: 'getASRResultBL',
                     blockType: BlockType.BOOLEAN,
-                    text: '获取识别结果为[RESULT]',
+                    text: '获取离线识别结果为[RESULT]',
+                    arguments: {
+                        RESULT: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "0x01",
+                            menu: "asrmenu"
+                        }
+                    }
+                },
+                {
+                    opcode: 'getASRResult',
+                    blockType: BlockType.REPORTER,
+                    text: '离线识别结果',
+                },
+                {
+                    opcode: 'asrResult',
+                    blockType: BlockType.REPORTER,
+                    text: '识别结果[RESULT]',
                     arguments: {
                         RESULT: {
                             type: ArgumentType.STRING,

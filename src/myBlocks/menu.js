@@ -76,6 +76,10 @@ const miscMenuBlocks = {
             { text: "第二第三第四路压线", value: "0x01" },
             { text: "第一第二第三第四路压线", value: "0x00" },
         ]
+    },
+    StepperDirectionMenu: {
+        acceptReporters: true,
+        items: [{ text: "正向", value: "0x01" }, { text: "反向", value: "0x00" }]
     }
 }
 
