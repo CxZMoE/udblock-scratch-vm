@@ -37,17 +37,6 @@ class UDblockCar2D {
                     text: '★ 控制',
                 },
                 {
-                    opcode: 'readWindSensor',
-                    blockType: BlockType.REPORTER,
-                    text: '读取风速传感器于[PORT]',
-                    arguments: {
-                        PORT: {
-                            type: ArgumentType.STRING,
-                            menu: "RJADCMenu"
-                        }
-                    }
-                },
-                {
                     opcode: 'moveForward',
                     blockType: BlockType.COMMAND,
                     text: '以[SPEED]%的速度前进',
