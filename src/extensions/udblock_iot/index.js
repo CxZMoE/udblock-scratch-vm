@@ -186,7 +186,7 @@ class UDblockIOT {
                     arguments: {
                         RESULT: {
                             type: ArgumentType.STRING,
-                            defaultValue: "0x01",
+                            defaultValue: "1",
                             menu: "asrmenu"
                         }
                     }
@@ -203,7 +203,7 @@ class UDblockIOT {
                     arguments: {
                         RESULT: {
                             type: ArgumentType.STRING,
-                            defaultValue: "0x01",
+                            defaultValue: "1",
                             menu: "asrmenu"
                         }
                     }
