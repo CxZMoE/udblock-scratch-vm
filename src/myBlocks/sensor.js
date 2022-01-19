@@ -39,7 +39,7 @@ const sensorBlocks = [
         opcode: 'writeText',
         blockType: BlockType.COMMAND,
         text: '写入NFC卡内容[TEXT]',
-        arguments:{
+        arguments: {
             TEXT: {
                 type: ArgumentType.STRING,
                 defaultValue: "door"
@@ -172,6 +172,17 @@ const sensorBlocks = [
         }
     },
     {
+        opcode: 'readWindSensor',
+        blockType: BlockType.REPORTER,
+        text: '风速传感器[PORT]',
+        arguments: {
+            PORT: {
+                type: ArgumentType.STRING,
+                menu: "RJADCMenu"
+            }
+        }
+    },
+    {
         opcode: 'readDirtHumiditySensor',
         blockType: BlockType.REPORTER,
         text: '土壤湿度传感器[PORT]',
@@ -181,7 +192,7 @@ const sensorBlocks = [
                 menu: "RJADCMenu"
             }
         }
-    }, 
+    },
     {
         opcode: 'readDSTempSensor',
         blockType: BlockType.REPORTER,
@@ -219,8 +230,8 @@ const sensorBlocks = [
         opcode: 'readFourChannelInferredSensor',
         blockType: BlockType.BOOLEAN,
         text: '四路红外传感器检测到[STATUS]',
-        arguments:{
-            STATUS:{
+        arguments: {
+            STATUS: {
                 type: ArgumentType.STRING,
                 menu: "FourInferredMap"
             }
