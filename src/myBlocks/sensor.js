@@ -237,6 +237,11 @@ const sensorBlocks = [
             }
         }
     },
+    {
+        opcode: 'readKeyboardModuleValue',
+        blockType: BlockType.REPORTER,
+        text: '获取按键模块数值'
+    }
 ]
 
 module.exports = sensorBlocks;

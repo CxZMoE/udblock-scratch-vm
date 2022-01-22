@@ -277,8 +277,81 @@ class UDblockUDPi {
                     blockType: BlockType.REPORTER,
                     text: 'UDP消息',
                 },
-                
-                
+                {
+                    type: "custom_seperator",
+                    text: '★ ▶ HTTP请求',
+                },
+                {
+                    opcode: 'urequestsAddItemMap',
+                    blockType: BlockType.COMMAND,
+                    text: '创建数据对象[NAME]',
+                    arguments: {
+                        NAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        }
+                    }
+                },
+                {
+                    opcode: 'urequestsSetItem',
+                    blockType: BlockType.COMMAND,
+                    text: '设置数据对象[NAME]的[KEY]为[VALUE]',
+                    arguments: {
+                        NAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        },
+                        KEY: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'number'
+                        },
+                        VALUE: {
+                            type: ArgumentType.STRING,
+                            defaultValue: '6'
+                        }
+                    }
+                },
+                {
+                    opcode: 'urequestsDelItem',
+                    blockType: BlockType.COMMAND,
+                    text: '删除数据对象[NAME]的[KEY]',
+                    arguments: {
+                        NAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        },
+                        KEY: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'number'
+                        }
+                    }
+                },
+                {
+                    opcode: 'urequestsPostItem',
+                    blockType: BlockType.COMMAND,
+                    text: 'POST数据对象[NAME]到地址[ADDR]',
+                    arguments: {
+                        NAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        },
+                        ADDR: {
+                            type: ArgumentType.STRING,
+                            defaultValue: ' '
+                        }
+                    }
+                },
+                {
+                    opcode: 'urequestsGetItem',
+                    blockType: BlockType.COMMAND,
+                    text: 'GET地址[ADDR]',
+                    arguments: {
+                        ADDR: {
+                            type: ArgumentType.STRING,
+                            defaultValue: ' '
+                        }
+                    }
+                }
             ],
             menus: {
                 buzzerSounds: {

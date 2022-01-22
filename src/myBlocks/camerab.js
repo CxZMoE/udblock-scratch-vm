@@ -239,8 +239,26 @@ const cameraBlocks = [
         blockType: BlockType.REPORTER,
         text: '摄像头二维码识别结果',
     },
-    
-    
+    {
+        type: "custom_seperator",
+        text: '★> 口罩识别',
+    },
+    {
+        opcode: 'doMaskDectection',
+        blockType: BlockType.COMMAND,
+        text: '摄像头[ACTION]口罩识别',
+        arguments: {
+            ACTION: {
+                type: ArgumentType.STRING,
+                menu: "actions"
+            },
+        }
+    },
+    {
+        opcode: 'getMaskResult',
+        blockType: BlockType.BOOLEAN,
+        text: '识别到口罩',
+    },
     {
         opcode: 'switchMode',
         blockType: BlockType.COMMAND,

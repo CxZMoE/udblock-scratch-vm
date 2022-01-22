@@ -27,7 +27,7 @@ class UDblockUDPiPlusV2 {
                     blockType: BlockType.COMMAND,
                     text: "打印[TEXT]",
                     arguments: {
-                        TEXT:{
+                        TEXT: {
                             type: ArgumentType.STRING,
                             defaultValue: "欢迎"
                         }
@@ -42,7 +42,7 @@ class UDblockUDPiPlusV2 {
                     blockType: BlockType.EVHAT,
                     text: '当主板按钮[BTN]按下',
                     arguments: {
-                        BTN:{
+                        BTN: {
                             type: ArgumentType.STRING,
                             defaultValue: "0",
                             menu: 'buttons'
@@ -120,7 +120,7 @@ class UDblockUDPiPlusV2 {
                     blockType: BlockType.BOOLEAN,
                     text: '读取手势传感器为[GESTURE]',
                     arguments: {
-                        GESTURE:{
+                        GESTURE: {
                             type: ArgumentType.STRING,
                             defaultValue: "up",
                             menu: "gesture_sensor"
@@ -140,7 +140,7 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayWrite',
                     blockType: BlockType.COMMAND,
                     text: '将在显示屏[LINE]行显示文本[TEXT]',
-                    arguments:{
+                    arguments: {
                         LINE: {
                             type: ArgumentType.NUMBER,
                             defaultValue: 0, // * 16
@@ -177,7 +177,7 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayDrawLabel',
                     blockType: BlockType.COMMAND,
                     text: '屏幕画标签 X:[X] Y:[Y] 内容: [STR]',
-                    arguments:{
+                    arguments: {
                         X: {
                             type: ArgumentType.NUMBER,
                             defaultValue: 50, // * 16
@@ -196,7 +196,7 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayDrawPoint',
                     blockType: BlockType.COMMAND,
                     text: '屏幕画点 X[X] Y[Y]',
-                    arguments:{
+                    arguments: {
                         X: {
                             type: ArgumentType.NUMBER,
                             defaultValue: 0, // * 16
@@ -211,7 +211,7 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayDrawLine',
                     blockType: BlockType.COMMAND,
                     text: '屏幕画直线 起点 X[SX] Y[SY] | 终点 X[EX] Y[EY]',
-                    arguments:{
+                    arguments: {
                         SX: {
                             type: ArgumentType.NUMBER,
                             defaultValue: 0, // * 16
@@ -234,14 +234,14 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayDrawRect',
                     blockType: BlockType.COMMAND,
                     text: '屏幕画矩形 X[SX] Y[SY] 长[LENGTH] 宽[WIDTH]',
-                    arguments:{
+                    arguments: {
                         SX: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2 - 20, // * 16
+                            defaultValue: 128 / 2 - 20, // * 16
                         },
                         SY: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 - 20, // * 16
+                            defaultValue: 64 / 2 - 20, // * 16
                         },
                         LENGTH: {
                             type: ArgumentType.NUMBER,
@@ -257,14 +257,14 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayDrawRectFill',
                     blockType: BlockType.COMMAND,
                     text: '屏幕画实心矩形 X[SX] Y[SY] 长[LENGTH] 宽[WIDTH]',
-                    arguments:{
+                    arguments: {
                         SX: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2 - 20, // * 16
+                            defaultValue: 128 / 2 - 20, // * 16
                         },
                         SY: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 - 20, // * 16
+                            defaultValue: 64 / 2 - 20, // * 16
                         },
                         LENGTH: {
                             type: ArgumentType.NUMBER,
@@ -280,14 +280,14 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayDrawCircle',
                     blockType: BlockType.COMMAND,
                     text: '屏幕画圆形 坐标 X:[SX] Y:[SY] 半径:[R]',
-                    arguments:{
+                    arguments: {
                         SX: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2 - 20, // * 16
+                            defaultValue: 128 / 2 - 20, // * 16
                         },
                         SY: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 - 20, // * 16
+                            defaultValue: 64 / 2 - 20, // * 16
                         },
                         R: {
                             type: ArgumentType.NUMBER,
@@ -299,14 +299,14 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayDrawCircleFill',
                     blockType: BlockType.COMMAND,
                     text: '屏幕画实心圆形 X:[SX] Y:[SY] 半径[R]',
-                    arguments:{
+                    arguments: {
                         SX: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2 - 20, // * 16
+                            defaultValue: 128 / 2 - 20, // * 16
                         },
                         SY: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 - 20, // * 16
+                            defaultValue: 64 / 2 - 20, // * 16
                         },
                         R: {
                             type: ArgumentType.NUMBER,
@@ -318,30 +318,30 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayDrawTriangle',
                     blockType: BlockType.COMMAND,
                     text: '屏幕画三角形 坐标 X1:[X1] Y1:[Y1]\nX2:[X2] Y2:[Y2]\nX3:[X3] Y3:[Y3]',
-                    arguments:{
+                    arguments: {
                         X1: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2, // * 16
+                            defaultValue: 128 / 2, // * 16
                         },
                         Y1: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 - 20, // * 16
+                            defaultValue: 64 / 2 - 20, // * 16
                         },
                         X2: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2 + 20, // * 16
+                            defaultValue: 128 / 2 + 20, // * 16
                         },
                         Y2: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 + 20, // * 16
+                            defaultValue: 64 / 2 + 20, // * 16
                         },
                         X3: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2 - 20, // * 16
+                            defaultValue: 128 / 2 - 20, // * 16
                         },
                         Y3: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 + 20, // * 16
+                            defaultValue: 64 / 2 + 20, // * 16
                         },
 
                     }
@@ -350,30 +350,30 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayDrawTriangleFill',
                     blockType: BlockType.COMMAND,
                     text: '屏幕画实心三角形 坐标 X1:[X1] Y1:[Y1]\nX2:[X2] Y2:[Y2]\nX3:[X3] Y3:[Y3]',
-                    arguments:{
+                    arguments: {
                         X1: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2, // * 16
+                            defaultValue: 128 / 2, // * 16
                         },
                         Y1: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 - 20, // * 16
+                            defaultValue: 64 / 2 - 20, // * 16
                         },
                         X2: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2 + 20, // * 16
+                            defaultValue: 128 / 2 + 20, // * 16
                         },
                         Y2: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 + 20, // * 16
+                            defaultValue: 64 / 2 + 20, // * 16
                         },
                         X3: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2 - 20, // * 16
+                            defaultValue: 128 / 2 - 20, // * 16
                         },
                         Y3: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 + 20, // * 16
+                            defaultValue: 64 / 2 + 20, // * 16
                         },
 
                     }
@@ -382,14 +382,14 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayDrawCircle',
                     blockType: BlockType.COMMAND,
                     text: '屏幕画圆形 坐标 X:[SX] Y:[SY] 半径:[R]',
-                    arguments:{
+                    arguments: {
                         SX: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 128/2 - 20, // * 16
+                            defaultValue: 128 / 2 - 20, // * 16
                         },
                         SY: {
                             type: ArgumentType.NUMBER,
-                            defaultValue: 64/2 - 20, // * 16
+                            defaultValue: 64 / 2 - 20, // * 16
                         },
                         R: {
                             type: ArgumentType.NUMBER,
@@ -401,7 +401,7 @@ class UDblockUDPiPlusV2 {
                     opcode: 'displayScroll',
                     blockType: BlockType.COMMAND,
                     text: '屏幕内容向X:[X] Y:[Y]移动 ',
-                    arguments:{
+                    arguments: {
                         X: {
                             type: ArgumentType.NUMBER,
                             defaultValue: 0, // * 16
@@ -549,7 +549,7 @@ class UDblockUDPiPlusV2 {
                     arguments: {
                         SSID: {
                             type: ArgumentType.STRING,
-                            defaultValue: "udpi-" + (parseInt(Math.random()*10000000+ '')) 
+                            defaultValue: "udpi-" + (parseInt(Math.random() * 10000000 + ''))
                         },
                         PSK: {
                             type: ArgumentType.STRING,
@@ -578,13 +578,87 @@ class UDblockUDPiPlusV2 {
                     blockType: BlockType.REPORTER,
                     text: 'UDP消息',
                 },
-                
-                
+                {
+                    type: "custom_seperator",
+                    text: '★ ▶ HTTP请求',
+                },
+                {
+                    opcode: 'urequestsAddItemMap',
+                    blockType: BlockType.COMMAND,
+                    text: '创建数据对象[NAME]',
+                    arguments: {
+                        NAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        }
+                    }
+                },
+                {
+                    opcode: 'urequestsSetItem',
+                    blockType: BlockType.COMMAND,
+                    text: '设置数据对象[NAME]的[KEY]为[VALUE]',
+                    arguments: {
+                        NAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        },
+                        KEY: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'number'
+                        },
+                        VALUE: {
+                            type: ArgumentType.STRING,
+                            defaultValue: '6'
+                        }
+                    }
+                },
+                {
+                    opcode: 'urequestsDelItem',
+                    blockType: BlockType.COMMAND,
+                    text: '删除数据对象[NAME]的[KEY]',
+                    arguments: {
+                        NAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        },
+                        KEY: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'number'
+                        }
+                    }
+                },
+                {
+                    opcode: 'urequestsPostItem',
+                    blockType: BlockType.COMMAND,
+                    text: 'POST数据对象[NAME]到地址[ADDR]',
+                    arguments: {
+                        NAME: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        },
+                        ADDR: {
+                            type: ArgumentType.STRING,
+                            defaultValue: ' '
+                        }
+                    }
+                },
+                {
+                    opcode: 'urequestsGetItem',
+                    blockType: BlockType.COMMAND,
+                    text: 'GET地址[ADDR]',
+                    arguments: {
+                        ADDR: {
+                            type: ArgumentType.STRING,
+                            defaultValue: ' '
+                        }
+                    }
+                }
+
             ],
             menus: {
                 gesture_sensor: {
                     acceptReporters: true,
-                    items:[{text: "上", value: "up"},{text: "下", value: "down"},{text: "左", value: "left"},{text: "右", value: "right"}]
+                    items: [{ text: "上", value: "up" }, { text: "下", value: "down" }, { text: "左", value: "left" }, { text: "右", value: "right" }]
                 },
                 buzzerSounds: {
                     acceptReporters: true,
@@ -594,50 +668,50 @@ class UDblockUDPiPlusV2 {
                     acceptReporters: true,
                     items: [{ text: "低", value: "LOW" }, { text: "中", value: "MID" }, { text: "高", value: "HIGH" }]
                 },
-                buttons:{
+                buttons: {
                     acceptReporters: true,
-                    items:[{ text: "A", value: "0" },{ text: "B", value: "2" }]
+                    items: [{ text: "A", value: "0" }, { text: "B", value: "2" }]
                 },
-                displayLine:{
+                displayLine: {
                     acceptReporters: true,
-                    items:[{ text: "一", value: "0" },{ text: "二", value: "1" },{ text: "三", value: "2" },{ text: "四", value: "3" }]
-                },color: {
+                    items: [{ text: "一", value: "0" }, { text: "二", value: "1" }, { text: "三", value: "2" }, { text: "四", value: "3" }]
+                }, color: {
                     acceptReporters: true,
-                    items: [{ text: "红色", value: "red" },{ text: "绿色", value: "green" },{ text: "蓝色", value: "blue" },{ text: "黄色", value: "yellow" },{ text: "天蓝色", value: "skyblue" },{ text: "紫色", value: "purple" },{ text: "白色", value: "white" },{ text: "黑色", value: "black" }]
+                    items: [{ text: "红色", value: "red" }, { text: "绿色", value: "green" }, { text: "蓝色", value: "blue" }, { text: "黄色", value: "yellow" }, { text: "天蓝色", value: "skyblue" }, { text: "紫色", value: "purple" }, { text: "白色", value: "white" }, { text: "黑色", value: "black" }]
                 },
-                imageMethods : {
+                imageMethods: {
                     acceptReporters: true,
-                    items: [{ text: "边缘查找", value: "iess" },{ text: "锐化", value: "ishs" },{ text: "浮雕化", value: "issr" }]
+                    items: [{ text: "边缘查找", value: "iess" }, { text: "锐化", value: "ishs" }, { text: "浮雕化", value: "issr" }]
                 }
             }
         }
     }
-    
-    espstart(){return false}
-    whenButtonPressed(){}
-    getStartTime(){}
-    delay_ms(){}
-    delay_us(){}
-    delay_s(){}
-    readAmbientLightSensor(){}
-    readSoundSensor(){}
-    readGryoSensor(){}
-    readAccelSensor(){}
-    openOnBoardRGB(){}
-    closeOnBoardRGB(){}
-    setLuminanceOnBoardRGB(){}
-    setRGBDraw(){}
-    setRGBLineDraw(){}
-    setRGBLineSingleDraw(){}
-    setRGBLineSingleOnlyDraw(){}
-    setBuzzerPlay(){}
-    setBuzzerStop(){}
-    getWiFiStatus(){}
-    setConnectToWiFi(){}
-    closeConnectToWiFi(){}
-    openWiFiAP(){}
-    udpClientSent(){}
-    udpClientReceiveEvent(){}
+
+    espstart() { return false }
+    whenButtonPressed() { }
+    getStartTime() { }
+    delay_ms() { }
+    delay_us() { }
+    delay_s() { }
+    readAmbientLightSensor() { }
+    readSoundSensor() { }
+    readGryoSensor() { }
+    readAccelSensor() { }
+    openOnBoardRGB() { }
+    closeOnBoardRGB() { }
+    setLuminanceOnBoardRGB() { }
+    setRGBDraw() { }
+    setRGBLineDraw() { }
+    setRGBLineSingleDraw() { }
+    setRGBLineSingleOnlyDraw() { }
+    setBuzzerPlay() { }
+    setBuzzerStop() { }
+    getWiFiStatus() { }
+    setConnectToWiFi() { }
+    closeConnectToWiFi() { }
+    openWiFiAP() { }
+    udpClientSent() { }
+    udpClientReceiveEvent() { }
 }
 
 module.exports = UDblockUDPiPlusV2;
