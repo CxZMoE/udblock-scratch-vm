@@ -242,6 +242,30 @@ const carBlocks = [
         text: '关闭PS2遥控器遥控模式'
     },
     {
+        opcode: 'ps2GetButtonStatus',
+        blockType: BlockType.BOOLEAN,
+        text: 'PS2按键[BTN]被按下',
+        arguments: {
+            BTN:{
+                type: ArgumentType.NUMBER,
+                menu: 'ps2BtnMenu',
+                defaultValue: 0,
+            }
+        }
+    },
+    {
+        opcode: 'ps2GetRemote',
+        blockType: BlockType.REPORTER,
+        text: 'PS2遥感[POS]',
+        arguments: {
+            POS:{
+                type: ArgumentType.NUMBER,
+                menu: 'ps2RemoteMenu',
+                defaultValue:0,
+            }
+        }
+    },
+    {
         opcode: 'ps2SetForwardSpd',
         blockType: BlockType.COMMAND,
         text: '设置遥控器前进速度为[SPD] cm/s',

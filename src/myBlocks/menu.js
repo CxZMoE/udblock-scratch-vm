@@ -80,6 +80,54 @@ const miscMenuBlocks = {
     StepperDirectionMenu: {
         acceptReporters: true,
         items: [{ text: "正向", value: "0x01" }, { text: "反向", value: "0x00" }]
+    },
+    // 0 select 
+    // 1 L3    
+    // 2 R3   
+    // 3 start  
+    // 4 上    
+    // 5 右     
+    // 6 下    
+    // 7 左    
+    // 8 L2    
+    // 9 R2     
+    // 10 L1   
+    // 11 R1   
+    // 12 三角形 
+    // 13 圆形   
+    // 14 ×    
+    // 15 正方形
+
+    ps2BtnMenu: {
+        acceptReporters: true,
+        items: [
+            // {text: "select", value: "0"},
+            // {text: "L3", value: "1"},
+            // {text: "R3", value: "2"},
+            // {text: "start", value: "3"},
+            // {text: "上", value: "4"},
+            // {text: "右", value: "5"},
+            // {text: "下", value: "6"},
+            // {text: "左", value: "7"},
+            {text: "L2", value: "8"},
+            {text: "R2", value: "9"},
+            {text: "L1", value: "10"},
+            {text: "R1", value: "11"},
+            {text: "Δ", value: "12"},
+            {text: "o", value: "13"},
+            {text: "×", value: "14"},
+            {text: "□", value: "15"},
+        ]
+    },
+    // 0 ly 1 lx 2 ry 3 rx
+    ps2RemoteMenu: {
+        acceptReporters: true,
+        items: [
+            {text: "LY", value: "0"},
+            {text: "LX", value: "1"},
+            {text: "RY", value: "2"},
+            {text: "RX", value: "3"},
+        ]
     }
 }
 

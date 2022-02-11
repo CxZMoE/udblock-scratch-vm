@@ -23,6 +23,11 @@ class UDblockCameraB {
                     text: '初始化摄像头'
                 },
                 {
+                    opcode: 'resetCamera',
+                    blockType: BlockType.COMMAND,
+                    text: '重启摄像头'
+                },
+                {
                     opcode: 'doFaceDectection',
                     blockType: BlockType.COMMAND,
                     text: '[ACTION]人脸识别',

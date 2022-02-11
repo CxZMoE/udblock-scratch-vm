@@ -18,6 +18,11 @@ const cameraBlocks = [
         }
     },
     {
+        opcode: 'resetCamera',
+        blockType: BlockType.COMMAND,
+        text: '重启摄像头'
+    },
+    {
         type: "custom_seperator",
         text: '★> 人脸识别',
     },
