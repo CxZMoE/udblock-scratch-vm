@@ -232,6 +232,11 @@ const carBlocks = [
         text: '★ PS2遥控器',
     },
     {
+        opcode: 'ps2Init',
+        blockType: BlockType.COMMAND,
+        text: '初始化遥控器'
+    },
+    {
         opcode: 'ps2ControlEnable',
         blockType: BlockType.COMMAND,
         text: '开启PS2遥控器遥控模式'
@@ -248,8 +253,7 @@ const carBlocks = [
         arguments: {
             BTN:{
                 type: ArgumentType.NUMBER,
-                menu: 'ps2BtnMenu',
-                defaultValue: 0,
+                menu: 'ps2BtnMenu'
             }
         }
     },
@@ -260,8 +264,7 @@ const carBlocks = [
         arguments: {
             POS:{
                 type: ArgumentType.NUMBER,
-                menu: 'ps2RemoteMenu',
-                defaultValue:0,
+                menu: 'ps2RemoteMenu'
             }
         }
     },
