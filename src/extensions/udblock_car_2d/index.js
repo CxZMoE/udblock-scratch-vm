@@ -81,6 +81,29 @@ class UDblockCar2D {
                     }
                 },
                 {
+                    opcode: 'turnCustomize',
+                    blockType: BlockType.COMMAND,
+                    text: '左轮以[SPDL]%速度[MODEL]，右轮以[SPDR]%速度[MODER]',
+                    arguments: {
+                        SPDL: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 30
+                        },
+                        SPDR: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 30
+                        },
+                        MODEL: {
+                            type: ArgumentType.STRING,
+                            menu: "carServoMode"
+                        },
+                        MODER: {
+                            type: ArgumentType.STRING,
+                            menu: "carServoMode"
+                        }
+                    }
+                },
+                {
                     opcode: 'stopCar',
                     blockType: BlockType.COMMAND,
                     text: '停止小车'
@@ -234,6 +257,10 @@ class UDblockCar2D {
                 servoMenu: {
                     acceptReporters: true,
                     items: [{text: "一",value: "0x01"},{text: "二",value: "0x02"},{text: "三",value: "0x03"},{text: "四",value: "0x04"},]
+                },
+                carServoMode: {
+                    acceptReporters: true,
+                    items: [{text: "正转",value: "clock"},{text: "反转",value: "anticlock"}]
                 },
                 ...miscMenuBlocks
                 
