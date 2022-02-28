@@ -53,8 +53,44 @@ class UDblockMQTT {
                         
                     }
                 },
+                {
+                    opcode: 'writeI2CAddr',
+                    blockType: BlockType.REPORTER,
+                    text: '向[ADDR]地址写入[CONTENT]',
+                    arguments: {
+                        ADDR:{
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "8"
+                        },
+                        CONTENT:{
+                            type: ArgumentType.STRING,
+                            defaultValue: "0x01"
+                        },
+                        
+                    }
+                },
+                {
+                    opcode: 'writeI2CToMem',
+                    blockType: BlockType.COMMAND,
+                    text: '向[ADDR]地址写入[NUM]个字节内容[CONTENT]',
+                    arguments: {
+                        ADDR:{
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "8"
+                        },
+                        NUM:{
+                            type: ArgumentType.NUMBER,
+                            defaultValue: "1"
+                        },
+                        CONTENT:{
+                            type: ArgumentType.STRING,
+                            defaultValue: "0x01"
+                        },
+                    }
+                },
             ],
             menus: {
+
             }
         }
     }

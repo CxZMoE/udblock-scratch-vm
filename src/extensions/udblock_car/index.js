@@ -48,12 +48,12 @@ class UDblockCar {
                 RJDigiMenu: {
                     acceptReporters: true,
                     items: [
-                        {text:"RJ1", value:EXTB_LIST.extb_mf.RJ11[0].value[0]},
-                        {text:"RJ2", value:EXTB_LIST.extb_mf.RJ11[1].value[0]},
-                        {text:"RJ3", value:EXTB_LIST.extb_mf.RJ11[2].value[0]},
-                        {text:"RJ4", value:EXTB_LIST.extb_mf.RJ11[3].value[0]},
-                        {text:"RJ5", value:EXTB_LIST.extb_mf.RJ11[4].value[0]},
-                        {text:"RJ6", value:EXTB_LIST.extb_mf.RJ11[5].value[0]},
+                        {text:"RJ1", value:EXTB_LIST.extb_mf.RJ11[0].value[1]},
+                        {text:"RJ2", value:EXTB_LIST.extb_mf.RJ11[1].value[1]},
+                        {text:"RJ3", value:EXTB_LIST.extb_mf.RJ11[2].value[1]},
+                        {text:"RJ4", value:EXTB_LIST.extb_mf.RJ11[3].value[1]},
+                        {text:"RJ5", value:EXTB_LIST.extb_mf.RJ11[4].value[1]},
+                        {text:"RJ6", value:EXTB_LIST.extb_mf.RJ11[5].value[1]},
                     ]
                 },
                 RJADCMenu: {
