@@ -39,6 +39,7 @@ const builtinExtensions = {
     udblockEXTBIOT: ()=> require("../extensions/udblock_iot"),
     udblockMQTT: ()=> require("../extensions/udblock-mqtt"),
     udblockMicrobit: ()=> require("../extensions/udblock_microbit"),
+    udblockUtils : ()=> require("../extensions/udblock-utils")
 };
 
 /**
