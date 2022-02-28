@@ -64,7 +64,7 @@ const carBlocks = [
     {
         opcode: 'turnLeft',
         blockType: BlockType.COMMAND,
-        text: '以[SPEED]rad/s的速度左转',
+        text: '以[SPEED]度每秒的速度左转',
         arguments: {
             SPEED: {
                 type: ArgumentType.NUMBER,
@@ -75,11 +75,41 @@ const carBlocks = [
     {
         opcode: 'turnRight',
         blockType: BlockType.COMMAND,
-        text: '以[SPEED]rad/s的速度右转',
+        text: '以[SPEED]度每秒的速度右转',
         arguments: {
             SPEED: {
                 type: ArgumentType.NUMBER,
                 defaultValue: 30
+            }
+        }
+    },
+    {
+        opcode: 'turnLeftDegree',
+        blockType: BlockType.COMMAND,
+        text: '以[SPEED]度每秒的速度左转[DEGREE]°',
+        arguments: {
+            SPEED: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 15
+            },
+            DEGREE: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 90
+            }
+        }
+    },
+    {
+        opcode: 'turnRightDegree',
+        blockType: BlockType.COMMAND,
+        text: '以[SPEED]度每秒的速度右转[DEGREE]°',
+        arguments: {
+            SPEED: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 15
+            },
+            DEGREE: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 90
             }
         }
     },
