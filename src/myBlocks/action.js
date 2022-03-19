@@ -381,7 +381,7 @@ function actionBlocks(hasMotor=true,hasServo=true) {
                 },
                 TEXT: {
                     type: ArgumentType.STRING,
-                    defaultValue: "UDBlock, Go!"
+                    defaultValue: "UDBlock,Go!"
                 }
             }
         },
