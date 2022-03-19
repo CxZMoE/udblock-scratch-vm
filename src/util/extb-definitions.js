@@ -12,7 +12,8 @@ const EXTB_LIST = {
                     "33",
                     "5"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ2",
@@ -20,7 +21,8 @@ const EXTB_LIST = {
                     "32",
                     "17"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ3",
@@ -35,7 +37,8 @@ const EXTB_LIST = {
                     "35",
                     "19"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ5",
@@ -43,7 +46,8 @@ const EXTB_LIST = {
                     "34",
                     "26"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ6",
@@ -76,19 +80,19 @@ const EXTB_LIST = {
         "servo": [
             {
                 "name": "SERVO_1",
-                "value": ["6","7"]
+                "value": ["6", "7"]
             },
             {
                 "name": "SERVO_2",
-                "value": ["7","8"]
+                "value": ["7", "8"]
             },
             {
                 "name": "SERVO_3",
-                "value": ["4","9"]
+                "value": ["4", "9"]
             },
             {
                 "name": "SERVO_4",
-                "value": ["5","10"]
+                "value": ["5", "10"]
             }
         ],
         "motor_v2": [
@@ -175,7 +179,8 @@ const EXTB_LIST = {
                     "33",
                     "5"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ2",
@@ -183,7 +188,8 @@ const EXTB_LIST = {
                     "32",
                     "17"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ3",
@@ -219,7 +225,8 @@ const EXTB_LIST = {
                     "34",
                     "25"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ8",
@@ -227,7 +234,8 @@ const EXTB_LIST = {
                     "35",
                     "26"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             }
         ],
         "motor": [],
@@ -254,7 +262,8 @@ const EXTB_LIST = {
                     "33",
                     "18"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ2",
@@ -262,7 +271,8 @@ const EXTB_LIST = {
                     "32",
                     "15"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ3",
@@ -270,7 +280,8 @@ const EXTB_LIST = {
                     "35",
                     "19"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ4",
@@ -278,7 +289,8 @@ const EXTB_LIST = {
                     "34",
                     "21"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             }
         ],
         "motor": [
@@ -322,19 +334,19 @@ const EXTB_LIST = {
         "servo": [ //1->3 2->1 3->4 4->2
             {
                 "name": "SERVO_1",
-                "value": ["0","9"] //8
+                "value": ["0", "9"] //8
             },
             {
                 "name": "SERVO_2",
-                "value": ["1","11"] //9
+                "value": ["1", "11"] //9
             },
             {
                 "name": "SERVO_3",
-                "value": ["7","8"] //10
+                "value": ["7", "8"] //10
             },
             {
                 "name": "SERVO_4",
-                "value": ["6","10"] //11
+                "value": ["6", "10"] //11
             }
         ],
         "motor_v2": [
@@ -406,7 +418,8 @@ const EXTB_LIST = {
                     "33",
                     "5"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ2",
@@ -414,7 +427,8 @@ const EXTB_LIST = {
                     "32",
                     "17"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ3",
@@ -429,7 +443,8 @@ const EXTB_LIST = {
                     "35",
                     "19"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ5",
@@ -437,7 +452,8 @@ const EXTB_LIST = {
                     "34",
                     "26"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ6",
@@ -486,7 +502,8 @@ const EXTB_LIST = {
                     "33",
                     "5"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ2",
@@ -494,7 +511,8 @@ const EXTB_LIST = {
                     "32",
                     "17"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ3",
@@ -509,7 +527,8 @@ const EXTB_LIST = {
                     "35",
                     "19"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ5",
@@ -517,7 +536,8 @@ const EXTB_LIST = {
                     "34",
                     "26"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ6",
@@ -566,7 +586,8 @@ const EXTB_LIST = {
                     "33",
                     "5"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ2",
@@ -574,7 +595,8 @@ const EXTB_LIST = {
                     "32",
                     "17"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ3",
@@ -582,7 +604,8 @@ const EXTB_LIST = {
                     "34",
                     "26"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ4",
@@ -590,7 +613,8 @@ const EXTB_LIST = {
                     "35",
                     "19"
                 ],
-                "adc": "true"
+                "adc": "true",
+                "input": "false"
             },
         ],
         "iic": [
