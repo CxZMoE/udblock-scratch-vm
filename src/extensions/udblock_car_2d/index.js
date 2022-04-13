@@ -254,6 +254,17 @@ class UDblockCar2D {
                         {text:"RJ5", value: EXTB_LIST.extb_mf.RJ11[4].value[0]},
                     ]
                 },
+                RJADCMenuFull: {
+                    acceptReporters: true,
+                    items: [
+                        {text:"RJ1", value: EXTB_LIST.extb_mf.RJ11[0].value[0]},
+                        {text:"RJ2", value: EXTB_LIST.extb_mf.RJ11[1].value[0]},
+                        {text:"RJ3", value:EXTB_LIST.extb_mf.RJ11[2].value[0]},
+                        {text:"RJ4", value: EXTB_LIST.extb_mf.RJ11[3].value[0]},
+                        {text:"RJ5", value: EXTB_LIST.extb_mf.RJ11[4].value[0]},
+                        {text:"RJ6", value:EXTB_LIST.extb_mf.RJ11[5].value[0]},
+                    ]
+                },
                 servoMenu: {
                     acceptReporters: true,
                     items: [{text: "一",value: "0x01"},{text: "二",value: "0x02"},{text: "三",value: "0x03"},{text: "四",value: "0x04"},]

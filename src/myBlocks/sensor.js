@@ -123,7 +123,7 @@ const sensorBlocks = [
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
-                menu: "RJADCMenu" // 修改
+                menu: "RJADCMenuFull" // 修改
             }
         }
     },
