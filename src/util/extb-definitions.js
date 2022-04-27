@@ -623,7 +623,86 @@ const EXTB_LIST = {
                 "scl": "22"
             }
         ],
-    }
+    },
+    "extb_udpi_mini": {
+        "id": "udblockUDPiMiniV1",
+        "idv2": "udblockUDPiMiniV2",
+        "name": "UDPi+最小系统板V1",
+        "img": "assets/img/extb_mf.png",
+        "description": "UDPi+最小系统板V1",
+        "RJ11": [
+            {
+                "name": "RJ1",
+                "value": [
+                    "36",
+                    "25"
+                ],
+                "adc": "true",
+                "input": "true"
+            },
+            {
+                "name": "RJ2",
+                "value": [
+                    "34",
+                    "12"
+                ],
+                "adc": "true",
+                "input": "true"
+            },
+            {
+                "name": "RJ3",
+                "value": [
+                    "37",
+                    "26"
+                ]
+            },
+            {
+                "name": "RJ4",
+                "value": [
+                    "35",
+                    "13"
+                ],
+                "adc": "true",
+                "input": "true"
+            },
+            {
+                "name": "RJ5",
+                "value": [
+                    "38",
+                    "27"
+                ],
+                "adc": "true",
+                "input": "true"
+            },
+            {
+                "name": "RJ6",
+                "value": [
+                    "32",
+                    "15"
+                ]
+            },
+            {
+                "name": "RJ7",
+                "value": [
+                    "39",
+                    "14"
+                ]
+            },
+            {
+                "name": "RJ8",
+                "value": [
+                    "33",
+                    "4"
+                ]
+            }
+        ],
+        "iic": [
+            {
+                "sda": "23",
+                "scl": "22"
+            }
+        ],
+    },
 }
 
 module.exports = EXTB_LIST;
