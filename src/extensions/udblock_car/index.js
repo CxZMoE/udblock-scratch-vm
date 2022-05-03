@@ -2,7 +2,7 @@ const ArgumentType = require('../../extension-support/argument-type');
 const BlockType = require('../../extension-support/block-type');
 const log = require('../../util/log');
 const EXTB_LIST = require('../../util/extb-definitions')
-
+const { extb_car } = require ('../../../src/util/extb-definitions');
 
 // 方块引用
 const carBlocks = require('../../myBlocks/car')
@@ -23,7 +23,25 @@ class UDblockCar {
             sensorBlocks,
             actionBlocks(false,false)
         )
-        console.log(this.customBlocks)
+        this.dblRelayPinYellow = {
+            acceptReporters: true,
+            items: []
+        };
+        this.dblRelayPinBlue = {
+            acceptReporters: true,
+            items: []
+        };
+        // 双路继电器生成菜单
+        for (i in extb_car.RJ11) {
+            var yellowPin = extb_car.RJ11[i].value[0];
+            var bluePin = extb_car.RJ11[i].value[1];
+            if (!(yellowPin >= 34 && yellowPin <= 39)){
+                this.dblRelayPinYellow.items.push({text:"RJ"+String(Number(i)+1), value: String(yellowPin)});
+            }
+            if (!(bluePin >= 34 && bluePin <= 39)){
+                this.dblRelayPinBlue.items.push({text:"RJ"+String(Number(i)+1), value: String(bluePin)});
+            }
+        }
     }
 
     
@@ -80,6 +98,8 @@ class UDblockCar {
                     acceptReporters: true,
                     items: [{text: "一",value: "0x01"},{text: "二",value: "0x02"},{text: "三",value: "0x03"},{text: "四",value: "0x04"},]
                 },
+                dblRelayPinYellow: this.dblRelayPinYellow,
+                dblRelayPinBlue:this.dblRelayPinBlue,
                 ...miscMenuBlocks
                 
             }

@@ -8,6 +8,7 @@ const carBlocks = require('../../myBlocks/car');
 const cameraBlocks = require('../../myBlocks/camerab');
 const sensorBlocks = require('../../myBlocks/sensor');
 const actionBlocks = require('../../myBlocks/action');
+const { extb_udpi_mini } = require ('../../../src/util/extb-definitions');
 
 // 方块图标链接
 const blockIconURI = 'data:image/png;base64,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'
@@ -20,6 +21,25 @@ class UDBlockUDPiMiniV1 {
             actionBlocks(false,false),
             cameraBlocks,
         )
+        this.dblRelayPinYellow = {
+            acceptReporters: true,
+            items: []
+        };
+        this.dblRelayPinBlue = {
+            acceptReporters: true,
+            items: []
+        };
+        // 双路继电器生成菜单
+        for (i in extb_udpi_mini.RJ11) {
+            var yellowPin = extb_udpi_mini.RJ11[i].value[0];
+            var bluePin = extb_udpi_mini.RJ11[i].value[1];
+            if (!(yellowPin >= 34 && yellowPin <= 39)){
+                this.dblRelayPinYellow.items.push({text:"RJ"+String(Number(i)+1), value: String(yellowPin)});
+            }
+            if (!(bluePin >= 34 && bluePin <= 39)){
+                this.dblRelayPinBlue.items.push({text:"RJ"+String(Number(i)+1), value: String(bluePin)});
+            }
+        }
     }
 
     getInfo() {
@@ -424,6 +444,8 @@ class UDBlockUDPiMiniV1 {
                         {text:"RJ8", value:EXTB_LIST.extb_udpi_mini.RJ11[7].value[0]},
                     ]
                 },
+                dblRelayPinYellow: this.dblRelayPinYellow,
+                dblRelayPinBlue:this.dblRelayPinBlue,
                 ...miscMenuBlocks
             }
         }

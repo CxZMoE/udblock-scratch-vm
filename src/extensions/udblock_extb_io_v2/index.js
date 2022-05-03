@@ -72,6 +72,8 @@ class UDblockEXTBIOV2 {
                         {text:"RJ4", value: EXTB_LIST.extb_io.RJ11[3].value[0]},
                         {text:"RJ5", value: EXTB_LIST.extb_io.RJ11[4].value[0]},
                         {text:"RJ6", value:EXTB_LIST.extb_io.RJ11[5].value[0]},
+                        {text:"RJ7", value:EXTB_LIST.extb_io.RJ11[6].value[0]},
+                        {text:"RJ8", value:EXTB_LIST.extb_io.RJ11[7].value[0]},
                     ]
                 },
                 ...miscMenuBlocks

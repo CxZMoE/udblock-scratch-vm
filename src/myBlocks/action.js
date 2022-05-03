@@ -283,47 +283,68 @@ function actionBlocks(hasMotor=true,hasServo=true) {
             text: '★ ▶ 双路继电器',
         },
         {
-            opcode: 'openReplayDbl',
+            opcode: 'openReplayDblYellow',
             blockType: BlockType.COMMAND,
-            text: '打开双路继电器[PORT]通道[CH]',
+            text: '打开双路继电器[PORT]黄路',
             arguments: {
                 PORT: {
                     type: ArgumentType.STRING,
-                    menu: "RJMenu"
-                },
-                CH: {
-                    type: ArgumentType.STRING,
-                    menu: "channel",
+                    menu: "dblRelayPinYellow"
                 }
             }
         },
         {
-            opcode: 'closeReplayDbl',
+            opcode: 'openReplayDblBlue',
             blockType: BlockType.COMMAND,
-            text: '关闭双路继电器[PORT]通道[CH]',
+            text: '打开双路继电器[PORT]蓝路',
             arguments: {
                 PORT: {
                     type: ArgumentType.STRING,
-                    menu: "RJMenu"
-                },
-                CH: {
-                    type: ArgumentType.STRING,
-                    menu: "channel",
+                    menu: "dblRelayPinBlue"
                 }
             }
         },
         {
-            opcode: 'switchReplayDbl',
+            opcode: 'closeReplayDblYellow',
             blockType: BlockType.COMMAND,
-            text: '切换双路继电器[PORT]通道[CH]',
+            text: '关闭双路继电器[PORT]黄路',
             arguments: {
                 PORT: {
                     type: ArgumentType.STRING,
-                    menu: "RJMenu"
-                },
-                CH: {
+                    menu: "dblRelayPinYellow"
+                }
+            }
+        },
+        {
+            opcode: 'closeReplayDblBlue',
+            blockType: BlockType.COMMAND,
+            text: '关闭双路继电器[PORT]蓝路',
+            arguments: {
+                PORT: {
                     type: ArgumentType.STRING,
-                    menu: "channel",
+                    menu: "dblRelayPinBlue"
+                }
+            }
+        },
+        {
+            opcode: 'switchReplayDblYellow',
+            blockType: BlockType.COMMAND,
+            text: '切换双路继电器[PORT]黄路',
+            arguments: {
+                PORT: {
+                    type: ArgumentType.STRING,
+                    menu: "dblRelayPinYellow"
+                }
+            }
+        },
+        {
+            opcode: 'switchReplayDblBlue',
+            blockType: BlockType.COMMAND,
+            text: '切换双路继电器[PORT]蓝路',
+            arguments: {
+                PORT: {
+                    type: ArgumentType.STRING,
+                    menu: "dblRelayPinBlue"
                 }
             }
         },
