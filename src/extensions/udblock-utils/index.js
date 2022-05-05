@@ -167,6 +167,11 @@ class UDblockMQTT {
                     }
                 },
                 {
+                    opcode: 'checkMQTT',
+                    blockType: BlockType.COMMAND,
+                    text: '检查MQTT消息',
+                },
+                {
                     opcode: 'waitMQTT',
                     blockType: BlockType.COMMAND,
                     text: '等待接收MQTT消息',
@@ -185,6 +190,55 @@ class UDblockMQTT {
                     opcode: 'mqttValueMsg',
                     blockType: BlockType.REPORTER,
                     text: '当前MQTT消息',
+                },
+                {
+                    type: "custom_seperator",
+                    text: '★ JSON',
+                },
+                {
+                    opcode: 'jsonLoads',
+                    blockType: BlockType.REPORTER,
+                    text: 'JSON解析字符串[STR]',
+                    arguments: {
+                        STR:{
+                            type: ArgumentType.STRING,
+                            defaultValue: '{"x": 1, "y": 2}'
+                        }
+                    }
+                },
+                {
+                    opcode: 'jsonDumps',
+                    blockType: BlockType.REPORTER,
+                    text: 'JSON文本化对象[OBJ]',
+                    arguments: {
+                        OBJ:{
+                            type: ArgumentType.STRING
+                        }
+                    }
+                },
+                {
+                    opcode: 'jsonGetIndex',
+                    blockType: BlockType.REPORTER,
+                    text: 'JSON对象[NAME]的第[INDEX]项',
+                    arguments: {
+                        NAME:{
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        },
+                        INDEX:{
+                            type: ArgumentType.STRING
+                        }
+                    }
+                },
+                {
+                    opcode: 'diyLine',
+                    blockType: BlockType.REPORTER,
+                    text: '自定义[TEXT]',
+                    arguments: {
+                        TEXT:{
+                            type: ArgumentType.STRING
+                        }
+                    }
                 },
             ],
             menus: {
