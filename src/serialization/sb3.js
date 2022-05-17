@@ -807,7 +807,7 @@ const deserializeFields = function (fields) {
  * @return {object} input is modified and returned
  */
 const deserializeBlocks = function (blocks) {
-    console.log(blocks)
+    // console.log(blocks)
     for (const blockId in blocks) {
         if (!Object.prototype.hasOwnProperty.call(blocks, blockId)) {
             continue;
