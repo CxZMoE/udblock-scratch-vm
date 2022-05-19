@@ -490,6 +490,90 @@ const EXTB_LIST = {
         "touch": [
         ]
     },
+    "extb_car_pro": {
+        "id": "udblockEXTBCarPro",
+        "name": "小车拓展版Pro",
+        "img": "assets/img/extb_car.png",
+        "description": "小车拓展版Pro",
+        "RJ11": [
+            {
+                "name": "RJ1",
+                "value": [
+                    "33",
+                    "5"
+                ],
+                "adc": "true",
+                "input": "false"
+            },
+            {
+                "name": "RJ2",
+                "value": [
+                    "32",
+                    "17"
+                ],
+                "adc": "true",
+                "input": "false"
+            },
+            {
+                "name": "RJ3",
+                "value": [
+                    "18",
+                    "2"
+                ]
+            },
+            {
+                "name": "RJ4",
+                "value": [
+                    "35",
+                    "19"
+                ],
+                "adc": "true",
+                "input": "false"
+            },
+            {
+                "name": "RJ5",
+                "value": [
+                    "34",
+                    "26"
+                ],
+                "adc": "true",
+                "input": "false"
+            },
+            {
+                "name": "RJ6",
+                "value": [
+                    "25",
+                    "21"
+                ]
+            }
+        ],
+        "servo": [
+            {
+                "name": "SERVO_1",
+                "value": "0"
+            },
+            {
+                "name": "SERVO_2",
+                "value": "1"
+            },
+            {
+                "name": "SERVO_3",
+                "value": "7"
+            },
+            {
+                "name": "SERVO_4",
+                "value": "6"
+            }
+        ],
+        "iic": [
+            {
+                "sda": "23",
+                "scl": "22"
+            }
+        ],
+        "touch": [
+        ]
+    },
     "extb_car_2d": {
         "id": "udblockEXTBCar2D",
         "name": "双驱小车拓展版",
