@@ -240,6 +240,21 @@ class UDblockMQTT {
                         }
                     }
                 },
+                {
+                    type: "custom_seperator",
+                    text: '★ 线程',
+                },
+                {
+                    opcode: 'create_thread',
+                    blockType: BlockType.LOOP,
+                    text: '启动线程 名称[NAME]',
+                    arguments: {
+                        NAME:{
+                            type: ArgumentType.STRING,
+                            defaultValue: 'thread_1'
+                        }
+                    }
+                },
             ],
             menus: {
 
