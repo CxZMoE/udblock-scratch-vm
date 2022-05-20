@@ -38,6 +38,22 @@ class UDblockIOT {
                 this.dblRelayPinBlue.items.push({text:"RJ"+String(Number(i)+1), value: String(bluePin)});
             }
         }
+
+        
+    }
+    getIP(){
+        // 获取IP地址
+        var request = new XMLHttpRequest();
+        var ip = "127.0.0.1"
+        request.open("GET","http://127.0.0.1:12888/myIP",false)
+        request.onreadystatechange = function(e){
+            if (request.status == 200 && request.readyState == 4){
+                ip = request.responseText;
+                console.log(ip)
+            }
+        }
+        request.send()
+        return ip
     }
     getInfo() {
 
@@ -54,6 +70,17 @@ class UDblockIOT {
                     opcode: 'initAiPlayer',
                     blockType: BlockType.COMMAND,
                     text: '初始化AI播放器'
+                },
+                {
+                    opcode: 'initAiPlayerWithIP',
+                    blockType: BlockType.COMMAND,
+                    text: '初始化AI播放器 本机IP[IP]',
+                    arguments: {
+                        IP: {
+                            type: ArgumentType.STRING,
+                            defaultValue: this.getIP()
+                        }
+                    }
                 },
                 {
                     opcode: 'enableSD',
