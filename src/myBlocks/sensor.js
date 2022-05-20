@@ -84,6 +84,17 @@ const sensorBlocks = [
         }
     },
     {
+        opcode: 'getColorSensor',
+        blockType: BlockType.REPORTER,
+        text: '获取颜色识别传感器数值[COLOR]',
+        arguments: {
+            COLOR: {
+                type: ArgumentType.STRING,
+                menu: "colorRGBMenu"
+            }
+        }
+    },
+    {
         opcode: 'detectColorSensorColor',
         blockType: BlockType.REPORTER,
         text: '颜色识别传感器[COLOR]',

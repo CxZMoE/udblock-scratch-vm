@@ -10,10 +10,14 @@ const miscMenuBlocks = {
     colorDetectMenu: {
         acceptReporters: true,
         items: [{ text: "红色", value: 0 }, { text: "绿色", value: 1 }, { text: "蓝色", value: 2 }, { text: "全部", value: -1 },]
-    }
-    , colorDetectResultMenu: {
+    },
+    colorDetectResultMenu: {
         acceptReporters: true,
         items: [{ text: "红色", value: "(1,0,0)" }, { text: "绿色", value: "(0,1,0)" }, { text: "蓝色", value: "(0,0,1)" }, { text: "黄色", value: "(1,1,0)" }, { text: "紫色", value: "(1,0,1)" }, { text: "天蓝色", value: "(0,1,1)" }, { text: "黑色", value: "(0,0,0)" }, { text: "白色", value: "(1,1,1)" }]
+    },
+    colorRGBMenu:{
+        acceptReporters: true,
+        items: [{ text: "红", value: "r" }, { text: "绿", value: "g" }, { text: "蓝", value: "b" }, { text: "列表", value: "all" }]
     },
     faceMenu: {
         acceptReporters: true,
