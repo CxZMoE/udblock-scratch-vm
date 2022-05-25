@@ -215,6 +215,17 @@ const carProBlocks = [
         }
     },
     {
+        opcode: 'ps2GetButtonUP',
+        blockType: BlockType.BOOLEAN,
+        text: 'PS2按键[BTN]被松开',
+        arguments: {
+            BTN:{
+                type: ArgumentType.NUMBER,
+                menu: 'ps2BtnMenu'
+            }
+        }
+    },
+    {
         opcode: 'ps2GetRemote',
         blockType: BlockType.REPORTER,
         text: 'PS2遥感[POS]',

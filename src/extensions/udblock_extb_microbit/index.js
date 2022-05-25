@@ -21,299 +21,22 @@ class UDBlockMicroBit {
      */
     getInfo () {
         return {
-            id: "udblockMicrobit",
-            name: "Microbit主板",
+            id: "udblockEXTBMicrobit",
+            name: "Microbit拓展板",
             blockIconURI: blockIconURI,
             blocks: [
                 {
-                    opcode: 'microbitStart',
-                    text: "micro:bit主程序开始",
-                    blockType: BlockType.HAT,
-                },
-                {
-                    opcode: "print",
-                    blockType: BlockType.COMMAND,
-                    text: "打印[TEXT]",
-                    arguments: {
-                        TEXT:{
-                            type: ArgumentType.STRING,
-                            defaultValue: "欢迎"
-                        }
-                    }
-                },
-                {
-                    type: "custom_seperator",
-                    text: '★ 事件',
-                },
-                {
-                    opcode: 'microbitBtnPressed',
-                    text: "当[BTN]按钮按下",
-                    blockType: BlockType.EVHAT,
-                    arguments: {
-                        BTN:{
-                            type: ArgumentType.NUMBER,
-                            menu: "buttons"
-                        }
-                    }
-                },
-                {
-                    opcode: 'microbitPortConnected',
-                    text: "当接口[PORT]被接通",
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        PORT:{
-                            type: ArgumentType.STRING,
-                            menu: "ports"
-                        }
-                    }
-                },
-                {
-                    opcode: 'playMusicPreset',
-                    text: "播放音乐[MUSIC]",
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        MUSIC:{
-                            type: ArgumentType.STRING,
-                            menu: "music_preset"
-                        }
-                    }
-                },
-                {
-                    type: "custom_seperator",
-                    text: '★ 点阵屏',
-                },
-                {
-                    opcode: 'diaplayShowString',
-                    text: "点阵屏显示预设[IMAGENAME][IMAGE]",
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        IMAGENAME: {
-                            type: ArgumentType.STRING,
-                            menu: 'builtin_images'
-                        },
-                        IMAGE: {
-                            type: ArgumentType.MATRIX,
-                            defaultValue: "0101010101100010101000100"
-                        }
-                    }
-                },
-                {
-                    opcode: 'displayShowProfile',
-                    text: "点阵屏显示自定义[IMAGE]",
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        IMAGE: {
-                            type: ArgumentType.MATRIX,
-                            defaultValue: "0101010101100010101000100"
-                        }
-                    }
-                },
-                {
-                    opcode: 'displayShowTextScroll',
-                    text: "点阵屏显示滚动文字[TEXT]",
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        TEXT: {
-                            type: ArgumentType.STRING,
-                            defaultValue: "Hi, UDRobot!"
-                        }
-                    }
-                },
-                {
-                    opcode: 'displayGetPixel',
-                    text: "点阵屏获取[X]列[Y]行的LED亮度(0-9)",
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        X: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 0
-                        },
-                        Y: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 0
-                        }
-                    }
-                },
-                {
-                    opcode: 'displaySetPixel',
-                    text: "点阵屏设置[X]列[Y]行的LED亮度[BRIGHTNESS](0-9)",
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        X: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 0
-                        },
-                        Y: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 0
-                        },
-                        BRIGHTNESS: {
-                            type: ArgumentType.NUMBER,
-                            menu: 'display_brightness'
-                        }
-                    }
-                },
-                {
-                    opcode: 'displayClear',
-                    text: "点阵屏清屏",
-                    blockType: BlockType.COMMAND,
-                },
-                {
-                    opcode: 'displayOn',
-                    text: "点阵屏开启",
-                    blockType: BlockType.COMMAND,
-                },
-                {
-                    opcode: 'displayOff',
-                    text: "点阵屏关闭",
-                    blockType: BlockType.COMMAND,
-                },
-                {
-                    opcode: 'displayIsOn',
-                    text: "点阵屏是否开启",
-                    blockType: BlockType.REPORTER,
-                },
-                {
-                    type: "custom_seperator",
-                    text: '★ 无线电',
-                },
-                {
-                    opcode: 'radioOn',
-                    text: "打开无线电",
-                    blockType: BlockType.COMMAND
-                },
-                {
-                    opcode: 'radioOff',
-                    text: "关闭无线电",
-                    blockType: BlockType.COMMAND
-                },
-                {
-                    opcode: 'radioSetChannel',
-                    text: "无线电设置通道[CHANNEL](0-100)",
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        CHANNEL: {
-                            type: ArgumentType.NUMBER,
-                            defaultValue: 7
-                        }
-                    }
-                },
-                {
-                    opcode: 'radioReveive',
-                    text: "无线电收到消息",
-                    blockType: BlockType.REPORTER
-                },
-                {
-                    opcode: 'radioSend',
-                    text: "无线电发送消息[MSG]",
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        MSG: {
-                            type: ArgumentType.STRING,
-                            defaultValue: 'ECHO'
-                        }
-                    }
-                },
-                {
-                    type: "custom_seperator",
-                    text: '★ 传感器',
-                },
-                {
-                    opcode: 'accGetX',
-                    text: "X方向加速度",
-                    blockType: BlockType.REPORTER
-                },
-                {
-                    opcode: 'accGetY',
-                    text: "Y方向加速度",
-                    blockType: BlockType.REPORTER
-                },
-                {
-                    opcode: 'accGetZ',
-                    text: "Z方向加速度",
-                    blockType: BlockType.REPORTER
-                },
-                {
-                    opcode: 'accGetAll',
-                    text: "所有轴加速度(x,y,z)",
-                    blockType: BlockType.REPORTER
-                },
-                {
-                    opcode: 'accCurrentGesture',
-                    text: "当前手势",
-                    blockType: BlockType.REPORTER,
-                },
-                {
-                    opcode: 'accIsGesture',
-                    text: "手势[GESTURE]正在执行",
-                    blockType: BlockType.BOOLEAN,
-                    arguments: {
-                        GESTURE: {
-                            type: ArgumentType.STRING,
-                            menu: 'gesture'
-                        }
-                    }
-                },
-                {
-                    opcode: 'accWasGesture',
-                    text: "执行了手势[GESTURE]",
-                    blockType: BlockType.BOOLEAN,
-                    arguments: {
-                        GESTURE: {
-                            type: ArgumentType.STRING,
-                            menu: 'gesture'
-                        }
-                    }
-                },
-                {
-                    type: "custom_seperator",
-                    text: '★ 引脚设置',
-                },
-                {
-                    opcode: 'pinReadDigital',
-                    text: "获取引脚[PIN]数字电平",
-                    blockType: BlockType.REPORTER,
-                    arguments: {
-                        PIN:{
-                            type: ArgumentType.NUMBER,
-                            menu: 'pins'
-                        }
-                    }
-                },
-                {
                     opcode: 'pinWriteDigital',
-                    text: "写入引脚[PIN]数字电平",
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        PIN:{
-                            type: ArgumentType.NUMBER,
-                            menu: 'pins'
-                        }
-                    }
-                },
-                {
-                    opcode: 'pinReadAnalog',
-                    text: "读取引脚[PIN]模拟值(0-1023)",
-                    blockType: BlockType.REPORTER,
-                    arguments: {
-                        PIN:{
-                            type: ArgumentType.NUMBER,
-                            menu: 'adc_pins'
-                        }
-                    }
-                },
-                {
-                    opcode: 'pinWriteAnalog',
-                    text: "引脚[PIN]输出PWM信号占空比[PWM](0-1023)",
+                    text: "[PIN]写入电平[LEVEL]",
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN:{
                             type: ArgumentType.NUMBER,
                             menu: 'adc_pins'
                         },
-                        PWM:{
+                        LEVEL:{
                             type: ArgumentType.NUMBER,
-                            defaultValue: 512
+                            defaultValue: 0
                         }
                     }
                 }
@@ -326,25 +49,22 @@ class UDBlockMicroBit {
                 pins:{
                     acceptReporters: true,
                     items: [
-                        { text: "0", value: "pin0" },   // Pad 0
-                        { text: "1", value: "pin1" },   // Pad 1
-                        { text: "2", value: "pin2" },   // Pad 2
-                        { text: "3", value: "pin3" },  
-                        { text: "4", value: "pin4" },
-                        { text: "5", value: "pin5" },   // Button A
-                        { text: "6", value: "pin6" },
-                        { text: "7", value: "pin7" },
-                        { text: "8", value: "pin8" },
-                        { text: "9", value: "pin9" },
-                        { text: "10", value: "pin10" },
-                        { text: "11", value: "pin11" }, // Button B
-                        { text: "12", value: "pin12" },
-                        { text: "13", value: "pin13" }, // SPI MOSI
-                        { text: "14", value: "pin14" }, // SPI MISO
-                        { text: "15", value: "pin15" }, // SPI SCK
-                        { text: "16", value: "pin16" },
-                        { text: "19", value: "pin19" }, // SCL
-                        { text: "20", value: "pin20" }, // SDA
+                        { text: "1", value: "1" },   // Pad 1
+                        { text: "2", value: "2" },   // Pad 2
+                        { text: "3", value: "3" },  
+                        { text: "4", value: "4" },
+                        { text: "5", value: "5" },   // Button A
+                        { text: "6", value: "6" },
+                        { text: "7", value: "7" },
+                        { text: "8", value: "8" },
+                        { text: "9", value: "9" },
+                        { text: "10", value: "10" },
+                        { text: "11", value: "11" }, // Button B
+                        { text: "12", value: "12" },
+                        { text: "13", value: "13" }, // SPI MOSI
+                        { text: "14", value: "14" }, // SPI MISO
+                        { text: "15", value: "15" }, // SPI SCK
+                        { text: "16", value: "16" },
 
                     ]
                 },
