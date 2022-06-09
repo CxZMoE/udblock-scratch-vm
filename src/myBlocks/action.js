@@ -86,6 +86,66 @@ function actionBlocks(hasMotor=true,hasServo=true) {
         },
         {
             type: "custom_seperator",
+            text: '★ ▶ 电机模块',
+        },
+        {
+            opcode: 'motorModuleMotorClock',
+            blockType: BlockType.COMMAND,
+            text: '设置电机模块[MOTOR]以[SPD]%速度正转',
+            arguments: {
+                MOTOR: {
+                    type: ArgumentType.NUMBER,
+                    menu: 'motor_module_motor_menu'
+                },
+                SPD: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 50
+                }
+            }
+        },
+        {
+            opcode: 'motorModuleMotorAntiClock',
+            blockType: BlockType.COMMAND,
+            text: '设置电机模块[MOTOR]以[SPD]%速度反转',
+            arguments: {
+                MOTOR: {
+                    type: ArgumentType.NUMBER,
+                    menu: 'motor_module_motor_menu'
+                },
+                SPD: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 50
+                }
+            }
+        },
+        {
+            opcode: 'motorModuleMotorStop',
+            blockType: BlockType.COMMAND,
+            text: '设置电机模块[MOTOR]停止',
+            arguments: {
+                MOTOR: {
+                    type: ArgumentType.NUMBER,
+                    menu: 'motor_module_motor_menu'
+                }
+            }
+        },
+        {
+            opcode: 'motorModuleServoTurn',
+            blockType: BlockType.COMMAND,
+            text: '设置电机模块[SERVO]转动到[ANGLE]°',
+            arguments: {
+                SERVO: {
+                    type: ArgumentType.NUMBER,
+                    menu: 'motor_module_servo_menu'
+                },
+                ANGLE: {
+                    type: ArgumentType.NUMBER,
+                    defaultValue: 90
+                }
+            }
+        },
+        {
+            type: "custom_seperator",
             text: '★ ▶ 数码管',
         },
         {

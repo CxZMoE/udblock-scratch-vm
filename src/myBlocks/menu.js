@@ -132,7 +132,25 @@ const miscMenuBlocks = {
             {text: "RY", value: "2"},
             {text: "RX", value: "3"},
         ]
-    }
+    },
+    motor_module_motor_menu: {
+        acceptReporters: true,
+        items: [
+            {text: "电机一", value: "0"},
+            {text: "电机二", value: "1"},
+            {text: "电机三", value: "2"},
+            {text: "电机四", value: "3"},
+        ]
+    },
+    motor_module_servo_menu: {
+        acceptReporters: true,
+        items: [
+            {text: "舵机一", value: "0"},
+            {text: "舵机二", value: "1"},
+            {text: "舵机三", value: "2"},
+            {text: "舵机四", value: "3"},
+        ]
+    },
 }
 
 module.exports = miscMenuBlocks;
