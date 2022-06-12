@@ -350,6 +350,55 @@ function actionBlocks(hasMotor=true,hasServo=true) {
         },
         {
             type: "custom_seperator",
+            text: '★ ▶ 双路继电器<旧>',
+        },
+        {
+            opcode: 'openReplayDbl',
+            blockType: BlockType.COMMAND,
+            text: '打开双路继电器[PORT]通道[CH]',
+            arguments: {
+                PORT: {
+                    type: ArgumentType.STRING,
+                    menu: "RJMenu"
+                },
+                CH: {
+                    type: ArgumentType.STRING,
+                    menu: "channel",
+                }
+            }
+        },
+        {
+            opcode: 'closeReplayDbl',
+            blockType: BlockType.COMMAND,
+            text: '关闭双路继电器[PORT]通道[CH]',
+            arguments: {
+                PORT: {
+                    type: ArgumentType.STRING,
+                    menu: "RJMenu"
+                },
+                CH: {
+                    type: ArgumentType.STRING,
+                    menu: "channel",
+                }
+            }
+        },
+        {
+            opcode: 'switchReplayDbl',
+            blockType: BlockType.COMMAND,
+            text: '切换双路继电器[PORT]通道[CH]',
+            arguments: {
+                PORT: {
+                    type: ArgumentType.STRING,
+                    menu: "RJMenu"
+                },
+                CH: {
+                    type: ArgumentType.STRING,
+                    menu: "channel",
+                }
+            }
+        },
+        {
+            type: "custom_seperator",
             text: '★ ▶ 表情面板',
         },
         {

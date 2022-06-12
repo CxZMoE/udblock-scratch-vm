@@ -134,6 +134,11 @@ class ExtensionManager {
         this.refreshBlocks();
         console.log("删除Extension:", extensionID)
     }
+    removeAllLoadedExtension() {
+        this._loadedExtensions.clear()
+        this.refreshBlocks();
+        console.log("删除所有Extension:")
+    }
 
     /**
      * Synchronously load an internal extension (core or non-core) by ID. This call will
