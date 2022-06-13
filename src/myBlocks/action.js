@@ -410,7 +410,7 @@ function actionBlocks(hasMotor=true,hasServo=true) {
         },
         {
             type: "custom_seperator",
-            text: '★ ▶ 双路继电器<旧>',
+            text: '★ ▶ 双路继电器[旧版]',
         },
         {
             opcode: 'openReplayDbl',
