@@ -196,9 +196,39 @@ class UDblockMQTT {
                     text: '★ JSON',
                 },
                 {
+                    opcode: 'jsonInitObj',
+                    blockType: BlockType.COMMAND,
+                    text: 'JSON初始化对象[NAME]',
+                    arguments: {
+                        NAME:{
+                            type: ArgumentType.STRING,
+                            defaultValue: "data"
+                        }
+                    }
+                },
+                {
+                    opcode: 'jsonSetItem',
+                    blockType: BlockType.COMMAND,
+                    text: 'JSON设置对象[NAME]的第[INDEX]项为[VALUE]',
+                    arguments: {
+                        NAME:{
+                            type: ArgumentType.STRING,
+                            defaultValue: "data"
+                        },
+                        INDEX:{
+                            type: ArgumentType.STRING,
+                            defaultValue: "'temperature'"
+                        },
+                        VALUE:{
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 20
+                        }
+                    }
+                },
+                {
                     opcode: 'jsonLoads',
                     blockType: BlockType.REPORTER,
-                    text: 'JSON解析字符串[STR]',
+                    text: 'JSON解析字符串[STR]为对象',
                     arguments: {
                         STR:{
                             type: ArgumentType.STRING,
@@ -212,7 +242,8 @@ class UDblockMQTT {
                     text: 'JSON文本化对象[OBJ]',
                     arguments: {
                         OBJ:{
-                            type: ArgumentType.STRING
+                            type: ArgumentType.STRING,
+                            defaultValue: "data"
                         }
                     }
                 },
@@ -226,17 +257,19 @@ class UDblockMQTT {
                             defaultValue: 'data'
                         },
                         INDEX:{
-                            type: ArgumentType.STRING
+                            type: ArgumentType.STRING,
+                            defaultValue: '\'tempureture\''
                         }
                     }
                 },
                 {
                     opcode: 'diyLine',
                     blockType: BlockType.REPORTER,
-                    text: '自定义[TEXT]',
+                    text: '自定义字段[TEXT]',
                     arguments: {
                         TEXT:{
-                            type: ArgumentType.STRING
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
                         }
                     }
                 },
