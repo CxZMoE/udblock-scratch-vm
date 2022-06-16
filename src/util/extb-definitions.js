@@ -508,8 +508,8 @@ const EXTB_LIST = {
             {
                 "name": "RJ2",
                 "value": [
-                    "32",
-                    "17"
+                    "35",
+                    "19"
                 ],
                 "adc": "true",
                 "input": "false"
@@ -517,18 +517,18 @@ const EXTB_LIST = {
             {
                 "name": "RJ3",
                 "value": [
-                    "18",
-                    "2"
-                ]
+                    "32",
+                    "17"
+                ],
+                "adc": "true",
+                "input": "false"
             },
             {
                 "name": "RJ4",
                 "value": [
-                    "35",
-                    "19"
-                ],
-                "adc": "true",
-                "input": "false"
+                    "18",
+                    "2"
+                ]
             },
             {
                 "name": "RJ5",

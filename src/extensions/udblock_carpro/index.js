@@ -2,7 +2,7 @@ const ArgumentType = require('../../extension-support/argument-type');
 const BlockType = require('../../extension-support/block-type');
 const log = require('../../util/log');
 const EXTB_LIST = require('../../util/extb-definitions')
-const { extb_car } = require ('../../util/extb-definitions');
+const { extb_car_pro } = require ('../../util/extb-definitions');
 
 // 方块引用
 const carProBlocks = require('../../myBlocks/car_pro')
@@ -32,9 +32,9 @@ class UDblockCarPro {
             items: []
         };
         // 双路继电器生成菜单
-        for (i in extb_car.RJ11) {
-            var yellowPin = extb_car.RJ11[i].value[0];
-            var bluePin = extb_car.RJ11[i].value[1];
+        for (i in extb_car_pro.RJ11) {
+            var yellowPin = extb_car_pro.RJ11[i].value[0];
+            var bluePin = extb_car_pro.RJ11[i].value[1];
             if (!(yellowPin >= 34 && yellowPin <= 39)){
                 this.dblRelayPinYellow.items.push({text:"RJ"+String(Number(i)+1), value: String(yellowPin)});
             }
@@ -55,43 +55,43 @@ class UDblockCarPro {
                 RJMenu: {
                     acceptReporters: true,
                     items: [
-                        {text:"RJ1", value:EXTB_LIST.extb_mf.RJ11[0].value.join(",")},
-                        {text:"RJ2", value:EXTB_LIST.extb_mf.RJ11[1].value.join(",")},
-                        {text:"RJ3", value:EXTB_LIST.extb_mf.RJ11[2].value.join(",")},
-                        {text:"RJ4", value:EXTB_LIST.extb_mf.RJ11[3].value.join(",")},
-                        {text:"RJ5", value:EXTB_LIST.extb_mf.RJ11[4].value.join(",")},
-                        {text:"RJ6", value:EXTB_LIST.extb_mf.RJ11[5].value.join(",")},
+                        {text:"RJ1", value:EXTB_LIST.extb_car_pro.RJ11[0].value.join(",")},
+                        {text:"RJ2", value:EXTB_LIST.extb_car_pro.RJ11[1].value.join(",")},
+                        {text:"RJ3", value:EXTB_LIST.extb_car_pro.RJ11[2].value.join(",")},
+                        {text:"RJ4", value:EXTB_LIST.extb_car_pro.RJ11[3].value.join(",")},
+                        {text:"RJ5", value:EXTB_LIST.extb_car_pro.RJ11[4].value.join(",")},
+                        {text:"RJ6", value:EXTB_LIST.extb_car_pro.RJ11[5].value.join(",")},
                     ]
                 },
                 RJDigiMenu: {
                     acceptReporters: true,
                     items: [
-                        {text:"RJ1", value:EXTB_LIST.extb_mf.RJ11[0].value[1]},
-                        {text:"RJ2", value:EXTB_LIST.extb_mf.RJ11[1].value[1]},
-                        {text:"RJ3", value:EXTB_LIST.extb_mf.RJ11[2].value[1]},
-                        {text:"RJ4", value:EXTB_LIST.extb_mf.RJ11[3].value[1]},
-                        {text:"RJ5", value:EXTB_LIST.extb_mf.RJ11[4].value[1]},
-                        {text:"RJ6", value:EXTB_LIST.extb_mf.RJ11[5].value[1]},
+                        {text:"RJ1", value:EXTB_LIST.extb_car_pro.RJ11[0].value[1]},
+                        {text:"RJ2", value:EXTB_LIST.extb_car_pro.RJ11[1].value[1]},
+                        {text:"RJ3", value:EXTB_LIST.extb_car_pro.RJ11[2].value[1]},
+                        {text:"RJ4", value:EXTB_LIST.extb_car_pro.RJ11[3].value[1]},
+                        {text:"RJ5", value:EXTB_LIST.extb_car_pro.RJ11[4].value[1]},
+                        {text:"RJ6", value:EXTB_LIST.extb_car_pro.RJ11[5].value[1]},
                     ]
                 },
                 RJADCMenu: {
                     acceptReporters: true,
                     items: [
-                        {text:"RJ1", value: EXTB_LIST.extb_mf.RJ11[0].value[0]},
-                        {text:"RJ2", value: EXTB_LIST.extb_mf.RJ11[1].value[0]},
-                        {text:"RJ4", value: EXTB_LIST.extb_mf.RJ11[3].value[0]},
-                        {text:"RJ5", value: EXTB_LIST.extb_mf.RJ11[4].value[0]},
+                        {text:"RJ1", value: EXTB_LIST.extb_car_pro.RJ11[0].value[0]},
+                        {text:"RJ2", value: EXTB_LIST.extb_car_pro.RJ11[1].value[0]},
+                        {text:"RJ4", value: EXTB_LIST.extb_car_pro.RJ11[3].value[0]},
+                        {text:"RJ5", value: EXTB_LIST.extb_car_pro.RJ11[4].value[0]},
                     ]
                 },
                 RJADCMenuFull: {
                     acceptReporters: true,
                     items: [
-                        {text:"RJ1", value: EXTB_LIST.extb_mf.RJ11[0].value[0]},
-                        {text:"RJ2", value: EXTB_LIST.extb_mf.RJ11[1].value[0]},
-                        {text:"RJ3", value:EXTB_LIST.extb_mf.RJ11[2].value[0]},
-                        {text:"RJ4", value: EXTB_LIST.extb_mf.RJ11[3].value[0]},
-                        {text:"RJ5", value: EXTB_LIST.extb_mf.RJ11[4].value[0]},
-                        {text:"RJ6", value:EXTB_LIST.extb_mf.RJ11[5].value[0]},
+                        {text:"RJ1", value: EXTB_LIST.extb_car_pro.RJ11[0].value[0]},
+                        {text:"RJ2", value: EXTB_LIST.extb_car_pro.RJ11[1].value[0]},
+                        {text:"RJ3", value:EXTB_LIST.extb_car_pro.RJ11[2].value[0]},
+                        {text:"RJ4", value: EXTB_LIST.extb_car_pro.RJ11[3].value[0]},
+                        {text:"RJ5", value: EXTB_LIST.extb_car_pro.RJ11[4].value[0]},
+                        {text:"RJ6", value:EXTB_LIST.extb_car_pro.RJ11[5].value[0]},
                     ]
                 },
                 servoMenu: {
