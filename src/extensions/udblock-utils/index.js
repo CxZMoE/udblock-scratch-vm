@@ -263,6 +263,28 @@ class UDblockMQTT {
                     }
                 },
                 {
+                    opcode: 'jsonDecodeUTF8',
+                    blockType: BlockType.REPORTER,
+                    text: 'JSON对象[NAME]解码为通用文本格式',
+                    arguments: {
+                        NAME:{
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        }
+                    }
+                },
+                {
+                    opcode: 'jsonEncodeUTF8',
+                    blockType: BlockType.REPORTER,
+                    text: 'JSON对象[NAME]编码为通用文本格式',
+                    arguments: {
+                        NAME:{
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        }
+                    }
+                },
+                {
                     opcode: 'diyLine',
                     blockType: BlockType.REPORTER,
                     text: '自定义字段[TEXT]',
