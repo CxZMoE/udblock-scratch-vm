@@ -17,6 +17,124 @@ const carProBlocks = [
     //         }
     //     }
     // },
+
+    // SPD ONLY
+    {
+        opcode: 'moveFrontSpd',
+        blockType: BlockType.COMMAND,
+        text: '车辆以[SPEED]cm/s的速度向前移动',
+        arguments: {
+            SPEED: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 20
+            }
+        }
+    },
+    {
+        opcode: 'moveBackSpd',
+        blockType: BlockType.COMMAND,
+        text: '车辆以[SPEED]cm/s的速度向后移动',
+        arguments: {
+            SPEED: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 20
+            }
+        }
+    },
+    {
+        opcode: 'moveLeftSpd',
+        blockType: BlockType.COMMAND,
+        text: '车辆以[SPEED]cm/s的速度向左移动',
+        arguments: {
+            SPEED: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 20
+            }
+        }
+    },
+    {
+        opcode: 'moveRightSpd',
+        blockType: BlockType.COMMAND,
+        text: '车辆以[SPEED]cm/s的速度向右移动',
+        arguments: {
+            SPEED: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 20
+            }
+        }
+    },
+    {
+        opcode: 'rotateSpd',
+        blockType: BlockType.COMMAND,
+        text: '车辆旋转[DIS]°',
+        arguments: {
+            DIS: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 90
+            }
+        }
+    },
+    {
+        opcode: 'moveFrontSpdDis',
+        blockType: BlockType.COMMAND,
+        text: '车辆以[SPEED]cm/s的速度向前移动[DIS]cm',
+        arguments: {
+            SPEED: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 20
+            },
+            DIS: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 10
+            }
+        }
+    },
+    {
+        opcode: 'moveBackSpdDis',
+        blockType: BlockType.COMMAND,
+        text: '车辆以[SPEED]cm/s的速度向后移动[DIS]cm',
+        arguments: {
+            SPEED: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 20
+            },
+            DIS: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 10
+            }
+        }
+    },
+    {
+        opcode: 'moveLeftSpdDis',
+        blockType: BlockType.COMMAND,
+        text: '车辆以[SPEED]cm/s的速度向左移动[DIS]cm',
+        arguments: {
+            SPEED: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 20
+            },
+            DIS: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 10
+            },
+        }
+    },
+    {
+        opcode: 'moveRightSpdDis',
+        blockType: BlockType.COMMAND,
+        text: '车辆以[SPEED]cm/s的速度向右移动[DIS]cm',
+        arguments: {
+            SPEED: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 20
+            },
+            DIS: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 10
+            },
+        }
+    },
+    // CUSTOMIZE
     {
         opcode: 'moveFront',
         blockType: BlockType.COMMAND,
