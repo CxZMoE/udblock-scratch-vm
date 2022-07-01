@@ -249,6 +249,21 @@ const sensorBlocks = [
         }
     },
     {
+        opcode: 'readFourChannelInferredSensorOffset',
+        blockType: BlockType.REPORTER,
+        text: '获取四路红外传感器中心偏移量',
+    },
+    {
+        opcode: 'readFourChannelInferredSensorDirectionRight',
+        blockType: BlockType.BOOLEAN,
+        text: '四路红外传感器检测黑线偏右',
+    },
+    {
+        opcode: 'readFourChannelInferredSensorDirectionLeft',
+        blockType: BlockType.BOOLEAN,
+        text: '四路红外传感器检测黑线偏左',
+    },
+    {
         opcode: 'readKeyboardModuleValue',
         blockType: BlockType.REPORTER,
         text: '获取按键模块数值'
