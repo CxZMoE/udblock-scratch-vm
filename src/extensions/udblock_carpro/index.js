@@ -96,7 +96,7 @@ class UDblockCarPro {
                 },
                 servoMenu: {
                     acceptReporters: true,
-                    items: [{text: "一",value: "0x01"},{text: "二",value: "0x02"},{text: "三",value: "0x03"}]
+                    items: [{text: "一",value: "0x01"},{text: "二",value: "0x02"},{text: "三",value: "0x03"},{text: "四",value: "0x04"}]
                 },
                 axisMenu: {
                     acceptReporters: true,
