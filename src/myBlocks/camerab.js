@@ -125,6 +125,21 @@ const cameraBlocks = [
         }
     },
     {
+        opcode: 'doColorDectectionMannual',
+        blockType: BlockType.COMMAND,
+        text: '[ACTION]颜色识别阈值[COLOR]',
+        arguments: {
+            ACTION: {
+                type: ArgumentType.STRING,
+                menu: "actions"
+            },
+            COLOR: {
+                type: ArgumentType.STRING,
+                defaultValue: "(0,80,-70,-10,-0,30)"
+            }
+        }
+    },
+    {
         opcode: 'getColorDectectionResult',
         blockType: BlockType.REPORTER,
         text: '摄像头颜色识别结果[RESULT]',
@@ -271,7 +286,7 @@ const cameraBlocks = [
         arguments: {
             MODE: {
                 type: ArgumentType.STRING,
-                defautValue: "01",
+                defaultValue: "01",
                 menu: "faceModes"
             }
         }
