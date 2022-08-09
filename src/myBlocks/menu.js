@@ -1,11 +1,13 @@
+const EXTB_LIST = require('../util/extb-definitions');
+
 const miscMenuBlocks = {
     channel: {
         acceptReporters: true,
-        items: [{ text: "黄路", value: "0"}, { text: "蓝路", value: "1"}]
+        items: [{ text: "黄路", value: "0" }, { text: "蓝路", value: "1" }]
     },
-    displayLine:{ // OLED模组显示行数菜单
+    displayLine: { // OLED模组显示行数菜单
         acceptReporters: true,
-        items:[{ text: "一", value: "0" },{ text: "二", value: "1" },{ text: "三", value: "2" },{ text: "四", value: "3" }]
+        items: [{ text: "一", value: "0" }, { text: "二", value: "1" }, { text: "三", value: "2" }, { text: "四", value: "3" }]
     },
     colorDetectMenu: {
         acceptReporters: true,
@@ -15,7 +17,7 @@ const miscMenuBlocks = {
         acceptReporters: true,
         items: [{ text: "红色", value: "(1,0,0)" }, { text: "绿色", value: "(0,1,0)" }, { text: "蓝色", value: "(0,0,1)" }, { text: "黄色", value: "(1,1,0)" }, { text: "紫色", value: "(1,0,1)" }, { text: "天蓝色", value: "(0,1,1)" }, { text: "黑色", value: "(0,0,0)" }, { text: "白色", value: "(1,1,1)" }]
     },
-    colorRGBMenu:{
+    colorRGBMenu: {
         acceptReporters: true,
         items: [{ text: "红", value: "r" }, { text: "绿", value: "g" }, { text: "蓝", value: "b" }, { text: "列表", value: "all" }]
     },
@@ -109,48 +111,160 @@ const miscMenuBlocks = {
             // {text: "L3", value: "1"},
             // {text: "R3", value: "2"},
             // {text: "start", value: "3"},
-            {text: "上", value: "4"},
-            {text: "右", value: "5"},
-            {text: "下", value: "6"},
-            {text: "左", value: "7"},
-            {text: "L2", value: "8"},
-            {text: "R2", value: "9"},
-            {text: "L1", value: "10"},
-            {text: "R1", value: "11"},
-            {text: "Δ", value: "12"},
-            {text: "o", value: "13"},
-            {text: "×", value: "14"},
-            {text: "□", value: "15"},
+            { text: "上", value: "4" },
+            { text: "右", value: "5" },
+            { text: "下", value: "6" },
+            { text: "左", value: "7" },
+            { text: "L2", value: "8" },
+            { text: "R2", value: "9" },
+            { text: "L1", value: "10" },
+            { text: "R1", value: "11" },
+            { text: "Δ", value: "12" },
+            { text: "o", value: "13" },
+            { text: "×", value: "14" },
+            { text: "□", value: "15" },
         ]
     },
     // 0 ly 1 lx 2 ry 3 rx
     ps2RemoteMenu: {
         acceptReporters: true,
         items: [
-            {text: "LY", value: "0"},
-            {text: "LX", value: "1"},
-            {text: "RY", value: "2"},
-            {text: "RX", value: "3"},
+            { text: "LY", value: "0" },
+            { text: "LX", value: "1" },
+            { text: "RY", value: "2" },
+            { text: "RX", value: "3" },
         ]
     },
     motor_module_motor_menu: {
         acceptReporters: true,
         items: [
-            {text: "电机一", value: "0"},
-            {text: "电机二", value: "1"},
-            {text: "电机三", value: "2"},
-            {text: "电机四", value: "3"},
+            { text: "电机一", value: "0" },
+            { text: "电机二", value: "1" },
+            { text: "电机三", value: "2" },
+            { text: "电机四", value: "3" },
         ]
     },
     motor_module_servo_menu: {
         acceptReporters: true,
         items: [
-            {text: "舵机一", value: "0"},
-            {text: "舵机二", value: "1"},
-            {text: "舵机三", value: "2"},
-            {text: "舵机四", value: "3"},
+            { text: "舵机一", value: "0" },
+            { text: "舵机二", value: "1" },
+            { text: "舵机三", value: "2" },
+            { text: "舵机四", value: "3" },
         ]
     },
 }
 
-module.exports = miscMenuBlocks;
+
+// 生成双向RJ11菜单，不包含只能输入的引脚
+const GenerateRJMenuDuplex = function (id) {
+    var menu = {
+        acceptReporters: true,
+        items: []
+    }
+    console.log(id)
+    var rj11s = EXTB_LIST[id].RJ11;
+    for (var i in rj11s) {
+        var rj11Name = rj11s[i].name;
+        if (!rj11s[i].duplex) {
+            // 只允许输入的引脚
+            continue;
+        }
+        var rj11_menu_item = {
+            text: rj11Name,                 // RJ11 名称
+            value: rj11s[i].value.join(",") // RJ11 的引脚
+        }
+        menu.items.push(rj11_menu_item);
+    }
+    return menu;
+}
+
+// 生成RJ11菜单，包含所有的引脚
+const GenerateRJMenu = function (id) {
+    var menu = {
+        acceptReporters: true,
+        items: []
+    }
+    var rj11s = EXTB_LIST[id].RJ11;
+
+    for (var i in rj11s) {
+        var rj11Name = rj11s[i].name;
+        var rj11_menu_item = {
+            text: rj11Name,                 // RJ11 名称
+            value: rj11s[i].value.join(",") // RJ11 的引脚
+        }
+        menu.items.push(rj11_menu_item);
+    }
+    return menu;
+}
+
+const GenerateRJDigiMenu = function (id) {
+    var menu = {
+        acceptReporters: true,
+        items: []
+    }
+    var rj11s = EXTB_LIST[id].RJ11;
+    for (var i in rj11s) {
+        var rj11Name = rj11s[i].name;
+        var rj11_menu_item = {
+            text: rj11Name,                 // RJ11 名称
+            value: rj11s[i].value[1] // RJ11 的引脚
+        }
+        menu.items.push(rj11_menu_item);
+    }
+    return menu;
+}
+const GenerateADCMenuFull = function (id) {
+    var menu = {
+        acceptReporters: true,
+        items: []
+    }
+    var rj11s = EXTB_LIST[id].RJ11;
+    for (var i in rj11s) {
+        var rj11Name = rj11s[i].name;
+        var rj11_menu_item = {
+            text: rj11Name,          // RJ11 名称
+            value: rj11s[i].value[0] // ADC引脚
+        }
+        menu.items.push(rj11_menu_item);
+    }
+    return menu;
+}
+const GenerateADCMenu = function (id) {
+    var menu = {
+        acceptReporters: true,
+        items: []
+    }
+    var rj11s = EXTB_LIST[id].RJ11;
+    for (var i in rj11s) {
+        if (!rj11s[i].adc)
+            continue
+        var rj11Name = rj11s[i].name;
+        var rj11_menu_item = {
+            text: rj11Name,          // RJ11 名称
+            value: rj11s[i].value[0] // ADC引脚
+        }
+        menu.items.push(rj11_menu_item);
+    }
+    return menu;
+}
+
+const GenerateRJMenuAll = function (id) {
+    var menu = {
+        RJMenuDup: GenerateRJMenuDuplex(id),
+        RJMenu: GenerateRJMenu(id),
+        RJDigiMenu: GenerateRJDigiMenu(id),
+        RJADCMenu: GenerateADCMenu(id),
+        RJADCMenuFull: GenerateADCMenuFull(id)
+    }
+    return menu
+}
+export {
+    miscMenuBlocks,
+    GenerateRJMenuDuplex,
+    GenerateRJMenu,
+    GenerateRJDigiMenu,
+    GenerateADCMenuFull,
+    GenerateADCMenu,
+    GenerateRJMenuAll
+};

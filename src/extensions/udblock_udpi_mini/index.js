@@ -3,7 +3,7 @@ const BlockType = require('../../extension-support/block-type');
 const log = require('../../util/log');
 const formatMessage = require('format-message')
 const EXTB_LIST = require('../../util/extb-definitions');
-const miscMenuBlocks = require('../../myBlocks/menu');
+const {miscMenuBlocks, GenerateRJMenuAll} = require('../../myBlocks/menu');
 const carBlocks = require('../../myBlocks/car');
 const cameraBlocks = require('../../myBlocks/camerab');
 const sensorBlocks = require('../../myBlocks/sensor');
@@ -392,58 +392,7 @@ class UDBlockUDPiMiniV1 {
                     acceptReporters: true,
                     items: [{ text: "边缘查找", value: "iess" }, { text: "锐化", value: "ishs" }, { text: "浮雕化", value: "issr" }]
                 },
-                RJMenu: {
-                    acceptReporters: true,
-                    items: [
-                        {text:"RJ1", value:EXTB_LIST.extb_udpi_mini.RJ11[0].value.join(",")},
-                        {text:"RJ2", value:EXTB_LIST.extb_udpi_mini.RJ11[1].value.join(",")},
-                        {text:"RJ3", value:EXTB_LIST.extb_udpi_mini.RJ11[2].value.join(",")},
-                        {text:"RJ4", value:EXTB_LIST.extb_udpi_mini.RJ11[3].value.join(",")},
-                        {text:"RJ5", value:EXTB_LIST.extb_udpi_mini.RJ11[4].value.join(",")},
-                        {text:"RJ6", value:EXTB_LIST.extb_udpi_mini.RJ11[5].value.join(",")},
-                        {text:"RJ7", value:EXTB_LIST.extb_udpi_mini.RJ11[6].value.join(",")},
-                        {text:"RJ8", value:EXTB_LIST.extb_udpi_mini.RJ11[7].value.join(",")},
-                    ]
-                },
-                RJDigiMenu: {
-                    acceptReporters: true,
-                    items: [
-                        {text:"RJ1", value:EXTB_LIST.extb_udpi_mini.RJ11[0].value[1]},
-                        {text:"RJ2", value:EXTB_LIST.extb_udpi_mini.RJ11[1].value[1]},
-                        {text:"RJ3", value:EXTB_LIST.extb_udpi_mini.RJ11[2].value[1]},
-                        {text:"RJ4", value:EXTB_LIST.extb_udpi_mini.RJ11[3].value[1]},
-                        {text:"RJ5", value:EXTB_LIST.extb_udpi_mini.RJ11[4].value[1]},
-                        {text:"RJ6", value:EXTB_LIST.extb_udpi_mini.RJ11[5].value[1]},
-                        {text:"RJ7", value:EXTB_LIST.extb_udpi_mini.RJ11[6].value[1]},
-                        {text:"RJ8", value:EXTB_LIST.extb_udpi_mini.RJ11[7].value[1]},
-                    ]
-                },
-                RJADCMenu: {
-                    acceptReporters: true,
-                    items: [
-                        {text:"RJ1", value:EXTB_LIST.extb_udpi_mini.RJ11[0].value[0]},
-                        {text:"RJ2", value:EXTB_LIST.extb_udpi_mini.RJ11[1].value[0]},
-                        {text:"RJ3", value:EXTB_LIST.extb_udpi_mini.RJ11[2].value[0]},
-                        {text:"RJ4", value:EXTB_LIST.extb_udpi_mini.RJ11[3].value[0]},
-                        {text:"RJ5", value:EXTB_LIST.extb_udpi_mini.RJ11[4].value[0]},
-                        {text:"RJ6", value:EXTB_LIST.extb_udpi_mini.RJ11[5].value[0]},
-                        {text:"RJ7", value:EXTB_LIST.extb_udpi_mini.RJ11[6].value[0]},
-                        {text:"RJ8", value:EXTB_LIST.extb_udpi_mini.RJ11[7].value[0]},
-                    ]
-                },
-                RJADCMenuFull: {
-                    acceptReporters: true,
-                    items: [
-                        {text:"RJ1", value:EXTB_LIST.extb_udpi_mini.RJ11[0].value[0]},
-                        {text:"RJ2", value:EXTB_LIST.extb_udpi_mini.RJ11[1].value[0]},
-                        {text:"RJ3", value:EXTB_LIST.extb_udpi_mini.RJ11[2].value[0]},
-                        {text:"RJ4", value:EXTB_LIST.extb_udpi_mini.RJ11[3].value[0]},
-                        {text:"RJ5", value:EXTB_LIST.extb_udpi_mini.RJ11[4].value[0]},
-                        {text:"RJ6", value:EXTB_LIST.extb_udpi_mini.RJ11[5].value[0]},
-                        {text:"RJ7", value:EXTB_LIST.extb_udpi_mini.RJ11[6].value[0]},
-                        {text:"RJ8", value:EXTB_LIST.extb_udpi_mini.RJ11[7].value[0]},
-                    ]
-                },
+                ...GenerateRJMenuAll('extb_udpi_mini'),
                 dblRelayPinYellow: this.dblRelayPinYellow,
                 dblRelayPinBlue:this.dblRelayPinBlue,
                 ...miscMenuBlocks

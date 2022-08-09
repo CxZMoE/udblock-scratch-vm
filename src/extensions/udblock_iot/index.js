@@ -2,7 +2,7 @@ const ArgumentType = require('../../extension-support/argument-type');
 const BlockType = require('../../extension-support/block-type');
 const log = require('../../util/log');
 const EXTB_LIST = require('../../util/extb-definitions');
-const miscMenuBlocks = require('../../myBlocks/menu');
+const {miscMenuBlocks, GenerateRJMenuAll} = require('../../myBlocks/menu');
 const carBlocks = require('../../myBlocks/car');
 const cameraBlocks = require('../../myBlocks/camerab');
 const sensorBlocks = require('../../myBlocks/sensor');
@@ -422,42 +422,7 @@ class UDblockIOT {
                         { text: "小智同学", value: "100" }
                     ]
                 },
-                RJMenu: {
-                    acceptReporters: true,
-                    items: [
-                        { text: "RJ1", value: EXTB_LIST.extb_iot.RJ11[0].value.join(",") },
-                        { text: "RJ2", value: EXTB_LIST.extb_iot.RJ11[1].value.join(",") },
-                        { text: "RJ3", value: EXTB_LIST.extb_iot.RJ11[2].value.join(",") },
-                        { text: "RJ4", value: EXTB_LIST.extb_iot.RJ11[3].value.join(",") },
-                    ]
-                },
-                RJDigiMenu: {
-                    acceptReporters: true,
-                    items: [
-                        { text: "RJ1", value: EXTB_LIST.extb_iot.RJ11[0].value[1] },
-                        { text: "RJ2", value: EXTB_LIST.extb_iot.RJ11[1].value[1] },
-                        { text: "RJ3", value: EXTB_LIST.extb_iot.RJ11[2].value[1] },
-                        { text: "RJ4", value: EXTB_LIST.extb_iot.RJ11[3].value[1] },
-                    ]
-                },
-                RJADCMenuFull: {
-                    acceptReporters: true,
-                    items: [
-                        {text:"RJ1", value: EXTB_LIST.extb_iot.RJ11[0].value[0]},
-                        {text:"RJ2", value: EXTB_LIST.extb_iot.RJ11[1].value[0]},
-                        {text:"RJ3", value:EXTB_LIST.extb_iot.RJ11[2].value[0]},
-                        {text:"RJ4", value: EXTB_LIST.extb_iot.RJ11[3].value[0]},
-                    ]
-                },
-                RJADCMenu: {
-                    acceptReporters: true,
-                    items: [
-                        { text: "RJ1", value: EXTB_LIST.extb_iot.RJ11[0].value[0] },
-                        { text: "RJ2", value: EXTB_LIST.extb_iot.RJ11[1].value[0] },
-                        { text: "RJ3", value: EXTB_LIST.extb_iot.RJ11[2].value[0] },
-                        { text: "RJ4", value: EXTB_LIST.extb_iot.RJ11[3].value[0] },
-                    ]
-                },
+                ...GenerateRJMenuAll('extb_iot'),
                 dblRelayPinYellow: this.dblRelayPinYellow,
                 dblRelayPinBlue:this.dblRelayPinBlue,
                 ...miscMenuBlocks

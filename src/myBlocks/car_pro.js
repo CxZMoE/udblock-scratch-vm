@@ -260,6 +260,27 @@ const carProBlocks = [
         }
     },
     {
+        opcode: 'startServer',
+        blockType: BlockType.COMMAND,
+        text: '开启遥控功能 热点名[SSID] 密码[PSK]',
+        arguments: {
+            SSID: {
+                type: ArgumentType.STRING,
+                defaultValue: "udpi-" + (parseInt(Math.random() * 10000000 + ''))
+            },
+            PSK: {
+                type: ArgumentType.STRING,
+                defaultValue: "test12345678"
+            }
+
+        }
+    },
+    {
+        opcode: 'stopServer',
+        blockType: BlockType.COMMAND,
+        text: '关闭遥控功能'
+    },
+    {
         type: "custom_seperator",
         text: '★ 信息获取',
     },

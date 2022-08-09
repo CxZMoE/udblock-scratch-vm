@@ -284,7 +284,7 @@ function actionBlocks(hasMotor=true,hasServo=true) {
             arguments: {
                 PORT: {
                     type: ArgumentType.NUMBER,
-                    menu: "RJMenu"
+                    menu: "RJMenuDup"
                 },
                 DIRECTION: {
                     type: ArgumentType.STRING,
