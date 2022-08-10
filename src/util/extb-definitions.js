@@ -62,7 +62,7 @@ const EXTB_LIST = {
                     "21"
                 ],
                 adc: true,
-                duplex: false
+                duplex: true
             }
         ],
         motor: [
