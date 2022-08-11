@@ -260,6 +260,12 @@ const carProBlocks = [
         }
     },
     {
+        type: "custom_seperator",
+        text: '★ APP遥控'
+    },
+    // #  0:三角 1:圆形 2:叉 3:正方形 4:上 5:右 6:下 7:左 8:L1 9:L2 10:R1 11:R2
+
+    {
         opcode: 'startServer',
         blockType: BlockType.COMMAND,
         text: '开启遥控功能 热点名[SSID] 密码[PSK]',
@@ -281,47 +287,37 @@ const carProBlocks = [
         text: '关闭遥控功能'
     },
     {
-        type: "custom_seperator",
-        text: '★ 信息获取',
-    },
-    {
-        opcode: 'getMovementData',
-        blockType: BlockType.REPORTER,
-        text: '获取车辆[AXIS]的[DTYPE]',
+        opcode: 'appGetButtonStatus',
+        blockType: BlockType.BOOLEAN,
+        text: 'APP按键[BTN]被按下',
         arguments: {
-            AXIS: {
+            BTN:{
                 type: ArgumentType.NUMBER,
-                defaultValue: "x",
-                menu: "axisMenu"
-            },
-            DTYPE: {
-                type: ArgumentType.STRING,
-                defaultValue: '0',
-                menu: "dataTypeMenu"
-            },
+                menu: 'appBtnMenu'
+            }
         }
     },
     {
-        opcode: 'getServoData',
-        blockType: BlockType.REPORTER,
-        text: '获取车辆[INDEX]舵机的角度',
+        opcode: 'appGetButtonUP',
+        blockType: BlockType.BOOLEAN,
+        text: 'APP按键[BTN]被松开',
         arguments: {
-            INDEX: {
+            BTN:{
                 type: ArgumentType.NUMBER,
-                defaultValue: "0x01",
-                menu: "servoMenu"
-            },
+                menu: 'appBtnMenu'
+            }
         }
     },
     {
-        opcode: 'getBootVersion',
+        opcode: 'appGetRemote',
         blockType: BlockType.REPORTER,
-        text: '获取车辆BOOT版本',
-    },
-    {
-        opcode: 'getVersion',
-        blockType: BlockType.REPORTER,
-        text: '获取车辆固件版本',
+        text: 'APP遥感[POS]',
+        arguments: {
+            POS:{
+                type: ArgumentType.NUMBER,
+                menu: 'ps2RemoteMenu'
+            }
+        }
     },
     {
         type: "custom_seperator",
@@ -407,6 +403,49 @@ const carProBlocks = [
                 defaultValue: 5,
             }
         }
+    },
+    {
+        type: "custom_seperator",
+        text: '★ 信息获取',
+    },
+    {
+        opcode: 'getMovementData',
+        blockType: BlockType.REPORTER,
+        text: '获取车辆[AXIS]的[DTYPE]',
+        arguments: {
+            AXIS: {
+                type: ArgumentType.NUMBER,
+                defaultValue: "x",
+                menu: "axisMenu"
+            },
+            DTYPE: {
+                type: ArgumentType.STRING,
+                defaultValue: '0',
+                menu: "dataTypeMenu"
+            },
+        }
+    },
+    {
+        opcode: 'getServoData',
+        blockType: BlockType.REPORTER,
+        text: '获取车辆[INDEX]舵机的角度',
+        arguments: {
+            INDEX: {
+                type: ArgumentType.NUMBER,
+                defaultValue: "0x01",
+                menu: "servoMenu"
+            },
+        }
+    },
+    {
+        opcode: 'getBootVersion',
+        blockType: BlockType.REPORTER,
+        text: '获取车辆BOOT版本',
+    },
+    {
+        opcode: 'getVersion',
+        blockType: BlockType.REPORTER,
+        text: '获取车辆固件版本',
     },
 ]
 

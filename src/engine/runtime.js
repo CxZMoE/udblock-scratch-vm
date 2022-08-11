@@ -873,7 +873,7 @@ class Runtime extends EventEmitter {
      */
     _refreshExtensionPrimitives (extensionInfo) {
         const categoryInfo = this._blockInfo.find(info => info.id === extensionInfo.id);
-        console.log(categoryInfo)
+        // console.log(categoryInfo)
         if (categoryInfo) {
             categoryInfo.name = maybeFormatMessage(extensionInfo.name);
             this._fillExtensionCategory(categoryInfo, extensionInfo);
@@ -1066,7 +1066,7 @@ class Runtime extends EventEmitter {
         }else{
             if (typeof blockInfo == "string"){
                 // 分割线相关
-                //console.log(typeof blockInfo)
+                //// console.log(typeof blockInfo)
                 return this._convertSeparatorForScratchBlocks(blockInfo);
             }
         }

@@ -390,8 +390,8 @@ class VirtualMachine extends EventEmitter {
         zip.file('project.json', projectJson);
         this._addFileDescsToZip(soundDescs.concat(costumeDescs), zip);
 
-        console.log('saving projection')
-        console.log(projectJson)
+        // console.log('saving projection')
+        // console.log(projectJson)
     
         return zip.generateAsync({
             type: 'blob',

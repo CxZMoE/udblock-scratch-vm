@@ -125,6 +125,27 @@ const miscMenuBlocks = {
             { text: "□", value: "15" },
         ]
     },
+    appBtnMenu: {
+        acceptReporters: true,
+        items: [
+            // {text: "select", value: "0"},
+            // {text: "L3", value: "1"},
+            // {text: "R3", value: "2"},
+            // {text: "start", value: "3"},
+            { text: "上", value: "4" },
+            { text: "右", value: "5" },
+            { text: "下", value: "6" },
+            { text: "左", value: "7" },
+            { text: "L2", value: "9" },
+            { text: "R2", value: "11" },
+            { text: "L1", value: "8" },
+            { text: "R1", value: "10" },
+            { text: "Δ", value: "0" },
+            { text: "o", value: "1" },
+            { text: "×", value: "2" },
+            { text: "□", value: "3" },
+        ]
+    },
     // 0 ly 1 lx 2 ry 3 rx
     ps2RemoteMenu: {
         acceptReporters: true,
@@ -162,7 +183,7 @@ const GenerateRJMenuDuplex = function (id) {
         acceptReporters: true,
         items: []
     }
-    console.log(id)
+    // console.log(id)
     var rj11s = EXTB_LIST[id].RJ11;
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;

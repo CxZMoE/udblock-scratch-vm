@@ -132,12 +132,12 @@ class ExtensionManager {
     removeLoadedExtension(extensionID) {
         this._loadedExtensions.delete(extensionID);
         this.refreshBlocks();
-        console.log("删除Extension:", extensionID)
+        // console.log("删除Extension:", extensionID)
     }
     removeAllLoadedExtension() {
         this._loadedExtensions.clear()
         this.refreshBlocks();
-        console.log("删除所有Extension:")
+        // console.log("删除所有Extension:")
     }
 
     /**
@@ -146,7 +146,7 @@ class ExtensionManager {
      * @param {string} extensionId - the ID of an internal extension
      */
     loadExtensionIdSync(extensionId) {
-        console.log('同步加载拓展：'+String(extensionID))
+        // console.log('同步加载拓展：'+String(extensionID))
         if (!builtinExtensions.hasOwnProperty(extensionId)) {
             log.warn(`Could not find extension ${extensionId} in the built in extensions.`);
             return;
@@ -171,7 +171,7 @@ class ExtensionManager {
      * @returns {Promise} resolved once the extension is loaded and initialized or rejected on failure
      */
     loadExtensionURL(extensionURL) {
-        console.log("通过URL加载拓展：" + extensionURL)
+        // console.log("通过URL加载拓展：" + extensionURL)
         if (builtinExtensions.hasOwnProperty(extensionURL)) {
             /** @TODO dupe handling for non-builtin extensions. See commit 670e51d33580e8a2e852b3b038bb3afc282f81b9 */
             if (this.isExtensionLoaded(extensionURL)) {
@@ -267,7 +267,7 @@ class ExtensionManager {
         dispatch.setServiceSync(serviceName, extensionObject);
 
         // delete(dispatch.services[serviceName])
-        // console.log(dispatch.services)
+        // // console.log(dispatch.services)
         dispatch.callSync('extensions', 'registerExtensionServiceSync', serviceName);
         return serviceName;
     }
@@ -314,10 +314,10 @@ class ExtensionManager {
         extensionInfo.blocks = extensionInfo.blocks.reduce((results, blockInfo) => {
             try {
                 let result;
-                //console.log(blockInfo)
+                //// console.log(blockInfo)
 
                 if (blockInfo.type == "custom_seperator") {
-                    //console.log("here")
+                    //// console.log("here")
                     result = String(blockInfo.text)
                 } else {
                     switch (blockInfo) {
