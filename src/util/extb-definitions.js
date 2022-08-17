@@ -61,7 +61,7 @@ const EXTB_LIST = {
                     "25",
                     "21"
                 ],
-                adc: true,
+                adc: false,
                 duplex: true
             }
         ],
@@ -205,7 +205,7 @@ const EXTB_LIST = {
                     "15",
                     "18"
                 ],
-                adc: true,
+                adc: false,
                 duplex: true
             },
             {
@@ -214,7 +214,7 @@ const EXTB_LIST = {
                     "12",
                     "13"
                 ],
-                adc: true,
+                adc: false,
                 duplex: true
             },
             {
@@ -232,7 +232,7 @@ const EXTB_LIST = {
                     "27",
                     "14"
                 ],
-                adc: true,
+                adc: false,
                 duplex: true
             },
             {
@@ -479,7 +479,7 @@ const EXTB_LIST = {
                     "25",
                     "21"
                 ],
-                adc: true,
+                adc: false,
                 duplex: true
             }
         ],
@@ -567,7 +567,7 @@ const EXTB_LIST = {
                     "25",
                     "21"
                 ],
-                adc: true,
+                adc: false,
                 duplex: true
             }
         ],
@@ -655,7 +655,7 @@ const EXTB_LIST = {
                     "25",
                     "21"
                 ],
-                adc: true,
+                adc: false,
                 duplex: true
             }
         ],
