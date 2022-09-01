@@ -175,43 +175,43 @@ class UDblockUDPiV2 {
                         }
                     }
                 },
-                {
-                    type: "custom_seperator",
-                    text: '★ ▶ 蜂鸣器',
-                },
-                {
-                    opcode: 'setBuzzerPlay',
-                    blockType: BlockType.COMMAND,
-                    text: '控制主板蜂鸣器播放[SOUND] 音调 [PITCH]',
-                    arguments: {
-                        SOUND: {
-                            type: ArgumentType.STRING,
-                            defaultValue: "DO",
-                            menu: "buzzerSounds"
-                        },
-                        PITCH: {
-                            type: ArgumentType.STRING,
-                            defaultValue: "LOW",
-                            menu: "buzzerPitches"
-                        }
-                    }
-                },
-                {
-                    opcode: 'setBuzzerPlayMidi',
-                    blockType: BlockType.COMMAND,
-                    text: '控制主板蜂鸣器播放MIDI [SOUND]',
-                    arguments: {
-                        SOUND: {
-                            type: ArgumentType.STRING,
-                            defaultValue: "demo"
-                        }
-                    }
-                },
-                {
-                    opcode: 'setBuzzerStop',
-                    blockType: BlockType.COMMAND,
-                    text: '控制主板蜂鸣器停止播放',
-                },
+                // {
+                //     type: "custom_seperator",
+                //     text: '★ ▶ 蜂鸣器',
+                // },
+                // {
+                //     opcode: 'setBuzzerPlay',
+                //     blockType: BlockType.COMMAND,
+                //     text: '控制主板蜂鸣器播放[SOUND] 音调 [PITCH]',
+                //     arguments: {
+                //         SOUND: {
+                //             type: ArgumentType.STRING,
+                //             defaultValue: "DO",
+                //             menu: "buzzerSounds"
+                //         },
+                //         PITCH: {
+                //             type: ArgumentType.STRING,
+                //             defaultValue: "LOW",
+                //             menu: "buzzerPitches"
+                //         }
+                //     }
+                // },
+                // {
+                //     opcode: 'setBuzzerPlayMidi',
+                //     blockType: BlockType.COMMAND,
+                //     text: '控制主板蜂鸣器播放MIDI [SOUND]',
+                //     arguments: {
+                //         SOUND: {
+                //             type: ArgumentType.STRING,
+                //             defaultValue: "demo"
+                //         }
+                //     }
+                // },
+                // {
+                //     opcode: 'setBuzzerStop',
+                //     blockType: BlockType.COMMAND,
+                //     text: '控制主板蜂鸣器停止播放',
+                // },
                 {
                     type: "custom_seperator",
                     text: '★ ▶ 网络',
