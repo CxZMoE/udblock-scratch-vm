@@ -792,7 +792,7 @@ const EXTB_LIST = {
                 name: "RJ6",
                 value: [
                     "32",
-                    "15"
+                    "18"
                 ],
                 adc: true,
                 duplex: true
