@@ -1,5 +1,4 @@
 const {GetRJPinPair} = require('./extb_pin_trans')
-
 // On the ESP32, ADC functionality is available on pins 32-39 (ADC block 1) and pins 0, 2, 4, 12-15 and 25-27 (ADC block 2).
 // Pins 34-39 are input only, and also do not have internal pull-up resistors
 // Common ADC Pin: 5
@@ -14,37 +13,37 @@ const EXTB_LIST = {
         RJ11: [
             {
                 name: "RJ1",
-                value: GetRJPinPair(1),
+                value: GetRJPinPair(1, "rk"),
                 adc: true,
                 duplex: true
             },
             {
                 name: "RJ2",
-                value: GetRJPinPair(2),
+                value: GetRJPinPair(2, "rk"),
                 adc: true,
                 duplex: true
             },
             {
                 name: "RJ3",
-                value: GetRJPinPair(3),
+                value: GetRJPinPair(3, "rk"),
                 adc: false,
                 duplex: true
             },
             {
                 name: "RJ4",
-                value: GetRJPinPair(4),
+                value: GetRJPinPair(4, "rk"),
                 adc: true,
                 duplex: false
             },
             {
                 name: "RJ5",
-                value: GetRJPinPair(5),
+                value: GetRJPinPair(5, "rk"),
                 adc: true,
                 duplex: false
             },
             {
                 name: "RJ6",
-                value: GetRJPinPair(6),
+                value: GetRJPinPair(6, "rk"),
                 adc: false,
                 duplex: true
             }

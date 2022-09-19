@@ -3,8 +3,7 @@ const BlockType = require('../../extension-support/block-type');
 const log = require('../../util/log');
 
 // 方块图标链接
-const blockIconURI = 'data:image/png;base64,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'
-
+const blockIconURI = 'data:image/png;base64,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'
 class UDblockUDPiV2 {
     constructor(runtime) {
         this.runtime = runtime;
@@ -13,13 +12,13 @@ class UDblockUDPiV2 {
     getInfo() {
         return {
             id: "udblockUDPiV2",
-            name: "UDPi 开发板 V2",
+            name: "小凌派开发板",
             blockIconURI: blockIconURI,
             blocks: [
                 {
                     opcode: "espstart",
                     blockType: BlockType.HAT,
-                    text: "UDPi主板初始化完成"
+                    text: "小凌派初始化完成"
                 },
                 {
                     opcode: "print",
@@ -39,7 +38,7 @@ class UDblockUDPiV2 {
                 {
                     opcode: 'whenButtonPressed',
                     blockType: BlockType.EVHAT,
-                    text: '当主板按钮[BTN]按下',
+                    text: '当小凌派按钮[BTN]按下',
                     arguments: {
                         BTN:{
                             type: ArgumentType.STRING,
@@ -55,7 +54,7 @@ class UDblockUDPiV2 {
                 {
                     opcode: 'getStartTime',
                     blockType: BlockType.REPORTER,
-                    text: '获取主板启动时间(毫秒)'
+                    text: '获取小凌派启动时间(毫秒)'
                 },
                 {
                     opcode: 'delay_ms',
@@ -97,17 +96,17 @@ class UDblockUDPiV2 {
                 {
                     opcode: 'openOnBoardRGB',
                     blockType: BlockType.COMMAND,
-                    text: '控制启用主板RGB'
+                    text: '控制启用小凌派RGB'
                 },
                 {
                     opcode: 'closeOnBoardRGB',
                     blockType: BlockType.COMMAND,
-                    text: '控制禁用主板RGB'
+                    text: '控制禁用小凌派RGB'
                 },
                 // {
                 //     opcode: 'setLuminanceOnBoardRGB',
                 //     blockType: BlockType.COMMAND,
-                //     text: '控制主板RGB设置亮度为 [NUMBER] %',
+                //     text: '控制小凌派RGB设置亮度为 [NUMBER] %',
                 //     arguments: {
                 //         NUMBER: {
                 //             type: ArgumentType.NUMBER,
@@ -118,7 +117,7 @@ class UDblockUDPiV2 {
                 {
                     opcode: 'setRGBDraw',
                     blockType: BlockType.COMMAND,
-                    text: '控制主板RGB显示颜色[COLOR]',
+                    text: '控制小凌派RGB显示颜色[COLOR]',
                     arguments: {
                         COLOR: {
                             type: ArgumentType.COLOR,
@@ -128,7 +127,7 @@ class UDblockUDPiV2 {
                 {
                     opcode: 'setRGBLineDraw',
                     blockType: BlockType.COMMAND,
-                    text: '控制主板RGB[LINE]行显示颜色[COLOR]',
+                    text: '控制小凌派RGB[LINE]行显示颜色[COLOR]',
                     arguments: {
                         LINE: {
                             type: ArgumentType.NUMBER,
@@ -142,7 +141,7 @@ class UDblockUDPiV2 {
                 {
                     opcode: 'setRGBLineSingleDraw',
                     blockType: BlockType.COMMAND,
-                    text: '控制主板RGB[LINE]行[INDEX]号灯珠显示颜色[COLOR]',
+                    text: '控制小凌派RGB[LINE]行[INDEX]号灯珠显示颜色[COLOR]',
                     arguments: {
                         LINE: {
                             type: ArgumentType.NUMBER,
@@ -160,7 +159,7 @@ class UDblockUDPiV2 {
                 {
                     opcode: 'setRGBLineSingleOnlyDraw',
                     blockType: BlockType.COMMAND,
-                    text: '控制主板RGB[LINE]行只有[INDEX]号灯珠显示颜色[COLOR]',
+                    text: '控制小凌派RGB[LINE]行只有[INDEX]号灯珠显示颜色[COLOR]',
                     arguments: {
                         LINE: {
                             type: ArgumentType.NUMBER,
@@ -182,7 +181,7 @@ class UDblockUDPiV2 {
                 // {
                 //     opcode: 'setBuzzerPlay',
                 //     blockType: BlockType.COMMAND,
-                //     text: '控制主板蜂鸣器播放[SOUND] 音调 [PITCH]',
+                //     text: '控制小凌派蜂鸣器播放[SOUND] 音调 [PITCH]',
                 //     arguments: {
                 //         SOUND: {
                 //             type: ArgumentType.STRING,
@@ -199,7 +198,7 @@ class UDblockUDPiV2 {
                 // {
                 //     opcode: 'setBuzzerPlayMidi',
                 //     blockType: BlockType.COMMAND,
-                //     text: '控制主板蜂鸣器播放MIDI [SOUND]',
+                //     text: '控制小凌派蜂鸣器播放MIDI [SOUND]',
                 //     arguments: {
                 //         SOUND: {
                 //             type: ArgumentType.STRING,
@@ -210,7 +209,7 @@ class UDblockUDPiV2 {
                 // {
                 //     opcode: 'setBuzzerStop',
                 //     blockType: BlockType.COMMAND,
-                //     text: '控制主板蜂鸣器停止播放',
+                //     text: '控制小凌派蜂鸣器停止播放',
                 // },
                 {
                     type: "custom_seperator",
@@ -224,7 +223,7 @@ class UDblockUDPiV2 {
                 {
                     opcode: 'setConnectToWiFi',
                     blockType: BlockType.COMMAND,
-                    text: '控制主板连接到Wi-Fi [SSID] [PSK]',
+                    text: '控制小凌派连接到Wi-Fi [SSID] [PSK]',
                     arguments: {
                         SSID: {
                             type: ArgumentType.STRING,
@@ -239,20 +238,20 @@ class UDblockUDPiV2 {
                 {
                     opcode: 'closeConnectToWiFi',
                     blockType: BlockType.COMMAND,
-                    text: '控制主板断开Wi-Fi',
+                    text: '控制小凌派断开Wi-Fi',
                 },
                 {
                     opcode: 'openWiFiAP',
                     blockType: BlockType.COMMAND,
-                    text: '控制主板打开热点[SSID] [PSK]',
+                    text: '控制小凌派打开热点[SSID] [PSK]',
                     arguments: {
                         SSID: {
                             type: ArgumentType.STRING,
-                            defaultValue: "udpi-" + (parseInt(Math.random()*10000000+ '')) 
+                            defaultValue: "lz-" + (parseInt(Math.random()*10000000+ '')) 
                         },
                         PSK: {
                             type: ArgumentType.STRING,
-                            defaultValue: "udpi12345678"
+                            defaultValue: "lz12345678"
                         }
                     }
                 },
