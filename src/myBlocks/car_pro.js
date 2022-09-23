@@ -409,6 +409,30 @@ const carProBlocks = [
         text: '★ 信息获取',
     },
     {
+        opcode: 'initUDPClient',
+        blockType: BlockType.COMMAND,
+        text: '初始化比赛客户端用户ID[ID],客户端地址[ADDR]:[PORT]',
+        arguments: {
+            ID: {
+                type: ArgumentType.STRING,
+                defaultValue: "gameuser-" + (parseInt(Math.random() * 10000000 + ''))
+            },
+            ADDR: {
+                type: ArgumentType.STRING,
+                defaultValue: "127.0.0.1",
+            },
+            PORT: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 3000,
+            },
+        }
+    },
+    {
+        opcode: 'startUDPClient',
+        blockType: BlockType.COMMAND,
+        text: '启动比赛客户端'
+    },
+    {
         opcode: 'getMovementData',
         blockType: BlockType.REPORTER,
         text: '获取车辆[AXIS]的[DTYPE]',
@@ -424,6 +448,12 @@ const carProBlocks = [
                 menu: "dataTypeMenu"
             },
         }
+    },
+    {
+        opcode: 'getAccelData',
+        blockType: BlockType.REPORTER,
+        text: '获取车辆加速度信息',
+        arguments: {}
     },
     {
         opcode: 'getServoData',

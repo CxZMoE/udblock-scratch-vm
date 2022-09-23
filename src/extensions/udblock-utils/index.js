@@ -406,7 +406,86 @@ class UDblockMQTT {
                             defaultValue: ' '
                         }
                     }
-                }
+                },
+                {
+                    type: "custom_seperator",
+                    text: '★ UDP',
+                },
+                {
+                    opcode: 'initUdp',
+                    blockType: BlockType.COMMAND,
+                    text: '初始化UDP对象'
+                },
+                {
+                    opcode: 'connectUdp',
+                    blockType: BlockType.COMMAND,
+                    text: 'UDP连接到地址[ADDR]:[PORT]',
+                    arguments: {
+                        ADDR: {
+                            type: ArgumentType.STRING,
+                            defaultValue: '127.0.0.1'
+                        },
+                        PORT: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 3000
+                        }
+                    }
+                },
+                {
+                    opcode: 'udpSetTimeout',
+                    blockType: BlockType.COMMAND,
+                    text: 'UDP设置超时时间为[TIMEOUT]',
+                    arguments: {
+                        TIMEOUT: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 200
+                        }
+                    }
+                },
+                {
+                    opcode: 'udpSetBlocking',
+                    blockType: BlockType.COMMAND,
+                    text: 'UDP设置是否阻塞[BLOCK]',
+                    arguments: {
+                        BLOCK: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 1
+                        }
+                    }
+                },
+                {
+                    opcode: 'udpSend',
+                    blockType: BlockType.COMMAND,
+                    text: 'UDP发送数据[DATA]',
+                    arguments: {
+                        DATA: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        }
+                    }
+                },
+                {
+                    opcode: 'udpWrite',
+                    blockType: BlockType.COMMAND,
+                    text: 'UDP发送所有数据[DATA]',
+                    arguments: {
+                        DATA: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        }
+                    }
+                },
+                {
+                    opcode: 'udpRecv',
+                    blockType: BlockType.COMMAND,
+                    text: 'UDPD读取[NUM]个字节的数据',
+                    arguments: {
+                        NUM: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 5
+                        }
+                    }
+                },
             ],
             menus: {
 
