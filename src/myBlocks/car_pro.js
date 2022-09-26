@@ -411,7 +411,7 @@ const carProBlocks = [
     {
         opcode: 'initUDPClient',
         blockType: BlockType.COMMAND,
-        text: '初始化比赛客户端用户ID[ID],客户端地址[ADDR]:[PORT]',
+        text: '初始化比赛客户端用户ID[ID] 连接地址[ADDR]:[PORT]',
         arguments: {
             ID: {
                 type: ArgumentType.STRING,
