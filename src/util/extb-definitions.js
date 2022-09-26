@@ -15,38 +15,44 @@ const EXTB_LIST = {
             {
                 name: "RJ1",
                 value: GetRJPinPair(1),
-                adc: true,
-                duplex: true
+                adc: false,
+                duplex: false,
+                valid: false
             },
             {
                 name: "RJ2",
                 value: GetRJPinPair(2),
                 adc: true,
-                duplex: true
+                duplex: true,
+                valid: true
             },
             {
                 name: "RJ3",
                 value: GetRJPinPair(3),
                 adc: false,
-                duplex: true
+                duplex: true,
+                valid: true
             },
             {
                 name: "RJ4",
                 value: GetRJPinPair(4),
                 adc: true,
-                duplex: false
+                duplex: false,
+                valid: true
             },
             {
                 name: "RJ5",
                 value: GetRJPinPair(5),
                 adc: true,
-                duplex: false
+                duplex: false,
+                valid: true
             },
             {
                 name: "RJ6",
                 value: GetRJPinPair(6),
                 adc: false,
-                duplex: true
+                duplex: true,
+                valid: true
             }
         ],
         motor: [

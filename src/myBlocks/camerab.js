@@ -291,6 +291,22 @@ const cameraBlocks = [
             }
         }
     },
+
+    {
+        type: "custom_seperator",
+        text: '★ 摄像头I2C版本',
+    },
+    {
+        opcode: 'initCamera',
+        blockType: BlockType.COMMAND,
+        text: '打开摄像头',
+        arguments: {
+            PORT: {
+                type: ArgumentType.STRING,
+                menu: "RJMenu"
+            },
+        }
+    },
 ]
 
 module.exports = cameraBlocks;

@@ -14,8 +14,8 @@ const EXTB_LIST = {
             {
                 name: "RJ1",
                 value: GetRJPinPair(1, "rk"),
-                adc: true,
-                duplex: true
+                adc: false,
+                duplex: false
             },
             {
                 name: "RJ2",

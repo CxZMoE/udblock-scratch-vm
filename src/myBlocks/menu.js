@@ -214,7 +214,8 @@ const GenerateRJMenu = function (id) {
             text: rj11Name,                 // RJ11 名称
             value: rj11s[i].value.join(",") // RJ11 的引脚
         }
-        menu.items.push(rj11_menu_item);
+        if (rj11s[i].valid != undefined && rj11s[i].valid )
+            menu.items.push(rj11_menu_item);
     }
     return menu;
 }
@@ -231,7 +232,8 @@ const GenerateRJDigiMenu = function (id) {
             text: rj11Name,                 // RJ11 名称
             value: rj11s[i].value[1] // RJ11 的引脚
         }
-        menu.items.push(rj11_menu_item);
+        if (rj11s[i].valid != undefined && rj11s[i].valid )
+            menu.items.push(rj11_menu_item);
     }
     return menu;
 }
@@ -247,7 +249,8 @@ const GenerateADCMenuFull = function (id) {
             text: rj11Name,          // RJ11 名称
             value: rj11s[i].value[0] // ADC引脚
         }
-        menu.items.push(rj11_menu_item);
+        if (rj11s[i].valid != undefined && rj11s[i].valid )
+            menu.items.push(rj11_menu_item);
     }
     return menu;
 }
@@ -265,7 +268,8 @@ const GenerateADCMenu = function (id) {
             text: rj11Name,          // RJ11 名称
             value: rj11s[i].value[0] // ADC引脚
         }
-        menu.items.push(rj11_menu_item);
+        if (rj11s[i].valid != undefined && rj11s[i].valid )
+            menu.items.push(rj11_menu_item);
     }
     return menu;
 }
