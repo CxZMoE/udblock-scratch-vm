@@ -216,6 +216,9 @@ const GenerateRJMenu = function (id) {
         }
         if (rj11s[i].valid != undefined && rj11s[i].valid )
             menu.items.push(rj11_menu_item);
+        else if( rj11s[i].valid == undefined){
+            menu.items.push(rj11_menu_item);
+        }
     }
     return menu;
 }
@@ -234,6 +237,9 @@ const GenerateRJDigiMenu = function (id) {
         }
         if (rj11s[i].valid != undefined && rj11s[i].valid )
             menu.items.push(rj11_menu_item);
+        else if( rj11s[i].valid == undefined){
+            menu.items.push(rj11_menu_item);
+        }
     }
     return menu;
 }
@@ -251,6 +257,9 @@ const GenerateADCMenuFull = function (id) {
         }
         if (rj11s[i].valid != undefined && rj11s[i].valid )
             menu.items.push(rj11_menu_item);
+        else if( rj11s[i].valid == undefined){
+            menu.items.push(rj11_menu_item);
+        }
     }
     return menu;
 }
@@ -270,6 +279,9 @@ const GenerateADCMenu = function (id) {
         }
         if (rj11s[i].valid != undefined && rj11s[i].valid )
             menu.items.push(rj11_menu_item);
+        else if( rj11s[i].valid == undefined){
+            menu.items.push(rj11_menu_item);
+        }
     }
     return menu;
 }
