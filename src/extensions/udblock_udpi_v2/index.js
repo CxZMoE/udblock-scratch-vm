@@ -247,7 +247,7 @@ class UDblockUDPiV2 {
                     arguments: {
                         SSID: {
                             type: ArgumentType.STRING,
-                            defaultValue: "lz-" + (parseInt(Math.random()*10000000+ '')) 
+                            defaultValue: "udpi" + (parseInt(Math.random()*10000000+ '')) 
                         },
                         PSK: {
                             type: ArgumentType.STRING,
