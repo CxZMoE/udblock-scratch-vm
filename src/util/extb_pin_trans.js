@@ -1,7 +1,7 @@
 const BIDTable = {
     "36": {
         esp32: 33,
-        rk: 16,
+        rk: 18,
     },
     "58": {
         esp32: 5,
@@ -28,7 +28,7 @@ const BIDTable = {
 
     "34": {
         esp32: 35,
-        rk: 18,
+        rk: 16,
     },
     "42": {
         esp32: 19,
@@ -70,7 +70,7 @@ function GetRKPinByBid(bid){
     return String(BIDTable[bid]["rk"]);
 }
 
-function GetRJPinPair(rjId, chip="rk"){
+function GetRJPinPair(rjId, chip="esp32"){
     let rjBids = RJ_BIDTable[rjId];
     let rj_a_bid = rjBids[0];
     let rj_b_bid = rjBids[1];

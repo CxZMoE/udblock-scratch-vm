@@ -178,7 +178,7 @@ const miscMenuBlocks = {
 
 
 // 生成双向RJ11菜单，不包含只能输入的引脚
-const GenerateRJMenuDuplex = function (id) {
+const GenerateRJMenuDuplex = function (id,t='esp32') {
     var menu = {
         acceptReporters: true,
         items: []
@@ -195,13 +195,21 @@ const GenerateRJMenuDuplex = function (id) {
             text: rj11Name,                 // RJ11 名称
             value: rj11s[i].value.join(",") // RJ11 的引脚
         }
-        menu.items.push(rj11_menu_item);
+        if (t=='esp32'){
+            menu.items.push(rj11_menu_item);
+        }else{
+            if (rj11s[i].valid != undefined && rj11s[i].valid )
+            menu.items.push(rj11_menu_item);
+            else if( rj11s[i].valid == undefined){
+                menu.items.push(rj11_menu_item);
+            }
+        }
     }
     return menu;
 }
 
 // 生成RJ11菜单，包含所有的引脚
-const GenerateRJMenu = function (id) {
+const GenerateRJMenu = function (id,t='esp32') {
     var menu = {
         acceptReporters: true,
         items: []
@@ -214,16 +222,20 @@ const GenerateRJMenu = function (id) {
             text: rj11Name,                 // RJ11 名称
             value: rj11s[i].value.join(",") // RJ11 的引脚
         }
-        if (rj11s[i].valid != undefined && rj11s[i].valid )
+        if (t=='esp32'){
             menu.items.push(rj11_menu_item);
-        else if( rj11s[i].valid == undefined){
+        }else{
+            if (rj11s[i].valid != undefined && rj11s[i].valid )
             menu.items.push(rj11_menu_item);
+            else if( rj11s[i].valid == undefined){
+                menu.items.push(rj11_menu_item);
+            }
         }
     }
     return menu;
 }
 
-const GenerateRJDigiMenu = function (id) {
+const GenerateRJDigiMenu = function (id,t='esp32') {
     var menu = {
         acceptReporters: true,
         items: []
@@ -235,15 +247,19 @@ const GenerateRJDigiMenu = function (id) {
             text: rj11Name,                 // RJ11 名称
             value: rj11s[i].value[1] // RJ11 的引脚
         }
-        if (rj11s[i].valid != undefined && rj11s[i].valid )
+        if (t=='esp32'){
             menu.items.push(rj11_menu_item);
-        else if( rj11s[i].valid == undefined){
+        }else{
+            if (rj11s[i].valid != undefined && rj11s[i].valid )
             menu.items.push(rj11_menu_item);
+            else if( rj11s[i].valid == undefined){
+                menu.items.push(rj11_menu_item);
+            }
         }
     }
     return menu;
 }
-const GenerateADCMenuFull = function (id) {
+const GenerateADCMenuFull = function (id,t='esp32') {
     var menu = {
         acceptReporters: true,
         items: []
@@ -253,34 +269,42 @@ const GenerateADCMenuFull = function (id) {
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
             text: rj11Name,          // RJ11 名称
-            value: rj11s[i].value[0] // ADC引脚
+            value: (t=='rk')?String(parseInt(rj11s[i].value[0])-15):rj11s[i].value[0] // ADC引脚
         }
-        if (rj11s[i].valid != undefined && rj11s[i].valid )
+        if (t=='esp32'){
             menu.items.push(rj11_menu_item);
-        else if( rj11s[i].valid == undefined){
+        }else{
+            if (rj11s[i].valid != undefined && rj11s[i].valid )
             menu.items.push(rj11_menu_item);
+            else if( rj11s[i].valid == undefined){
+                menu.items.push(rj11_menu_item);
+            }
         }
     }
     return menu;
 }
-const GenerateADCMenu = function (id) {
+const GenerateADCMenu = function (id, t='esp32') {
     var menu = {
         acceptReporters: true,
         items: []
     }
     var rj11s = EXTB_LIST[id].RJ11;
     for (var i in rj11s) {
-        if (!rj11s[i].adc)
+        if (!rj11s[i].adc && t=='rk')
             continue
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
             text: rj11Name,          // RJ11 名称
-            value: rj11s[i].value[0] // ADC引脚
+            value: (t=='rk')?String(parseInt(rj11s[i].value[0])-15):rj11s[i].value[0] // ADC引脚
         }
-        if (rj11s[i].valid != undefined && rj11s[i].valid )
+        if (t=='esp32'){
             menu.items.push(rj11_menu_item);
-        else if( rj11s[i].valid == undefined){
+        }else{
+            if (rj11s[i].valid != undefined && rj11s[i].valid )
             menu.items.push(rj11_menu_item);
+            else if( rj11s[i].valid == undefined){
+                menu.items.push(rj11_menu_item);
+            }
         }
     }
     return menu;
