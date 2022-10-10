@@ -297,15 +297,9 @@ const cameraBlocks = [
         text: '★ 摄像头I2C版本',
     },
     {
-        opcode: 'initCamera',
+        opcode: 'initCameraI2C',
         blockType: BlockType.COMMAND,
-        text: '打开摄像头',
-        arguments: {
-            PORT: {
-                type: ArgumentType.STRING,
-                menu: "RJMenu"
-            },
-        }
+        text: '打开摄像头(I2C)版本',
     },
 ]
 
