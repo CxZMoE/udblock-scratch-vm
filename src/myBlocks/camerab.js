@@ -18,6 +18,11 @@ const cameraBlocks = [
         }
     },
     {
+        opcode: 'initCameraI2C',
+        blockType: BlockType.COMMAND,
+        text: '打开摄像头(I2C)版本',
+    },
+    {
         opcode: 'resetCamera',
         blockType: BlockType.COMMAND,
         text: '重启摄像头'
@@ -292,15 +297,11 @@ const cameraBlocks = [
         }
     },
 
-    {
-        type: "custom_seperator",
-        text: '★ 摄像头I2C版本',
-    },
-    {
-        opcode: 'initCameraI2C',
-        blockType: BlockType.COMMAND,
-        text: '打开摄像头(I2C)版本',
-    },
+    // {
+    //     type: "custom_seperator",
+    //     text: '★ 摄像头I2C版本',
+    // },
+    
 ]
 
 module.exports = cameraBlocks;
