@@ -178,13 +178,18 @@ const miscMenuBlocks = {
 
 
 // 生成双向RJ11菜单，不包含只能输入的引脚
-const GenerateRJMenuDuplex = function (id,t='esp32') {
+const GenerateRJMenuDuplex = function (id,t) {
     var menu = {
         acceptReporters: true,
         items: []
     }
     // console.log(id)
-    var rj11s = EXTB_LIST[id].RJ11;
+    var rj11s;
+    if (t == 'rk'){
+        rj11s = EXTB_LIST[id].RJ11RK;
+    }else{
+        rj11s = EXTB_LIST[id].RJ11ESP32;
+    }
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
         if (!rj11s[i].duplex) {
@@ -209,13 +214,19 @@ const GenerateRJMenuDuplex = function (id,t='esp32') {
 }
 
 // 生成RJ11菜单，包含所有的引脚
-const GenerateRJMenu = function (id,t='esp32') {
+const GenerateRJMenu = function (id,t) {
     var menu = {
         acceptReporters: true,
         items: []
     }
-    var rj11s = EXTB_LIST[id].RJ11;
-
+    var rj11s;
+    console.log(id, t)
+    if (t == 'rk'){
+        rj11s = EXTB_LIST[id].RJ11RK;
+    }else{
+        rj11s = EXTB_LIST[id].RJ11ESP32;
+    }
+    console.log(rj11s)
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
@@ -235,12 +246,17 @@ const GenerateRJMenu = function (id,t='esp32') {
     return menu;
 }
 
-const GenerateRJDigiMenu = function (id,t='esp32') {
+const GenerateRJDigiMenu = function (id,t) {
     var menu = {
         acceptReporters: true,
         items: []
     }
-    var rj11s = EXTB_LIST[id].RJ11;
+    var rj11s;
+    if (t == 'rk'){
+        rj11s = EXTB_LIST[id].RJ11RK;
+    }else{
+        rj11s = EXTB_LIST[id].RJ11ESP32;
+    }
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
@@ -259,17 +275,22 @@ const GenerateRJDigiMenu = function (id,t='esp32') {
     }
     return menu;
 }
-const GenerateADCMenuFull = function (id,t='esp32') {
+const GenerateADCMenuFull = function (id,t) {
     var menu = {
         acceptReporters: true,
         items: []
     }
-    var rj11s = EXTB_LIST[id].RJ11;
+    var rj11s;
+    if (t == 'rk'){
+        rj11s = EXTB_LIST[id].RJ11RK;
+    }else{
+        rj11s = EXTB_LIST[id].RJ11ESP32;
+    }
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
             text: rj11Name,          // RJ11 名称
-            value: (t=='rk')?String(parseInt(rj11s[i].value[0])-15):rj11s[i].value[0] // ADC引脚
+            value: (t=='rk')?String(parseInt(rj11s[i].value[0])-16):rj11s[i].value[0] // ADC引脚
         }
         if (t=='esp32'){
             menu.items.push(rj11_menu_item);
@@ -283,19 +304,26 @@ const GenerateADCMenuFull = function (id,t='esp32') {
     }
     return menu;
 }
-const GenerateADCMenu = function (id, t='esp32') {
+const GenerateADCMenu = function (id, t) {
+    console.log('use t : ' + t)
     var menu = {
         acceptReporters: true,
         items: []
     }
-    var rj11s = EXTB_LIST[id].RJ11;
+    var rj11s;
+    if (t == 'rk'){
+        rj11s = EXTB_LIST[id].RJ11RK;
+    }else{
+        rj11s = EXTB_LIST[id].RJ11ESP32;
+    }
+    
     for (var i in rj11s) {
         if (!rj11s[i].adc && t=='rk')
             continue
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
             text: rj11Name,          // RJ11 名称
-            value: (t=='rk')?String(parseInt(rj11s[i].value[0])-15):rj11s[i].value[0] // ADC引脚
+            value: (t=='rk')?String(parseInt(rj11s[i].value[0])-16):rj11s[i].value[0] // ADC引脚
         }
         if (t=='esp32'){
             menu.items.push(rj11_menu_item);
@@ -310,13 +338,13 @@ const GenerateADCMenu = function (id, t='esp32') {
     return menu;
 }
 
-const GenerateRJMenuAll = function (id) {
+const GenerateRJMenuAll = function (id, t) {
     var menu = {
-        RJMenuDup: GenerateRJMenuDuplex(id),
-        RJMenu: GenerateRJMenu(id),
-        RJDigiMenu: GenerateRJDigiMenu(id),
-        RJADCMenu: GenerateADCMenu(id),
-        RJADCMenuFull: GenerateADCMenuFull(id)
+        RJMenuDup: GenerateRJMenuDuplex(id,t),
+        RJMenu: GenerateRJMenu(id,t),
+        RJDigiMenu: GenerateRJDigiMenu(id,t),
+        RJADCMenu: GenerateADCMenu(id,t),
+        RJADCMenuFull: GenerateADCMenuFull(id,t)
     }
     return menu
 }

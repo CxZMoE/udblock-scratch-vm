@@ -3,7 +3,7 @@ const BlockType = require('../../extension-support/block-type');
 const log = require('../../util/log');
 const EXTB_LIST = require('../../util/extb-definitions')
 const { extb_car } = require ('../../../src/util/extb-definitions');
-
+var { bt } = require ('../../../src/util/extb-definitions');
 // 方块引用
 const carBlocks = require('../../myBlocks/car')
 const cameraBlocks = require('../../myBlocks/camerab');
@@ -32,9 +32,15 @@ class UDblockCar {
             items: []
         };
         // 双路继电器生成菜单
-        for (i in extb_car.RJ11) {
-            var yellowPin = extb_car.RJ11[i].value[0];
-            var bluePin = extb_car.RJ11[i].value[1];
+        var rj11s;
+        if (bt == 'rk'){
+            rj11s = extb_car.RJ11RK;
+        }else{
+            rj11s = extb_car.RJ11ESP32;
+        }
+        for (i in rj11s) {
+            var yellowPin = rj11s[i].value[0];
+            var bluePin = rj11s[i].value[1];
             if (!(yellowPin >= 34 && yellowPin <= 39)){
                 this.dblRelayPinYellow.items.push({text:"RJ"+String(Number(i)+1), value: String(yellowPin)});
             }
@@ -52,7 +58,7 @@ class UDblockCar {
             blockIconURI: blockIconURI,
             blocks: this.customBlocks,
             menus: {
-                ...GenerateRJMenuAll('extb_car'),
+                ...GenerateRJMenuAll('extb_car', bt),
                 servoMenu: {
                     acceptReporters: true,
                     items: [{text: "一",value: "0x01"},{text: "二",value: "0x02"},{text: "三",value: "0x03"},{text: "四",value: "0x04"},]

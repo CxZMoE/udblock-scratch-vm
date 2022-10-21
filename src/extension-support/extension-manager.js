@@ -1,4 +1,5 @@
 const dispatch = require('../dispatch/central-dispatch');
+var bt  = require('../util/extb-definitions');
 const log = require('../util/log');
 const maybeFormatMessage = require('../util/maybe-format-message');
 
@@ -30,10 +31,10 @@ const builtinExtensions = {
     udblockUDPiPlusV2: () => require('../extensions/udblock_udpi_plus_v2'),
     udblockEXTBMF: () => require("../extensions/udblock_extb_mf"),
     udblockEXTBSM: () => require("../extensions/udblock_extb_sm"),
-    udblockEXTBMFV2: () => require("../extensions/udblock_extb_mf_v2"),
-    udblockEXTBSMV2: () => require("../extensions/udblock_extb_sm_v2"),
+    // udblockEXTBMFV2: () => require("../extensions/udblock_extb_mf_v2"),
+    // udblockEXTBSMV2: () => require("../extensions/udblock_extb_sm_v2"),
     udblockEXTBIO: ()=> require("../extensions/udblock_extb_io"),
-    udblockEXTBIOV2: ()=> require("../extensions/udblock_extb_io_v2"),
+    // udblockEXTBIOV2: ()=> require("../extensions/udblock_extb_io_v2"),
     udblockEXTBCar: ()=> require("../extensions/udblock_car"),
     udblockEXTBCarPro: ()=> require("../extensions/udblock_carpro"),
     udblockEXTBCar2D: ()=> require("../extensions/udblock_car_2d"),
@@ -42,6 +43,8 @@ const builtinExtensions = {
     udblockMicrobit: ()=> require("../extensions/udblock_microbit"),
     udblockUtils : ()=> require("../extensions/udblock-utils"),
     udblockUDPiMiniV1 : ()=> require("../extensions/udblock_udpi_mini"),
+    udblockRKPi : ()=> require("../extensions/udblock_rkpi"),
+    udblockEXTBRKMF : ()=> require("../extensions/udblock_extb_rk_mf"),
 };
 
 /**
@@ -171,7 +174,46 @@ class ExtensionManager {
      * @returns {Promise} resolved once the extension is loaded and initialized or rejected on failure
      */
     loadExtensionURL(extensionURL) {
-        // console.log("通过URL加载拓展：" + extensionURL)
+        // 当导入的是拓展版的时候
+        if (extensionURL.indexOf("EXTB") > -1){
+            // 未选择主板
+            if (bt.bt.length == 0){
+                alert("请先选择一个主板");
+                return Promise.resolve();
+            }
+        }
+
+        // 当导入的是主板的时候
+        if (extensionURL == "udblockRKPi"){
+            console.log('选择RK主板')
+            // 已经导入过主板
+            if (bt.bt.length > 0){
+                alert("已经导入过主板,请勿重复导入或创建一个新工程");   
+                return Promise.resolve()
+            }
+            bt.bt = 'rk'
+        }else if (extensionURL == "udblockRKOrigin"){
+            console.log('选择RK原始板子')
+            // 已经导入过主板
+            if (bt.bt.length > 0){
+                alert("已经导入过主板,请勿重复导入或创建一个新工程");   
+                return Promise.resolve()
+            }
+            bt.bt = 'rk'
+        }else{
+            if (extensionURL.indexOf("UDPi") > -1){
+                // 已经导入过主板
+                if (bt.bt.length > 0){
+                    alert("已经导入过主板,请勿重复导入或创建一个新工程");   
+                    return Promise.resolve()
+                }
+                console.log('选择ESP32主板')
+                bt.bt = 'esp32'
+            }
+        }
+
+        console.log("通过URL加载拓展：" + extensionURL)
+        
         if (builtinExtensions.hasOwnProperty(extensionURL)) {
             /** @TODO dupe handling for non-builtin extensions. See commit 670e51d33580e8a2e852b3b038bb3afc282f81b9 */
             if (this.isExtensionLoaded(extensionURL)) {

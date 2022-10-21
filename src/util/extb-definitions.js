@@ -5,13 +5,216 @@ const {GetRJPinPair} = require('./extb_pin_trans')
 // Common ADC Pin: 5
 // Common Digital Pin: 6
 const EXTB_LIST = {
+    "bt": '',
+    "rkpi": {
+        id: "udblockRKPI",
+        name: "RK派",
+        img: "assets/img/extb_mf.png",
+        description: "RK派",
+        RJ11ESP32: [
+            {
+                name: "RJ1",
+                value: GetRJPinPair(1, chip="rk"),
+                adc: false,
+                duplex: false,
+                valid: false
+            },
+            {
+                name: "RJ2",
+                value: GetRJPinPair(2, chip="rk"),
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ3",
+                value: GetRJPinPair(3, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ4",
+                value: GetRJPinPair(4, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ5",
+                value: GetRJPinPair(5, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ6",
+                value: GetRJPinPair(6, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            }
+        ],
+        motor: [
+            {
+                name: "MOTOR_1",
+                value: [
+                    "1",
+                    "0",
+                    "0",
+                    "2"
+                ]
+            },
+            {
+                name: "MOTOR_2",
+                value: [
+                    "3",
+                    "2",
+                    "1",
+                    "3"
+                ]
+            }
+        ],
+        servo: [
+            {
+                name: "SERVO_1",
+                value: ["6", "7"]
+            },
+            {
+                name: "SERVO_2",
+                value: ["7", "8"]
+            },
+            {
+                name: "SERVO_3",
+                value: ["4", "9"]
+            },
+            {
+                name: "SERVO_4",
+                value: ["5", "10"]
+            }
+        ],
+        motor_v2: [
+            {
+                name: "MOTOR_1",
+                value: [
+                    "0",
+                    "2"
+                ]
+            },
+            {
+                name: "MOTOR_2",
+                value: [
+                    "1",
+                    "3"
+                ]
+            }
+        ],
+        servo_v2: [
+            {
+                name: "SERVO_1",
+                value: "7"
+            },
+            {
+                name: "SERVO_2",
+                value: "8"
+            },
+            {
+                name: "SERVO_3",
+                value: "9"
+            },
+            {
+                name: "SERVO_4",
+                value: "10"
+            }
+        ],
+        iic: [
+            {
+                "sda": "23",
+                "scl": "22"
+            }
+        ],
+        touch: [
+            {
+                "text": "U",
+                value: "33"
+            },
+            {
+                "text": "D",
+                value: "27"
+            },
+            {
+                "text": "R",
+                value: "14"
+            },
+            {
+                "text": "O",
+                value: "12"
+            },
+            {
+                "text": "B",
+                value: "13"
+            },
+            {
+                "text": "O2",
+                value: "15"
+            },
+            {
+                "text": "T",
+                value: "4"
+            }
+        ]
+    },
     "extb_mf": {
         id: "udblockEXTBMF",
         idv2: "udblockEXTBMFV2",
         name: "多功能拓展版",
         img: "assets/img/extb_mf.png",
         description: "多功能拓展版",
-        RJ11: [
+        RJ11RK: [
+            {
+                name: "RJ1",
+                value: GetRJPinPair(1, chip="rk"),
+                adc: false,
+                duplex: false,
+                valid: false
+            },
+            {
+                name: "RJ2",
+                value: GetRJPinPair(2, chip="rk"),
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ3",
+                value: GetRJPinPair(3, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ4",
+                value: GetRJPinPair(4, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ5",
+                value: GetRJPinPair(5, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ6",
+                value: GetRJPinPair(6, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            }
+        ],
+        RJ11ESP32: [
             {
                 name: "RJ1",
                 value: GetRJPinPair(1),
@@ -170,7 +373,51 @@ const EXTB_LIST = {
         name: "IO拓展版",
         img: "assets/img/extb_io.png",
         description: "IO拓展版",
-        RJ11: [
+        RJ11RK: [
+            {
+                name: "RJ1",
+                value: GetRJPinPair(1, chip="rk"),
+                adc: false,
+                duplex: false,
+                valid: false
+            },
+            {
+                name: "RJ2",
+                value: GetRJPinPair(2, chip="rk"),
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ3",
+                value: GetRJPinPair(3, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ4",
+                value: GetRJPinPair(4, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ5",
+                value: GetRJPinPair(5, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ6",
+                value: GetRJPinPair(6, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            }
+        ],
+        RJ11ESP32: [
             {
                 name: "RJ1",
                 value: [
@@ -261,7 +508,7 @@ const EXTB_LIST = {
         name: "电机拓展版",
         img: "assets/img/extb_sm.png",
         description: "电机拓展版",
-        RJ11: [
+        RJ11ESP32: [
             {
                 name: "RJ1",
                 value: [
@@ -298,6 +545,36 @@ const EXTB_LIST = {
                 adc: true,
                 duplex: false
             }
+        ],
+        RJ11RK: [
+            {
+                name: "RJ1",
+                value: GetRJPinPair(1, chip="rk"),
+                adc: false,
+                duplex: false,
+                valid: false
+            },
+            {
+                name: "RJ2",
+                value: GetRJPinPair(2, chip="rk"),
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ3",
+                value: GetRJPinPair(3, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ4",
+                value: GetRJPinPair(4, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
         ],
         motor: [
             {
@@ -417,7 +694,51 @@ const EXTB_LIST = {
         name: "小车拓展版",
         img: "assets/img/extb_car.png",
         description: "小车拓展版",
-        RJ11: [
+        RJ11RK: [
+            {
+                name: "RJ1",
+                value: GetRJPinPair(1, chip="rk"),
+                adc: false,
+                duplex: false,
+                valid: false
+            },
+            {
+                name: "RJ2",
+                value: GetRJPinPair(2, chip="rk"),
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ3",
+                value: GetRJPinPair(3, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ4",
+                value: GetRJPinPair(4, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ5",
+                value: GetRJPinPair(5, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ6",
+                value: GetRJPinPair(6, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            }
+        ],
+        RJ11ESP32: [
             {
                 name: "RJ1",
                 value: [
@@ -505,7 +826,51 @@ const EXTB_LIST = {
         name: "小车拓展版Pro",
         img: "assets/img/extb_car.png",
         description: "小车拓展版Pro",
-        RJ11: [
+        RJ11RK: [
+            {
+                name: "RJ1",
+                value: GetRJPinPair(1, chip="rk"),
+                adc: false,
+                duplex: false,
+                valid: false
+            },
+            {
+                name: "RJ2",
+                value: GetRJPinPair(2, chip="rk"),
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ3",
+                value: GetRJPinPair(3, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ4",
+                value: GetRJPinPair(4, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ5",
+                value: GetRJPinPair(5, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ6",
+                value: GetRJPinPair(6, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            }
+        ],
+        RJ11ESP32: [
             {
                 name: "RJ1",
                 value: [
@@ -593,7 +958,51 @@ const EXTB_LIST = {
         name: "双驱小车拓展版",
         img: "assets/img/extb_car.png",
         description: "双驱小车拓展版",
-        RJ11: [
+        RJ11RK: [
+            {
+                name: "RJ1",
+                value: GetRJPinPair(1, chip="rk"),
+                adc: false,
+                duplex: false,
+                valid: false
+            },
+            {
+                name: "RJ2",
+                value: GetRJPinPair(2, chip="rk"),
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ3",
+                value: GetRJPinPair(3, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ4",
+                value: GetRJPinPair(4, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ5",
+                value: GetRJPinPair(5, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ6",
+                value: GetRJPinPair(6, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            }
+        ],
+        RJ11ESP32: [
             {
                 name: "RJ1",
                 value: [
@@ -681,7 +1090,37 @@ const EXTB_LIST = {
         name: "智能语音拓展板",
         img: "assets/img/extb_car.png",
         description: "智能语音拓展板",
-        RJ11: [
+        RJ11RK: [
+            {
+                name: "RJ1",
+                value: GetRJPinPair(1, chip="rk"),
+                adc: false,
+                duplex: false,
+                valid: false
+            },
+            {
+                name: "RJ2",
+                value: GetRJPinPair(2, chip="rk"),
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ3",
+                value: GetRJPinPair(5, chip="rk"),
+                adc: false,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ4",
+                value: GetRJPinPair(4, chip="rk"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+        ],
+        RJ11ESP32: [
             {
                 name: "RJ1",
                 value: [
@@ -732,7 +1171,7 @@ const EXTB_LIST = {
         name: "UDPi+最小系统板V1",
         img: "assets/img/extb_mf.png",
         description: "UDPi+最小系统板V1",
-        RJ11: [
+        RJ11ESP32: [
             {
                 name: "RJ1",
                 value: [
@@ -812,6 +1251,165 @@ const EXTB_LIST = {
                 "scl": "22"
             }
         ],
+    },
+    "extb_rk_mf": {
+        id: "udblockEXTBRKMF",
+        idv2: "udblockEXTBRKMFV2",
+        name: "多功能拓展版",
+        img: "assets/img/extb_mf.png",
+        description: "多功能拓展版",
+        RJ11RK: [
+            {
+                name: "RJ1",
+                value: GetRJPinPair(1, chip="rk_origin"),
+                adc: false,
+                duplex: false,
+                valid: false
+            },
+            {
+                name: "RJ2",
+                value: GetRJPinPair(2, chip="rk_origin"),
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ3",
+                value: GetRJPinPair(3, chip="rk_origin"),
+                adc: false,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ4",
+                value: GetRJPinPair(4, chip="rk_origin"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ5",
+                value: GetRJPinPair(5, chip="rk_origin"),
+                adc: true,
+                duplex: false,
+                valid: true
+            },
+            {
+                name: "RJ6",
+                value: GetRJPinPair(6, chip="rk_origin"),
+                adc: false,
+                duplex: true,
+                valid: true
+            }
+        ],
+        motor: [
+            {
+                name: "MOTOR_1",
+                value: [
+                    "1",
+                    "0",
+                    "0",
+                    "2"
+                ]
+            },
+            {
+                name: "MOTOR_2",
+                value: [
+                    "3",
+                    "2",
+                    "1",
+                    "3"
+                ]
+            }
+        ],
+        servo: [
+            {
+                name: "SERVO_1",
+                value: ["6", "7"]
+            },
+            {
+                name: "SERVO_2",
+                value: ["7", "8"]
+            },
+            {
+                name: "SERVO_3",
+                value: ["4", "9"]
+            },
+            {
+                name: "SERVO_4",
+                value: ["5", "10"]
+            }
+        ],
+        motor_v2: [
+            {
+                name: "MOTOR_1",
+                value: [
+                    "0",
+                    "2"
+                ]
+            },
+            {
+                name: "MOTOR_2",
+                value: [
+                    "1",
+                    "3"
+                ]
+            }
+        ],
+        servo_v2: [
+            {
+                name: "SERVO_1",
+                value: "7"
+            },
+            {
+                name: "SERVO_2",
+                value: "8"
+            },
+            {
+                name: "SERVO_3",
+                value: "9"
+            },
+            {
+                name: "SERVO_4",
+                value: "10"
+            }
+        ],
+        iic: [
+            {
+                "sda": "23",
+                "scl": "22"
+            }
+        ],
+        touch: [
+            {
+                "text": "U",
+                value: "33"
+            },
+            {
+                "text": "D",
+                value: "27"
+            },
+            {
+                "text": "R",
+                value: "14"
+            },
+            {
+                "text": "O",
+                value: "12"
+            },
+            {
+                "text": "B",
+                value: "13"
+            },
+            {
+                "text": "O2",
+                value: "15"
+            },
+            {
+                "text": "T",
+                value: "4"
+            }
+        ]
     },
 }
 
