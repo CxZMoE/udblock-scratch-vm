@@ -1165,6 +1165,7 @@ const EXTB_LIST = {
             }
         ],
     },
+
     "extb_udpi_mini": {
         id: "udblockUDPiMiniV1",
         idv2: "udblockUDPiMiniV2",
@@ -1262,9 +1263,9 @@ const EXTB_LIST = {
             {
                 name: "RJ1",
                 value: GetRJPinPair(1, chip="rk_origin"),
-                adc: false,
+                adc: true,
                 duplex: false,
-                valid: false
+                valid: true
             },
             {
                 name: "RJ2",
@@ -1290,14 +1291,14 @@ const EXTB_LIST = {
             {
                 name: "RJ5",
                 value: GetRJPinPair(5, chip="rk_origin"),
-                adc: true,
+                adc: false,
                 duplex: false,
                 valid: true
             },
             {
                 name: "RJ6",
                 value: GetRJPinPair(6, chip="rk_origin"),
-                adc: false,
+                adc: true,
                 duplex: true,
                 valid: true
             }
@@ -1410,6 +1411,48 @@ const EXTB_LIST = {
                 value: "4"
             }
         ]
+    },
+    "extb_rk_iot": {
+        id: "udblockEXTBRKIOT",
+        name: "RK智能语音拓展板",
+        img: "assets/img/extb_car.png",
+        description: "RK智能语音拓展板",
+        RJ11RK: [
+            {
+                name: "RJ1",
+                value: [20, 2],
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ2",
+                value: [22, 3],
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ3",
+                value: [18, 4],
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+            {
+                name: "RJ4",
+                value: [0, 1],
+                adc: true,
+                duplex: true,
+                valid: true
+            },
+        ],
+        iic: [
+            {
+                "sda": "0",
+                "scl": "1"
+            }
+        ],
     },
 }
 

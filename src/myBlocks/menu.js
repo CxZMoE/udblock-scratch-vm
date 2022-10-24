@@ -290,7 +290,7 @@ const GenerateADCMenuFull = function (id,t) {
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
             text: rj11Name,          // RJ11 名称
-            value: (t=='rk')?String(parseInt(rj11s[i].value[0])-16):rj11s[i].value[0] // ADC引脚
+            value: (t=='rk'||t=='rk_origin')?String(parseInt(rj11s[i].value[0])-16):rj11s[i].value[0] // ADC引脚
         }
         if (t=='esp32'){
             menu.items.push(rj11_menu_item);
@@ -323,7 +323,7 @@ const GenerateADCMenu = function (id, t) {
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
             text: rj11Name,          // RJ11 名称
-            value: (t=='rk')?String(parseInt(rj11s[i].value[0])-16):rj11s[i].value[0] // ADC引脚
+            value: (t=='rk'||t=='rk_origin')?String(parseInt(rj11s[i].value[0])-16):rj11s[i].value[0] // ADC引脚
         }
         if (t=='esp32'){
             menu.items.push(rj11_menu_item);

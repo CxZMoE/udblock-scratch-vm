@@ -7,7 +7,7 @@ const BIDTable = {
     },
     "58": {
         esp32: 5,
-        rk: 0,
+        rk: 0,      // XXX
         rk_origin: 16,
     },
     // RJ2
@@ -35,19 +35,19 @@ const BIDTable = {
     // RJ4
     "34": {
         esp32: 35,
-        rk: 18, // C2 C2
-        rk_origin: 0, // C2 C2
+        rk: 18, // C2 C2              // XXX
+        rk_origin: 18, // C2 C2
     },
     "42": {
         esp32: 19,
-        rk: 4,  // A4 A4
-        rk_origin: 1,  // A4 A4
+        rk: 4,  // A4 A4                  // XXX
+        rk_origin: 4,  // A4 A4
     },
     // RJ5
     "33": {
         esp32: 34,
-        rk: 16, // A0 C0
-        rk_origin: 16, // A0 C0
+        rk: 16, // A0 C0          // XXX
+        rk_origin: 0, // A0 C0
     },
     "38": {
         esp32: 26,

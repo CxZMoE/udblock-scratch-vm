@@ -45,6 +45,7 @@ const builtinExtensions = {
     udblockUDPiMiniV1 : ()=> require("../extensions/udblock_udpi_mini"),
     udblockRKPi : ()=> require("../extensions/udblock_rkpi"),
     udblockEXTBRKMF : ()=> require("../extensions/udblock_extb_rk_mf"),
+    udblockEXTBRKIOT : ()=> require("../extensions/udblock_extb_rk_iot "),
 };
 
 /**
@@ -356,7 +357,7 @@ class ExtensionManager {
         extensionInfo.blocks = extensionInfo.blocks.reduce((results, blockInfo) => {
             try {
                 let result;
-                //// console.log(blockInfo)
+                // console.log(blockInfo)
 
                 if (blockInfo.type == "custom_seperator") {
                     //// console.log("here")
