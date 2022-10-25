@@ -39,7 +39,19 @@ class UDblockUDPi {
                 {
                     opcode: 'whenButtonPressed',
                     blockType: BlockType.EVHAT,
-                    text: '当主板按钮[BTN]按下',
+                    text: '当主板按钮[BTN]按下(线程)',
+                    arguments: {
+                        BTN:{
+                            type: ArgumentType.STRING,
+                            defaultValue: "0",
+                            menu: 'buttons'
+                        }
+                    }
+                },
+                {
+                    opcode: 'whenButtonPressedIRQ',
+                    blockType: BlockType.EVHAT,
+                    text: '当主板按钮[BTN]按下(中断)',
                     arguments: {
                         BTN:{
                             type: ArgumentType.STRING,

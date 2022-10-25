@@ -25,6 +25,7 @@ class UDblockEXTBRKIOT {
             items: []
         };
         // 双路继电器生成菜单
+        console.log(1)
         var rj11s;
         if (bt.bt == 'rk'){
             rj11s = extb_rk_iot.RJ11RK;
@@ -39,27 +40,10 @@ class UDblockEXTBRKIOT {
                 this.dblRelayPinBlue.items.push({text:"RJ"+String(Number(i)+1), value: String(bluePin)});
             }
         }
-
+        console.log(2)
         
     }
-    getIP(){
-        // 获取IP地址
-        try{
-            var request = new XMLHttpRequest();
-            var ip = "127.0.0.1"
-            request.open("GET","http://127.0.0.1:12888/myIP",false)
-            request.onreadystatechange = function(e){
-                if (request.status == 200 && request.readyState == 4){
-                    ip = request.responseText;
-                    // console.log(ip)
-                }
-            }
-            request.send()
-        }catch(ex){
-            return '127.0.0.1'
-        }
-        return ip
-    }
+
     getInfo() {
 
         return {
@@ -83,7 +67,7 @@ class UDblockEXTBRKIOT {
                     arguments: {
                         IP: {
                             type: ArgumentType.STRING,
-                            defaultValue: this.getIP()
+                            defaultValue: "填入客户端所在网络设备使用的IP地址"
                         }
                     }
                 },

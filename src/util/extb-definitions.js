@@ -1252,6 +1252,8 @@ const EXTB_LIST = {
                 "scl": "22"
             }
         ],
+        motor: [],
+        servo: [],
     },
     "extb_rk_mf": {
         id: "udblockEXTBRKMF",
