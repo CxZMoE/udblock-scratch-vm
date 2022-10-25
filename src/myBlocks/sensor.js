@@ -10,11 +10,11 @@ const sensorBlocks = [
         type: "custom_seperator",
         text: '★> NFC传感器',
     },
-    {
-        opcode: 'initNFC',
-        blockType: BlockType.COMMAND,
-        text: '初始化NFC传感器',
-    },
+    // {
+    //     opcode: 'initNFC',
+    //     blockType: BlockType.COMMAND,
+    //     text: '初始化NFC传感器',
+    // },
     {
         opcode: 'startPolling',
         blockType: BlockType.COMMAND,
