@@ -46,6 +46,7 @@ const builtinExtensions = {
     udblockRKPi : ()=> require("../extensions/udblock_rkpi"),
     udblockEXTBRKMF : ()=> require("../extensions/udblock_extb_rk_mf"),
     udblockEXTBRKIOT : ()=> require("../extensions/udblock_extb_rk_iot "),
+    udblockRKNano : ()=> require("../extensions/udblock_rknano"),
 };
 
 /**
@@ -185,7 +186,7 @@ class ExtensionManager {
         }
 
         // 当导入的是主板的时候
-        if (extensionURL == "udblockRKPi"){
+        if (extensionURL == "udblockRKPi" || extensionURL == "udblockRKNano"){
             console.log('选择RK主板')
             // 已经导入过主板
             if (bt.bt.length > 0){
