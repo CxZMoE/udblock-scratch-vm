@@ -5,7 +5,7 @@ const {GetRJPinPair} = require('./extb_pin_trans')
 // Common ADC Pin: 5
 // Common Digital Pin: 6
 const EXTB_LIST = {
-    "bt": '',
+    "bt": 'rk',
     "rkpi": {
         id: "udblockRKPI",
         name: "RK派",

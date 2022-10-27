@@ -411,7 +411,7 @@ class UDblockEXTBRKIOT {
                         { text: "小智同学", value: "100" }
                     ]
                 },
-                ...GenerateRJMenuAll('extb_rk_iot', bt.bt),
+                ...GenerateRJMenuAll('extb_rk_iot', 'rk'),
                 dblRelayPinYellow: this.dblRelayPinYellow,
                 dblRelayPinBlue:this.dblRelayPinBlue,
                 ...miscMenuBlocks

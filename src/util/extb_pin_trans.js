@@ -84,7 +84,7 @@ function GetRKPinByBid(bid){
     return String(BIDTable[bid]["rk"]);
 }
 
-function GetRJPinPair(rjId, chip="esp32"){
+function GetRJPinPair(rjId, chip="rk"){
     let rjBids = RJ_BIDTable[rjId];
     let rj_a_bid = rjBids[0];
     let rj_b_bid = rjBids[1];

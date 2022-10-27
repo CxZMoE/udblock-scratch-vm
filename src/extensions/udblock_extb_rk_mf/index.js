@@ -80,7 +80,7 @@ class UDblockEXTBRKMF {
             blockIconURI: blockIconURI,
             blocks: this.customBlocks,
             menus: {
-                ...GenerateRJMenuAll('extb_rk_mf', bt),
+                ...GenerateRJMenuAll('extb_rk_mf', 'rk'),
                 touchMenu: {
                     acceptReporters: true,
                     items: extb_rk_mf.touch
