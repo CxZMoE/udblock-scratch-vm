@@ -330,7 +330,8 @@ const GenerateADCMenu = function (id, t) {
             value: (t=='rk'||t=='rk_origin')?String(parseInt(rj11s[i].value[0])-16):String(rj11s[i].value[0]) // ADC引脚
         }
         if (t=='esp32'){
-            menu.items.push(rj11_menu_item);
+            if (rj11s[i].adc == true)
+                menu.items.push(rj11_menu_item);
         }else{
             if (rj11s[i].valid != undefined && rj11s[i].valid )
             menu.items.push(rj11_menu_item);

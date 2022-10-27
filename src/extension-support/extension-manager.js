@@ -177,42 +177,42 @@ class ExtensionManager {
      */
     loadExtensionURL(extensionURL) {
         // 当导入的是拓展版的时候
-        if (extensionURL.indexOf("EXTB") > -1){
-            // 未选择主板
-            if (bt.bt.length == 0){
-                alert("请先选择一个主板");
-                return Promise.resolve();
-            }
-        }
+        // if (extensionURL.indexOf("EXTB") > -1){
+        //     // 未选择主板
+        //     if (bt.bt.length == 0){
+        //         alert("请先选择一个主板");
+        //         return Promise.resolve();
+        //     }
+        // }
 
-        // 当导入的是主板的时候
-        if (extensionURL == "udblockRKPi" || extensionURL == "udblockRKNano"){
-            console.log('选择RK主板')
-            // 已经导入过主板
-            if (bt.bt.length > 0){
-                alert("已经导入过主板,请勿重复导入或创建一个新工程");   
-                return Promise.resolve()
-            }
-            bt.bt = 'rk'
-        }else if (extensionURL == "udblockRKOrigin"){
-            console.log('选择RK原始板子')
-            // 已经导入过主板
-            if (bt.bt.length > 0){
-                alert("已经导入过主板,请勿重复导入或创建一个新工程");   
-                return Promise.resolve()
-            }
-            bt.bt = 'rk'
-        }else{
-            if (extensionURL.indexOf("UDPi") > -1){
-                // 已经导入过主板
-                if (bt.bt.length > 0){
-                    alert("已经导入过主板,请勿重复导入或创建一个新工程");   
-                    return Promise.resolve()
-                }
-                console.log('选择ESP32主板')
-                bt.bt = 'esp32'
-            }
-        }
+        // // 当导入的是主板的时候
+        // if (extensionURL == "udblockRKPi" || extensionURL == "udblockRKNano"){
+        //     console.log('选择RK主板')
+        //     // 已经导入过主板
+        //     if (bt.bt.length > 0){
+        //         alert("已经导入过主板,请勿重复导入或创建一个新工程");   
+        //         return Promise.resolve()
+        //     }
+        //     bt.bt = 'rk'
+        // }else if (extensionURL == "udblockRKOrigin"){
+        //     console.log('选择RK原始板子')
+        //     // 已经导入过主板
+        //     if (bt.bt.length > 0){
+        //         alert("已经导入过主板,请勿重复导入或创建一个新工程");   
+        //         return Promise.resolve()
+        //     }
+        //     bt.bt = 'rk'
+        // }else{
+        //     if (extensionURL.indexOf("UDPi") > -1){
+        //         // 已经导入过主板
+        //         if (bt.bt.length > 0){
+        //             alert("已经导入过主板,请勿重复导入或创建一个新工程");   
+        //             return Promise.resolve()
+        //         }
+        //         console.log('选择ESP32主板')
+        //         bt.bt = 'esp32'
+        //     }
+        // }
 
         console.log("通过URL加载拓展：" + extensionURL)
         

@@ -81,7 +81,7 @@ function GetESP32PinByBid(bid){
 }
 
 function GetRKPinByBid(bid){
-    return String(BIDTable[bid]["rk"]);
+    return String(BIDTable[bid]["esp32"]);
 }
 
 function GetRJPinPair(rjId, chip="esp32"){
