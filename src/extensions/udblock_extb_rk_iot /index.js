@@ -24,24 +24,17 @@ class UDblockEXTBRKIOT {
             acceptReporters: true,
             items: []
         };
+
         // 双路继电器生成菜单
-        console.log(1)
         var rj11s;
-        if (bt.bt == 'rk'){
-            rj11s = extb_rk_iot.RJ11RK;
-        }
+        rj11s = extb_rk_iot.RJ11RK;
+        console.log(rj11s)
         for (i in rj11s) {
             var yellowPin = rj11s[i].value[0];
             var bluePin = rj11s[i].value[1];
-            if (!(yellowPin >= 34 && yellowPin <= 39)){
-                this.dblRelayPinYellow.items.push({text:"RJ"+String(Number(i)+1), value: String(yellowPin)});
-            }
-            if (!(bluePin >= 34 && bluePin <= 39)){
-                this.dblRelayPinBlue.items.push({text:"RJ"+String(Number(i)+1), value: String(bluePin)});
-            }
-        }
-        console.log(2)
-        
+            this.dblRelayPinYellow.items.push({text:"RJ"+String(Number(i)+1), value: String(yellowPin)});
+            this.dblRelayPinBlue.items.push({text:"RJ"+String(Number(i)+1), value: String(bluePin)});
+        } 
     }
 
     getInfo() {
@@ -55,11 +48,11 @@ class UDblockEXTBRKIOT {
                     type: "custom_seperator",
                     text: '★ 功能',
                 },
-                {
-                    opcode: 'initAiPlayer',
-                    blockType: BlockType.COMMAND,
-                    text: '初始化AI播放器'
-                },
+                // {
+                //     opcode: 'initAiPlayer',
+                //     blockType: BlockType.COMMAND,
+                //     text: '初始化AI播放器'
+                // },
                 {
                     opcode: 'initAiPlayerWithIP',
                     blockType: BlockType.COMMAND,
@@ -67,7 +60,7 @@ class UDblockEXTBRKIOT {
                     arguments: {
                         IP: {
                             type: ArgumentType.STRING,
-                            defaultValue: "填入客户端所在网络设备使用的IP地址"
+                            defaultValue: "填入编程软件所在主机同网段的IP地址"
                         }
                     }
                 },

@@ -56,20 +56,13 @@ class UDblockEXTBRKMF {
         };
         // 双路继电器生成菜单
         var rj11s;
-        if (bt == 'rk'){
-            rj11s = extb_rk_mf.RJ11RK;
-        }else{
-            rj11s = extb_rk_mf.RJ11ESP32;
-        }
+        rj11s = extb_rk_mf.RJ11RK;
+        console.log(rj11s)
         for (i in rj11s) {
             var yellowPin = rj11s[i].value[0];
             var bluePin = rj11s[i].value[1];
-            if (!(yellowPin >= 34 && yellowPin <= 39)){
-                this.dblRelayPinYellow.items.push({text:"RJ"+String(Number(i)+1), value: String(yellowPin)});
-            }
-            if (!(bluePin >= 34 && bluePin <= 39)){
-                this.dblRelayPinBlue.items.push({text:"RJ"+String(Number(i)+1), value: String(bluePin)});
-            }
+            this.dblRelayPinYellow.items.push({text:"RJ"+String(Number(i)+1), value: String(yellowPin)});
+            this.dblRelayPinBlue.items.push({text:"RJ"+String(Number(i)+1), value: String(bluePin)});
         }
     }
 
