@@ -295,6 +295,17 @@ class UDblockMQTT {
                     }
                 },
                 {
+                    opcode: 'diyLineCommand',
+                    blockType: BlockType.COMMAND,
+                    text: '自定义字段[TEXT]',
+                    arguments: {
+                        TEXT:{
+                            type: ArgumentType.STRING,
+                            defaultValue: 'data'
+                        }
+                    }
+                },
+                {
                     type: "custom_seperator",
                     text: '★ 线程',
                 },

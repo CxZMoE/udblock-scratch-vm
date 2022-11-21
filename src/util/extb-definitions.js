@@ -1264,42 +1264,42 @@ const EXTB_LIST = {
         RJ11RK: [
             {
                 name: "RJ1",
-                value: GetRJPinPair(1, chip="rk"),
+                value: [19, 16],
                 adc: true,
-                duplex: false,
+                duplex: true,
                 valid: true
             },
             {
                 name: "RJ2",
-                value: GetRJPinPair(2, chip="rk"),
+                value: [17, 13],
                 adc: true,
                 duplex: true,
                 valid: true
             },
             {
                 name: "RJ3",
-                value: GetRJPinPair(3, chip="rk"),
+                value: [14, 15],
                 adc: false,
                 duplex: true,
                 valid: true
             },
             {
                 name: "RJ4",
-                value: GetRJPinPair(4, chip="rk"),
+                value: [18, 4],
                 adc: true,
-                duplex: false,
+                duplex: true,
                 valid: true
             },
             {
                 name: "RJ5",
-                value: GetRJPinPair(5, chip="rk"),
-                adc: false,
-                duplex: false,
+                value: [22, 23],
+                adc: true,
+                duplex: true,
                 valid: true
             },
             {
                 name: "RJ6",
-                value: GetRJPinPair(6, chip="rk"),
+                value: [0, 1],
                 adc: true,
                 duplex: true,
                 valid: true
@@ -1422,14 +1422,14 @@ const EXTB_LIST = {
         RJ11RK: [
             {
                 name: "RJ1",
-                value: [20, 2],
+                value: [16, 2],
                 adc: true,
                 duplex: true,
                 valid: true
             },
             {
                 name: "RJ2",
-                value: [22, 3],
+                value: [17, 3],
                 adc: true,
                 duplex: true,
                 valid: true
@@ -1441,13 +1441,13 @@ const EXTB_LIST = {
                 duplex: true,
                 valid: true
             },
-            {
-                name: "RJ4",
-                value: [0, 1],
-                adc: true,
-                duplex: true,
-                valid: true
-            },
+            // {
+            //     name: "RJ4",
+            //     value: [0, 1],
+            //     adc: true,
+            //     duplex: true,
+            //     valid: true
+            // },
         ],
         iic: [
             {
