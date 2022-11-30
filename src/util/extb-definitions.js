@@ -173,87 +173,43 @@ const EXTB_LIST = {
         RJ11RK: [
             {
                 name: "RJ1",
-                value: GetRJPinPair(1, chip="esp32"),
-                adc: false,
-                duplex: false,
-                valid: false
+                value: [19, 10],
+                adc: true,
+                duplex: true,
+                valid: true
             },
             {
                 name: "RJ2",
-                value: GetRJPinPair(2, chip="esp32"),
+                value: [17, 13],
                 adc: true,
                 duplex: true,
                 valid: true
             },
             {
                 name: "RJ3",
-                value: GetRJPinPair(3, chip="esp32"),
+                value: [15, 5],
                 adc: false,
                 duplex: true,
                 valid: true
             },
             {
                 name: "RJ4",
-                value: GetRJPinPair(4, chip="esp32"),
+                value: [18, 4],
                 adc: true,
-                duplex: false,
+                duplex: true,
                 valid: true
             },
             {
                 name: "RJ5",
-                value: GetRJPinPair(5, chip="esp32"),
+                value: [16, 11],
                 adc: true,
-                duplex: false,
+                duplex: true,
                 valid: true
             },
             {
                 name: "RJ6",
-                value: GetRJPinPair(6, chip="esp32"),
-                adc: false,
-                duplex: true,
-                valid: true
-            }
-        ],
-        RJ11ESP32: [
-            {
-                name: "RJ1",
-                value: GetRJPinPair(1),
-                adc: false,
-                duplex: false,
-                valid: false
-            },
-            {
-                name: "RJ2",
-                value: GetRJPinPair(2),
+                value: [23, 22],
                 adc: true,
-                duplex: true,
-                valid: true
-            },
-            {
-                name: "RJ3",
-                value: GetRJPinPair(3),
-                adc: false,
-                duplex: true,
-                valid: true
-            },
-            {
-                name: "RJ4",
-                value: GetRJPinPair(4),
-                adc: true,
-                duplex: false,
-                valid: true
-            },
-            {
-                name: "RJ5",
-                value: GetRJPinPair(5),
-                adc: true,
-                duplex: false,
-                valid: true
-            },
-            {
-                name: "RJ6",
-                value: GetRJPinPair(6),
-                adc: false,
                 duplex: true,
                 valid: true
             }
@@ -1281,7 +1237,7 @@ const EXTB_LIST = {
                 value: [14, 15],
                 adc: false,
                 duplex: true,
-                valid: true
+                valid: false
             },
             {
                 name: "RJ4",
@@ -1300,9 +1256,9 @@ const EXTB_LIST = {
             {
                 name: "RJ6",
                 value: [0, 1],
-                adc: true,
+                adc: false,
                 duplex: true,
-                valid: true
+                valid: false
             }
         ],
         motor: [

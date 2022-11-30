@@ -15,32 +15,32 @@ class UDblockEXTBMF {
     constructor(runtime) {
         this.runtime = runtime;
         this.customBlocks = [
-            {
-                type: "custom_seperator",
-                text: '★ 触摸按键',
-            },
-            {
-                opcode: 'readTouchValue',
-                blockType: BlockType.REPORTER,
-                text: '读取触摸按键[BTN]数值',
-                arguments: {
-                    BTN: {
-                        type: ArgumentType.STRING,
-                        menu: "touchMenu"
-                    }
-                }
-            },
-            {
-                opcode: 'readTouchPressed',
-                blockType: BlockType.BOOLEAN,
-                text: '检测触摸按键[BTN]按下',
-                arguments: {
-                    BTN: {
-                        type: ArgumentType.STRING,
-                        menu: "touchMenu"
-                    }
-                }
-            },
+            // {
+            //     type: "custom_seperator",
+            //     text: '★ 触摸按键',
+            // },
+            // {
+            //     opcode: 'readTouchValue',
+            //     blockType: BlockType.REPORTER,
+            //     text: '读取触摸按键[BTN]数值',
+            //     arguments: {
+            //         BTN: {
+            //             type: ArgumentType.STRING,
+            //             menu: "touchMenu"
+            //         }
+            //     }
+            // },
+            // {
+            //     opcode: 'readTouchPressed',
+            //     blockType: BlockType.BOOLEAN,
+            //     text: '检测触摸按键[BTN]按下',
+            //     arguments: {
+            //         BTN: {
+            //             type: ArgumentType.STRING,
+            //             menu: "touchMenu"
+            //         }
+            //     }
+            // },
         ].concat(
             sensorBlocks,
             actionBlocks(),
@@ -56,11 +56,7 @@ class UDblockEXTBMF {
         };
         // 双路继电器生成菜单
         var rj11s;
-        if (bt == 'rk'){
-            rj11s = extb_mf.RJ11RK;
-        }else{
-            rj11s = extb_mf.RJ11ESP32;
-        }
+        rj11s = extb_mf.RJ11RK;
         for (i in rj11s) {
             var yellowPin = rj11s[i].value[0];
             var bluePin = rj11s[i].value[1];

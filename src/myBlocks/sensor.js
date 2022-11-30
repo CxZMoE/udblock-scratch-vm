@@ -8,46 +8,6 @@ const sensorBlocks = [
     },
     {
         type: "custom_seperator",
-        text: '★> NFC传感器',
-    },
-    // {
-    //     opcode: 'initNFC',
-    //     blockType: BlockType.COMMAND,
-    //     text: '初始化NFC传感器',
-    // },
-    {
-        opcode: 'startPolling',
-        blockType: BlockType.COMMAND,
-        text: '启动NFC传感器',
-    },
-    {
-        opcode: 'stopPolling',
-        blockType: BlockType.COMMAND,
-        text: '停止NFC传感器',
-    },
-    {
-        opcode: 'getUID',
-        blockType: BlockType.REPORTER,
-        text: 'NFC卡号',
-    },
-    {
-        opcode: 'readText',
-        blockType: BlockType.REPORTER,
-        text: '读取NFC卡内容',
-    },
-    {
-        opcode: 'writeText',
-        blockType: BlockType.COMMAND,
-        text: '写入NFC卡内容[TEXT]',
-        arguments: {
-            TEXT: {
-                type: ArgumentType.STRING,
-                defaultValue: "door"
-            }
-        }
-    },
-    {
-        type: "custom_seperator",
         text: '★> 基础传感器',
     },
     {
@@ -134,7 +94,7 @@ const sensorBlocks = [
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
-                menu: "RJADCMenuFull" // 修改
+                menu: "RJMenu" // 修改
             }
         }
     },
@@ -267,7 +227,47 @@ const sensorBlocks = [
         opcode: 'readKeyboardModuleValue',
         blockType: BlockType.REPORTER,
         text: '获取按键模块数值'
-    }
+    },
+    {
+        type: "custom_seperator",
+        text: '★> NFC传感器',
+    },
+    // {
+    //     opcode: 'initNFC',
+    //     blockType: BlockType.COMMAND,
+    //     text: '初始化NFC传感器',
+    // },
+    {
+        opcode: 'startPolling',
+        blockType: BlockType.COMMAND,
+        text: '启动NFC传感器',
+    },
+    {
+        opcode: 'stopPolling',
+        blockType: BlockType.COMMAND,
+        text: '停止NFC传感器',
+    },
+    {
+        opcode: 'getUID',
+        blockType: BlockType.REPORTER,
+        text: 'NFC卡号',
+    },
+    {
+        opcode: 'readText',
+        blockType: BlockType.REPORTER,
+        text: '读取NFC卡内容',
+    },
+    {
+        opcode: 'writeText',
+        blockType: BlockType.COMMAND,
+        text: '写入NFC卡内容[TEXT]',
+        arguments: {
+            TEXT: {
+                type: ArgumentType.STRING,
+                defaultValue: "door"
+            }
+        }
+    },
 ]
 
 module.exports = sensorBlocks;

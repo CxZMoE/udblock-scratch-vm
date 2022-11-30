@@ -30,11 +30,7 @@ class UDblockEXTBSM {
         };
         // 双路继电器生成菜单
         var rj11s;
-        if (bt == 'rk'){
-            rj11s = extb_sm.RJ11RK;
-        }else{
-            rj11s = extb_sm.RJ11ESP32;
-        }
+        rj11s = extb_sm.RJ11RK
         for (i in rj11s) {
             var yellowPin = rj11s[i].value[0];
             var bluePin = rj11s[i].value[1];
