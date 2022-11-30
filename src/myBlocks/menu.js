@@ -185,11 +185,7 @@ const GenerateRJMenuDuplex = function (id,t) {
     }
     // console.log(id)
     var rj11s;
-    if (t == 'rk'){
-        rj11s = EXTB_LIST[id].RJ11RK;
-    }else{
-        rj11s = EXTB_LIST[id].RJ11ESP32;
-    }
+    rj11s = EXTB_LIST[id].RJ11ESP32;
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
         if (!rj11s[i].duplex) {
@@ -200,15 +196,7 @@ const GenerateRJMenuDuplex = function (id,t) {
             text: rj11Name,                 // RJ11 名称
             value: rj11s[i].value.join(",") // RJ11 的引脚
         }
-        if (t=='esp32'){
-            menu.items.push(rj11_menu_item);
-        }else{
-            if (rj11s[i].valid != undefined && rj11s[i].valid )
-            menu.items.push(rj11_menu_item);
-            else if( rj11s[i].valid == undefined){
-                menu.items.push(rj11_menu_item);
-            }
-        }
+        menu.items.push(rj11_menu_item);
     }
     return menu;
 }
@@ -221,11 +209,9 @@ const GenerateRJMenu = function (id,t) {
     }
     var rj11s;
     console.log(id, t)
-    if (t == 'rk'){
-        rj11s = EXTB_LIST[id].RJ11RK;
-    }else{
-        rj11s = EXTB_LIST[id].RJ11ESP32;
-    }
+
+    rj11s = EXTB_LIST[id].RJ11ESP32;
+
     console.log(rj11s)
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
@@ -233,15 +219,7 @@ const GenerateRJMenu = function (id,t) {
             text: rj11Name,                 // RJ11 名称
             value: rj11s[i].value.join(",") // RJ11 的引脚
         }
-        if (t=='esp32'){
-            menu.items.push(rj11_menu_item);
-        }else{
-            if (rj11s[i].valid != undefined && rj11s[i].valid )
-            menu.items.push(rj11_menu_item);
-            else if( rj11s[i].valid == undefined){
-                menu.items.push(rj11_menu_item);
-            }
-        }
+        menu.items.push(rj11_menu_item);
     }
     return menu;
 }
@@ -252,12 +230,8 @@ const GenerateRJDigiMenu = function (id,t) {
         items: []
     }
     var rj11s;
-    if (t == 'rk'){
-        rj11s = EXTB_LIST[id].RJ11RK;
-        // console.log('rk digi use rk')
-    }else{
-        rj11s = EXTB_LIST[id].RJ11ESP32;
-    }
+    rj11s = EXTB_LIST[id].RJ11ESP32;
+
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
         // console.log('rk digi use ' + rj11Name)
@@ -266,15 +240,7 @@ const GenerateRJDigiMenu = function (id,t) {
             value: String(rj11s[i].value[1]) // RJ11 的引脚
         }
         // console.log(rj11_menu_item)
-        if (t=='esp32'){
-            menu.items.push(rj11_menu_item);
-        }else{
-            if (rj11s[i].valid != undefined && rj11s[i].valid )
-            menu.items.push(rj11_menu_item);
-            else if( rj11s[i].valid == undefined){
-                menu.items.push(rj11_menu_item);
-            }
-        }
+        menu.items.push(rj11_menu_item);
     }
     // console.log(menu)
     return menu;
@@ -285,26 +251,16 @@ const GenerateADCMenuFull = function (id,t) {
         items: []
     }
     var rj11s;
-    if (t == 'rk'){
-        rj11s = EXTB_LIST[id].RJ11RK;
-    }else{
-        rj11s = EXTB_LIST[id].RJ11ESP32;
-    }
+    rj11s = EXTB_LIST[id].RJ11ESP32;
+
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
             text: rj11Name,          // RJ11 名称
-            value: (t=='rk'||t=='rk_origin')?String(parseInt(rj11s[i].value[0])-16):String(rj11s[i].value[0]) // ADC引脚
+            value: String(rj11s[i].value[0]) // ADC引脚
         }
-        if (t=='esp32'){
-            menu.items.push(rj11_menu_item);
-        }else{
-            if (rj11s[i].valid != undefined && rj11s[i].valid )
-            menu.items.push(rj11_menu_item);
-            else if( rj11s[i].valid == undefined){
-                menu.items.push(rj11_menu_item);
-            }
-        }
+        menu.items.push(rj11_menu_item);
+
     }
     return menu;
 }
@@ -314,31 +270,16 @@ const GenerateADCMenu = function (id, t) {
         acceptReporters: true,
         items: []
     }
-    var rj11s;
-    if (t == 'rk'){
-        rj11s = EXTB_LIST[id].RJ11RK;
-    }else{
-        rj11s = EXTB_LIST[id].RJ11ESP32;
-    }
+    var rj11s = EXTB_LIST[id].RJ11ESP32;
     
     for (var i in rj11s) {
-        if (!rj11s[i].adc && t=='rk')
-            continue
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
             text: rj11Name,          // RJ11 名称
-            value: (t=='rk'||t=='rk_origin')?String(parseInt(rj11s[i].value[0])-16):String(rj11s[i].value[0]) // ADC引脚
+            value: String(rj11s[i].value[0]) // ADC引脚
         }
-        if (t=='esp32'){
-            if (rj11s[i].adc == true)
-                menu.items.push(rj11_menu_item);
-        }else{
-            if (rj11s[i].valid != undefined && rj11s[i].valid )
+        if (rj11s[i].adc == true)
             menu.items.push(rj11_menu_item);
-            else if( rj11s[i].valid == undefined){
-                menu.items.push(rj11_menu_item);
-            }
-        }
     }
     console.log(menu)
     return menu;

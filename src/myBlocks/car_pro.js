@@ -428,6 +428,10 @@ const carProBlocks = [
         }
     },
     {
+        type: "custom_seperator",
+        text: '★ 元宇宙比赛客户端',
+    },
+    {
         opcode: 'startUDPClient',
         blockType: BlockType.COMMAND,
         text: '启动比赛客户端'
@@ -464,6 +468,27 @@ const carProBlocks = [
                 type: ArgumentType.NUMBER,
                 defaultValue: "0x01",
                 menu: "servoMenu"
+            },
+        }
+    },
+    {
+        opcode: 'startArmUp',
+        blockType: BlockType.COMMAND,
+        text: '抬起手臂'
+    },
+    {
+        opcode: 'startArmDown',
+        blockType: BlockType.COMMAND,
+        text: '放下手臂'
+    },
+    {
+        opcode: 'sendMsg',
+        blockType: BlockType.COMMAND,
+        text: '发送消息[MSG]',
+        arguments: {
+            MSG: {
+                type: ArgumentType.STRING,
+                defaultValue: "ping",
             },
         }
     },
