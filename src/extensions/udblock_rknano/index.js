@@ -31,14 +31,15 @@ class UDblockRKNano {
                         }
                     }
                 },
+                
                 {
                     type: "custom_seperator",
-                    text: '★ 事件',
+                    text: '★ 系统资源',
                 },
                 {
-                    opcode: 'whenButtonPressed',
-                    blockType: BlockType.EVHAT,
-                    text: '当RKPI按钮[BTN]按下',
+                    opcode: 'getButtonValue',
+                    blockType: BlockType.BOOLEAN,
+                    text: '按钮[BTN]按下',
                     arguments: {
                         BTN:{
                             type: ArgumentType.STRING,
@@ -46,10 +47,6 @@ class UDblockRKNano {
                             menu: 'buttons'
                         }
                     }
-                },
-                {
-                    type: "custom_seperator",
-                    text: '★ 系统资源',
                 },
                 {
                     opcode: 'getStartTime',
@@ -174,27 +171,27 @@ class UDblockRKNano {
                 //         }
                 //     }
                 // },
-                // {
-                //     type: "custom_seperator",
-                //     text: '★ ▶ 蜂鸣器',
-                // },
-                // {
-                //     opcode: 'setBuzzerPlay',
-                //     blockType: BlockType.COMMAND,
-                //     text: '控制RKPI蜂鸣器播放[SOUND] 音调 [PITCH]',
-                //     arguments: {
-                //         SOUND: {
-                //             type: ArgumentType.STRING,
-                //             defaultValue: "DO",
-                //             menu: "buzzerSounds"
-                //         },
-                //         PITCH: {
-                //             type: ArgumentType.STRING,
-                //             defaultValue: "LOW",
-                //             menu: "buzzerPitches"
-                //         }
-                //     }
-                // },
+                {
+                    type: "custom_seperator",
+                    text: '★ ▶ 蜂鸣器',
+                },
+                {
+                    opcode: 'setBuzzerPlay',
+                    blockType: BlockType.COMMAND,
+                    text: '控制RKPI蜂鸣器播放[SOUND] 音调 [PITCH]',
+                    arguments: {
+                        SOUND: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "DO",
+                            menu: "buzzerSounds"
+                        },
+                        PITCH: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "LOW",
+                            menu: "buzzerPitches"
+                        }
+                    }
+                },
                 // {
                 //     opcode: 'setBuzzerPlayMidi',
                 //     blockType: BlockType.COMMAND,
@@ -206,11 +203,11 @@ class UDblockRKNano {
                 //         }
                 //     }
                 // },
-                // {
-                //     opcode: 'setBuzzerStop',
-                //     blockType: BlockType.COMMAND,
-                //     text: '控制RKPI蜂鸣器停止播放',
-                // },
+                {
+                    opcode: 'setBuzzerStop',
+                    blockType: BlockType.COMMAND,
+                    text: '控制RKPI蜂鸣器停止播放',
+                },
                 {
                     type: "custom_seperator",
                     text: '★ ▶ 网络',
