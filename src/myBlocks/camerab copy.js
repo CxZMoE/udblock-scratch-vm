@@ -6,10 +6,26 @@ const cameraBlocks = [
         type: "custom_seperator",
         text: '★ AI摄像头',
     },
+    // {
+    //     opcode: 'initCamera',
+    //     blockType: BlockType.COMMAND,
+    //     text: '摄像头打开端口[PORT]',
+    //     arguments: {
+    //         PORT: {
+    //             type: ArgumentType.STRING,
+    //             menu: "RJMenu"
+    //         },
+    //     }
+    // },
     {
         opcode: 'initCameraI2C',
         blockType: BlockType.COMMAND,
         text: '打开摄像头(I2C)版本',
+    },
+    {
+        opcode: 'resetCamera',
+        blockType: BlockType.COMMAND,
+        text: '重启摄像头'
     },
     {
         opcode: 'switchMode',
@@ -39,43 +55,6 @@ const cameraBlocks = [
     },
     {
         type: "custom_seperator",
-        text: '★ 分类识别',
-    },
-    {
-        opcode: 'enterClassifierTraining',
-        blockType: BlockType.COMMAND,
-        text: '进入训练模式,类别名称[NAME]',
-        arguments: {
-            NAME: {
-                type: ArgumentType.STRING,
-                defaultValue: 'Table'
-            },
-        }
-    },
-    {
-        opcode: 'loadClassifier',
-        blockType: BlockType.COMMAND,
-        text: '加载类别[NAME]进行识别',
-        arguments: {
-            NAME: {
-                type: ArgumentType.STRING,
-                defaultValue: 'Table'
-            },
-        }
-    },
-    {
-        opcode: 'getClassifierResult',
-        blockType: BlockType.REPORTER,
-        text: '获取分类识别结果[RESULT]',
-        arguments: {
-            RESULT: {
-                type: ArgumentType.STRING,
-                menu: "kcamera_classifier_results"
-            },
-        }
-    },
-    {
-        type: "custom_seperator",
         text: '★ 人脸识别',
     },
     {
@@ -88,22 +67,6 @@ const cameraBlocks = [
                 menu: "kcamera_face_results"
             },
         }
-    },
-    {
-        opcode: 'addFaceByName',
-        blockType: BlockType.REPORTER,
-        text: '添加人脸ID[NAME]',
-        arguments: {
-            NAME: {
-                type: ArgumentType.STRING,
-                defaultValue: 'Steve'
-            },
-        }
-    },
-    {
-        opcode: 'delFaceSample',
-        blockType: BlockType.REPORTER,
-        text: '删除所有人脸识别样本',
     },
     {
         type: "custom_seperator",
@@ -136,7 +99,7 @@ const cameraBlocks = [
         text: '★ 标签识别',
     },
     {
-        opcode: 'getAprilTagResult',
+        opcode: 'getRouteResult',
         blockType: BlockType.REPORTER,
         text: '获取标签识别结果[RESULT]',
         arguments: {
