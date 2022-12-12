@@ -38,7 +38,7 @@ class UDblockRKNano {
                 {
                     opcode: 'whenButtonPressed',
                     blockType: BlockType.EVHAT,
-                    text: '当RKPI按钮[BTN]按下',
+                    text: '当按钮[BTN]按下',
                     arguments: {
                         BTN:{
                             type: ArgumentType.STRING,
