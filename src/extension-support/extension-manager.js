@@ -502,7 +502,7 @@ class ExtensionManager {
                 blockInfo.func = (args, util) => {
                     const realBlockInfo = getBlockInfo(args);
                     // TODO: filter args using the keys of realBlockInfo.arguments? maybe only if sandboxed?
-                    return callBlockFunc(args, util, realBlockInfo);
+                    // return callBlockFunc(args, util, realBlockInfo);
                 };
                 break;
             }
