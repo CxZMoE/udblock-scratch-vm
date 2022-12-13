@@ -54,7 +54,7 @@ class UDblockRKNano {
                 {
                     opcode: 'getStartTime',
                     blockType: BlockType.REPORTER,
-                    text: '获取RKPI启动时间(毫秒)'
+                    text: '获取系统启动时间(毫秒)'
                 },
                 {
                     opcode: 'delay_ms',

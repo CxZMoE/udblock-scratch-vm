@@ -39,7 +39,7 @@ class UDblockRKPi {
                 {
                     opcode: 'whenButtonPressed',
                     blockType: BlockType.EVHAT,
-                    text: '当RKPI按钮[BTN]按下',
+                    text: '当按钮[BTN]按下',
                     arguments: {
                         BTN:{
                             type: ArgumentType.STRING,
@@ -55,7 +55,7 @@ class UDblockRKPi {
                 {
                     opcode: 'getStartTime',
                     blockType: BlockType.REPORTER,
-                    text: '获取RKPI启动时间(毫秒)'
+                    text: '获取系统启动时间(毫秒)'
                 },
                 {
                     opcode: 'delay_ms',

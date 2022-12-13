@@ -12,19 +12,19 @@ const BlockType = require('./block-type');
 const builtinExtensions = {
     // This is an example that isn't loaded with the other core blocks,
     // but serves as a reference for loading core blocks as extensions.
-    coreExample: () => require('../blocks/scratch3_core_example'),
+    // coreExample: () => require('../blocks/scratch3_core_example'),
     // These are the non-core built-in extensions.
-    pen: () => require('../extensions/scratch3_pen'),
-    wedo2: () => require('../extensions/scratch3_wedo2'),
-    music: () => require('../extensions/scratch3_music'),
-    microbit: () => require('../extensions/scratch3_microbit'),
-    text2speech: () => require('../extensions/scratch3_text2speech'),
-    translate: () => require('../extensions/scratch3_translate'),
-    videoSensing: () => require('../extensions/scratch3_video_sensing'),
-    ev3: () => require('../extensions/scratch3_ev3'),
-    makeymakey: () => require('../extensions/scratch3_makeymakey'),
-    boost: () => require('../extensions/scratch3_boost'),
-    gdxfor: () => require('../extensions/scratch3_gdx_for'),
+    // pen: () => require('../extensions/scratch3_pen'),
+    // wedo2: () => require('../extensions/scratch3_wedo2'),
+    // music: () => require('../extensions/scratch3_music'),
+    // microbit: () => require('../extensions/scratch3_microbit'),
+    // text2speech: () => require('../extensions/scratch3_text2speech'),
+    // translate: () => require('../extensions/scratch3_translate'),
+    // videoSensing: () => require('../extensions/scratch3_video_sensing'),
+    // ev3: () => require('../extensions/scratch3_ev3'),
+    // makeymakey: () => require('../extensions/scratch3_makeymakey'),
+    // boost: () => require('../extensions/scratch3_boost'),
+    // gdxfor: () => require('../extensions/scratch3_gdx_for'),
     udblockMQTT: ()=> require("../extensions/udblock-mqtt"),
     udblockMicrobit: ()=> require("../extensions/udblock_microbit"),
     udblockUtils : ()=> require("../extensions/udblock-utils"),
@@ -161,44 +161,7 @@ class ExtensionManager {
      * @returns {Promise} resolved once the extension is loaded and initialized or rejected on failure
      */
     loadExtensionURL(extensionURL) {
-        // // 当导入的是拓展版的时候
-        // if (extensionURL.indexOf("EXTB") > -1){
-        //     // 未选择主板
-        //     if (bt.bt.length == 0){
-        //         alert("请先选择一个主板");
-        //         return Promise.resolve();
-        //     }
-        // }
-
-        // // 当导入的是主板的时候
-        // if (extensionURL == "udblockRKPi" || extensionURL == "udblockRKNano"){
-        //     console.log('选择RK主板')
-        //     // 已经导入过主板
-        //     if (bt.bt.length > 0){
-        //         alert("已经导入过主板,请勿重复导入或创建一个新工程");   
-        //         return Promise.resolve()
-        //     }
-        //     bt.bt = 'rk'
-        // }else if (extensionURL == "udblockRKOrigin"){
-        //     console.log('选择RK原始板子')
-        //     // 已经导入过主板
-        //     if (bt.bt.length > 0){
-        //         alert("已经导入过主板,请勿重复导入或创建一个新工程");   
-        //         return Promise.resolve()
-        //     }
-        //     bt.bt = 'rk'
-        // }else{
-        //     if (extensionURL.indexOf("UDPi") > -1){
-        //         // 已经导入过主板
-        //         if (bt.bt.length > 0){
-        //             alert("已经导入过主板,请勿重复导入或创建一个新工程");   
-        //             return Promise.resolve()
-        //         }
-        //         console.log('选择ESP32主板')
-        //         bt.bt = 'esp32'
-        //     }
-        // }
-
+        // extensionURL = 'http://127.0.0.1:12888/vs/a.js'
         console.log("通过URL加载拓展：" + extensionURL)
         
         if (builtinExtensions.hasOwnProperty(extensionURL)) {
