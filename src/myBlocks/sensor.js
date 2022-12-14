@@ -73,6 +73,21 @@ const sensorBlocks = [
         }
     },
     {
+        opcode: 'readPyroelecticSensor',
+        blockType: BlockType.REPORTER,
+        text: '热释电传感器传感器[PORT] 阈值[THREHOLD]',
+        arguments: {
+            PORT: {
+                type: ArgumentType.STRING,
+                menu: "RJADCMenu"
+            },
+            THREHOLD: {
+                type: ArgumentType.NUMBER,
+                defaultValue: 0.33
+            }
+        }
+    },
+    {
         opcode: 'readSmartGrayscaleSensor',
         blockType: BlockType.REPORTER,
         text: '智能灰度传感器[PORT]',
