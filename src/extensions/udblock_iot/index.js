@@ -15,11 +15,12 @@ const blockIconURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYA
 class UDblockIOT {
     constructor(runtime) {
         this.runtime = runtime;
-        this.customBlocks = [].concat(
-            sensorBlocks,
-            actionBlocks(false, false),
-            cameraBlocks
-        )
+        this.customBlocks = []
+        // .concat(
+        //     sensorBlocks,
+        //     actionBlocks(false, false),
+        //     cameraBlocks
+        // )
         this.dblRelayPinYellow = {
             acceptReporters: true,
             items: []
@@ -30,11 +31,7 @@ class UDblockIOT {
         };
         // 双路继电器生成菜单
         var rj11s;
-        if (bt == 'rk'){
-            rj11s = extb_iot.RJ11RK;
-        }else{
-            rj11s = extb_iot.RJ11ESP32;
-        }
+        rj11s = extb_iot.RJ11;
         for (i in rj11s) {
             var yellowPin = rj11s[i].value[0];
             var bluePin = rj11s[i].value[1];
@@ -67,6 +64,7 @@ class UDblockIOT {
         return {
             id: "udblockEXTBIOT",
             name: "智能语音拓展板",
+            type: "extb_iot",
             blockIconURI: blockIconURI,
             blocks: [
                 {

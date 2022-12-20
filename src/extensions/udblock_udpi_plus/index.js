@@ -427,7 +427,7 @@ class UDblockUDPiPlus {
 
                 {
                     type: "custom_seperator",
-                    text: '★ 执行器',
+                    text: '★ 板载执行器',
                 },
                 {
                     opcode: 'openOnBoardRGB',

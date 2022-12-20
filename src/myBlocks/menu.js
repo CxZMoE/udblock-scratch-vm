@@ -178,14 +178,15 @@ const miscMenuBlocks = {
 
 
 // 生成双向RJ11菜单，不包含只能输入的引脚
-const GenerateRJMenuDuplex = function (id,t) {
+const GenerateRJMenuDuplex = function (id) {
+    console.log(id)
     var menu = {
         acceptReporters: true,
         items: []
     }
     // console.log(id)
     var rj11s;
-    rj11s = EXTB_LIST[id].RJ11ESP32;
+    rj11s = EXTB_LIST[id].RJ11;
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
         if (!rj11s[i].duplex) {
@@ -202,15 +203,14 @@ const GenerateRJMenuDuplex = function (id,t) {
 }
 
 // 生成RJ11菜单，包含所有的引脚
-const GenerateRJMenu = function (id,t) {
+const GenerateRJMenu = function (id) {
     var menu = {
         acceptReporters: true,
         items: []
     }
     var rj11s;
-    console.log(id, t)
 
-    rj11s = EXTB_LIST[id].RJ11ESP32;
+    rj11s = EXTB_LIST[id].RJ11;
 
     console.log(rj11s)
     for (var i in rj11s) {
@@ -224,13 +224,13 @@ const GenerateRJMenu = function (id,t) {
     return menu;
 }
 
-const GenerateRJDigiMenu = function (id,t) {
+const GenerateRJDigiMenu = function (id) {
     var menu = {
         acceptReporters: true,
         items: []
     }
     var rj11s;
-    rj11s = EXTB_LIST[id].RJ11ESP32;
+    rj11s = EXTB_LIST[id].RJ11;
 
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
@@ -245,13 +245,13 @@ const GenerateRJDigiMenu = function (id,t) {
     // console.log(menu)
     return menu;
 }
-const GenerateADCMenuFull = function (id,t) {
+const GenerateADCMenuFull = function (id) {
     var menu = {
         acceptReporters: true,
         items: []
     }
     var rj11s;
-    rj11s = EXTB_LIST[id].RJ11ESP32;
+    rj11s = EXTB_LIST[id].RJ11;
 
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
@@ -264,13 +264,12 @@ const GenerateADCMenuFull = function (id,t) {
     }
     return menu;
 }
-const GenerateADCMenu = function (id, t) {
-    console.log('use t : ' + t)
+const GenerateADCMenu = function (id) {
     var menu = {
         acceptReporters: true,
         items: []
     }
-    var rj11s = EXTB_LIST[id].RJ11ESP32;
+    var rj11s = EXTB_LIST[id].RJ11;
     
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
@@ -285,13 +284,13 @@ const GenerateADCMenu = function (id, t) {
     return menu;
 }
 
-const GenerateRJMenuAll = function (id, t) {
+const GenerateRJMenuAll = function (id, bt) {
     var menu = {
-        RJMenuDup: GenerateRJMenuDuplex(id,t),
-        RJMenu: GenerateRJMenu(id,t),
-        RJDigiMenu: GenerateRJDigiMenu(id,t),
-        RJADCMenu: GenerateADCMenu(id,t),
-        RJADCMenuFull: GenerateADCMenuFull(id,t)
+        RJMenuDup: GenerateRJMenuDuplex(id),
+        RJMenu: GenerateRJMenu(id),
+        RJDigiMenu: GenerateRJDigiMenu(id),
+        RJADCMenu: GenerateADCMenu(id),
+        RJADCMenuFull: GenerateADCMenuFull(id)
     }
     return menu
 }

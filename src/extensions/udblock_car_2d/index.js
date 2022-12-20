@@ -18,11 +18,11 @@ const blockIconURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYA
 class UDblockCar2D {
     constructor(runtime) {
         this.runtime = runtime;
-        this.customBlocks = [].concat(
-            cameraBlocks,
-            sensorBlocks,
-            actionBlocks(false,false)
-        )
+        // this.customBlocks = [].concat(
+        //     cameraBlocks,
+        //     sensorBlocks,
+        //     actionBlocks(false,false)
+        // )
         this.dblRelayPinYellow = {
             acceptReporters: true,
             items: []
@@ -33,11 +33,7 @@ class UDblockCar2D {
         };
         // 双路继电器生成菜单
         var rj11s;
-        if (bt == 'rk'){
-            rj11s = extb_car_2d.RJ11RK;
-        }else{
-            rj11s = extb_car_2d.RJ11ESP32;
-        }
+        rj11s = extb_car_2d.RJ11;
         for (i in rj11s) {
             var yellowPin = rj11s[i].value[0];
             var bluePin = rj11s[i].value[1];
@@ -55,6 +51,7 @@ class UDblockCar2D {
         return {
             id: "udblockEXTBCar2D",
             name: "双驱小车拓展板",
+            type: "extb_car_2d",
             blockIconURI: blockIconURI,
             blocks: [
                 {
@@ -245,7 +242,7 @@ class UDblockCar2D {
                         }
                     }
                 },
-                ...this.customBlocks
+                // ...this.customBlocks
             ],
             menus: {
                 ...GenerateRJMenuAll('extb_car_2d', bt),

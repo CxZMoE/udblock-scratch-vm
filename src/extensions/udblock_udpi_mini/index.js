@@ -17,11 +17,12 @@ const blockIconURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYA
 class UDBlockUDPiMiniV1 {
     constructor(runtime) {
         this.runtime = runtime;
-        this.customBlocks = [].concat(
-            sensorBlocks,
-            actionBlocks(false,false),
-            cameraBlocks,
-        )
+        this.customBlocks = []
+        // .concat(
+        //     sensorBlocks,
+        //     actionBlocks(false,false),
+        //     cameraBlocks,
+        // )
         this.dblRelayPinYellow = {
             acceptReporters: true,
             items: []
@@ -31,9 +32,9 @@ class UDBlockUDPiMiniV1 {
             items: []
         };
         // 双路继电器生成菜单
-        for (i in extb_udpi_mini.RJ11ESP32) {
-            var yellowPin = extb_udpi_mini.RJ11ESP32[i].value[0];
-            var bluePin = extb_udpi_mini.RJ11ESP32[i].value[1];
+        for (i in extb_udpi_mini.RJ11) {
+            var yellowPin = extb_udpi_mini.RJ11[i].value[0];
+            var bluePin = extb_udpi_mini.RJ11[i].value[1];
             if (!(yellowPin >= 34 && yellowPin <= 39)){
                 this.dblRelayPinYellow.items.push({text:"RJ"+String(Number(i)+1), value: String(yellowPin)});
             }
@@ -47,6 +48,7 @@ class UDBlockUDPiMiniV1 {
         return {
             id: "udblockUDPiMiniV1",
             name: "UDPi+最小系统板V1",
+            type: "extb_udpi_mini",
             blockIconURI: blockIconURI,
             blocks: [
                 {
@@ -137,7 +139,7 @@ class UDBlockUDPiMiniV1 {
                 },
                 {
                     type: "custom_seperator",
-                    text: '★ 执行器',
+                    text: '★ 板载执行器',
                 },
                 {
                     opcode: 'openOnBoardRGB',

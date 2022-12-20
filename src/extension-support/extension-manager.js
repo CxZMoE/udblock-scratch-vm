@@ -1,5 +1,5 @@
 const dispatch = require('../dispatch/central-dispatch');
-var bt  = require('../util/extb-definitions');
+var extension_defs  = require('../util/extb-definitions');
 const log = require('../util/log');
 const maybeFormatMessage = require('../util/maybe-format-message');
 
@@ -9,45 +9,99 @@ const BlockType = require('./block-type');
 // TODO: move these out into a separate repository?
 // TODO: change extension spec so that library info, including extension ID, can be collected through static methods
 
-const builtinExtensions = {
-    // This is an example that isn't loaded with the other core blocks,
-    // but serves as a reference for loading core blocks as extensions.
-    coreExample: () => require('../blocks/scratch3_core_example'),
-    // These are the non-core built-in extensions.
-    pen: () => require('../extensions/scratch3_pen'),
-    wedo2: () => require('../extensions/scratch3_wedo2'),
-    music: () => require('../extensions/scratch3_music'),
+// 主板
+const category_motherboards = {
     microbit: () => require('../extensions/scratch3_microbit'),
-    text2speech: () => require('../extensions/scratch3_text2speech'),
-    translate: () => require('../extensions/scratch3_translate'),
-    videoSensing: () => require('../extensions/scratch3_video_sensing'),
-    ev3: () => require('../extensions/scratch3_ev3'),
-    makeymakey: () => require('../extensions/scratch3_makeymakey'),
-    boost: () => require('../extensions/scratch3_boost'),
-    gdxfor: () => require('../extensions/scratch3_gdx_for'),
+    udblockMicrobit: ()=> require("../extensions/udblock_microbit"),
     udblockUDPi: () => require('../extensions/udblock_udpi'),
     udblockUDPiPlus: () => require('../extensions/udblock_udpi_plus'),
     udblockUDPiV2: () => require('../extensions/udblock_udpi_v2'),
     udblockUDPiPlusV2: () => require('../extensions/udblock_udpi_plus_v2'),
+};
+
+// 拓展板
+const category_extendboards = {
+    // 拓展板
     udblockEXTBMF: () => require("../extensions/udblock_extb_mf"),
     udblockEXTBSM: () => require("../extensions/udblock_extb_sm"),
-    // udblockEXTBMFV2: () => require("../extensions/udblock_extb_mf_v2"),
-    // udblockEXTBSMV2: () => require("../extensions/udblock_extb_sm_v2"),
     udblockEXTBIO: ()=> require("../extensions/udblock_extb_io"),
-    // udblockEXTBIOV2: ()=> require("../extensions/udblock_extb_io_v2"),
     udblockEXTBCar: ()=> require("../extensions/udblock_car"),
     udblockEXTBCarPro: ()=> require("../extensions/udblock_carpro"),
     udblockEXTBCar2D: ()=> require("../extensions/udblock_car_2d"),
     udblockEXTBIOT: ()=> require("../extensions/udblock_iot"),
-    udblockMQTT: ()=> require("../extensions/udblock-mqtt"),
-    udblockMicrobit: ()=> require("../extensions/udblock_microbit"),
-    udblockUtils : ()=> require("../extensions/udblock-utils"),
     udblockUDPiMiniV1 : ()=> require("../extensions/udblock_udpi_mini"),
-    udblockRKPi : ()=> require("../extensions/udblock_rkpi"),
-    udblockEXTBRKMF : ()=> require("../extensions/udblock_extb_rk_mf"),
-    udblockEXTBRKIOT : ()=> require("../extensions/udblock_extb_rk_iot "),
-    udblockRKNano : ()=> require("../extensions/udblock_rknano"),
-};
+}
+
+// 传感器执
+const category_sensors = {
+    // 传感器
+    nfcSensor: ()=>require("../extensions/udblock_sensor/sensor_nfc"),
+    raindropSensor: ()=>require("../extensions/udblock_sensor/raindrop_sensor"),
+    soundSensor: ()=>require("../extensions/udblock_sensor/sound_sensor"),
+    rypoelectricSensor: ()=>require("../extensions/udblock_sensor/rypoelectric_sensor"),
+    smartGrayscaleSensor: ()=>require("../extensions/udblock_sensor/smart_grayscale_sensor"),
+    colorDetectSensor: ()=>require("../extensions/udblock_sensor/color_detect_sensor"),
+    lightAmpSensor: ()=>require("../extensions/udblock_sensor/light_amp_sensor"),
+    sonicSensor: ()=>require("../extensions/udblock_sensor/sonic_sensor"),
+    routeFindingSensor: ()=>require("../extensions/udblock_sensor/route_finding_sensor"),
+    flameDetectSensor: ()=>require("../extensions/udblock_sensor/flame_detect_sensor"),
+    simGraySensor: ()=>require("../extensions/udblock_sensor/simulate_grayscale_sensor"),
+    smokeSensor: ()=>require("../extensions/udblock_sensor/smoke_sensor"),
+    windSpeedSensor: ()=>require("../extensions/udblock_sensor/wind_speed_sensor"),
+    dirtHumiditySensor: ()=>require("../extensions/udblock_sensor/dirt_humidity_sensor"),
+    waterProofTempSensor: ()=>require("../extensions/udblock_sensor/waterproove_temp_sensor"),
+    dht11Sensor: ()=>require("../extensions/udblock_sensor/dht11_sensor"),
+    foutChanRouteFinderSensor: ()=>require("../extensions/udblock_sensor/four_channel_route_finder"),
+    eightChnKeyboardSensor: ()=>require("../extensions/udblock_sensor/keyboard_module_8"),
+}
+
+// 执行器
+const category_actors = {
+    i2cMotorModule: ()=>require("../extensions/udblock_actor/i2c_motor_module"),
+    digitalTube: ()=>require("../extensions/udblock_actor/digital_tube"),
+    rgbStript15: ()=>require("../extensions/udblock_actor/rgb_stripe_15"),
+    stepperModule: ()=>require("../extensions/udblock_actor/stepper_motor_module"),
+    relayOneChn: ()=>require("../extensions/udblock_actor/replay_module_single_channel"),
+    relayTwoChn: ()=>require("../extensions/udblock_actor/relay_module_dual_channel"),
+    i2cFacePanel: ()=>require("../extensions/udblock_actor/i2c_face_panel"),
+    oledModuleSSD1306Of128M64: ()=>require("../extensions/udblock_actor/i2c_oled_ssd1306_128_64"),
+    bibiCamK210: ()=>require("../extensions/udblock_actor/bibi_cam_k210"),
+}
+
+// 工具
+const category_tools = {
+    // 工具类
+    udblockMQTT: ()=> require("../extensions/udblock-mqtt"),
+    udblockUtils : ()=> require("../extensions/udblock-utils"),
+}
+
+
+const builtinExtensions = Object.assign({},
+    category_motherboards,
+    category_extendboards,
+    category_sensors,
+    category_actors,
+    category_tools
+)
+
+// const builtinExtensions = {
+    // This is an example that isn't loaded with the other core blocks,
+    // but serves as a reference for loading core blocks as extensions.
+    // coreExample: () => require('../blocks/scratch3_core_example'),
+    // // These are the non-core built-in extensions.
+    // pen: () => require('../extensions/scratch3_pen'),
+    // wedo2: () => require('../extensions/scratch3_wedo2'),
+    // music: () => require('../extensions/scratch3_music'),
+    
+    // text2speech: () => require('../extensions/scratch3_text2speech'),
+    // translate: () => require('../extensions/scratch3_translate'),
+    // videoSensing: () => require('../extensions/scratch3_video_sensing'),
+    // ev3: () => require('../extensions/scratch3_ev3'),
+    // makeymakey: () => require('../extensions/scratch3_makeymakey'),
+    // boost: () => require('../extensions/scratch3_boost'),
+    // gdxfor: () => require('../extensions/scratch3_gdx_for'),
+
+// };
 
 /**
  * @typedef {object} ArgumentInfo - Information about an extension block argument
@@ -171,52 +225,82 @@ class ExtensionManager {
     }
 
     /**
+     * Check is the given id the extended board
+     */
+    checkIsBuiltin(extensionId){
+        return builtinExtensions.hasOwnProperty(extensionId);
+    }
+    checkIsExtb(extensionID){
+        for (id in category_extendboards){
+            if (String(id).indexOf(extensionID) > -1){
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * Check for is loaded extend board
+     */
+    checkAnyExtbLoaded(){
+        for (var ext_id in category_extendboards) {
+            if (this.isExtensionLoaded(ext_id)){
+                return true
+            }
+        }
+        return false
+    }
+    /**
+     * Check for loading situation
+     */
+    checkCanLoad(extensionURL){
+        // 检测是否有选择过拓展板，没有就需要选择，选择过就不能再选择
+        var can_load = false
+        var loaded_extb = null
+        
+
+        if (!category_extendboards.hasOwnProperty(extensionURL)){
+            // 检查是否加载过拓展板
+            can_load = this.checkAnyExtbLoaded();
+        }else{
+            // 是拓展板
+            let loaded_ext = false
+            for (var ext_id in category_extendboards) {
+                if (this.isExtensionLoaded(ext_id)){
+                    loaded_ext = true;
+                    loaded_extb = ext_id;
+                }
+            }
+            if (loaded_ext && loaded_extb != extensionURL){
+                const message = `已经添加过拓展板，请勿重复添加或新建工程。`
+                alert(message)
+                log.warn(message);
+                return false
+            }
+            // 是拓展板的拓展
+            can_load = true
+        }
+        if (!can_load){
+            const message = `请先添加拓展板，然后再加载其他设备。`
+            alert(message)
+            log.warn(message);
+        }
+        return can_load
+    }
+
+    /**
      * Load an extension by URL or internal extension ID
      * @param {string} extensionURL - the URL for the extension to load OR the ID of an internal extension
      * @returns {Promise} resolved once the extension is loaded and initialized or rejected on failure
      */
     loadExtensionURL(extensionURL) {
-        // 当导入的是拓展版的时候
-        // if (extensionURL.indexOf("EXTB") > -1){
-        //     // 未选择主板
-        //     if (bt.bt.length == 0){
-        //         alert("请先选择一个主板");
-        //         return Promise.resolve();
-        //     }
-        // }
-
-        // // 当导入的是主板的时候
-        // if (extensionURL == "udblockRKPi" || extensionURL == "udblockRKNano"){
-        //     console.log('选择RK主板')
-        //     // 已经导入过主板
-        //     if (bt.bt.length > 0){
-        //         alert("已经导入过主板,请勿重复导入或创建一个新工程");   
-        //         return Promise.resolve()
-        //     }
-        //     bt.bt = 'rk'
-        // }else if (extensionURL == "udblockRKOrigin"){
-        //     console.log('选择RK原始板子')
-        //     // 已经导入过主板
-        //     if (bt.bt.length > 0){
-        //         alert("已经导入过主板,请勿重复导入或创建一个新工程");   
-        //         return Promise.resolve()
-        //     }
-        //     bt.bt = 'rk'
-        // }else{
-        //     if (extensionURL.indexOf("UDPi") > -1){
-        //         // 已经导入过主板
-        //         if (bt.bt.length > 0){
-        //             alert("已经导入过主板,请勿重复导入或创建一个新工程");   
-        //             return Promise.resolve()
-        //         }
-        //         console.log('选择ESP32主板')
-        //         bt.bt = 'esp32'
-        //     }
-        // }
-
         console.log("通过URL加载拓展：" + extensionURL)
         
         if (builtinExtensions.hasOwnProperty(extensionURL)) {
+            
+            var result = false
+            if (!this.checkCanLoad(extensionURL)){
+                return Promise.resolve();
+            }
             /** @TODO dupe handling for non-builtin extensions. See commit 670e51d33580e8a2e852b3b038bb3afc282f81b9 */
             if (this.isExtensionLoaded(extensionURL)) {
                 const message = `Rejecting attempt to load a second extension with ID ${extensionURL}`;
@@ -306,6 +390,15 @@ class ExtensionManager {
      */
     _registerInternalExtension(extensionObject) {
         const extensionInfo = extensionObject.getInfo();
+        console.log(extensionInfo)
+
+        // 获取板子的类型
+        console.log(extensionInfo.type || null);
+        if (extension_defs.bt != extensionInfo.type && extensionInfo.type != null) {
+            console.log(`BT: ${extension_defs.bt} => ${extensionInfo.type}`)
+            extension_defs.bt = (extensionInfo.type || null);
+        }
+
         const fakeWorkerId = this.nextExtensionWorker++;
         const serviceName = `extension_${fakeWorkerId}_${extensionInfo.id}`;
         dispatch.setServiceSync(serviceName, extensionObject);
@@ -350,6 +443,7 @@ class ExtensionManager {
     _prepareExtensionInfo(serviceName, extensionInfo) {
         extensionInfo = Object.assign({}, extensionInfo);
         if (!/^[a-z0-9]+$/i.test(extensionInfo.id)) {
+            console.log(extensionInfo.id)
             throw new Error('Invalid extension id');
         }
         extensionInfo.name = extensionInfo.name || extensionInfo.id;

@@ -8,9 +8,12 @@ const blockIconURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYA
 class UDblockUDPi {
     constructor(runtime) {
         this.runtime = runtime;
+        this.count = 0;
     }
 
     getInfo() {
+        this.count+=1;
+        console.log(this.count)
         return {
             id: "udblockUDPi",
             name: "UDPi 开发板",
@@ -19,7 +22,7 @@ class UDblockUDPi {
                 {
                     opcode: "espstart",
                     blockType: BlockType.HAT,
-                    text: "UDPi主板初始化完成"
+                    text: `UDPi主板初始化完成: ${this.count}`
                 },
                 {
                     opcode: "print",
@@ -104,7 +107,7 @@ class UDblockUDPi {
                 },
                 {
                     type: "custom_seperator",
-                    text: '★ 执行器',
+                    text: '★ 板载执行器',
                 },
                 {
                     opcode: 'openOnBoardRGB',

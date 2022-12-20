@@ -56,6 +56,7 @@ class VirtualMachine extends EventEmitter {
             log.error(`Failed to register runtime service: ${JSON.stringify(e)}`);
         });
 
+        this.firstInstall = true;
         /**
          * The "currently editing"/selected target ID for the VM.
          * Block events from any Blockly workspace are routed to this target.
@@ -395,7 +396,7 @@ class VirtualMachine extends EventEmitter {
     
         return zip.generateAsync({
             type: 'blob',
-            mimeType: 'application/x.scratch.sb3',
+            mimeType: 'application/x.bitmeta.bmproj',
             compression: 'DEFLATE',
             compressionOptions: {
                 level: 6 // Tradeoff between best speed (1) and best compression (9)
@@ -512,9 +513,24 @@ class VirtualMachine extends EventEmitter {
      */
     installTargets (targets, extensions, wholeProject) {
         const extensionPromises = [];
-
+        
+        var hasExtb = false
         extensions.extensionIDs.forEach(extensionID => {
-            if (!this.extensionManager.isExtensionLoaded(extensionID)) {
+            if (this.extensionManager.checkIsExtb(extensionID)){
+                const extensionURL = extensions.extensionURLs.get(extensionID) || extensionID;
+                extensionPromises.push(this.extensionManager.loadExtensionURL(extensionURL));
+                hasExtb = true
+            }
+        });
+        // alert(hasExtb)
+        // // 当未拓展板的时候添加默认的板子（多功能拓展板）
+        if (hasExtb == false && !this.firstInstall){
+            // alert('load')
+            this.extensionManager.loadExtensionURL("udblockEXTBMF")
+        }
+        this.firstInstall = false;
+        extensions.extensionIDs.forEach(extensionID => {
+            if (!this.extensionManager.isExtensionLoaded(extensionID) && !this.extensionManager.checkIsExtb(extensionID)) {
                 const extensionURL = extensions.extensionURLs.get(extensionID) || extensionID;
                 extensionPromises.push(this.extensionManager.loadExtensionURL(extensionURL));
             }
@@ -1297,6 +1313,8 @@ class VirtualMachine extends EventEmitter {
             this.emitWorkspaceUpdate();
             this.runtime.setEditingTarget(this.editingTarget);
             this.emitTargetsUpdate(false /* Don't emit project change */);
+        }else{
+            console.log(this.runtime.targets)
         }
     }
 

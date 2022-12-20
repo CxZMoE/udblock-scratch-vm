@@ -15,10 +15,11 @@ const blockIconURI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYA
 class UDblockEXTBSM {
     constructor(runtime) {
         this.runtime = runtime;
-        this.customBlocks = [].concat(
-            sensorBlocks,
+        this.customBlocks = []
+        .concat(
+            // sensorBlocks,
             actionBlocks(),
-            cameraBlocks,
+            // cameraBlocks,
         )
         this.dblRelayPinYellow = {
             acceptReporters: true,
@@ -30,11 +31,7 @@ class UDblockEXTBSM {
         };
         // 双路继电器生成菜单
         var rj11s;
-        if (bt == 'rk'){
-            rj11s = extb_sm.RJ11RK;
-        }else{
-            rj11s = extb_sm.RJ11ESP32;
-        }
+        rj11s = extb_sm.RJ11;
         for (i in rj11s) {
             var yellowPin = rj11s[i].value[0];
             var bluePin = rj11s[i].value[1];
@@ -51,6 +48,7 @@ class UDblockEXTBSM {
         return {
             id: "udblockEXTBSM",
             name: "电机拓展板",
+            type: "extb_sm",
             blockIconURI: blockIconURI,
             blocks: this.customBlocks,
             menus: {

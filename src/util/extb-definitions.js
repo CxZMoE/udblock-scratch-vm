@@ -1,56 +1,70 @@
-const {GetRJPinPair} = require('./extb_pin_trans')
-
 // On the ESP32, ADC functionality is available on pins 32-39 (ADC block 1) and pins 0, 2, 4, 12-15 and 25-27 (ADC block 2).
 // Pins 34-39 are input only, and also do not have internal pull-up resistors
 // Common ADC Pin: 5
 // Common Digital Pin: 6
+const BOARD_TYPE_MOTHERBOARD = 0x01
+const BOARD_TYPE_EXTEND_BOARD = 0x02
+
+var bt = null
 const EXTB_LIST = {
-    "bt": 'esp32',
+    "registerDef": function(id){
+        console.log(`Register for opcode: ${id}`)
+        var reg = new RegExp(`^${this[this.bt].id}`+"_(.)+")
+        for (var i in Blockly.Python){
+            let lineString = String(i)
+            if (reg.test(lineString)){
+                let slt = lineString.split('_');
+                slt[0] = id;
+                console.log(slt)
+                Blockly.Python[slt.join('_')] = Blockly.Python[lineString];
+            }
+        }
+    },
+    "bt": bt,
     "extb_mf": {
         id: "udblockEXTBMF",
-        idv2: "udblockEXTBMFV2",
         name: "多功能拓展版",
         img: "assets/img/extb_mf.png",
         description: "多功能拓展版",
-        RJ11ESP32: [
+        RJ11: [
             {
                 name: "RJ1",
-                value: GetRJPinPair(1),
+                value: ["33", "5"],
                 adc: false,
                 duplex: false,
                 valid: false
             },
             {
                 name: "RJ2",
-                value: GetRJPinPair(2),
+                value: ["32", "17"],
                 adc: true,
                 duplex: true,
                 valid: true
             },
             {
                 name: "RJ3",
-                value: GetRJPinPair(3),
+                value: ["18", "2"],
                 adc: false,
                 duplex: true,
                 valid: true
             },
             {
                 name: "RJ4",
-                value: GetRJPinPair(4),
+                value: ["35", "19"],
                 adc: true,
                 duplex: false,
                 valid: true
             },
             {
                 name: "RJ5",
-                value: GetRJPinPair(5),
+                value: ["34", "26"],
                 adc: true,
                 duplex: false,
                 valid: true
             },
             {
                 name: "RJ6",
-                value: GetRJPinPair(6),
+                value: ["25", "21"],
                 adc: false,
                 duplex: true,
                 valid: true
@@ -167,11 +181,10 @@ const EXTB_LIST = {
     },
     "extb_io": {
         id: "udblockEXTBIO",
-        idv2: "udblockEXTBIOV2",
         name: "IO拓展版",
         img: "assets/img/extb_io.png",
         description: "IO拓展版",
-        RJ11ESP32: [
+        RJ11: [
             {
                 name: "RJ1",
                 value: [
@@ -258,11 +271,10 @@ const EXTB_LIST = {
     },
     "extb_sm": {
         id: "udblockEXTBSM",
-        idv2: "udblockEXTBSMV2",
         name: "电机拓展版",
         img: "assets/img/extb_sm.png",
         description: "电机拓展版",
-        RJ11ESP32: [
+        RJ11: [
             {
                 name: "RJ1",
                 value: [
@@ -418,7 +430,7 @@ const EXTB_LIST = {
         name: "小车拓展版",
         img: "assets/img/extb_car.png",
         description: "小车拓展版",
-        RJ11ESP32: [
+        RJ11: [
             {
                 name: "RJ1",
                 value: [
@@ -506,7 +518,7 @@ const EXTB_LIST = {
         name: "小车拓展版Pro",
         img: "assets/img/extb_car.png",
         description: "小车拓展版Pro",
-        RJ11ESP32: [
+        RJ11: [
             {
                 name: "RJ1",
                 value: [
@@ -594,7 +606,7 @@ const EXTB_LIST = {
         name: "双驱小车拓展版",
         img: "assets/img/extb_car.png",
         description: "双驱小车拓展版",
-        RJ11ESP32: [
+        RJ11: [
             {
                 name: "RJ1",
                 value: [
@@ -682,7 +694,7 @@ const EXTB_LIST = {
         name: "智能语音拓展板",
         img: "assets/img/extb_car.png",
         description: "智能语音拓展板",
-        RJ11ESP32: [
+        RJ11: [
             {
                 name: "RJ1",
                 value: [
@@ -730,11 +742,10 @@ const EXTB_LIST = {
 
     "extb_udpi_mini": {
         id: "udblockUDPiMiniV1",
-        idv2: "udblockUDPiMiniV2",
         name: "UDPi+最小系统板V1",
         img: "assets/img/extb_mf.png",
         description: "UDPi+最小系统板V1",
-        RJ11ESP32: [
+        RJ11: [
             {
                 name: "RJ1",
                 value: [

@@ -19,9 +19,9 @@ class UDblockCarPro {
         this.runtime = runtime;
         this.customBlocks = [].concat(
             carProBlocks,
-            cameraBlocks,
-            sensorBlocks,
-            actionBlocks(false,false)
+            // cameraBlocks,
+            // sensorBlocks,
+            // actionBlocks(false,false)
         )
         this.dblRelayPinYellow = {
             acceptReporters: true,
@@ -33,11 +33,7 @@ class UDblockCarPro {
         };
         // 双路继电器生成菜单
         var rj11s;
-        if (bt == 'rk'){
-            rj11s = extb_car_pro.RJ11RK;
-        }else{
-            rj11s = extb_car_pro.RJ11ESP32;
-        }
+        rj11s = extb_car_pro.RJ11;
         for (i in rj11s) {
             var yellowPin = rj11s[i].value[0];
             var bluePin = rj11s[i].value[1];
@@ -55,6 +51,7 @@ class UDblockCarPro {
         return {
             id: "udblockEXTBCarPro",
             name: "小车拓展板Pro",
+            type: "extb_car_pro",
             blockIconURI: blockIconURI,
             blocks: this.customBlocks,
             menus: {

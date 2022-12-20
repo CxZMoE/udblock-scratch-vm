@@ -41,11 +41,12 @@ class UDblockEXTBMF {
                     }
                 }
             },
-        ].concat(
-            sensorBlocks,
+        ]
+        // .concat(
+        //     sensorBlocks,
             actionBlocks(),
-            cameraBlocks,
-        )
+        //     cameraBlocks,
+        // )
         this.dblRelayPinYellow = {
             acceptReporters: true,
             items: []
@@ -56,11 +57,7 @@ class UDblockEXTBMF {
         };
         // 双路继电器生成菜单
         var rj11s;
-        if (bt == 'rk'){
-            rj11s = extb_mf.RJ11RK;
-        }else{
-            rj11s = extb_mf.RJ11ESP32;
-        }
+        rj11s = extb_mf.RJ11;
         for (i in rj11s) {
             var yellowPin = rj11s[i].value[0];
             var bluePin = rj11s[i].value[1];
@@ -79,6 +76,7 @@ class UDblockEXTBMF {
             name: "多功能拓展板",
             blockIconURI: blockIconURI,
             blocks: this.customBlocks,
+            type: "extb_mf",
             menus: {
                 ...GenerateRJMenuAll('extb_mf', bt),
                 touchMenu: {
