@@ -34,6 +34,92 @@ const miscMenuBlocks = {
         items: [{ text: "0", value: 0 }, { text: "1", value: 1 }, { text: "2", value: 2 }, { text: "3", value: 3 },
         { text: "4", value: 4 }, { text: "5", value: 5 }, { text: "6", value: 6 }, { text: "7", value: 7 }, { text: "8", value: 8 }]
     },
+    // 摄像头
+    kcamera_modes: {
+        acceptReporters: true,
+        items: [
+            { text: "物体识别", value: "obj" },
+            { text: "颜色识别", value: "color" },
+            { text: "人脸识别", value: "face" },
+            { text: "分类识别", value: "self_learning" },
+            { text: "二维码识别", value: "qrcode" },
+            { text: "条形码识别", value: "barcode" },
+            { text: "标签识别", value: "april_tag" },
+            { text: "循迹识别", value: "route" },
+        ]
+    },
+    kcamera_obj_results: {
+        acceptReporters: true,
+        items: [
+            { text: "名称", value: "id" },
+            { text: "中心坐标(X)", value: "x" },
+            { text: "中心坐标(Y)", value: "y" },
+            { text: "方框宽度(W)", value: "w" },
+            { text: "方块高度(H)", value: "h" },
+            { text: "检测到的数量", value: "count" },
+        ]
+    },
+    kcamera_face_results: {
+        acceptReporters: true,
+        items: [
+            { text: "人脸ID", value: "id" },
+            { text: "中心坐标(X)", value: "x" },
+            { text: "中心坐标(Y)", value: "y" },
+            { text: "方框宽度(W)", value: "w" },
+            { text: "方块高度(H)", value: "h" },
+            { text: "人脸置信度", value: "score" },
+        ]
+    },
+    kcamera_qrcode_results: {
+        acceptReporters: true,
+        items: [
+            { text: "文本", value: "text" },
+        ]
+    },
+    kcamera_barcode_results: {
+        acceptReporters: true,
+        items: [
+            { text: "文本", value: "text" },
+        ]
+    },
+    kcamera_color_results: {
+        acceptReporters: true,
+        items: [
+            { text: "RGB数组", value: "rgb" },
+            { text: "预估结果", value: "color" },
+        ]
+    },
+    kcamera_route_results: {
+        acceptReporters: true,
+        items: [
+            { text: "路口中心坐标(X)", value: "cross_x" },
+            { text: "路口中心坐标(Y)", value: "cross_y" },
+            { text: "路口类型", value: "type" },
+            { text: "道路水平偏移", value: "offset_x" },
+        ]
+    },
+    kcamera_april_results: {
+        acceptReporters: true,
+        items: [
+            { text: "中心坐标(X)", value: "x" },
+            { text: "中心坐标(Y)", value: "y" },
+            { text: "方框宽度(W)", value: "w" },
+            { text: "方框高度(H)", value: "h" },
+            { text: "旋转角度", value: "rotation" },
+            { text: "标签类型", value: "tag_family" },
+            { text: "标签ID", value: "tag_id" },
+            { text: "3D坐标", value: "translation_3d" },
+            { text: "3D旋度", value: "rotation_3d" },
+        ]
+    },
+    kcamera_classifier_results: {
+        acceptReporters: true,
+        items: [
+            { text: "名称", value: "id" },
+            { text: "颜色(估计)", value: "color" },
+            { text: "置信度", value: "score" },
+        ]
+    },
     actions: {
         acceptReporters: true,
         items: [{ text: "开始", value: "START" }, { text: "切换", value: "SWITCH" }]
