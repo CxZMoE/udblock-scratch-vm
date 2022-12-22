@@ -264,13 +264,11 @@ const miscMenuBlocks = {
 
 
 // 生成双向RJ11菜单，不包含只能输入的引脚
-const GenerateRJMenuDuplex = function (id) {
-    console.log(id)
+const GenerateRJMenuDuplex = function (id) {    
     var menu = {
         acceptReporters: true,
         items: []
     }
-    // console.log(id)
     var rj11s;
     rj11s = EXTB_LIST[id].RJ11;
     for (var i in rj11s) {
@@ -297,8 +295,6 @@ const GenerateRJMenu = function (id) {
     var rj11s;
 
     rj11s = EXTB_LIST[id].RJ11;
-
-    console.log(rj11s)
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
@@ -320,15 +316,12 @@ const GenerateRJDigiMenu = function (id) {
 
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
-        // console.log('rk digi use ' + rj11Name)
         var rj11_menu_item = {
             text: rj11Name,                 // RJ11 名称
             value: String(rj11s[i].value[1]) // RJ11 的引脚
         }
-        // console.log(rj11_menu_item)
         menu.items.push(rj11_menu_item);
     }
-    // console.log(menu)
     return menu;
 }
 const GenerateADCMenuFull = function (id) {
@@ -366,7 +359,6 @@ const GenerateADCMenu = function (id) {
         if (rj11s[i].adc == true)
             menu.items.push(rj11_menu_item);
     }
-    console.log(menu)
     return menu;
 }
 

@@ -293,7 +293,7 @@ class ExtensionManager {
      * @returns {Promise} resolved once the extension is loaded and initialized or rejected on failure
      */
     loadExtensionURL(extensionURL) {
-        console.log("通过URL加载拓展：" + extensionURL)
+        // console.log("通过URL加载拓展：" + extensionURL)
         
         if (builtinExtensions.hasOwnProperty(extensionURL)) {
             
@@ -390,12 +390,12 @@ class ExtensionManager {
      */
     _registerInternalExtension(extensionObject) {
         const extensionInfo = extensionObject.getInfo();
-        console.log(extensionInfo)
+        // console.log(extensionInfo)
 
         // 获取板子的类型
-        console.log(extensionInfo.type || null);
+        // console.log(extensionInfo.type || null);
         if (extension_defs.bt != extensionInfo.type && extensionInfo.type != null) {
-            console.log(`BT: ${extension_defs.bt} => ${extensionInfo.type}`)
+            // console.log(`BT: ${extension_defs.bt} => ${extensionInfo.type}`)
             extension_defs.bt = (extensionInfo.type || null);
         }
 
@@ -443,7 +443,7 @@ class ExtensionManager {
     _prepareExtensionInfo(serviceName, extensionInfo) {
         extensionInfo = Object.assign({}, extensionInfo);
         if (!/^[a-z0-9]+$/i.test(extensionInfo.id)) {
-            console.log(extensionInfo.id)
+            // console.log(extensionInfo.id)
             throw new Error('Invalid extension id');
         }
         extensionInfo.name = extensionInfo.name || extensionInfo.id;
