@@ -36,9 +36,9 @@ class UDblockRKNano {
                     text: '★ 事件',
                 },
                 {
-                    opcode: 'whenButtonPressed',
-                    blockType: BlockType.EVHAT,
-                    text: '当按钮[BTN]按下',
+                    opcode: 'getButtonValue',
+                    blockType: BlockType.BOOLEAN,
+                    text: '按钮[BTN]是否按下',
                     arguments: {
                         BTN:{
                             type: ArgumentType.STRING,
