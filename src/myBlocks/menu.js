@@ -362,13 +362,36 @@ const GenerateADCMenu = function (id) {
     return menu;
 }
 
+const GenerateI2CMenu = function (id) {
+    var menu = {
+        acceptReporters: true,
+        items: []
+    }
+    var rj11s;
+
+    rj11s = EXTB_LIST[id].RJ11;
+    for (var i in rj11s) {
+        if (rj11s[i].value[0] > 33 || rj11s[i].value[1] == 21){
+            continue
+        }
+        var rj11Name = rj11s[i].name;
+        var rj11_menu_item = {
+            text: rj11Name,                 // RJ11 名称
+            value: rj11s[i].value.join(",") // RJ11 的引脚
+        }
+        menu.items.push(rj11_menu_item);
+    }
+    return menu;
+}
+
 const GenerateRJMenuAll = function (id, bt) {
     var menu = {
         RJMenuDup: GenerateRJMenuDuplex(id),
         RJMenu: GenerateRJMenu(id),
         RJDigiMenu: GenerateRJDigiMenu(id),
         RJADCMenu: GenerateADCMenu(id),
-        RJADCMenuFull: GenerateADCMenuFull(id)
+        RJADCMenuFull: GenerateADCMenuFull(id),
+        RJI2CMenu: GenerateI2CMenu(id)
     }
     return menu
 }

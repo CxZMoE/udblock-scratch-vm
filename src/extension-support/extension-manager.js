@@ -53,6 +53,7 @@ const category_sensors = {
     dht11Sensor: ()=>require("../extensions/udblock_sensor/dht11_sensor"),
     foutChanRouteFinderSensor: ()=>require("../extensions/udblock_sensor/four_channel_route_finder"),
     eightChnKeyboardSensor: ()=>require("../extensions/udblock_sensor/keyboard_module_8"),
+    bibiCamK210: ()=>require("../extensions/udblock_sensor/bibi_cam_k210"),
 }
 
 // 执行器
@@ -65,7 +66,6 @@ const category_actors = {
     relayTwoChn: ()=>require("../extensions/udblock_actor/relay_module_dual_channel"),
     i2cFacePanel: ()=>require("../extensions/udblock_actor/i2c_face_panel"),
     oledModuleSSD1306Of128M64: ()=>require("../extensions/udblock_actor/i2c_oled_ssd1306_128_64"),
-    bibiCamK210: ()=>require("../extensions/udblock_actor/bibi_cam_k210"),
 }
 
 // 工具

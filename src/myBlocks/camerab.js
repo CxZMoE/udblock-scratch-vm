@@ -6,21 +6,27 @@ const cameraBlocks = [
         type: "custom_seperator",
         text: '★ 摄像头',
     },
+    // {
+    //     opcode: 'initCamera',
+    //     blockType: BlockType.COMMAND,
+    //     text: '摄像头打开端口[PORT]',
+    //     arguments: {
+    //         PORT: {
+    //             type: ArgumentType.STRING,
+    //             menu: "RJMenu"
+    //         },
+    //     }
+    // },
     {
-        opcode: 'initCamera',
+        opcode: 'initCameraI2C',
         blockType: BlockType.COMMAND,
-        text: '摄像头打开端口[PORT]',
+        text: '打开摄像头(I2C)版本[PORT]',
         arguments: {
             PORT: {
                 type: ArgumentType.STRING,
                 menu: "RJMenu"
             },
         }
-    },
-    {
-        opcode: 'initCameraI2C',
-        blockType: BlockType.COMMAND,
-        text: '打开摄像头(I2C)版本',
     },
     {
         opcode: 'resetCamera',
