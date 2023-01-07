@@ -689,6 +689,56 @@ const EXTB_LIST = {
         touch: [
         ]
     },
+    "extb_car_2d_new": {
+        id: "udblockEXTBCar2DNew",
+        name: "四点半双驱小车",
+        img: "assets/img/extb_car.png",
+        description: "四点半双驱小车拓展版",
+        RJ11: [
+            {
+                name: "RJ1",
+                value: [
+                    "36",
+                    "18"
+                ],
+                adc: true,
+                duplex: true
+            },
+            {
+                name: "RJ2",
+                value: [
+                    "34",
+                    "12"
+                ],
+                adc: true,
+                duplex: true
+            },
+            {
+                name: "RJ3",
+                value: [
+                    "37",
+                    "26"
+                ],
+                adc: true,
+                duplex: true
+            },
+            {
+                name: "RJ4",
+                value: [
+                    "32",
+                    "25"
+                ],
+                adc: true,
+                duplex: true
+            },
+        ],
+        iic: [
+            {
+                "sda": "23",
+                "scl": "22"
+            }
+        ]
+    },
     "extb_iot": {
         id: "udblockEXTBIOT",
         name: "智能语音拓展板",

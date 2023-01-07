@@ -28,6 +28,7 @@ const category_extendboards = {
     udblockEXTBCar: ()=> require("../extensions/udblock_car"),
     udblockEXTBCarPro: ()=> require("../extensions/udblock_carpro"),
     udblockEXTBCar2D: ()=> require("../extensions/udblock_car_2d"),
+    udblockEXTBCar2DNew: ()=> require("../extensions/udblock_car_2d_new"),
     udblockEXTBIOT: ()=> require("../extensions/udblock_iot"),
     udblockUDPiMiniV1 : ()=> require("../extensions/udblock_udpi_mini"),
 }
