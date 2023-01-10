@@ -85,8 +85,11 @@ const miscMenuBlocks = {
     kcamera_color_results: {
         acceptReporters: true,
         items: [
-            { text: "RGB数组", value: "rgb" },
-            { text: "预估结果", value: "color" },
+            { text: "屏幕中心RGB数值", value: "rgb" },
+            { text: "色块位置X", value: "x" },
+            { text: "色块位置Y", value: "y" },
+            { text: "色块宽度", value: "w" },
+            { text: "色块高度", value: "h" },
         ]
     },
     kcamera_route_results: {
