@@ -49,14 +49,18 @@ class UDblockIOT {
         // 获取IP地址
         var request = new XMLHttpRequest();
         var ip = "127.0.0.1"
-        request.open("GET","http://127.0.0.1:12888/myIP",false)
-        request.onreadystatechange = function(e){
-            if (request.status == 200 && request.readyState == 4){
-                ip = request.responseText;
-                // console.log(ip)
+        try {
+            request.open("GET","http://127.0.0.1:12888/myIP",false)
+            request.onreadystatechange = function(e){
+                if (request.status == 200 && request.readyState == 4){
+                    ip = request.responseText;
+                    // console.log(ip)
+                }
             }
+            request.send()
+        }catch(ex){
+            ip = "127.0.0.1"
         }
-        request.send()
         return ip
     }
     getInfo() {

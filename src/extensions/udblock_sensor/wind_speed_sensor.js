@@ -1,6 +1,6 @@
 const ArgumentType = require('../../extension-support/argument-type');
 const BlockType = require('../../extension-support/block-type');
-var {bt} = require('../../util/extb-definitions');
+var bt = require('../../util/extb-definitions');
 const {miscMenuBlocks, GenerateRJMenuAll} = require('../../myBlocks/menu');
 // const loadMiscMenu = require('../../../../udblock-scratch-gui/src/lib/block-defenition/udblockmenu_misc.js')
 // 方块图标链接
@@ -32,7 +32,7 @@ class UDSensorWindSpeed {
             ],
             menus: {
                 // 生成RJ11菜单，针对不同的拓展板
-                ...GenerateRJMenuAll(bt, bt),
+                ...GenerateRJMenuAll(bt.bt, bt.bt),
                 ...miscMenuBlocks
             }
         }

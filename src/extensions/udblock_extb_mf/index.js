@@ -42,11 +42,11 @@ class UDblockEXTBMF {
                 }
             },
         ]
-        // .concat(
+        .concat(
         //     sensorBlocks,
-            actionBlocks(),
+            actionBlocks(true, true),
         //     cameraBlocks,
-        // )
+        )
         this.dblRelayPinYellow = {
             acceptReporters: true,
             items: []
