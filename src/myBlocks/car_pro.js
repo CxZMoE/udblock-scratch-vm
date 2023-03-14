@@ -409,6 +409,68 @@ const carProBlocks = [
         text: '★ 信息获取',
     },
     {
+        opcode: 'getMovementData',
+        blockType: BlockType.REPORTER,
+        text: '获取车辆[AXIS]的[DTYPE]',
+        arguments: {
+            AXIS: {
+                type: ArgumentType.NUMBER,
+                defaultValue: "x",
+                menu: "axisMenu"
+            },
+            DTYPE: {
+                type: ArgumentType.STRING,
+                defaultValue: '0',
+                menu: "dataTypeMenu"
+            },
+        }
+    },
+//     加速--1 减速--2
+// 匀速--3 停止--4
+    {
+        opcode: 'getRunningStatus',
+        blockType: BlockType.BOOLEAN,
+        text: '小车[AXIS]轴的运动状态为[STATUS]',
+        arguments: {
+            AXIS: {
+                type: ArgumentType.NUMBER,
+                defaultValue: "0",
+                menu: "carAxisMenu"
+            },
+            STATUS: {
+                type: ArgumentType.STRING,
+                defaultValue: '1',
+                menu: "carAxisStatusMenu"
+            },
+        }
+    },
+    {
+        opcode: 'getServoData',
+        blockType: BlockType.REPORTER,
+        text: '获取车辆[INDEX]舵机的角度',
+        arguments: {
+            INDEX: {
+                type: ArgumentType.NUMBER,
+                defaultValue: "0x01",
+                menu: "servoMenu"
+            },
+        }
+    },
+    {
+        opcode: 'getBootVersion',
+        blockType: BlockType.REPORTER,
+        text: '获取车辆BOOT版本',
+    },
+    {
+        opcode: 'getVersion',
+        blockType: BlockType.REPORTER,
+        text: '获取车辆固件版本',
+    },
+    {
+        type: "custom_seperator",
+        text: '★ 元宇宙比赛客户端',
+    },
+    {
         opcode: 'initUDPClient',
         blockType: BlockType.COMMAND,
         text: '初始化比赛客户端用户ID[ID] 连接地址[ADDR]:[PORT]',
@@ -426,10 +488,6 @@ const carProBlocks = [
                 defaultValue: 3000,
             },
         }
-    },
-    {
-        type: "custom_seperator",
-        text: '★ 元宇宙比赛客户端',
     },
     {
         opcode: 'startUDPClient',

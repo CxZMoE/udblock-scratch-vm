@@ -64,9 +64,17 @@ class UDblockCarPro {
                     acceptReporters: true,
                     items: [{text: "前后",value: "x"},{text: "左右",value: "y"}]
                 },
+                carAxisMenu: {
+                    acceptReporters: true,
+                    items: [{text: "前后",value: "0"},{text: "左右",value: "1"},{text: "旋转",value: "2"}]
+                },
                 dataTypeMenu: {
                     acceptReporters: true,
                     items: [{text: "距离", value: "0"},{text: "速度", value: "1"},{text: "加速度", value: "2"}]
+                },
+                carAxisStatusMenu: {
+                    acceptReporters: true,
+                    items: [{text: "加速", value: "1"},{text: "减速", value: "2"},{text: "匀速", value: "3"},{text: "停止", value: "4"}]
                 },
                 dblRelayPinYellow: this.dblRelayPinYellow,
                 dblRelayPinBlue:this.dblRelayPinBlue,

@@ -809,7 +809,7 @@ const EXTB_LIST = {
                 name: "RJ2",
                 value: [
                     "34",
-                    "12"
+                    "12" // ??? to 19
                 ],
                 adc: true,
                 duplex: false
