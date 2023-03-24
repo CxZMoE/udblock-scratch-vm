@@ -11,6 +11,7 @@ class UDSensorRaindrop {
     }
 
     getInfo() {
+        console.log("雨滴床干起",bt.bt)
         return {
             id: "raindropSensor",
             name: "雨滴传感器",

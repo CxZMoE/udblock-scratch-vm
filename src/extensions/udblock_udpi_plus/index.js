@@ -108,7 +108,7 @@ class UDblockUDPiPlus {
                     text: '★ 传感器',
                 },
                 {
-                    opcode: 'readAmbientLightSensor',
+                    opcode: 'readOBAmbientLightSensor',
                     blockType: BlockType.REPORTER,
                     text: '读取环境光传感器'
                 },
@@ -629,7 +629,7 @@ class UDblockUDPiPlus {
     delay_ms(){}
     delay_us(){}
     delay_s(){}
-    readAmbientLightSensor(){}
+    readOBAmbientLightSensor(){}
     readSoundSensor(){}
     readGryoSensor(){}
     readAccelSensor(){}

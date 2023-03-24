@@ -8,7 +8,7 @@ const BOARD_TYPE_EXTEND_BOARD = 0x02
 var bt = null
 const EXTB_LIST = {
     "registerDef": function(id){
-        console.log(`Register for opcode: ${id}`)
+        console.log(`Register for opcode: ${id} with ${this.bt} to ${this[this.bt].id}`)
         var reg = new RegExp(`^${this[this.bt].id}`+"_(.)+")
         for (var i in Blockly.Python){
             let lineString = String(i)
@@ -17,6 +17,7 @@ const EXTB_LIST = {
                 slt[0] = id;
                 console.log(slt)
                 Blockly.Python[slt.join('_')] = Blockly.Python[lineString];
+                // alert(lineString)
             }
         }
     },
@@ -849,15 +850,6 @@ const EXTB_LIST = {
                 ],
                 adc: true,
                 duplex: true
-            },
-            {
-                name: "RJ7",
-                value: [
-                    "39",
-                    "14"
-                ],
-                adc: true,
-                duplex: false
             },
             {
                 name: "RJ8",

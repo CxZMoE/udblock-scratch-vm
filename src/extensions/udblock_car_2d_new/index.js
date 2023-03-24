@@ -387,6 +387,11 @@ class UDBlockCar2DNew {
                     }
                 },
                 {
+                    opcode: 'getCar2DSonic',
+                    blockType: BlockType.REPORTER,
+                    text: '获取超声波传感器距离',
+                },
+                {
                     opcode: 'getRedRight',
                     blockType: BlockType.BOOLEAN,
                     text: '右红外传感器被触发,阈值[THREHOLD]',

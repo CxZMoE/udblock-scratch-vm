@@ -352,7 +352,7 @@ const GenerateADCMenu = function (id) {
         items: []
     }
     var rj11s = EXTB_LIST[id].RJ11;
-    
+    // alert(JSON.stringify)
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
         var rj11_menu_item = {
@@ -396,6 +396,7 @@ const GenerateRJMenuAll = function (id, bt) {
         RJADCMenuFull: GenerateADCMenuFull(id),
         RJI2CMenu: GenerateI2CMenu(id)
     }
+    console.log(menu)
     return menu
 }
 export {
