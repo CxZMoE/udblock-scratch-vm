@@ -268,6 +268,17 @@ const sensorBlocks = [
             }
         }
     },
+    {
+        opcode: 'getSTTModule',
+        blockType: BlockType.REPORTER,
+        text: '获取离线语音识别ID于RJ3',
+        // arguments: {
+        //     PORT: {
+        //         type: ArgumentType.STRING,
+        //         menu: "RJMenu"
+        //     }
+        // }
+    },
 ]
 
 module.exports = sensorBlocks;

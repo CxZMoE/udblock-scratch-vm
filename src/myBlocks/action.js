@@ -85,6 +85,17 @@ function actionBlocks(hasMotor=true,hasServo=true) {
             text: '★ 执行器',
         },
         {
+            opcode: 'ttsModuleSay',
+            blockType: BlockType.COMMAND,
+            text: '离线语音模块说[TEXT]',
+            arguments: {
+                TEXT: {
+                    type: ArgumentType.STRING,
+                    defaultValue: "你好"
+                }
+            }
+        },
+        {
             type: "custom_seperator",
             text: '★ ▶ 电机模块',
         },
