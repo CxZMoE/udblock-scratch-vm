@@ -852,6 +852,15 @@ const EXTB_LIST = {
                 duplex: true
             },
             {
+                name: "RJ7",
+                value: [
+                    "39",
+                    "14"
+                ],
+                adc: true,
+                duplex: false
+            },
+            {
                 name: "RJ8",
                 value: [
                     "33",

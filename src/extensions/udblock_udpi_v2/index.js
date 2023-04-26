@@ -21,6 +21,17 @@ class UDblockUDPiV2 {
                     text: "UDPi初始化完成"
                 },
                 {
+                    opcode: "feedWDT",
+                    blockType: BlockType.COMMAND,
+                    text: "[喂狗]超时时间[TIMEOUT]秒",
+                    arguments: {
+                        TIMEOUT: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 20
+                        }
+                    }
+                },
+                {
                     opcode: "print",
                     blockType: BlockType.COMMAND,
                     text: "打印[TEXT]",

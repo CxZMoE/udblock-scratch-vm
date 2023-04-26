@@ -57,6 +57,17 @@ class UDBlockUDPiMiniV1 {
                     text: "UDPi+最小系统板初始化完成"
                 },
                 {
+                    opcode: "feedWDT",
+                    blockType: BlockType.COMMAND,
+                    text: "[喂狗]超时时间[TIMEOUT]秒",
+                    arguments: {
+                        TIMEOUT: {
+                            type: ArgumentType.NUMBER,
+                            defaultValue: 20
+                        }
+                    }
+                },
+                {
                     opcode: "print",
                     blockType: BlockType.COMMAND,
                     text: "打印[TEXT]",
@@ -71,22 +82,10 @@ class UDBlockUDPiMiniV1 {
                     type: "custom_seperator",
                     text: '★ 事件',
                 },
-                // {
-                //     opcode: 'whenButtonPressed',
-                //     blockType: BlockType.EVHAT,
-                //     text: '当主板按钮[BTN]按下(线程)',
-                //     arguments: {
-                //         BTN:{
-                //             type: ArgumentType.STRING,
-                //             defaultValue: "0",
-                //             menu: 'buttons'
-                //         }
-                //     }
-                // },
                 {
-                    opcode: 'whenButtonPressedIRQ',
+                    opcode: 'whenButtonPressed',
                     blockType: BlockType.EVHAT,
-                    text: '当主板按钮[BTN]按下(中断)',
+                    text: '当主板按钮[BTN]按下',
                     arguments: {
                         BTN:{
                             type: ArgumentType.STRING,
@@ -95,6 +94,18 @@ class UDBlockUDPiMiniV1 {
                         }
                     }
                 },
+                // {
+                //     opcode: 'whenButtonPressedIRQ',
+                //     blockType: BlockType.EVHAT,
+                //     text: '当主板按钮[BTN]按下(中断)',
+                //     arguments: {
+                //         BTN:{
+                //             type: ArgumentType.STRING,
+                //             defaultValue: "0",
+                //             menu: 'buttons'
+                //         }
+                //     }
+                // },
                 {
                     type: "custom_seperator",
                     text: '★ 系统资源',
