@@ -76,33 +76,35 @@ const category_tools = {
     udblockUtils : ()=> require("../extensions/udblock-utils"),
 }
 
+const nativeExtensions = {
+    // This is an example that isn't loaded with the other core blocks,
+    // but serves as a reference for loading core blocks as extensions.
+    // coreExample: () => require('../blocks/scratch3_core_example'),
+    // These are the non-core built-in extensions.
+    pen: () => require('../extensions/scratch3_pen'),
+    wedo2: () => require('../extensions/scratch3_wedo2'),
+    music: () => require('../extensions/scratch3_music'),
+    
+    text2speech: () => require('../extensions/scratch3_text2speech'),
+    translate: () => require('../extensions/scratch3_translate'),
+    videoSensing: () => require('../extensions/scratch3_video_sensing'),
+    ev3: () => require('../extensions/scratch3_ev3'),
+    makeymakey: () => require('../extensions/scratch3_makeymakey'),
+    boost: () => require('../extensions/scratch3_boost'),
+    gdxfor: () => require('../extensions/scratch3_gdx_for'),
+
+};
 
 const builtinExtensions = Object.assign({},
     category_motherboards,
     category_extendboards,
     category_sensors,
     category_actors,
-    category_tools
+    category_tools,
+    nativeExtensions
 )
 
-// const builtinExtensions = {
-    // This is an example that isn't loaded with the other core blocks,
-    // but serves as a reference for loading core blocks as extensions.
-    // coreExample: () => require('../blocks/scratch3_core_example'),
-    // // These are the non-core built-in extensions.
-    // pen: () => require('../extensions/scratch3_pen'),
-    // wedo2: () => require('../extensions/scratch3_wedo2'),
-    // music: () => require('../extensions/scratch3_music'),
-    
-    // text2speech: () => require('../extensions/scratch3_text2speech'),
-    // translate: () => require('../extensions/scratch3_translate'),
-    // videoSensing: () => require('../extensions/scratch3_video_sensing'),
-    // ev3: () => require('../extensions/scratch3_ev3'),
-    // makeymakey: () => require('../extensions/scratch3_makeymakey'),
-    // boost: () => require('../extensions/scratch3_boost'),
-    // gdxfor: () => require('../extensions/scratch3_gdx_for'),
 
-// };
 
 /**
  * @typedef {object} ArgumentInfo - Information about an extension block argument
@@ -280,10 +282,14 @@ class ExtensionManager {
             // 是拓展板的拓展
             can_load = true
         }
-        if (!can_load){
+
+        // 如果未加载拓展板，并且当前加载的拓展不是主板。
+        if (!can_load && !category_motherboards.hasOwnProperty(extensionURL) && !category_tools.hasOwnProperty(extensionURL) && !nativeExtensions.hasOwnProperty(extensionURL)){
             const message = `请先添加拓展板，然后再加载其他设备。`
             alert(message)
             log.warn(message);
+        }else{
+            can_load = true
         }
         return can_load
     }

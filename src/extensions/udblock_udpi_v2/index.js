@@ -23,7 +23,7 @@ class UDblockUDPiV2 {
                 {
                     opcode: "feedWDT",
                     blockType: BlockType.COMMAND,
-                    text: "[喂狗]超时时间[TIMEOUT]秒",
+                    text: "喂狗|超时时间[TIMEOUT]秒",
                     arguments: {
                         TIMEOUT: {
                             type: ArgumentType.NUMBER,
