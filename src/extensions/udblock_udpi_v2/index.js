@@ -59,9 +59,9 @@ class UDblockUDPiV2 {
                 //     }
                 // },
                 {
-                    opcode: 'whenButtonPressedIRQ',
+                    opcode: 'whenButtonPressed',
                     blockType: BlockType.EVHAT,
-                    text: '当主板按钮[BTN]按下(中断)',
+                    text: '当主板按钮[BTN]按下',
                     arguments: {
                         BTN:{
                             type: ArgumentType.STRING,

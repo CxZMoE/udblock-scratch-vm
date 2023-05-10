@@ -168,12 +168,12 @@ class UDblockMQTT {
                 {
                     opcode: 'checkMQTT',
                     blockType: BlockType.COMMAND,
-                    text: '检查MQTT消息',
+                    text: '获取MQTT消息(不等待)',
                 },
                 {
                     opcode: 'waitMQTT',
                     blockType: BlockType.COMMAND,
-                    text: '等待接收MQTT消息',
+                    text: '等待MQTT消息',
                 },
                 {
                     opcode: 'setcallbackMQTT',
@@ -226,12 +226,16 @@ class UDblockMQTT {
                 },
                 {
                     opcode: 'jsonLoads',
-                    blockType: BlockType.REPORTER,
-                    text: 'JSON解析字符串[STR]为对象',
+                    blockType: BlockType.COMMAND,
+                    text: 'JSON解析字符串[STR]为对象[OBJ]',
                     arguments: {
                         STR:{
                             type: ArgumentType.STRING,
                             defaultValue: '{"x": 1, "y": 2}'
+                        },
+                        OBJ:{
+                            type: ArgumentType.STRING,
+                            defaultValue: "data"
                         }
                     }
                 },

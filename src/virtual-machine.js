@@ -524,10 +524,10 @@ class VirtualMachine extends EventEmitter {
         });
         // alert(hasExtb)
         // // 当未拓展板的时候添加默认的板子（多功能拓展板）
-        if (hasExtb == false && !this.firstInstall){
-            // alert('load')
-            this.extensionManager.loadExtensionURL("udblockEXTBMF")
-        }
+        // if (hasExtb == false && !this.firstInstall){
+        //     // alert('load')
+        //     this.extensionManager.loadExtensionURL("udblockEXTBMF")
+        // }
         this.firstInstall = false;
         extensions.extensionIDs.forEach(extensionID => {
             if (!this.extensionManager.isExtensionLoaded(extensionID) && !this.extensionManager.checkIsExtb(extensionID)) {
