@@ -320,6 +320,7 @@ class VirtualMachine extends EventEmitter {
             // input should be parsed/validated as an entire project (and not a single sprite)
             validate(input, false, (error, res) => {
                 if (error) return reject(error);
+                // console.log('validate:', res)
                 resolve(res);
             });
         })
@@ -461,6 +462,9 @@ class VirtualMachine extends EventEmitter {
      */
     toJSON () {
         const sb3 = require('./serialization/sb3');
+        console.log('mb saving is:', this.runtime.mb);
+        console.log(this.runtime)
+        console.log(StringUtil.stringify(sb3.serialize(this.runtime)))
         return StringUtil.stringify(sb3.serialize(this.runtime));
     }
 
@@ -500,34 +504,44 @@ class VirtualMachine extends EventEmitter {
             return Promise.reject('Unable to verify Scratch Project version.');
         };
         return deserializePromise()
-            .then(({targets, extensions}) =>
-                this.installTargets(targets, extensions, true));
+            .then(({mb, targets, extensions}) =>
+                this.installTargets(mb, targets, extensions, true));
     }
 
     /**
      * Install `deserialize` results: zero or more targets after the extensions (if any) used by those targets.
+     * @param {string} mb - mother board
      * @param {Array.<Target>} targets - the targets to be installed
      * @param {ImportedExtensionsInfo} extensions - metadata about extensions used by these targets
      * @param {boolean} wholeProject - set to true if installing a whole project, as opposed to a single sprite.
      * @returns {Promise} resolved once targets have been installed
      */
-    installTargets (targets, extensions, wholeProject) {
+    installTargets (mb, targets, extensions, wholeProject) {
         const extensionPromises = [];
-        
-        var hasExtb = false
+        // console.log("mb is :", mb);
+        if (mb != undefined) {
+            // console.log('load mb first:', mb);
+            this.extensionManager.loadExtensionURL(mb);
+        }else{
+            // this.extensionManager.loadExtensionURL("udblockUDPiMiniV1");
+        }
+        let hasExtb = false
+        console.log(extensions.extensionIDs);
         extensions.extensionIDs.forEach(extensionID => {
+            console.log(extensionID)
             if (this.extensionManager.checkIsExtb(extensionID)){
+                
                 const extensionURL = extensions.extensionURLs.get(extensionID) || extensionID;
                 extensionPromises.push(this.extensionManager.loadExtensionURL(extensionURL));
                 hasExtb = true
             }
         });
         // alert(hasExtb)
-        // // 当未拓展板的时候添加默认的板子（多功能拓展板）
-        // if (hasExtb == false && !this.firstInstall){
-        //     // alert('load')
-        //     this.extensionManager.loadExtensionURL("udblockEXTBMF")
-        // }
+        // 当未拓展板的时候添加默认的板子（多功能拓展板）
+        if (hasExtb == false && !this.firstInstall){
+            // alert('load')
+            this.extensionManager.loadExtensionURL("udblockUDPiMiniV1")
+        }
         this.firstInstall = false;
         extensions.extensionIDs.forEach(extensionID => {
             if (!this.extensionManager.isExtensionLoaded(extensionID) && !this.extensionManager.checkIsExtb(extensionID)) {

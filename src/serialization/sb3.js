@@ -534,6 +534,7 @@ const serialize = function (runtime, targetId) {
         [runtime.getTargetById(targetId)] :
         runtime.targets.filter(target => target.isOriginal);
 
+    console.log('originalTargetsToSerialize:', originalTargetsToSerialize)
     const layerOrdering = getSimplifiedLayerOrdering(originalTargetsToSerialize);
 
     const flattenedOriginalTargets = originalTargetsToSerialize.map(t => t.toJSON());
@@ -558,6 +559,9 @@ const serialize = function (runtime, targetId) {
 
     // Assemble extension list
     obj.extensions = Array.from(extensions);
+
+    // Asselble mother board id
+    obj.mb = runtime.mb;
 
     // Assemble metadata
     const meta = Object.create(null);
@@ -1279,10 +1283,10 @@ const deserialize = function (json, runtime, zip, isSingleSprite) {
             monitorObjects.map(monitorDesc => deserializeMonitor(monitorDesc, runtime, targets, extensions));
             return targets;
         })
-        .then(targets => ({
+        .then(targets => (Object.assign({mb: json.mb}, {
             targets,
             extensions
-        }));
+        })));
 };
 
 module.exports = {

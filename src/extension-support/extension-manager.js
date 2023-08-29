@@ -37,6 +37,7 @@ const category_extendboards = {
 // 传感器执
 const category_sensors = {
     // 传感器
+    offlineSTTSensor: ()=>require("../extensions/udblock_sensor/offline_stt_sensor"),
     nfcSensor: ()=>require("../extensions/udblock_sensor/sensor_nfc"),
     raindropSensor: ()=>require("../extensions/udblock_sensor/raindrop_sensor"),
     soundSensor: ()=>require("../extensions/udblock_sensor/sound_sensor"),
@@ -60,6 +61,7 @@ const category_sensors = {
 
 // 执行器
 const category_actors = {
+    offlineTTSModule: ()=>require("../extensions/udblock_actor/offline_tts_module"),
     i2cMotorModule: ()=>require("../extensions/udblock_actor/i2c_motor_module"),
     digitalTube: ()=>require("../extensions/udblock_actor/digital_tube"),
     rgbStript15: ()=>require("../extensions/udblock_actor/rgb_stripe_15"),
@@ -209,7 +211,7 @@ class ExtensionManager {
      * @param {string} extensionId - the ID of an internal extension
      */
     loadExtensionIdSync(extensionId) {
-        // console.log('同步加载拓展：'+String(extensionID))
+        console.log('同步加载拓展：'+String(extensionID))
         if (!builtinExtensions.hasOwnProperty(extensionId)) {
             log.warn(`Could not find extension ${extensionId} in the built in extensions.`);
             return;
@@ -315,7 +317,12 @@ class ExtensionManager {
                 log.warn(message);
                 return Promise.resolve();
             }
-
+            if (this.checkIsExtb(extensionURL) || extensionURL == "udblockUDPiMiniV1"){
+                // console.log('加载的是拓展板');
+                Object.assign({"mb": extensionURL}, this.runtime);
+                // console.log(this.runtime)
+                this.runtime.mb = extensionURL;
+            }
             const extension = builtinExtensions[extensionURL]();
             const extensionInstance = new extension(this.runtime);
             const serviceName = this._registerInternalExtension(extensionInstance);

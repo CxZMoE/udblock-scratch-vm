@@ -273,6 +273,7 @@ const GenerateRJMenuDuplex = function (id) {
         items: []
     }
     var rj11s;
+    // console.log('id is', id);
     rj11s = EXTB_LIST[id].RJ11;
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
