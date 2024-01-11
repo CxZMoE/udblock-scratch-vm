@@ -28,6 +28,22 @@ class UDSensorFourChnRouteFinder {
                     }
                 },
                 {
+                    opcode: 'readFourChannelInferredSensorValue',
+                    blockType: BlockType.REPORTER,
+                    text: '四路红外传感器数值',
+                },
+                {
+                    opcode: 'readFourChannelInferredSensorValueItem',
+                    blockType: BlockType.REPORTER,
+                    text: '红外数值状态[STATUS]',
+                    arguments: {
+                        STATUS: {
+                            type: ArgumentType.STRING,
+                            menu: "FourInferredMap"
+                        }
+                    }
+                },
+                {
                     opcode: 'readFourChannelInferredSensorOffset',
                     blockType: BlockType.REPORTER,
                     text: '获取四路红外传感器中心偏移量',

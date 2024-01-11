@@ -152,6 +152,20 @@ class UDblockUDPi {
                     }
                 },
                 {
+                    opcode: 'drawRGBPanel',
+                    blockType: BlockType.COMMAND,
+                    text: '绘制RGB矩阵[FACE]颜色[COLOR]',
+                    arguments: {
+                        FACE: {
+                            type: ArgumentType.MATRIX,
+                            defaultValue: '0000000000000000000000000'
+                        },
+                        COLOR: {
+                            type: ArgumentType.COLOR
+                        }
+                    }
+                },
+                {
                     opcode: 'setRGBLineDraw',
                     blockType: BlockType.COMMAND,
                     text: '控制主板RGB[LINE]行显示颜色[COLOR]',

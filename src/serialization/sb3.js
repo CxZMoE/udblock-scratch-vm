@@ -886,6 +886,7 @@ const parseScratchAssets = function (object, runtime, zip) {
         // we're always loading the 'sb3' representation of the costume
         // any translation that needs to happen will happen in the process
         // of building up the costume object into an sb3 format
+        console.log(costume);
         return deserializeCostume(costume, runtime, zip)
             .then(() => loadCostume(costumeMd5Ext, costume, runtime));
         // Only attempt to load the costume after the deserialization
@@ -931,6 +932,7 @@ const parseScratchAssets = function (object, runtime, zip) {
  * @return {!Promise.<Target>} Promise for the target created (stage or sprite), or null for unsupported objects.
  */
 const parseScratchObject = function (object, runtime, extensions, zip, assets) {
+    console.log(extensions);
     if (!object.hasOwnProperty('name')) {
         // Watcher/monitor - skip this object until those are implemented in VM.
         // @todo

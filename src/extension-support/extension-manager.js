@@ -56,6 +56,7 @@ const category_sensors = {
     dht11Sensor: ()=>require("../extensions/udblock_sensor/dht11_sensor"),
     foutChanRouteFinderSensor: ()=>require("../extensions/udblock_sensor/four_channel_route_finder"),
     eightChnKeyboardSensor: ()=>require("../extensions/udblock_sensor/keyboard_module_8"),
+    simpleRemoteSensor: ()=>require("../extensions/udblock_sensor/simple_remote"),
     bibiCamK210: ()=>require("../extensions/udblock_sensor/bibi_cam_k210"),
 }
 

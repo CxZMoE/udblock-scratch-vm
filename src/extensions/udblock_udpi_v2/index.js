@@ -138,6 +138,20 @@ class UDblockUDPiV2 {
                 //     }
                 // },
                 {
+                    opcode: 'drawRGBPanel',
+                    blockType: BlockType.COMMAND,
+                    text: '绘制RGB矩阵[FACE]颜色[COLOR]',
+                    arguments: {
+                        FACE: {
+                            type: ArgumentType.MATRIXUDPI,
+                            defaultValue: '000000000000000000000000000000000000'
+                        },
+                        COLOR: {
+                            type: ArgumentType.COLOR
+                        }
+                    }
+                },
+                {
                     opcode: 'setRGBDraw',
                     blockType: BlockType.COMMAND,
                     text: '控制UDPiRGB显示颜色[COLOR]',

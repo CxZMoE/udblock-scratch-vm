@@ -49,7 +49,7 @@ class UDBlockCar2DNew {
     getInfo() {
         return {
             id: "udblockEXTBCar2DNew",
-            name: "四点半双驱小车",
+            name: "新双驱小车",
             type: "extb_car_2d_new",
             blockIconURI: blockIconURI,
             blocks: [
@@ -85,10 +85,22 @@ class UDBlockCar2DNew {
                 //         }
                 //     }
                 // },
+                // {
+                //     opcode: 'whenButtonPressedIRQ',
+                //     blockType: BlockType.EVHAT,
+                //     text: '当主板按钮[BTN]按下(中断)',
+                //     arguments: {
+                //         BTN:{
+                //             type: ArgumentType.STRING,
+                //             defaultValue: "0",
+                //             menu: 'buttons'
+                //         }
+                //     }
+                // },
                 {
-                    opcode: 'whenButtonPressedIRQ',
+                    opcode: 'whenButtonPressed',
                     blockType: BlockType.EVHAT,
-                    text: '当主板按钮[BTN]按下(中断)',
+                    text: '当主板按钮[BTN]按下',
                     arguments: {
                         BTN:{
                             type: ArgumentType.STRING,
@@ -481,6 +493,26 @@ class UDBlockCar2DNew {
             ],
             menus: {
                 ...GenerateRJMenuAll('extb_car_2d_new', bt),
+                buzzerSounds: {
+                    acceptReporters: true,
+                    items: [{ text: "DO", value: "DO" }, { text: "RE", value: "RE" }, { text: "MI", value: "MI" }, { text: "FA", value: "FA" }, { text: "SO", value: "SO" }, { text: "LA", value: "LA" }, { text: "XI", value: "SI" }]
+                },
+                buzzerPitches: {
+                    acceptReporters: true,
+                    items: [{ text: "低", value: "LOW" }, { text: "中", value: "MID" }, { text: "高", value: "HIGH" }]
+                },
+                buttons:{
+                    acceptReporters: true,
+                    items:[{ text: "A", value: "0" },{ text: "B", value: "2" }]
+                },
+                color: {
+                    acceptReporters: true,
+                    items: [{ text: "红色", value: "red" },{ text: "绿色", value: "green" },{ text: "蓝色", value: "blue" },{ text: "黄色", value: "yellow" },{ text: "天蓝色", value: "skyblue" },{ text: "紫色", value: "purple" },{ text: "白色", value: "white" },{ text: "黑色", value: "black" }]
+                },
+                imageMethods : {
+                    acceptReporters: true,
+                    items: [{ text: "边缘查找", value: "iess" },{ text: "锐化", value: "ishs" },{ text: "浮雕化", value: "issr" }]
+                },
                 servoMenu: {
                     acceptReporters: true,
                     items: [{text: "一",value: "0x01"},{text: "二",value: "0x02"},{text: "三",value: "0x03"},{text: "四",value: "0x04"},]

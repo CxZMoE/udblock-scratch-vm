@@ -33,6 +33,7 @@ const ArgumentType = {
      */
     MATRIX: 'matrix',
     MATRIXUD: 'matrixud',
+    MATRIXUDPI: 'matrixudpi',
     /**
      * MIDI note number with note picker (piano) field
      */

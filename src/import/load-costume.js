@@ -337,6 +337,7 @@ const loadCostume = function (md5ext, costume, runtime, optVersion) {
 
     let textLayerPromise;
     if (costume.textLayerMD5) {
+        // console.log(costume.textLayerMD5);
         textLayerPromise = runtime.storage.load(AssetType.ImageBitmap, costume.textLayerMD5, 'png');
     } else {
         textLayerPromise = Promise.resolve(null);

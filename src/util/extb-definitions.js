@@ -692,9 +692,9 @@ const EXTB_LIST = {
     },
     "extb_car_2d_new": {
         id: "udblockEXTBCar2DNew",
-        name: "四点半双驱小车",
+        name: "新双驱小车",
         img: "assets/img/extb_car.png",
-        description: "四点半双驱小车拓展版",
+        description: "新双驱小车拓展板",
         RJ11: [
             {
                 name: "RJ1",

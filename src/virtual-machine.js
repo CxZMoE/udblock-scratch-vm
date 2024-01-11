@@ -23,6 +23,7 @@ const newBlockIds = require('./util/new-block-ids');
 const {loadCostume} = require('./import/load-costume.js');
 const {loadSound} = require('./import/load-sound.js');
 const {serializeSounds, serializeCostumes} = require('./serialization/serialize-assets');
+
 require('canvas-toBlob');
 
 const RESERVED_NAMES = ['_mouse_', '_stage_', '_edge_', '_myself_', '_random_'];
@@ -52,6 +53,7 @@ class VirtualMachine extends EventEmitter {
          * @type {!Runtime}
          */
         this.runtime = new Runtime();
+        
         centralDispatch.setService('runtime', this.runtime).catch(e => {
             log.error(`Failed to register runtime service: ${JSON.stringify(e)}`);
         });
@@ -517,16 +519,18 @@ class VirtualMachine extends EventEmitter {
      * @returns {Promise} resolved once targets have been installed
      */
     installTargets (mb, targets, extensions, wholeProject) {
+        console.log(extensions.extensionIDs);
         const extensionPromises = [];
         // console.log("mb is :", mb);
         if (mb != undefined) {
             // console.log('load mb first:', mb);
             this.extensionManager.loadExtensionURL(mb);
+            this.firstInstall = false;
         }else{
             // this.extensionManager.loadExtensionURL("udblockUDPiMiniV1");
         }
         let hasExtb = false
-        console.log(extensions.extensionIDs);
+        
         extensions.extensionIDs.forEach(extensionID => {
             console.log(extensionID)
             if (this.extensionManager.checkIsExtb(extensionID)){
@@ -538,17 +542,19 @@ class VirtualMachine extends EventEmitter {
         });
         // alert(hasExtb)
         // 当未拓展板的时候添加默认的板子（多功能拓展板）
-        if (hasExtb == false && !this.firstInstall){
-            // alert('load')
-            this.extensionManager.loadExtensionURL("udblockUDPiMiniV1")
-        }
-        this.firstInstall = false;
+        // if (hasExtb == false && !this.firstInstall && mb != undefined){
+        //     alert('load')
+        //     this.extensionManager.loadExtensionURL("udblockUDPiMiniV1")
+        //     this.firstInstall = false;
+        // }
+        
         extensions.extensionIDs.forEach(extensionID => {
             if (!this.extensionManager.isExtensionLoaded(extensionID) && !this.extensionManager.checkIsExtb(extensionID)) {
                 const extensionURL = extensions.extensionURLs.get(extensionID) || extensionID;
                 extensionPromises.push(this.extensionManager.loadExtensionURL(extensionURL));
             }
         });
+
 
         targets = targets.filter(target => !!target);
 
@@ -614,10 +620,11 @@ class VirtualMachine extends EventEmitter {
                 resolve(res);
             });
         });
-
         return validationPromise
             .then(validatedInput => {
+                
                 const projectVersion = validatedInput[0].projectVersion;
+                console.log(projectVersion)
                 if (projectVersion === 2) {
                     return this._addSprite2(validatedInput[0], validatedInput[1]);
                 }
@@ -648,7 +655,7 @@ class VirtualMachine extends EventEmitter {
         const sb2 = require('./serialization/sb2');
         return sb2.deserialize(sprite, this.runtime, true, zip)
             .then(({targets, extensions}) =>
-                this.installTargets(targets, extensions, false));
+                this.installTargets(undefined, targets, extensions, false));
     }
 
     /**
@@ -662,7 +669,9 @@ class VirtualMachine extends EventEmitter {
         const sb3 = require('./serialization/sb3');
         return sb3
             .deserialize(sprite, this.runtime, zip, true)
-            .then(({targets, extensions}) => this.installTargets(targets, extensions, false));
+            .then(({targets, extensions}) => {
+                this.installTargets(undefined, targets, extensions, false)
+            });
     }
 
     /**

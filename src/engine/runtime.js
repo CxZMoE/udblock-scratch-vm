@@ -96,6 +96,12 @@ const ArgumentTypeMap = (() => {
             fieldName: 'MATRIX'
         }
     };
+    map[ArgumentType.MATRIXUDPI] = {
+        shadow: {
+            type: 'matrixudpi',
+            fieldName: 'MATRIX'
+        }
+    };
     map[ArgumentType.NOTE] = {
         shadow: {
             type: 'note',
