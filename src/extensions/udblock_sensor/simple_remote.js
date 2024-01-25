@@ -66,6 +66,11 @@ class UDSensorSimpleRemote {
                     opcode: 'simpleRemoteRSPressed',
                     blockType: BlockType.BOOLEAN,
                     text: '右方块被按下'
+                },
+                {
+                    opcode: 'simpleRemoteNoPressed',
+                    blockType: BlockType.BOOLEAN,
+                    text: '按键均未被按下'
                 }
             ],
             menus: {

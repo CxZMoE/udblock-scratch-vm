@@ -13,17 +13,21 @@ class UDSensorOfflineSTT {
     getInfo() {
         return {
             id: "offlineSTTSensor",
-            name: "离线语音转文本传感器",
+            name: "离线语音识别传感器",
             blockIconURI: blockIconURI,
             blocks: [
                 {
                     opcode: 'getSTTModule',
                     blockType: BlockType.REPORTER,
-                    text: '获取离线语音识别ID于[PORT]',
+                    text: '获取离线语音识别ID于[PORT]串口号[COMPORT]',
                     arguments: {
                         PORT: {
                             type: ArgumentType.STRING,
                             menu: "RJMenu"
+                        },
+                        COMPORT: {
+                            type: ArgumentType.STRING,
+                            menu: "COMIDMenu"
                         }
                     }
                 },

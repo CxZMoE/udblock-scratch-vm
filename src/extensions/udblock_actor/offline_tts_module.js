@@ -14,17 +14,25 @@ class OfflineTTSModule {
     getInfo() {
         return {
             id: "offlineTTSModule",
-            name: "离线语音转文本模块",
+            name: "离线语音合成模块",
             blockIconURI: blockIconURI,
             blocks: [
                 {
-                    opcode: 'getSTTModule',
-                    blockType: BlockType.REPORTER,
-                    text: '获取离线语音识别ID于[PORT]',
+                    opcode: 'ttsModuleSay',
+                    blockType: BlockType.COMMAND,
+                    text: '播放文本[TEXT]于[PORT]串口号[COMPORT]',
                     arguments: {
+                        TEXT: {
+                            type: ArgumentType.STRING,
+                            defaultValue: "你好"
+                        },
                         PORT: {
                             type: ArgumentType.STRING,
                             menu: "RJMenu"
+                        },
+                        COMPORT: {
+                            type: ArgumentType.STRING,
+                            menu: "COMIDMenu"
                         }
                     }
                 },

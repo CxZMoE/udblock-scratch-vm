@@ -1,6 +1,10 @@
 const EXTB_LIST = require('../util/extb-definitions');
 
 const miscMenuBlocks = {
+    COMIDMenu: {
+        acceptReporters: true,
+        items: [{ text: "串口1", value: "1" }, { text: "串口2", value: "2" }]
+    },
     channel: {
         acceptReporters: true,
         items: [{ text: "黄路", value: "0" }, { text: "蓝路", value: "1" }]
@@ -273,7 +277,7 @@ const GenerateRJMenuDuplex = function (id) {
         items: []
     }
     var rj11s;
-    // console.log('id is', id);
+    console.log('id is', id);
     rj11s = EXTB_LIST[id].RJ11;
     for (var i in rj11s) {
         var rj11Name = rj11s[i].name;
