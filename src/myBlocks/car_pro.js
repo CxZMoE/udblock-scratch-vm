@@ -268,7 +268,7 @@ const carProBlocks = [
     {
         opcode: 'startServer',
         blockType: BlockType.COMMAND,
-        text: '开启遥控功能 热点名[SSID] 密码[PSK]',
+        text: '开启遥控功能 热点名[SSID] 密码[PSK] 端口[SOCKET_PORT]',
         arguments: {
             SSID: {
                 type: ArgumentType.STRING,
@@ -277,6 +277,10 @@ const carProBlocks = [
             PSK: {
                 type: ArgumentType.STRING,
                 defaultValue: "test12345678"
+            },
+            SOCKET_PORT: {
+                type: ArgumentType.NUMBER,
+                defaultValue: "9090"
             }
 
         }

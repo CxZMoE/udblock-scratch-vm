@@ -260,15 +260,15 @@ class UDblockUDPiV2 {
                 {
                     opcode: 'setConnectToWiFi',
                     blockType: BlockType.COMMAND,
-                    text: '控制UDPi连接到Wi-Fi [SSID] [PSK]',
+                    text: '控制主板连接到Wi-Fi [SSID] [PSK]',
                     arguments: {
                         SSID: {
                             type: ArgumentType.STRING,
-                            defaultValue: " ",
+                            defaultValue: "改为你要连接的热点名",
                         },
                         PSK: {
                             type: ArgumentType.STRING,
-                            defaultValue: " ",
+                            defaultValue: "改为你要连接的热点密码",
                         }
                     }
                 },
@@ -288,7 +288,7 @@ class UDblockUDPiV2 {
                         },
                         PSK: {
                             type: ArgumentType.STRING,
-                            defaultValue: "lz12345678"
+                            defaultValue: "udpi12345678"
                         }
                     }
                 },

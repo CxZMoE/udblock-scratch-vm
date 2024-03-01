@@ -99,7 +99,50 @@ const nativeExtensions = {
 
 };
 
-const builtinExtensions = Object.assign({},
+// const test_ext = ()=>require('../extensions/udblock_test_ext/test_ext_file')
+// console.log('Blockly:', Blockly);
+var customExtensions = {}
+
+function newCustomExtensionClass(data){
+    class UDBlockCustomExtension {
+        constructor(runtime) {
+            this.runtime = runtime;
+        }
+    
+        getInfo() {
+            return {
+                id: data.id,
+                name: data.name,
+                blockIconURI: data.icon,
+                blocks: data.blocks,
+                type: "extb_cus",
+                menus: {
+                    ...data.menus
+                }
+            }
+        }
+    }
+    return UDBlockCustomExtension;
+}
+
+function loadCustomExtensions(extensions){
+    var custom_extensions = {};
+    window.customExtensions = {};
+    extensions.forEach((data)=>{
+        let ext = data.block_definition;
+
+        custom_extensions[ext.id] = ()=>newCustomExtensionClass(ext);
+        window.customExtensions[ext.id] = ext;
+        console.log(customExtensions);
+    })
+    // extensions is a extension info list loaded from user filesystem
+    // extensions: [ext1, ext2, ext3], ext1: {getInfo()...}
+    
+    return custom_extensions;
+}
+
+
+var builtinExtensions = Object.assign({},
     category_motherboards,
     category_extendboards,
     category_sensors,
@@ -108,7 +151,14 @@ const builtinExtensions = Object.assign({},
     nativeExtensions
 )
 
+window.electron.bindResCustomExtList((extensions)=>{
+    console.log('we have:', extensions);
+    customExtensions = loadCustomExtensions(extensions);
+    console.log(customExtensions)
+    builtinExtensions = Object.assign(builtinExtensions, customExtensions);
+})
 
+window.electron.requestCustomExtList();
 
 /**
  * @typedef {object} ArgumentInfo - Information about an extension block argument
