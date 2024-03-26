@@ -519,7 +519,7 @@ class VirtualMachine extends EventEmitter {
      * @returns {Promise} resolved once targets have been installed
      */
     installTargets (mb, targets, extensions, wholeProject) {
-        console.log(extensions.extensionIDs);
+        console.log("installTargets:", extensions.extensionIDs);
         const extensionPromises = [];
         // console.log("mb is :", mb);
         if (mb != undefined) {

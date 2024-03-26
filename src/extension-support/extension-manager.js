@@ -17,7 +17,7 @@ const category_motherboards = {
     udblockUDPiPlus: () => require('../extensions/udblock_udpi_plus'),
     udblockUDPiV2: () => require('../extensions/udblock_udpi_v2'),
     udblockUDPiPlusV2: () => require('../extensions/udblock_udpi_plus_v2'),
-    udblockUDPiMiniV1 : ()=> require("../extensions/udblock_udpi_mini"),
+    
 };
 
 // 拓展板
@@ -31,7 +31,7 @@ const category_extendboards = {
     udblockEXTBCar2D: ()=> require("../extensions/udblock_car_2d"),
     udblockEXTBCar2DNew: ()=> require("../extensions/udblock_car_2d_new"),
     udblockEXTBIOT: ()=> require("../extensions/udblock_iot"),
-    
+    udblockUDPiMiniV1 : ()=> require("../extensions/udblock_udpi_mini"),
 }
 
 // 传感器执
@@ -133,7 +133,7 @@ function loadCustomExtensions(extensions){
 
         custom_extensions[ext.id] = ()=>newCustomExtensionClass(ext);
         window.customExtensions[ext.id] = ext;
-        console.log(customExtensions);
+        // console.log(customExtensions);
     })
     // extensions is a extension info list loaded from user filesystem
     // extensions: [ext1, ext2, ext3], ext1: {getInfo()...}

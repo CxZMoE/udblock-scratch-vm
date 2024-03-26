@@ -21,7 +21,7 @@ class UDblockCarPro {
             {
                 opcode: "espstart",
                 blockType: BlockType.HAT,
-                text: "系统初始化完成"
+                text: "小车主程序开始"
             },
             {
                 opcode: "print",
@@ -41,7 +41,7 @@ class UDblockCarPro {
             {
                 opcode: 'whenButtonPressed',
                 blockType: BlockType.EVHAT,
-                text: '当主板按钮[BTN]按下',
+                text: '当按钮[BTN]按下',
                 arguments: {
                     BTN: {
                         type: ArgumentType.STRING,
@@ -57,7 +57,7 @@ class UDblockCarPro {
             {
                 opcode: 'getStartTime',
                 blockType: BlockType.REPORTER,
-                text: '获取主板启动时间(毫秒)'
+                text: '获取启动时间(毫秒)'
             },
             {
                 opcode: 'delay_ms',
@@ -99,7 +99,7 @@ class UDblockCarPro {
             {
                 opcode: 'setBuzzerPlay',
                 blockType: BlockType.COMMAND,
-                text: '控制主板蜂鸣器播放[SOUND] 音调 [PITCH]',
+                text: '蜂鸣器播放[SOUND] 音调 [PITCH]',
                 arguments: {
                     SOUND: {
                         type: ArgumentType.STRING,
@@ -113,16 +113,21 @@ class UDblockCarPro {
                     }
                 }
             },
+            // {
+            //     opcode: 'setBuzzerPlayMidi',
+            //     blockType: BlockType.COMMAND,
+            //     text: '蜂鸣器播放MIDI [SOUND]',
+            //     arguments: {
+            //         SOUND: {
+            //             type: ArgumentType.STRING,
+            //             defaultValue: "demo"
+            //         }
+            //     }
+            // },
             {
-                opcode: 'setBuzzerPlayMidi',
+                opcode: 'setBuzzerStop',
                 blockType: BlockType.COMMAND,
-                text: '控制主板蜂鸣器播放MIDI [SOUND]',
-                arguments: {
-                    SOUND: {
-                        type: ArgumentType.STRING,
-                        defaultValue: "demo"
-                    }
-                }
+                text: '蜂鸣器停止播放',
             },
             {
                 type: "custom_seperator",
@@ -136,7 +141,7 @@ class UDblockCarPro {
             {
                 opcode: 'setConnectToWiFi',
                 blockType: BlockType.COMMAND,
-                text: '控制主板连接到Wi-Fi [SSID] [PSK]',
+                text: '连接到Wi-Fi [SSID] [PSK]',
                 arguments: {
                     SSID: {
                         type: ArgumentType.STRING,
@@ -151,12 +156,12 @@ class UDblockCarPro {
             {
                 opcode: 'closeConnectToWiFi',
                 blockType: BlockType.COMMAND,
-                text: '控制主板断开Wi-Fi',
+                text: '断开Wi-Fi',
             },
             {
                 opcode: 'openWiFiAP',
                 blockType: BlockType.COMMAND,
-                text: '控制主板打开热点[SSID] [PSK]',
+                text: '打开热点[SSID] [PSK]',
                 arguments: {
                     SSID: {
                         type: ArgumentType.STRING,
@@ -168,27 +173,28 @@ class UDblockCarPro {
                     }
                 }
             },
-            {
-                opcode: 'udpClientSent',
-                blockType: BlockType.COMMAND,
-                text: '控制UDP客户端发送消息[MSG]',
-                arguments: {
-                    MSG: {
-                        type: ArgumentType.STRING,
-                        defaultValue: "ping"
-                    },
-                }
-            },
-            {
-                opcode: 'udpClientReceiveEvent',
-                blockType: BlockType.EVHAT,
-                text: '当UDP服务器接收到消息',
-            },
-            {
-                opcode: 'udpClientReceivedText',
-                blockType: BlockType.REPORTER,
-                text: 'UDP消息',
-            },].concat(
+            // {
+            //     opcode: 'udpClientSent',
+            //     blockType: BlockType.COMMAND,
+            //     text: '控制UDP客户端发送消息[MSG]',
+            //     arguments: {
+            //         MSG: {
+            //             type: ArgumentType.STRING,
+            //             defaultValue: "ping"
+            //         },
+            //     }
+            // },
+            // {
+            //     opcode: 'udpClientReceiveEvent',
+            //     blockType: BlockType.EVHAT,
+            //     text: '当UDP服务器接收到消息',
+            // },
+            // {
+            //     opcode: 'udpClientReceivedText',
+            //     blockType: BlockType.REPORTER,
+            //     text: 'UDP消息',
+            // },
+            ].concat(
                 carProBlocks,
                 // cameraBlocks,
                 // sensorBlocks,
@@ -227,6 +233,18 @@ class UDblockCarPro {
             blocks: this.customBlocks,
             menus: {
                 ...GenerateRJMenuAll('extb_car_pro', bt),
+                buzzerSounds: {
+                    acceptReporters: true,
+                    items: [{ text: "DO", value: "DO" }, { text: "RE", value: "RE" }, { text: "MI", value: "MI" }, { text: "FA", value: "FA" }, { text: "SO", value: "SO" }, { text: "LA", value: "LA" }, { text: "XI", value: "SI" }]
+                },
+                buzzerPitches: {
+                    acceptReporters: true,
+                    items: [{ text: "低", value: "LOW" }, { text: "中", value: "MID" }, { text: "高", value: "HIGH" }]
+                },
+                buttons:{
+                    acceptReporters: true,
+                    items:[{ text: "A", value: "0" },{ text: "B", value: "2" }]
+                },
                 servoMenu: {
                     acceptReporters: true,
                     items: [{ text: "一", value: "0x01" }, { text: "二", value: "0x02" }, { text: "三", value: "0x03" }, { text: "四", value: "0x04" }]

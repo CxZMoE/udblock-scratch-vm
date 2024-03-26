@@ -16,6 +16,11 @@ class UDblockMQTT {
             blockIconURI: blockIconURI,
             blocks: [
                 {
+                    opcode: 'getESPUniqueId',
+                    blockType: BlockType.REPORTER,
+                    text: '获取ESP32芯片唯一ID'
+                },
+                {
                     type: "custom_seperator",
                     text: '★ I2C控制器',
                 },

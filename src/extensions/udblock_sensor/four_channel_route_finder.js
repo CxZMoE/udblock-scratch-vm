@@ -16,17 +16,17 @@ class UDSensorFourChnRouteFinder {
             name: "四路红外巡线传感器",
             blockIconURI: blockIconURI,
             blocks: [
-                {
-                    opcode: 'readFourChannelInferredSensor',
-                    blockType: BlockType.BOOLEAN,
-                    text: '四路红外传感器检测到[STATUS]',
-                    arguments: {
-                        STATUS: {
-                            type: ArgumentType.STRING,
-                            menu: "FourInferredMap"
-                        }
-                    }
-                },
+                // {
+                //     opcode: 'readFourChannelInferredSensor',
+                //     blockType: BlockType.BOOLEAN,
+                //     text: '四路红外传感器检测到[STATUS]',
+                //     arguments: {
+                //         STATUS: {
+                //             type: ArgumentType.STRING,
+                //             menu: "FourInferredMap"
+                //         }
+                //     }
+                // },
                 {
                     opcode: 'readFourChannelInferredSensorValue',
                     blockType: BlockType.REPORTER,
@@ -43,21 +43,21 @@ class UDSensorFourChnRouteFinder {
                         }
                     }
                 },
-                {
-                    opcode: 'readFourChannelInferredSensorOffset',
-                    blockType: BlockType.REPORTER,
-                    text: '获取四路红外传感器中心偏移量',
-                },
-                {
-                    opcode: 'readFourChannelInferredSensorDirectionRight',
-                    blockType: BlockType.BOOLEAN,
-                    text: '四路红外传感器检测黑线偏右',
-                },
-                {
-                    opcode: 'readFourChannelInferredSensorDirectionLeft',
-                    blockType: BlockType.BOOLEAN,
-                    text: '四路红外传感器检测黑线偏左',
-                },
+                // {
+                //     opcode: 'readFourChannelInferredSensorOffset',
+                //     blockType: BlockType.REPORTER,
+                //     text: '获取四路红外传感器中心偏移量',
+                // },
+                // {
+                //     opcode: 'readFourChannelInferredSensorDirectionRight',
+                //     blockType: BlockType.BOOLEAN,
+                //     text: '四路红外传感器检测黑线偏右',
+                // },
+                // {
+                //     opcode: 'readFourChannelInferredSensorDirectionLeft',
+                //     blockType: BlockType.BOOLEAN,
+                //     text: '四路红外传感器检测黑线偏左',
+                // },
             ],
             menus: {
                 // 生成RJ11菜单，针对不同的拓展板
